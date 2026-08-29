@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>额，先拿之前训练的190.5M的模型玩一下 · B 极客行</title>
+<meta name="description" content="这个是之前清洗数据完成之前的，所以说有乱码">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>额，先拿之前训练的190.5M的模型玩一下</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105540 · n/ai</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·07:05
+      <span class="pipe">|</span>2 分
+      <span class="pipe">|</span>2 评论
+      <span class="pipe">|</span>by 贺煦修
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">这个是之前清洗数据完成之前的，所以说有乱码</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">这个是之前清洗数据完成之前的，所以说有乱码。
+
+训练量严重不足：checkpoint 只训练了 4,194,304 tokens，对约 190M 参数模型只是一次流水线验证，通常需数十亿 token 才能形成基本语言能力。数据单一且类型不对：train.bin 仅来自 belle_train_2m_cn.jsonl 的 229,339 条记录，BELLE 是指令数据，不适合作为基础预训练主料，模型反复生成模板化内容。GPT-2 tokenizer 不适合中文，生成末尾出现乱码。验证 loss 有误导性（训练/验证集同分布）。
+
+实测：中文续写能生成结构但语义不连贯；英文续写漂移到 Python 代码；12+7 未答 19；Fibonacci 输出 64 个空格；中国首都未答北京。冷启动首 token 约 7.23s，预热后约 15–65ms、约 62–66 token/s。
+
+价值主要是证明训练/FP16/checkpoint 恢复/推理链路能跑通，仅此而已；后续肯定没这么烂了。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;topic-105540&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105540&quot;,
+  &quot;title&quot;: &quot;额，先拿之前训练的190.5M的模型玩一下&quot;,
+  &quot;author&quot;: &quot;贺煦修&quot;,
+  &quot;score&quot;: 2,
+  &quot;comments&quot;: 2,
+  &quot;domain&quot;: &quot;n/ai&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;这个是之前清洗数据完成之前的，所以说有乱码&quot;,
+  &quot;content&quot;: &quot;这个是之前清洗数据完成之前的，所以说有乱码。\n\n训练量严重不足：checkpoint 只训练了 4,194,304 tokens，对约 190M 参数模型只是一次流水线验证，通常需数十亿 token 才能形成基本语言能力。数据单一且类型不对：train.bin 仅来自 belle_train_2m_cn.jsonl 的 229,339 条记录，BELLE 是指令数据，不适合作为基础预训练主料，模型反复生成模板化内容。GPT-2 tokenizer 不适合中文，生成末尾出现乱码。验证 loss 有误导性（训练/验证集同分布）。\n\n实测：中文续写能生成结构但语义不连贯；英文续写漂移到 Python 代码；12+7 未答 19；Fibonacci 输出 64 个空格；中国首都未答北京。冷启动首 token 约 7.23s，预热后约 15–65ms、约 62–66 token/s。\n\n价值主要是证明训练/FP16/checkpoint 恢复/推理链路能跑通，仅此而已；后续肯定没这么烂了。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T07:05+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105540" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105540</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
