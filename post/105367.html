@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>我的甲骨文为什么只停了一台机 · B 极客行</title>
-<meta name="description" content="如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，上探针面板一看，一台AMD离线了，剩下3台好的。上探长看，状态是Stopped，重启之后短暂显示Stopping，然后继续Stopped。点启动也没反应">
+<meta name="description" content="如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，一台AMD离线，重启后仍 Stopped，点启动没反应，是不是只能删除重建了。">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
     </span>
   </div>
 </header>
@@ -33,17 +33,16 @@
     <h1>我的甲骨文为什么只停了一台机</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/105367 · n/vps</div>
     <div class="sub">
-      <span class="band-dot band-evening"></span>晚间·22:42
+      <span class="band-dot band-morning"></span>早间·07:33
       <span class="pipe">|</span>0 分
       <span class="pipe">|</span>9 评论
       <span class="pipe">|</span>by Yang Iyu
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，上探针面板一看，一台AMD离线了，剩下3台好的。上探长看，状态是Stopped，重启之后短暂显示Stopping，然后继续Stopped。点启动也没反应。我这个是不是只能山鸡重建了。</p>
+    <p class="lede">如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，一台AMD离线，重启后仍 Stopped，点启动没反应，是不是只能删除重建了。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，上探针面板一看，一台AMD离线了，剩下3台好的。上探长看，状态是Stopped，重启之后短暂显示Stopping，然后继续Stopped。点启动也没反应。我这个是不是只能山鸡重建了。
-看了一下探长的日志，下面这段：&#x27;更新实例状态失败,错误详情:[Error returned by InstanceAction operation in Compute service.(500, InternalError, false) Out of host capacity. &#x27;，这是啥意思，有大佬遇到过吗</pre>
+    <pre class="event-json">如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，一台AMD离线，重启后仍 Stopped。日志：更新实例状态失败 Out of host capacity。回帖有人称 ARM 全停、AMD 幸存，也有人手动删除重建后三天正常。</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105367&quot;,
@@ -54,10 +53,10 @@
   &quot;comments&quot;: 9,
   &quot;domain&quot;: &quot;n/vps&quot;,
   &quot;tags&quot;: [],
-  &quot;excerpt&quot;: &quot;如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，上探针面板一看，一台AMD离线了，剩下3台好的。上探长看，状态是Stopped，重启之后短暂显示Stopping，然后继续Stopped。点启动也没反应。我这个是不是只能山鸡重建了。&quot;,
-  &quot;content&quot;: &quot;如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，上探针面板一看，一台AMD离线了，剩下3台好的。上探长看，状态是Stopped，重启之后短暂显示Stopping，然后继续Stopped。点启动也没反应。我这个是不是只能山鸡重建了。\n看了一下探长的日志，下面这段：&#x27;更新实例状态失败,错误详情:[Error returned by InstanceAction operation in Compute service.(500, InternalError, false) Out of host capacity. &#x27;，这是啥意思，有大佬遇到过吗&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-29T22:42+00:00&quot;,
-  &quot;band&quot;: &quot;evening&quot;
+  &quot;excerpt&quot;: &quot;如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，一台AMD离线，重启后仍 Stopped，点启动没反应，是不是只能删除重建了。&quot;,
+  &quot;content&quot;: &quot;如题，用了好几年的圣何塞，2台AMD免费机+2台1+6的ARM机，下午3点20探针报警，一台AMD离线，重启后仍 Stopped。日志：更新实例状态失败 Out of host capacity。回帖有人称 ARM 全停、AMD 幸存，也有人手动删除重建后三天正常。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T07:33+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105367" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105367</a></p>
