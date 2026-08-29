@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
-<title>墨讯</title>
+<title>B极客行</title>
 <link>https://hvnstd.github.io</link>
-<description>一束偏冷的中文科技电讯</description>
+<description>一束偏冷的中文科技电讯 · Builder 取向</description>
 <language>zh-cn</language>
 <item><title>2026-08-29 · vol.001</title><link>https://hvnstd.github.io/issue-2026-08-29.html</link><guid>https://hvnstd.github.io/issue-2026-08-29.html</guid><description>本号今日上线——一份纯静态的中文科技电讯日报，由 Piation &amp; Co. 印社自动编排。</description></item>
 </channel></rss>
