@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NodeLoc Android APP Alpha 版本发布 · B 极客行</title>
-<meta name="description" content="NodeLoc Android APP Alpha 版本发布">
+<title>NodeLoc 首款官方 Android APP 发布 Alpha 版：v1.0.0 上线，iOS 仍卡在开发者账号 · B 极客行</title>
+<meta name="description" content="NodeLoc 首款官方 Android APP 发布 Alpha 版：v1.0.0 上线，iOS 仍卡在开发者账号">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -33,24 +33,35 @@
     <div class="domain">nodeloc · tid 105608 · 2026-08-29</div>
   </div>
   <article class="single-body">
-    <pre class="newspaper-md"># NodeLoc Android APP Alpha 版本发布
+    <pre class="newspaper-md"># NodeLoc 首款官方 Android APP 发布 Alpha 版：v1.0.0 上线，iOS 仍卡在开发者账号
 
 &gt; 抓取源：nodeloc · 楼层 6 · 作者 James · 抓取时间 2026-08-29T14:50+08:00
 
 ## 事件概述
-【待编辑】请基于 thread 提炼 2-4 句新闻导语。
+
+NodeLoc 站长 James 于 2026-08-29 13:21 发布首款官方 Android 客户端 Alpha 版（版本 1.0.0，versionCode 1）。安装包为 GitHub Release 上的 `app-release.apk`，并附带 SHA256 校验值 `b75f9a5b0c9378fd68be4b1eb6446c72b63b4575ceedf6c6bb545f1e2b16096a`。James 表示原计划先做 iOS，但因 Apple 开发者账号问题受阻，Android 意外抢先；Alpha 阶段既有已知问题也有未发掘 bug，反馈统一汇总到 `n/suggestion` 节点。
 
 ## 背景信息
-【待编辑】交代事件背景与上下文。
+
+NodeLoc 长期以来只有网页端，社区多次呼吁官方移动客户端。James 原计划先推 iOS，但 Apple 开发者账号的审核/费用门槛成为硬制约，转而优先 Android。楼中 @lezi-fun、@user94 被点名&quot;催更&quot;，也侧面反映社区对官方 APP 的期待。客户端仓库位于 `github.com/nodeloc/app`，属社区可观测的开源形态，而非闭源内部构建。
 
 ## 社区讨论
-【待编辑】提炼 2-5 条社区讨论要点，不要串烧。
+
+- **期待度高、第一时间尝鲜**：用户94、lezi-fun 等首批用户迅速安装体验；lezi-fun 确认 iOS 版已在推进，但明确受 Apple 账号硬门槛限制，iOS 党需继续等待。
+- **实机问题已浮现并被官方接住**：Pixel 7 / Android 14 用户报告冷启动 splash 闪退一次、二次打开正常；James 认领该问题，初步定位为冷启动 splash 逻辑。
+- **安全习惯建议被采纳**：有用户建议单独发 checksum 校验帖便于验真，James 承诺下个 release 补上独立校验文件。
+- **整体基调是&quot;尝鲜容忍 + 共建反馈&quot;**：Alpha 阶段社区以体验与反馈为主，未出现对质量的负面指责。
 
 ## 争议点
-【待编辑】本次讨论未形成显著争议，或记录主要分歧。
+
+本次讨论未形成显著争议。Alpha 阶段、官方即时响应反馈的节奏下，社区态度一致偏向支持与共建。
 
 ## 后续影响
-【待编辑】可能的发展与值得继续观察的点。
+
+- **iOS 版进度取决于 Apple 开发者账号解决**，短期仍是社区追问焦点，也是官方客户端完整覆盖的最后一公里。
+- **下个 release 预计补独立 SHA256 校验帖**，提升下载安全可验证性，呼应社区提出的安全习惯建议。
+- **冷启动闪退若快速修复**，将直接影响 Alpha 口碑；建议观望首波热修再日常使用。
+- 官方客户端落地后，NodeLoc 的移动端互动（签到、逛帖、消息）体验可能改变，对社区活跃结构的影响值得持续观察。
 
 ---
 *本文基于 nodeloc_shared/raw/2026-08-29/105608.json，由 nodeloc_monitor 编辑产出。*
