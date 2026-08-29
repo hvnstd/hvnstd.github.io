@@ -5,62 +5,64 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>关于 · B极客行</title>
 <meta name="description" content="关于B极客行">
+<meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="B极客行 RSS" href="/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=1">
+<link rel="stylesheet" href="/assets/site.css?v=3">
 </head>
 <body>
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="/">B极客行</a>
+    <a class="brand" href="/">B极客行<span class="dot">.</span></a>
     <nav>
-      <a href="/">头版</a>
-      <a href="/archive.html">往期</a>
-      <a href="/lab.html">实验室</a>
-      <a href="/feed.xml">RSS</a>
-      <a href="/about.html">关于</a>
+      <a href="/" class="topsel">new</a>
+      <a href="/archive.html">past</a>
+      <a href="/lab.html">lab</a>
+      <a href="/about.html">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <span class="band-pill band-morning">早间版</span>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
   </div>
 </header>
 
-<main class="paper single">
-  <div class="paper-bar">
-    <div class="paper-bar-left">
-      <span class="paper-kicker">ABOUT</span>
-      <h1 class="paper-title">关于B极客行</h1>
-      <p class="paper-lead">一份纯静态的中文科技电讯日报，由 Piation &amp; Co. Builder 印社自动编排。</p>
-    </div>
-  </div>
-  <article class="prose">
-    <h2>做什么</h2>
-    <p>每天自动把公开科技电讯按 <em>早间 / 午间 / 晚间 / 午夜</em> 四档和 <em>AI / 工程 / 链上 / 政策 / 工具 / 实验室</em> 六个栏目重新铺成一份报纸。</p>
-    <h2>不做什么</h2>
+<main class="page">
+  <section class="band-section">
+    <div class="section-head"><h2>About B极客行</h2><span class="meta">v3 · 2026-08-29 redesign</span></div>
+  </section>
+  <div class="about">
+    <p>B极客行是一份 HN 风格的中文科技电讯日报，由 Piation &amp; Co. Builder 印社自动编排。
+       前端致敬 <a href="https://news.ycombinator.com">news.ycombinator.com</a> 的密集列表美学，色板取自
+       <a href="https://build.nvidia.com">build.nvidia.com</a> 的 NVIDIA 绿与黑底高对比。</p>
+    <h2>规则</h2>
     <ul>
-      <li>不做评论、不做观点、不发「深度长文」。</li>
-      <li>不接入第三方追踪、不放广告、不开评论。</li>
-      <li>不收集读者信息；订阅走 RSS。</li>
+      <li>每天四档：早间 / 午间 / 晚间 / 午夜。</li>
+      <li>六个栏目：AI / 工程 / 链上 / 政策 / 工具 / 实验室。</li>
+      <li>只发公开电讯；无评论、无追踪、无广告。</li>
+      <li>纯静态 HTML + CSS + JSON，可走任意 CDN / GitHub Pages。</li>
     </ul>
-    <h2>栈</h2>
-    <p>纯 HTML + CSS + JSON，无后端。每天 1 个 JSON 数据文件 → 静态生成 → 推 GitHub Pages。</p>
-    <h2>许可</h2>
-    <p>文字部分采用 CC BY 4.0；代码采用 MIT。</p>
-  </article>
+    <h2>订阅</h2>
+    <ul>
+      <li><a href="/feed.xml">RSS</a> · 全自动</li>
+      <li>邮件：newsroom@piation.local（占位）</li>
+    </ul>
+    <h2>仓库与发布</h2>
+    <p>仓：<a href="https://github.com/hvnstd/hvnstd.github.io">hvnstd/hvnstd.github.io</a> · 工作区：<code>workspaces/news/</code> · 提交用 SSH key 签名以显示 Verified。</p>
+    <p class="meta-line">设计 / 工程：Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT</p>
+  </div>
 </main>
 <footer class="foot">
   <div class="foot-inner">
-    <div>
-      <div class="brand">B极客行</div>
-      <p>一束偏冷的中文科技电讯 · 由 Piation &amp; Co. Builder 印社自动编排</p>
-    </div>
-    <ul>
-      <li><a href="/">头版</a></li>
-      <li><a href="/archive.html">往期</a></li>
-      <li><a href="/lab.html">实验室</a></li>
-      <li><a href="/feed.xml">RSS</a></li>
-      <li><a href="/about.html">关于</a></li>
-    </ul>
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/archive.html">往期</a>
+    <a href="/lab.html">实验室</a>
+    <a href="/feed.xml">RSS</a>
+    <a href="/about.html">关于</a>
   </div>
-  <p class="copy">© 2026 Piation &amp; Co. · 文字部分采用 CC BY 4.0 · 代码采用 MIT</p>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来源为公开电讯</p>
 </footer>
 </body></html>
