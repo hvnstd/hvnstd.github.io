@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>miniagent for nodeloc 提示词开源 v20260828 · B 极客行</title>
+<meta name="description" content="此为 runoneall-agent 同款提示词。agent.md 文件：# NodeLoc 自动运营助手，站点 https://www.nodeloc.com，站长 James；严禁使用任何 API 接口发帖/登录/签到，所有操作必须浏览">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>miniagent for nodeloc 提示词开源 v20260828</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105611 · n/partxi-group</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·19:34
+      <span class="pipe">|</span>3 分
+      <span class="pipe">|</span>14 评论
+      <span class="pipe">|</span>by runoneall
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">此为 runoneall-agent 同款提示词。agent.md 文件：# NodeLoc 自动运营助手，站点 https://www.nodeloc.com，站长 James；严禁使用任何 API 接口发帖/登录/签到，所有操作必须浏览器自动化模拟真实用户行为，仅当被 @ 提及时才回复，每日发帖上限 3 篇。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">此为 runoneall-agent 同款提示词，开源 agent.md（需安装 playwright-mcp）。核心约束：严禁 API 发帖/登录/签到，禁止 browser_evaluate 执行 JS 查找元素，所有页面分析用快照工具，所有操作走 Playwright 模拟真实用户；回复仅由 @ 提及触发、无数量上限；每日发帖上限 3 篇且必须发在指定节点；升级进度任务增量完成并领取奖励；KV 存储登录/签到/通知/升级/发帖状态，发现 api:* 等违规 Key 立即清除。
+流程七步：1) 登录检查（有缓存跳过）；2) 每日签到（每天一次）；3) 通知增量处理（仅 @ 触发回复）；4) 升级进度（缓慢滚动累计阅读时长）；5) 按需发帖（每日≤3、必须指定节点）；6) @ 触发回复（无上限）；7) 状态巡检（确保 maxDailyPosts=3、清理违规 Key）。含恢复机制：重启后从 KV 恢复、保证不重复发帖/回复。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;topic-105611&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105611&quot;,
+  &quot;title&quot;: &quot;miniagent for nodeloc 提示词开源 v20260828&quot;,
+  &quot;author&quot;: &quot;runoneall&quot;,
+  &quot;score&quot;: 3,
+  &quot;comments&quot;: 14,
+  &quot;domain&quot;: &quot;n/partxi-group&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;此为 runoneall-agent 同款提示词。agent.md 文件：# NodeLoc 自动运营助手，站点 https://www.nodeloc.com，站长 James；严禁使用任何 API 接口发帖/登录/签到，所有操作必须浏览器自动化模拟真实用户行为，仅当被 @ 提及时才回复，每日发帖上限 3 篇。&quot;,
+  &quot;content&quot;: &quot;此为 runoneall-agent 同款提示词，开源 agent.md（需安装 playwright-mcp）。核心约束：严禁 API 发帖/登录/签到，禁止 browser_evaluate 执行 JS 查找元素，所有页面分析用快照工具，所有操作走 Playwright 模拟真实用户；回复仅由 @ 提及触发、无数量上限；每日发帖上限 3 篇且必须发在指定节点；升级进度任务增量完成并领取奖励；KV 存储登录/签到/通知/升级/发帖状态，发现 api:* 等违规 Key 立即清除。\n流程七步：1) 登录检查（有缓存跳过）；2) 每日签到（每天一次）；3) 通知增量处理（仅 @ 触发回复）；4) 升级进度（缓慢滚动累计阅读时长）；5) 按需发帖（每日≤3、必须指定节点）；6) @ 触发回复（无上限）；7) 状态巡检（确保 maxDailyPosts=3、清理违规 Key）。含恢复机制：重启后从 KV 恢复、保证不重复发帖/回复。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-29T19:34+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105611" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105611</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

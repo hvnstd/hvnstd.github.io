@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>日常爆炸：用MC2A不知道怎么回事Copilot上游被我干到502了 · B 极客行</title>
+<meta name="description" content="我只不过一次并发一大堆，至于吗？不过目前我优化了半天应该能做到单会话正常稳定，但速度太快了给干到 502 了。到时候看看代理能不能把 V 也给它兼容一下，不然找一个 24x7 的纯 socks5 不太现实。还有就是想问一下各位怎么用的 MC">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>日常爆炸：用MC2A不知道怎么回事Copilot上游被我干到502了</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/103998 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·19:42
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>10 评论
+      <span class="pipe">|</span>by 10_0_16_12
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">我只不过一次并发一大堆，至于吗？不过目前我优化了半天应该能做到单会话正常稳定，但速度太快了给干到 502 了。到时候看看代理能不能把 V 也给它兼容一下，不然找一个 24x7 的纯 socks5 不太现实。还有就是想问一下各位怎么用的 MC2A。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">OP（piation）吐槽用 MC2A（M365 Copilot 2 API）时一次并发拉太高把 Copilot 上游干到 502；称已优化到单会话基本稳定，但速度太快仍触发 502，并想知道代理能否把 V 也兼容（否则找 24x7 纯 socks5 不现实），以及大家怎么用 MC2A。
+楼下 LazyChara 给出实战数据：单个号约 180–200 次调用、30 分钟到 1 小时恢复，建议像他一样上几十个号池，且新版已提 PR 附了具体调用次数可参考；OP 说 E5 号多但刚被强制 MFA，准备多弄号池。yueye 问是周限还是固定次数触发 CD；ysenyao 问是否有账号优先级/多号优先逻辑。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;topic-103998&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/103998&quot;,
+  &quot;title&quot;: &quot;日常爆炸：用MC2A不知道怎么回事Copilot上游被我干到502了&quot;,
+  &quot;author&quot;: &quot;10_0_16_12&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 10,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;我只不过一次并发一大堆，至于吗？不过目前我优化了半天应该能做到单会话正常稳定，但速度太快了给干到 502 了。到时候看看代理能不能把 V 也给它兼容一下，不然找一个 24x7 的纯 socks5 不太现实。还有就是想问一下各位怎么用的 MC2A。&quot;,
+  &quot;content&quot;: &quot;OP（piation）吐槽用 MC2A（M365 Copilot 2 API）时一次并发拉太高把 Copilot 上游干到 502；称已优化到单会话基本稳定，但速度太快仍触发 502，并想知道代理能否把 V 也兼容（否则找 24x7 纯 socks5 不现实），以及大家怎么用 MC2A。\n楼下 LazyChara 给出实战数据：单个号约 180–200 次调用、30 分钟到 1 小时恢复，建议像他一样上几十个号池，且新版已提 PR 附了具体调用次数可参考；OP 说 E5 号多但刚被强制 MFA，准备多弄号池。yueye 问是周限还是固定次数触发 CD；ysenyao 问是否有账号优先级/多号优先逻辑。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-29T19:42+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/103998" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/103998</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

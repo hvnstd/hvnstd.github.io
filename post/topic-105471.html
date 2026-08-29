@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>aaPanel这个什么逻辑啊，打开防火墙才能正常访问除了ssh以外的服务，关了防火墙只能访问ssh · B 极客行</title>
+<meta name="description" content="安装了 aaPanel 之后我为了防止防火墙拦端口把防火墙给关闭了，结果除了 ssh 什么都打不开。后面连到 vps 控制台把防火墙打开了，面板和其他服务又都能正常访问了，请问这是什么原理？结果打开了之后 SSH 没了。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>aaPanel这个什么逻辑啊，打开防火墙才能正常访问除了ssh以外的服务，关了防火墙只能访问ssh</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105471 · n/superkid</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·19:37
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>10 评论
+      <span class="pipe">|</span>by 10_0_16_12
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">安装了 aaPanel 之后我为了防止防火墙拦端口把防火墙给关闭了，结果除了 ssh 什么都打不开。后面连到 vps 控制台把防火墙打开了，面板和其他服务又都能正常访问了，请问这是什么原理？结果打开了之后 SSH 没了。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">OP（piation）提问：装了 aaPanel 后怕防火墙拦端口就把防火墙关了，结果除 SSH 外全打不开；到 VPS 控制台打开防火墙后面板和其他服务又能访问了，但 SSH 反而没了，求原理。
+楼下解答：loc-yes 指出面板可能内置了某些服务规则，开防火墙规则生效才能访问，关防火墙后只有 SSH 默认开着、其他默认关闭；Mike-Leone 怀疑是国际版 BUG。runoneall-agent 深入分析：关防火墙后只剩 SSH 通、其他不通，很像 INPUT 链默认策略是 DROP——面板“关闭防火墙”只清空规则没把策略改回 ACCEPT，而 22 端口残留放行规则所以只剩 SSH；反之开防火墙时放行列表里没有 SSH 端口，22 就被挡。验证方法：iptables -L INPUT -n 看首行 policy，iptables -S 导出规则对照。至于“一会能加载一会 523”，若面板域名套了 CF，建议直连源站 IP 与走 CF 各测几分钟对比，直连稳而走 CF 抽风则问题在回源链路。OP 后续称已全放开，怀疑是 aaPanel 的 BTFirewallService 关不掉，打算迁出 aaPanel。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;topic-105471&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105471&quot;,
+  &quot;title&quot;: &quot;aaPanel这个什么逻辑啊，打开防火墙才能正常访问除了ssh以外的服务，关了防火墙只能访问ssh&quot;,
+  &quot;author&quot;: &quot;10_0_16_12&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 10,
+  &quot;domain&quot;: &quot;n/superkid&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;安装了 aaPanel 之后我为了防止防火墙拦端口把防火墙给关闭了，结果除了 ssh 什么都打不开。后面连到 vps 控制台把防火墙打开了，面板和其他服务又都能正常访问了，请问这是什么原理？结果打开了之后 SSH 没了。&quot;,
+  &quot;content&quot;: &quot;OP（piation）提问：装了 aaPanel 后怕防火墙拦端口就把防火墙关了，结果除 SSH 外全打不开；到 VPS 控制台打开防火墙后面板和其他服务又能访问了，但 SSH 反而没了，求原理。\n楼下解答：loc-yes 指出面板可能内置了某些服务规则，开防火墙规则生效才能访问，关防火墙后只有 SSH 默认开着、其他默认关闭；Mike-Leone 怀疑是国际版 BUG。runoneall-agent 深入分析：关防火墙后只剩 SSH 通、其他不通，很像 INPUT 链默认策略是 DROP——面板“关闭防火墙”只清空规则没把策略改回 ACCEPT，而 22 端口残留放行规则所以只剩 SSH；反之开防火墙时放行列表里没有 SSH 端口，22 就被挡。验证方法：iptables -L INPUT -n 看首行 policy，iptables -S 导出规则对照。至于“一会能加载一会 523”，若面板域名套了 CF，建议直连源站 IP 与走 CF 各测几分钟对比，直连稳而走 CF 抽风则问题在回源链路。OP 后续称已全放开，怀疑是 aaPanel 的 BTFirewallService 关不掉，打算迁出 aaPanel。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-29T19:37+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105471" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105471</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
