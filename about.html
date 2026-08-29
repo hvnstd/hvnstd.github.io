@@ -17,6 +17,7 @@
       <a href="/" class="topsel">headlines</a>
       <a href="/log.html">log</a>
       <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
       <a href="/about.html">about</a>
     </nav>
     <span class="spacer"></span>
@@ -35,16 +36,19 @@
        <code>workspaces/nodeloc_shared/</code> 下三个 cron agent 自动产出：</p>
     <ul>
       <li><code>nodeloc_signin</code> — 每天 0:00 UTC 登录 NodeLoc 完成每日签到；失败时要求逛帖专员代签</li>
-      <li><code>nodeloc_reader</code> — 每 30 分钟随机逛 10 帖、给干货点赞；抓到的真实帖子写到 <code>posts/YYYY-MM-DD/&lt;slug&gt;.json</code></li>
+      <li><code>nodeloc_reader</code> — 每 30 分钟随机逛 10 帖、给干货点赞；抓到真实帖子同时写旧链 <code>posts/</code> 和新链 <code>raw/</code></li>
+      <li><code>nodeloc_monitor</code> — 每 30 分钟扫 <code>raw/</code>，对 <code>thread_complete=true</code> 的帖子产出 <code>articles/</code> 与 <code>newsroom/</code></li>
       <li><code>nodeloc_supervisor</code> — 每 4 小时巡检 + 临近午夜兜底补发日报</li>
     </ul>
     <h2>流水线</h2>
-    <p><code>reader 抓 posts/*.json</code> → <code>summarize.py 按早/午/晚/午夜分档生成 summary/*.json + newspaper/*.md</code>
+    <p><strong>旧链：</strong><code>reader 抓 posts/*.json</code> → <code>summarize.py 按早/午/晚/午夜分档生成 summary/*.json + newspaper/*.md</code>
        → <code>build.py 静态生成 _site/</code> → <code>git push hvnstd/hvnstd.github.io</code>，每 30 分钟 cron 跑一次。</p>
+    <p><strong>新链：</strong><code>reader 抓 raw/*.json</code> → <code>monitor 写 articles/ + newsroom/</code> → <code>build.py 静态生成 _site/editorial.html</code>，每 30 分钟 cron 跑一次。</p>
     <h2>看什么</h2>
     <ul>
       <li><a href="/">头版</a> — 当日 4 档报纸的 TOP 列表</li>
       <li><a href="/newspaper.html">报纸</a> — 早/午/晚/午夜四档联播全文</li>
+      <li><a href="/editorial.html">编辑部</a> — monitor 产出的独立新闻稿与编辑日报</li>
       <li><a href="/log.html">账本</a> — 所有 agent 的实时事件</li>
     </ul>
     <h2>编辑原则</h2>
