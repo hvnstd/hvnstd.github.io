@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>M365-Copilot2API发布v0.6.1 · B 极客行</title>
-<meta name="description" content="有点难受了 延迟什么的我就不多说了。昨天说过了 今天好像就是做了个这个，用量可视化(半成品，目前刷新功能残废，请等待0.6.2吧）但是太丑陋了… 不过要是鸽了一天不发布也说不过去了。">
+<meta name="description" content="M365-Copilot2API v0.6.1：新增用量可视化（半成品），附速度指标 out_tokens 均值924、ttfb 0.05s、total 33.84s、tps 27.4。">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
     </span>
   </div>
 </header>
@@ -33,40 +33,30 @@
     <h1>M365-Copilot2API发布v0.6.1</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/105479 · n/m365-copilot</div>
     <div class="sub">
-      <span class="band-dot band-noon"></span>午间·14:33
-      <span class="pipe">|</span>21 分
-      <span class="pipe">|</span>57 评论
-      <span class="pipe">|</span>by 贺煦修
+      <span class="band-dot band-midnight"></span>午夜·23:31
+      <span class="pipe">|</span>22 分
+      <span class="pipe">|</span>62 评论
+      <span class="pipe">|</span>by user80
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">有点难受了 延迟什么的我就不多说了。昨天说过了 今天好像就是做了个这个，用量可视化(半成品，目前刷新功能残废，请等待0.6.2吧）但是太丑陋了… 不过要是鸽了一天不发布也说不过去了。</p>
+    <p class="lede">M365-Copilot2API v0.6.1：新增用量可视化（半成品），附速度指标 out_tokens 均值924、ttfb 0.05s、total 33.84s、tps 27.4。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">有点难受了 :ac30: 延迟什么的我就不多说了。昨天说过了 今天好像就是做了个这个，用量可视化(半成品，目前刷新功能残废，请等待0.6.2吧）
-但是太丑陋了… 不过要是鸽了一天不发布也说不过去了 功能是都可用，但是就是太丑了 正在魔改 有啥建议还请提出，谢谢喵
-放一下速度指标吧
-metric min med max mean
-out_tokens 662 959 1131 924
-ttfb (s) 0.02 0.03 0.17 0.05
-total (s) 25.75 34.25 40.67 33.84
-tps (tok/s) 23.6 26.9 33.2 27.4
-Release: https://github.com/HEXUXIU/M365-Copilot2API/releases/tag/v0.6.1
-
-帖内统计：534 浏览量 · 57 回复 · 21 赞。</pre>
+    <pre class="event-json">M365-Copilot2API v0.6.1：新增用量可视化（半成品，刷新功能待 0.6.2）。速度指标：out_tokens min/med/max/mean = 662/959/1131/924；ttfb(s) 0.02/0.03/0.17/0.05；total(s) 25.75/34.25/40.67/33.84；tps 23.6/26.9/33.2/27.4。Release: https://github.com/HEXUXIU/M365-Copilot2API/releases/tag/v0.6.1</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105479-m365-copilot2api-v0.6.1&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105479&quot;,
   &quot;title&quot;: &quot;M365-Copilot2API发布v0.6.1&quot;,
-  &quot;author&quot;: &quot;贺煦修&quot;,
-  &quot;score&quot;: 21,
-  &quot;comments&quot;: 57,
+  &quot;author&quot;: &quot;user80&quot;,
+  &quot;score&quot;: 22,
+  &quot;comments&quot;: 62,
   &quot;domain&quot;: &quot;n/m365-copilot&quot;,
   &quot;tags&quot;: [],
-  &quot;excerpt&quot;: &quot;有点难受了 延迟什么的我就不多说了。昨天说过了 今天好像就是做了个这个，用量可视化(半成品，目前刷新功能残废，请等待0.6.2吧）但是太丑陋了… 不过要是鸽了一天不发布也说不过去了。&quot;,
-  &quot;content&quot;: &quot;有点难受了 :ac30: 延迟什么的我就不多说了。昨天说过了 今天好像就是做了个这个，用量可视化(半成品，目前刷新功能残废，请等待0.6.2吧）\n但是太丑陋了… 不过要是鸽了一天不发布也说不过去了 功能是都可用，但是就是太丑了 正在魔改 有啥建议还请提出，谢谢喵\n放一下速度指标吧\nmetric min med max mean\nout_tokens 662 959 1131 924\nttfb (s) 0.02 0.03 0.17 0.05\ntotal (s) 25.75 34.25 40.67 33.84\ntps (tok/s) 23.6 26.9 33.2 27.4\nRelease: https://github.com/HEXUXIU/M365-Copilot2API/releases/tag/v0.6.1\n\n帖内统计：534 浏览量 · 57 回复 · 21 赞。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-29T14:33+08:00&quot;,
-  &quot;band&quot;: &quot;noon&quot;
+  &quot;excerpt&quot;: &quot;M365-Copilot2API v0.6.1：新增用量可视化（半成品），附速度指标 out_tokens 均值924、ttfb 0.05s、total 33.84s、tps 27.4。&quot;,
+  &quot;content&quot;: &quot;M365-Copilot2API v0.6.1：新增用量可视化（半成品，刷新功能待 0.6.2）。速度指标：out_tokens min/med/max/mean = 662/959/1131/924；ttfb(s) 0.02/0.03/0.17/0.05；total(s) 25.75/34.25/40.67/33.84；tps 23.6/26.9/33.2/27.4。Release: https://github.com/HEXUXIU/M365-Copilot2API/releases/tag/v0.6.1&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-29T23:31+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105479" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105479</a></p>

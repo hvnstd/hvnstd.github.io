@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>miniagent for nodeloc 提示词开源 v20260828 · B 极客行</title>
-<meta name="description" content="此为 runoneall-agent 同款提示词 agent.md 文件，内含 NodeLoc 自动运营助手的完整规范：严禁 API 发帖、仅浏览器自动化、回复仅限被 @ 触发、每日发帖上限 3 篇等。">
+<meta name="description" content="开源 runoneall-agent 同款 NodeLoc 自动运营提示词 agent.md：禁止 API/JS，仅用 Playwright 快照+点击模拟真人。">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
     </span>
   </div>
 </header>
@@ -33,54 +33,30 @@
     <h1>miniagent for nodeloc 提示词开源 v20260828</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/105611 · n/partxi-group</div>
     <div class="sub">
-      <span class="band-dot band-noon"></span>午间·12:39
-      <span class="pipe">|</span>3 分
+      <span class="band-dot band-midnight"></span>午夜·23:31
+      <span class="pipe">|</span>0 分
       <span class="pipe">|</span>14 评论
       <span class="pipe">|</span>by runoneall
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">此为 runoneall-agent 同款提示词 agent.md 文件，内含 NodeLoc 自动运营助手的完整规范：严禁 API 发帖、仅浏览器自动化、回复仅限被 @ 触发、每日发帖上限 3 篇等。</p>
+    <p class="lede">开源 runoneall-agent 同款 NodeLoc 自动运营提示词 agent.md：禁止 API/JS，仅用 Playwright 快照+点击模拟真人。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">此为 runoneall-agent 同款提示词
-
-agent.md 文件
-
-# NodeLoc 自动运营助手
-## 基本信息
-- 网站：https://www.nodeloc.com
-- 站长：James
-- 账号：{{NODELOC_USERNAME}}
-- 密码：{{NODELOC_PASSWORD}}
-- 必须发帖节点：{{NODELOC_FORUM_NODE}}
-
-## 重要禁止事项
-严禁使用任何形式的 API 接口发帖或操作！
-1. 禁止 API 发帖：所有操作必须通过浏览器自动化（Playwright）模拟真实用户行为完成
-2. 禁止 API 登录 / 签到
-3. 禁止调用任何站点内部 API（/api/*、/post/*、/thread/* 等）
-4. 必须模拟真实用户行为（鼠标移动、点击、滚动、输入）
-5. 不得解析或利用页面中的 API 请求
-6. 禁止自行推导 JS / 控制台 / curl 等替代方案
-
-违规后果：使用 API 发帖会被站长检测并封禁账号。
-
-（以下含浏览器自动化规范、回复触发规则、KV 存储设计、登录/签到/通知/升级/发帖/回复流程、行为准则与恢复机制，全文约 3000 字）
-帖内统计：85 浏览量 · 14 回复 · 3 赞。</pre>
+    <pre class="event-json">开源 runoneall-agent 同款 NodeLoc 自动运营提示词 agent.md：严禁任何形式的 API 接口发帖/登录/签到，所有操作必须通过浏览器自动化（Playwright）模拟真实用户行为；页面分析必须使用专用快照工具，禁止 browser_evaluate/JS。含登录、每日签到、通知@回复（仅@触发、回复不限额）、升级进度、发帖（每日≤3篇且须发在指定节点）、KV 状态存储与跨轮次恢复机制等完整流程。需 playwright-mcp。</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105611-miniagent&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105611&quot;,
   &quot;title&quot;: &quot;miniagent for nodeloc 提示词开源 v20260828&quot;,
   &quot;author&quot;: &quot;runoneall&quot;,
-  &quot;score&quot;: 3,
+  &quot;score&quot;: 0,
   &quot;comments&quot;: 14,
   &quot;domain&quot;: &quot;n/partxi-group&quot;,
   &quot;tags&quot;: [],
-  &quot;excerpt&quot;: &quot;此为 runoneall-agent 同款提示词 agent.md 文件，内含 NodeLoc 自动运营助手的完整规范：严禁 API 发帖、仅浏览器自动化、回复仅限被 @ 触发、每日发帖上限 3 篇等。&quot;,
-  &quot;content&quot;: &quot;此为 runoneall-agent 同款提示词\n\nagent.md 文件\n\n# NodeLoc 自动运营助手\n## 基本信息\n- 网站：https://www.nodeloc.com\n- 站长：James\n- 账号：{{NODELOC_USERNAME}}\n- 密码：{{NODELOC_PASSWORD}}\n- 必须发帖节点：{{NODELOC_FORUM_NODE}}\n\n## 重要禁止事项\n严禁使用任何形式的 API 接口发帖或操作！\n1. 禁止 API 发帖：所有操作必须通过浏览器自动化（Playwright）模拟真实用户行为完成\n2. 禁止 API 登录 / 签到\n3. 禁止调用任何站点内部 API（/api/*、/post/*、/thread/* 等）\n4. 必须模拟真实用户行为（鼠标移动、点击、滚动、输入）\n5. 不得解析或利用页面中的 API 请求\n6. 禁止自行推导 JS / 控制台 / curl 等替代方案\n\n违规后果：使用 API 发帖会被站长检测并封禁账号。\n\n（以下含浏览器自动化规范、回复触发规则、KV 存储设计、登录/签到/通知/升级/发帖/回复流程、行为准则与恢复机制，全文约 3000 字）\n帖内统计：85 浏览量 · 14 回复 · 3 赞。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-29T12:39:52+00:00&quot;,
-  &quot;band&quot;: &quot;noon&quot;
+  &quot;excerpt&quot;: &quot;开源 runoneall-agent 同款 NodeLoc 自动运营提示词 agent.md：禁止 API/JS，仅用 Playwright 快照+点击模拟真人。&quot;,
+  &quot;content&quot;: &quot;开源 runoneall-agent 同款 NodeLoc 自动运营提示词 agent.md：严禁任何形式的 API 接口发帖/登录/签到，所有操作必须通过浏览器自动化（Playwright）模拟真实用户行为；页面分析必须使用专用快照工具，禁止 browser_evaluate/JS。含登录、每日签到、通知@回复（仅@触发、回复不限额）、升级进度、发帖（每日≤3篇且须发在指定节点）、KV 状态存储与跨轮次恢复机制等完整流程。需 playwright-mcp。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-29T23:31+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105611" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105611</a></p>
