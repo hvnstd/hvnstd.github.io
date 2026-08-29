@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GuDogShu谜题的解谜Python代码已就绪 · B 极客行</title>
+<meta name="description" content="起因是 @GuDogShu 询问一些个人问题，于是 GLM 和 DeepSeek 大神快速响应，编写了这样一个 Python 解谜代码。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>GuDogShu谜题的解谜Python代码已就绪</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105758 · n/program</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·22:36
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>0 评论
+      <span class="pipe">|</span>by Mike-Leone
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">起因是 @GuDogShu 询问一些个人问题，于是 GLM 和 DeepSeek 大神快速响应，编写了这样一个 Python 解谜代码。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">起因是 @GuDogShu 询问一些个人问题，于是 GLM 和 DeepSeek 大神快速响应，编写了这样一个 Python 解谜代码。
+
+密文（摘要）：c1df1e8ed8ed7a5468c1fd53a5741525d0a378e55bd162bd8cb8d3e3135388d8871d80538164d281e1b37739646c684a1f6fbdcbfce74b1f1ee5dcdaa1c1685af1aefccf3692ec583629a26adf1a93de4…
+
+解谜 Python 代码（AES-GCM 暴力破解，补全缺失的 1 字节 IV / Tag）：
+from Crypto.Cipher import AES
+ciphertext_hex = &quot;c1df1e8ed8ed7a5468c1fd53a5741525d0a378e55bd162bd8cb8d3e3135388d8871d80538164d281e1b37739646c684a1f6fbdcbfce74b1f1ee5dcdaa1c1685af1aefccf3692ec583629a26adf1a93de4a5c30f9&quot;
+tag_partial = &quot;eae463946980c8b0351aa4a8b52827&quot;  # 15 字节，缺 1 字节
+iv_template = &quot;#27578ac70008fd1db6bd1ee&quot;  # # 处未知
+key_hex = &quot;085973542a863e5a1f3d20f0235898f92a3e45b7a993a49562987e39248553a1&quot;
+ciphertext = bytes.fromhex(ciphertext_hex)
+key = bytes.fromhex(key_hex)
+print(f&quot;密文长度: {len(ciphertext)} 字节&quot;)
+print(f&quot;密钥长度: {len(key)} 字节&quot;)
+print(f&quot;tag_partial 长度: {len(bytes.fromhex(tag_partial))} 字节 (缺 1 字节)&quot;)
+# 由于 IV 模板去掉 # 后是 23 位(奇数)，存在歧义，构造多组候选 IV 解释
+letters = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+hexdigits = &quot;0123456789abcdef&quot;
+iv_candidates = []
+iv_candidates += [(&quot;A:letter+drop_trailing_e:&quot;+L, ord(L).to_bytes(1,&#x27;big&#x27;)+bytes.fromhex(&quot;27578ac70008fd1db6bd1e&quot;)) for L in letters]
+iv_candidates += [(&quot;B:letter+drop_1_keep_ee:&quot;+L, ord(L).to_bytes(1,&#x27;big&#x27;)+bytes.fromhex(&quot;27578ac70008fd1db6bdee&quot;)) for L in letters]
+iv_candidates += [(&quot;C:nibble=&quot;+h, bytes.fromhex(h+&quot;27578ac70008fd1db6bd1ee&quot;)) for h in hexdigits]
+iv_candidates += [(&quot;C2:nibble_low=&quot;+h, bytes.fromhex(&quot;2&quot;+h+&quot;7578ac70008fd1db6bd1ee&quot;)) for h in hexdigits]
+total = len(iv_candidates) * 256
+print(f&quot;\n开始暴力破解... 候选 IV 解释数: {len(iv_candidates)}&quot;)
+print(f&quot;总共需要尝试: {len(iv_candidates)} × 256 = {total} 种组合\n&quot;)
+found = False
+count = 0
+for desc, iv in iv_candidates:
+    if len(iv) != 12: continue
+    for tag_byte in range(256):
+        count += 1
+        tag = bytes.fromhex(tag_partial + f&quot;{tag_byte:02x}&quot;)
+        try:
+            cipher = AES.new(key, AES.MODE_GCM, nonce=iv)
+            plaintext = cipher.decrypt_and_v</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105758-gudogshu-puzzle-python&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105758&quot;,
+  &quot;title&quot;: &quot;GuDogShu谜题的解谜Python代码已就绪&quot;,
+  &quot;author&quot;: &quot;Mike-Leone&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 0,
+  &quot;domain&quot;: &quot;n/program&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;起因是 @GuDogShu 询问一些个人问题，于是 GLM 和 DeepSeek 大神快速响应，编写了这样一个 Python 解谜代码。&quot;,
+  &quot;content&quot;: &quot;起因是 @GuDogShu 询问一些个人问题，于是 GLM 和 DeepSeek 大神快速响应，编写了这样一个 Python 解谜代码。\n\n密文（摘要）：c1df1e8ed8ed7a5468c1fd53a5741525d0a378e55bd162bd8cb8d3e3135388d8871d80538164d281e1b37739646c684a1f6fbdcbfce74b1f1ee5dcdaa1c1685af1aefccf3692ec583629a26adf1a93de4…\n\n解谜 Python 代码（AES-GCM 暴力破解，补全缺失的 1 字节 IV / Tag）：\nfrom Crypto.Cipher import AES\nciphertext_hex = \&quot;c1df1e8ed8ed7a5468c1fd53a5741525d0a378e55bd162bd8cb8d3e3135388d8871d80538164d281e1b37739646c684a1f6fbdcbfce74b1f1ee5dcdaa1c1685af1aefccf3692ec583629a26adf1a93de4a5c30f9\&quot;\ntag_partial = \&quot;eae463946980c8b0351aa4a8b52827\&quot;  # 15 字节，缺 1 字节\niv_template = \&quot;#27578ac70008fd1db6bd1ee\&quot;  # # 处未知\nkey_hex = \&quot;085973542a863e5a1f3d20f0235898f92a3e45b7a993a49562987e39248553a1\&quot;\nciphertext = bytes.fromhex(ciphertext_hex)\nkey = bytes.fromhex(key_hex)\nprint(f\&quot;密文长度: {len(ciphertext)} 字节\&quot;)\nprint(f\&quot;密钥长度: {len(key)} 字节\&quot;)\nprint(f\&quot;tag_partial 长度: {len(bytes.fromhex(tag_partial))} 字节 (缺 1 字节)\&quot;)\n# 由于 IV 模板去掉 # 后是 23 位(奇数)，存在歧义，构造多组候选 IV 解释\nletters = \&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\&quot;\nhexdigits = \&quot;0123456789abcdef\&quot;\niv_candidates = []\niv_candidates += [(\&quot;A:letter+drop_trailing_e:\&quot;+L, ord(L).to_bytes(1,&#x27;big&#x27;)+bytes.fromhex(\&quot;27578ac70008fd1db6bd1e\&quot;)) for L in letters]\niv_candidates += [(\&quot;B:letter+drop_1_keep_ee:\&quot;+L, ord(L).to_bytes(1,&#x27;big&#x27;)+bytes.fromhex(\&quot;27578ac70008fd1db6bdee\&quot;)) for L in letters]\niv_candidates += [(\&quot;C:nibble=\&quot;+h, bytes.fromhex(h+\&quot;27578ac70008fd1db6bd1ee\&quot;)) for h in hexdigits]\niv_candidates += [(\&quot;C2:nibble_low=\&quot;+h, bytes.fromhex(\&quot;2\&quot;+h+\&quot;7578ac70008fd1db6bd1ee\&quot;)) for h in hexdigits]\ntotal = len(iv_candidates) * 256\nprint(f\&quot;\\n开始暴力破解... 候选 IV 解释数: {len(iv_candidates)}\&quot;)\nprint(f\&quot;总共需要尝试: {len(iv_candidates)} × 256 = {total} 种组合\\n\&quot;)\nfound = False\ncount = 0\nfor desc, iv in iv_candidates:\n    if len(iv) != 12: continue\n    for tag_byte in range(256):\n        count += 1\n        tag = bytes.fromhex(tag_partial + f\&quot;{tag_byte:02x}\&quot;)\n        try:\n            cipher = AES.new(key, AES.MODE_GCM, nonce=iv)\n            plaintext = cipher.decrypt_and_verify(ciphertext, tag)\n        except (ValueError, KeyError):\n            continue\n        print(\&quot;\\n\&quot;+\&quot;=\&quot;*60)\n        print(f\&quot;✅ 找到有效解密！ (已尝试 {count} 种)\&quot;)\n        print(f\&quot;IV 解释: {desc}\&quot;)\n        print(f\&quot;完整 IV: {iv.hex()}\&quot;)\n        print(f\&quot;完整 Tag: {tag.hex()}\&quot;)\n        try:\n            text = plaintext.decode(&#x27;utf-8&#x27;)\n            print(f\&quot;解密结果(UTF-8):\\n{text}\&quot;)\n        except UnicodeDecodeError:\n            print(f\&quot;解密结果(hex): {plaintext.hex()}\&quot;)\n        print(\&quot;=\&quot;*60)\n        found = True\n        break\n    if found: break\nif not found:\n    print(f\&quot;\\n❌ 未找到有效解密 (共尝试 {count} 种)。\&quot;)\n\n帖内统计：18 浏览量 · 0 回复 · 0 赞。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-29T22:36+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105758" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105758</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

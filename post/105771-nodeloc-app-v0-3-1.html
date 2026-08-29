@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NodeLoc APP V0.3.1 发布 · B 极客行</title>
+<meta name="description" content="这一版的核心目标是让 Android 客户端的行为全面向 Web 端看齐，彻底告别过去简陋的“本地纯文本时代”。部分功能我们还没有确定，但是做了，不知道做的是否准确。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>NodeLoc APP V0.3.1 发布</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105771 · n/nodeloc-app</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·22:33
+      <span class="pipe">|</span>4 分
+      <span class="pipe">|</span>3 评论
+      <span class="pipe">|</span>by lezi-fun
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">这一版的核心目标是让 Android 客户端的行为全面向 Web 端看齐，彻底告别过去简陋的“本地纯文本时代”。部分功能我们还没有确定，但是做了，不知道做的是否准确。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">NodeLoc App 更新日志
+
+这一版的核心目标是让 Android 客户端的行为全面向 Web 端看齐，彻底告别过去简陋的“本地纯文本时代”。部分功能我们还没有确定，但是做了，不知道做的是否准确。
+
+项目地址：https://github.com/lezi-fun/nodeloc-app
+下载链接：https://github.com/lezi-fun/nodeloc-app/releases/tag/v0.3.1
+
+v0.3.0 → v0.3.1
+这一版主要将编辑器预览、表情解析、图片渲染以及抽奖逻辑等核心功能从“前端本地模拟”改为了“服务端真实驱动”。不仅全面支持了 Markdown 原生预览与自定义表情，还针对业务中诸如用户资料空值、嵌套话题分页字段缺失、HTTP 422 业务错误等服务端真实返回的边缘场景做了大量的兼容与防崩溃处理。
+
+发布日期：2026-08-29；更新规模：包含从 0f6b44b 到 1776f8a 的多项功能增强与问题修复。
+
+新功能：编辑器支持服务端 Markdown 预览与附件上传；接入 NodeLoc 自定义表情面板；抽奖系统交互对齐 Web 端；帖子内容展示全面增强（支持 details 折叠、Onebox 卡片、全宽图片）；侧边栏与社区互动显示优化。
+
+变更：外部链接增加安全拦截墙；App 后台版本更新检测；网络连接超时策略调整。
+
+修复：多处服务端数据反序列化崩溃；编辑器操作无响应与附件参数缺失；第三方小程序白屏与抽奖 422 报错。
+
+帖内统计：12 浏览量 · 3 回复 · 4 赞。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105771-nodeloc-app-v0-3-1&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105771&quot;,
+  &quot;title&quot;: &quot;NodeLoc APP V0.3.1 发布&quot;,
+  &quot;author&quot;: &quot;lezi-fun&quot;,
+  &quot;score&quot;: 4,
+  &quot;comments&quot;: 3,
+  &quot;domain&quot;: &quot;n/nodeloc-app&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;这一版的核心目标是让 Android 客户端的行为全面向 Web 端看齐，彻底告别过去简陋的“本地纯文本时代”。部分功能我们还没有确定，但是做了，不知道做的是否准确。&quot;,
+  &quot;content&quot;: &quot;NodeLoc App 更新日志\n\n这一版的核心目标是让 Android 客户端的行为全面向 Web 端看齐，彻底告别过去简陋的“本地纯文本时代”。部分功能我们还没有确定，但是做了，不知道做的是否准确。\n\n项目地址：https://github.com/lezi-fun/nodeloc-app\n下载链接：https://github.com/lezi-fun/nodeloc-app/releases/tag/v0.3.1\n\nv0.3.0 → v0.3.1\n这一版主要将编辑器预览、表情解析、图片渲染以及抽奖逻辑等核心功能从“前端本地模拟”改为了“服务端真实驱动”。不仅全面支持了 Markdown 原生预览与自定义表情，还针对业务中诸如用户资料空值、嵌套话题分页字段缺失、HTTP 422 业务错误等服务端真实返回的边缘场景做了大量的兼容与防崩溃处理。\n\n发布日期：2026-08-29；更新规模：包含从 0f6b44b 到 1776f8a 的多项功能增强与问题修复。\n\n新功能：编辑器支持服务端 Markdown 预览与附件上传；接入 NodeLoc 自定义表情面板；抽奖系统交互对齐 Web 端；帖子内容展示全面增强（支持 details 折叠、Onebox 卡片、全宽图片）；侧边栏与社区互动显示优化。\n\n变更：外部链接增加安全拦截墙；App 后台版本更新检测；网络连接超时策略调整。\n\n修复：多处服务端数据反序列化崩溃；编辑器操作无响应与附件参数缺失；第三方小程序白屏与抽奖 422 报错。\n\n帖内统计：12 浏览量 · 3 回复 · 4 赞。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-29T22:33+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105771" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105771</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
