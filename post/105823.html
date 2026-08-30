@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>发现一个来抢救B站（Mikufans）早期数据（在新浪云）的项目（9月26号后将彻底消失），大家可以帮忙用闲置的VPS/NAS或者你的电脑等提供支援 · B 极客行</title>
+<meta name="description" content="早期的 B 站并没有自己的视频存储服务器和 CDN，本质上是一个“外挂弹幕外壳”。当时的 UP 主们全是把视频上传到新浪视频（新浪播客）、优酷、土豆等第三方平台，然后解析出新浪的 v.iask.com 等视频流地址拉到 B 站配上弹幕播放！">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>发现一个来抢救B站（Mikufans）早期数据（在新浪云）的项目（9月26号后将彻底消失），大家可以帮忙用闲置的VPS/NAS或者你的电脑等提供支援</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105823 · n/chit-chat</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·16:04
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>7 评论
+      <span class="pipe">|</span>by user80
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">早期的 B 站并没有自己的视频存储服务器和 CDN，本质上是一个“外挂弹幕外壳”。当时的 UP 主们全是把视频上传到新浪视频（新浪播客）、优酷、土豆等第三方平台，然后解析出新浪的 v.iask.com 等视频流地址拉到 B 站配上弹幕播放！而新浪视频因为当时画质高、限制少，是早期 UP 主最爱的首选服务器。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">原文链接：https://blog.hw233.cn/archives/169
+
+早期的 B 站并没有自己的视频存储服务器和 CDN，本质上是一个“外挂弹幕外壳”。当时的 UP 主们把视频上传到新浪视频（新浪播客）、优酷、土豆等第三方平台，解析出新浪 v.iask.com 等视频流地址拉到 B 站配弹幕播放。虽然后来 B 站自建机房并迁移，但依然有大量早期古早 AV 号视频、未迁移的原画高码率源文件、被下架但在新浪云仍留底的远古梗图/MAD/二次创作。这些老数据随新浪云视频关停（2026年9月16日 24:00）将彻底抹去，是中国早期 ACG 弹幕文化和草根互联网“原版历史断代”的丢失。
+
+抢救约 420TB 数据，本质是在抢救元数据：目前速度约 14TB/天，关停前约能救下 240TB+，还需更多节点加入。ArchiveTeam Warrior 是一种虚拟归档工具（虚拟机，低风险，仅占用网络带宽与少量临时磁盘，数据直传 Internet Archive，无需本地存储这 420TB）。可用能运行 docker、能联网的设备参与。具体部署方法请参考原文。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105823&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105823&quot;,
+  &quot;title&quot;: &quot;发现一个来抢救B站（Mikufans）早期数据（在新浪云）的项目（9月26号后将彻底消失），大家可以帮忙用闲置的VPS/NAS或者你的电脑等提供支援&quot;,
+  &quot;author&quot;: &quot;user80&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 7,
+  &quot;domain&quot;: &quot;n/chit-chat&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;早期的 B 站并没有自己的视频存储服务器和 CDN，本质上是一个“外挂弹幕外壳”。当时的 UP 主们全是把视频上传到新浪视频（新浪播客）、优酷、土豆等第三方平台，然后解析出新浪的 v.iask.com 等视频流地址拉到 B 站配上弹幕播放！而新浪视频因为当时画质高、限制少，是早期 UP 主最爱的首选服务器。&quot;,
+  &quot;content&quot;: &quot;原文链接：https://blog.hw233.cn/archives/169\n\n早期的 B 站并没有自己的视频存储服务器和 CDN，本质上是一个“外挂弹幕外壳”。当时的 UP 主们把视频上传到新浪视频（新浪播客）、优酷、土豆等第三方平台，解析出新浪 v.iask.com 等视频流地址拉到 B 站配弹幕播放。虽然后来 B 站自建机房并迁移，但依然有大量早期古早 AV 号视频、未迁移的原画高码率源文件、被下架但在新浪云仍留底的远古梗图/MAD/二次创作。这些老数据随新浪云视频关停（2026年9月16日 24:00）将彻底抹去，是中国早期 ACG 弹幕文化和草根互联网“原版历史断代”的丢失。\n\n抢救约 420TB 数据，本质是在抢救元数据：目前速度约 14TB/天，关停前约能救下 240TB+，还需更多节点加入。ArchiveTeam Warrior 是一种虚拟归档工具（虚拟机，低风险，仅占用网络带宽与少量临时磁盘，数据直传 Internet Archive，无需本地存储这 420TB）。可用能运行 docker、能联网的设备参与。具体部署方法请参考原文。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T16:04+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105823" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105823</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
