@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>在vps上运行sub2api的坑 · B 极客行</title>
-<meta name="description" content="Jwz 发现把中转站接入 VPS 上的 sub2api，响应速度比本地用中转站慢几十秒、甚至直接用不了（原以为差距最多几秒）；后把类型从 openai 改成 anthropic 后速度快了不少。回帖讨论多为网络/服务器问题，有人问 1核51">
+<meta name="description" content="我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，之前以为差距最多几秒，结果可达几十秒甚至直接用不了。">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -33,32 +33,29 @@
     <h1>在vps上运行sub2api的坑</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/105839 · nodeloc.com</div>
     <div class="sub">
-      <span class="band-dot band-noon"></span>午间·17:33
+      <span class="band-dot band-noon"></span>午间·20:18
       <span class="pipe">|</span>0 分
       <span class="pipe">|</span>13 评论
-      <span class="pipe">|</span>by Jwz
+      <span class="pipe">|</span>by Jwz-git
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">Jwz 发现把中转站接入 VPS 上的 sub2api，响应速度比本地用中转站慢几十秒、甚至直接用不了（原以为差距最多几秒）；后把类型从 openai 改成 anthropic 后速度快了不少。回帖讨论多为网络/服务器问题，有人问 1核512M 能否流畅跑 2api（约10人用）。</p>
+    <p class="lede">我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，之前以为差距最多几秒，结果可达几十秒甚至直接用不了。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">Jwz 发帖「在 vps 上运行 sub2api 的坑」：
-- OP：把中转站接入 VPS 上的 sub2api 跟本地用中转站，响应速度差别巨大（原以为最多几秒，实际可达几十秒甚至直接用不了）；发现是类型选错，把类型从 openai 改成 anthropic 后速度快了不少。
-- 回帖：Ametsvar 表示没这么长（无优化机器也才 4s 延迟）；seek 说是网络问题；520bingge 贴图展示自己的中转站延迟；Jwz 自嘲「难道是我的 vps 太拉了」；fenghuaxueyue65 问 1核512M/1核256M 能否流畅跑 2api（约10人用）。</pre>
+    <pre class="event-json">（未抓取正文）</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105839&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105839&quot;,
   &quot;title&quot;: &quot;在vps上运行sub2api的坑&quot;,
-  &quot;author&quot;: &quot;Jwz&quot;,
+  &quot;author&quot;: &quot;Jwz-git&quot;,
   &quot;score&quot;: 0,
   &quot;comments&quot;: 13,
   &quot;tags&quot;: [
     &quot;ai&quot;
   ],
-  &quot;excerpt&quot;: &quot;Jwz 发现把中转站接入 VPS 上的 sub2api，响应速度比本地用中转站慢几十秒、甚至直接用不了（原以为差距最多几秒）；后把类型从 openai 改成 anthropic 后速度快了不少。回帖讨论多为网络/服务器问题，有人问 1核512M 能否流畅跑 2api（约10人用）。&quot;,
-  &quot;content&quot;: &quot;Jwz 发帖「在 vps 上运行 sub2api 的坑」：\n- OP：把中转站接入 VPS 上的 sub2api 跟本地用中转站，响应速度差别巨大（原以为最多几秒，实际可达几十秒甚至直接用不了）；发现是类型选错，把类型从 openai 改成 anthropic 后速度快了不少。\n- 回帖：Ametsvar 表示没这么长（无优化机器也才 4s 延迟）；seek 说是网络问题；520bingge 贴图展示自己的中转站延迟；Jwz 自嘲「难道是我的 vps 太拉了」；fenghuaxueyue65 问 1核512M/1核256M 能否流畅跑 2api（约10人用）。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T17:33Z&quot;,
+  &quot;excerpt&quot;: &quot;我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，之前以为差距最多几秒，结果可达几十秒甚至直接用不了。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T20:18Z&quot;,
   &quot;band&quot;: &quot;noon&quot;
 }</pre>
     <h2>来源</h2>
