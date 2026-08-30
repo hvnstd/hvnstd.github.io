@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>《30级子域名托管在CF》一招将你的CF免费层域名塞满 · B 极客行</title>
-<meta name="description" content="楼主 user80（贺煦修）分享用 Cloudflare zone 嵌套把免费层域名「套娃」出超多层子域的玩法。">
+<meta name="description" content="如果你嫌你的Cloudflare的域名不够多(账户的太长寿了) 不妨试试这样玩：单个 label ≤ 63 字节，单 label 最多 9 个 xn–zug，但用 zone 嵌套可以突破，层数无上限。">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -31,18 +31,24 @@
   <div class="single-head">
     <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
     <h1>《30级子域名托管在CF》一招将你的CF免费层域名塞满</h1>
-    <div class="domain">https://www.nodeloc.com/t/topic/105904 · n/cloudflare</div>
+    <div class="domain">https://www.nodeloc.com/t/topic/105904 · nodeloc.com</div>
     <div class="sub">
-      <span class="band-dot band-evening"></span>晚间·18:35
+      <span class="band-dot band-evening"></span>晚间·19:05
       <span class="pipe">|</span>0 分
       <span class="pipe">|</span>6 评论
       <span class="pipe">|</span>by user80
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">楼主 user80（贺煦修）分享用 Cloudflare zone 嵌套把免费层域名「套娃」出超多层子域的玩法。</p>
+    <p class="lede">如果你嫌你的Cloudflare的域名不够多(账户的太长寿了) 不妨试试这样玩：单个 label ≤ 63 字节，单 label 最多 9 个 xn–zug，但用 zone 嵌套可以突破，层数无上限。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">楼主 user80（贺煦修）在 Cloudflare 节点分享一个把免费层域名「塞满」的玩法：单个 label ≤ 63 字节，用 punycode 短标签（如 xn–zug，7 字节）单条域名最多 9 层；但用 zone 嵌套突破——第 9 层挂成独立 zone 后再嵌 9 层，套娃下去层数无上限，直到 CF 不再允许建更多 zone（免费版约 50 个 zone）。后续更新：可一次性通过 API 全部添加，3 秒完成，再递归加 NS 保证持久化。目前 0 赞、6 回复、30 浏览。</pre>
+    <pre class="event-json">如果你嫌你的Cloudflare的域名不够多(账户的太长寿了) 不妨试试这样玩：
+因为限制是这样的 单个 label ≤ 63 字节 xn–zug = 7 字节 → 单 label 最多 9 个 (9×7=63,10×7=70 超了) 所以理论上单条域名最多 9 层 xn–zug。
+看上去是这样的：xn--zug.xn--zug.xn--zug...xn--zug.loc.cc（63 字节 label，9 个 xn--zug 后缀）
+但用 zone 嵌套可以突破:第 9 层是一个独立 zone,在它下面再挂 xn–zug 子 zone,又 9 层……套娃下去,层数无上限(直到 Cloudflare 不让你建更多 zone 为止,免费版上限好像是 50 个 zone)。
+（目前正在等待激活完成，这样我才能继续）
+故曰：cloudfure zone 嵌套长，9层label大肠包小肠！
+更新：不需要等，可以一次性全部添加（通过API），这样3秒即可完成全部添加，然后递归完成NS添加来保证持久化。后续补全即可</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105904&quot;,
@@ -51,11 +57,11 @@
   &quot;author&quot;: &quot;user80&quot;,
   &quot;score&quot;: 0,
   &quot;comments&quot;: 6,
-  &quot;domain&quot;: &quot;n/cloudflare&quot;,
+  &quot;domain&quot;: &quot;nodeloc.com&quot;,
   &quot;tags&quot;: [],
-  &quot;excerpt&quot;: &quot;楼主 user80（贺煦修）分享用 Cloudflare zone 嵌套把免费层域名「套娃」出超多层子域的玩法。&quot;,
-  &quot;content&quot;: &quot;楼主 user80（贺煦修）在 Cloudflare 节点分享一个把免费层域名「塞满」的玩法：单个 label ≤ 63 字节，用 punycode 短标签（如 xn–zug，7 字节）单条域名最多 9 层；但用 zone 嵌套突破——第 9 层挂成独立 zone 后再嵌 9 层，套娃下去层数无上限，直到 CF 不再允许建更多 zone（免费版约 50 个 zone）。后续更新：可一次性通过 API 全部添加，3 秒完成，再递归加 NS 保证持久化。目前 0 赞、6 回复、30 浏览。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T18:35Z&quot;,
+  &quot;excerpt&quot;: &quot;如果你嫌你的Cloudflare的域名不够多(账户的太长寿了) 不妨试试这样玩：单个 label ≤ 63 字节，单 label 最多 9 个 xn–zug，但用 zone 嵌套可以突破，层数无上限。&quot;,
+  &quot;content&quot;: &quot;如果你嫌你的Cloudflare的域名不够多(账户的太长寿了) 不妨试试这样玩：\n因为限制是这样的 单个 label ≤ 63 字节 xn–zug = 7 字节 → 单 label 最多 9 个 (9×7=63,10×7=70 超了) 所以理论上单条域名最多 9 层 xn–zug。\n看上去是这样的：xn--zug.xn--zug.xn--zug...xn--zug.loc.cc（63 字节 label，9 个 xn--zug 后缀）\n但用 zone 嵌套可以突破:第 9 层是一个独立 zone,在它下面再挂 xn–zug 子 zone,又 9 层……套娃下去,层数无上限(直到 Cloudflare 不让你建更多 zone 为止,免费版上限好像是 50 个 zone)。\n（目前正在等待激活完成，这样我才能继续）\n故曰：cloudfure zone 嵌套长，9层label大肠包小肠！\n更新：不需要等，可以一次性全部添加（通过API），这样3秒即可完成全部添加，然后递归完成NS添加来保证持久化。后续补全即可&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T19:05Z&quot;,
   &quot;band&quot;: &quot;evening&quot;
 }</pre>
     <h2>来源</h2>
