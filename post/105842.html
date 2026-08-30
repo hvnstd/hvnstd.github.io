@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>【解密大赛】第一位赏200NL · B 极客行</title>
-<meta name="description" content="两颗洋葱，层层剥开。所有钥匙都藏在">
+<meta name="description" content="两颗洋葱，层层剥开。所有钥匙都藏在 NodeLoc 准则页里——读一遍准则，你需要的每一个字都在上面。解出终点的朋友，欢迎回帖贴出 flag，但请把过程折叠起来，别剧透。">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
     </span>
   </div>
 </header>
@@ -31,43 +31,54 @@
   <div class="single-head">
     <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
     <h1>【解密大赛】第一位赏200NL</h1>
-    <div class="domain">https://www.nodeloc.com/t/topic/105842 · n/chit-chat</div>
+    <div class="domain">https://www.nodeloc.com/t/topic/105842 · n/ctf</div>
     <div class="sub">
-      <span class="band-dot band-evening"></span>晚间·19:44
-      <span class="pipe">|</span>1 分
-      <span class="pipe">|</span>23 评论
-      <span class="pipe">|</span>by 乐子
+      <span class="band-dot band-noon"></span>午间·12:08
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>41 评论
+      <span class="pipe">|</span>by lezi-fun
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">两颗洋葱，层层剥开。所有钥匙都藏在</p>
+    <p class="lede">两颗洋葱，层层剥开。所有钥匙都藏在 NodeLoc 准则页里——读一遍准则，你需要的每一个字都在上面。解出终点的朋友，欢迎回帖贴出 flag，但请把过程折叠起来，别剧透。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">两颗洋葱，层层剥开。所有钥匙都藏在
-线索 A：一分为三——但三份里，只有一份有肉。
-线索 B：钥匙不在题面里。它藏在一个人人看得到、却很少有人注意的地方；取其中一部分，揉成哈希。
-线索 C：有一群人替随机流代言。流不靠运气——同一个种子，在任何语言里都长出同一串字节。
-线索 D：路上会经过好几种你熟悉的编码，最后是一段机器的语言；开头有几个字节，一直在默默核对身份。
-线索 E：半路会有人劝你去找管理员。那不是终点。
-线索 A：还是切成三份，一份是肉，两份是水。
-线索 B：钥匙是一句祝愿——写给这个社区的，写在人人读得到的地方。
-线索 C：种子被作者斜着写进了正文，它教你在遇到问题的时候该做什么。
-线索 D：开头有哨兵，路上要打包，每七步转三格。
-线索 E：这一颗洋葱里，条条线索说的都是真话。
-全程离线可解，不需要任何在线服务（除了读一遍准则页）。</pre>
+    <pre class="event-json">两颗洋葱，层层剥开。所有钥匙都藏在 NodeLoc 准则页里——读一遍准则，你需要的每一个字都在上面。解出终点的朋友，欢迎回帖贴出 flag，但请把过程折叠起来，别剧透 :smirking_face:
+新增：我们不喜欢标点符号
+
+主菜：终极怪题
+题面：一段长 hex 密文 + 一段 PEM 私钥 + 字节串 0x4E,0x6F,0x64,0x65,0x4C,0x6F,0x63,0x21 = &#x27;NodeLoc!&#x27;
+线索（故意打乱，真假自辨）：
+- 线索 A：一分为三——但三份里，只有一份有肉。
+- 线索 B：钥匙不在题面里。它藏在一个人人看得到、却很少有人注意的地方；取其中一部分，揉成哈希。
+- 线索 C：有一群人替随机流代言。流不靠运气——同一个种子，在任何语言里都长出同一串字节。
+- 线索 D：路上会经过好几种你熟悉的编码，最后是一段机器的语言；开头有几个字节，一直在默默核对身份。
+- 线索 E：半路会有人劝你去找管理员。那不是终点。
+
+甜点：第二颗洋葱（附加题）
+题面：另一段 hex 密文 + 字节串 0x47,0x75,0x69,0x64,0x65,0x6C,0x69,0x6E,0x65,0x73 = &#x27;Guidelines&#x27;
+线索（这次一条都不撒谎）：
+- 线索 A：还是切成三份，一份是肉，两份是水。
+- 线索 B：钥匙是一句祝愿——写给这个社区的，写在人人读得到的地方。
+- 线索 C：种子被作者斜着写进了正文，它教你在遇到问题的时候该做什么。
+- 线索 D：开头有哨兵，路上要打包，每七步转三格。
+- 线索 E：这一颗洋葱里，条条线索说的都是真话。
+
+规则：全程离线可解；回帖请用折叠隐藏过程与答案。祝剥洋葱愉快。
+（注：题面原始 hex/PEM 密文较长，已省略。）</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105842&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105842&quot;,
   &quot;title&quot;: &quot;【解密大赛】第一位赏200NL&quot;,
-  &quot;author&quot;: &quot;乐子&quot;,
-  &quot;score&quot;: 1,
-  &quot;comments&quot;: 23,
-  &quot;domain&quot;: &quot;n/chit-chat&quot;,
+  &quot;author&quot;: &quot;lezi-fun&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 41,
+  &quot;domain&quot;: &quot;n/ctf&quot;,
   &quot;tags&quot;: [],
-  &quot;excerpt&quot;: &quot;两颗洋葱，层层剥开。所有钥匙都藏在&quot;,
-  &quot;content&quot;: &quot;两颗洋葱，层层剥开。所有钥匙都藏在\n线索 A：一分为三——但三份里，只有一份有肉。\n线索 B：钥匙不在题面里。它藏在一个人人看得到、却很少有人注意的地方；取其中一部分，揉成哈希。\n线索 C：有一群人替随机流代言。流不靠运气——同一个种子，在任何语言里都长出同一串字节。\n线索 D：路上会经过好几种你熟悉的编码，最后是一段机器的语言；开头有几个字节，一直在默默核对身份。\n线索 E：半路会有人劝你去找管理员。那不是终点。\n线索 A：还是切成三份，一份是肉，两份是水。\n线索 B：钥匙是一句祝愿——写给这个社区的，写在人人读得到的地方。\n线索 C：种子被作者斜着写进了正文，它教你在遇到问题的时候该做什么。\n线索 D：开头有哨兵，路上要打包，每七步转三格。\n线索 E：这一颗洋葱里，条条线索说的都是真话。\n全程离线可解，不需要任何在线服务（除了读一遍准则页）。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T19:44+08:00&quot;,
-  &quot;band&quot;: &quot;evening&quot;
+  &quot;excerpt&quot;: &quot;两颗洋葱，层层剥开。所有钥匙都藏在 NodeLoc 准则页里——读一遍准则，你需要的每一个字都在上面。解出终点的朋友，欢迎回帖贴出 flag，但请把过程折叠起来，别剧透。&quot;,
+  &quot;content&quot;: &quot;两颗洋葱，层层剥开。所有钥匙都藏在 NodeLoc 准则页里——读一遍准则，你需要的每一个字都在上面。解出终点的朋友，欢迎回帖贴出 flag，但请把过程折叠起来，别剧透 :smirking_face:\n新增：我们不喜欢标点符号\n\n主菜：终极怪题\n题面：一段长 hex 密文 + 一段 PEM 私钥 + 字节串 0x4E,0x6F,0x64,0x65,0x4C,0x6F,0x63,0x21 = &#x27;NodeLoc!&#x27;\n线索（故意打乱，真假自辨）：\n- 线索 A：一分为三——但三份里，只有一份有肉。\n- 线索 B：钥匙不在题面里。它藏在一个人人看得到、却很少有人注意的地方；取其中一部分，揉成哈希。\n- 线索 C：有一群人替随机流代言。流不靠运气——同一个种子，在任何语言里都长出同一串字节。\n- 线索 D：路上会经过好几种你熟悉的编码，最后是一段机器的语言；开头有几个字节，一直在默默核对身份。\n- 线索 E：半路会有人劝你去找管理员。那不是终点。\n\n甜点：第二颗洋葱（附加题）\n题面：另一段 hex 密文 + 字节串 0x47,0x75,0x69,0x64,0x65,0x6C,0x69,0x6E,0x65,0x73 = &#x27;Guidelines&#x27;\n线索（这次一条都不撒谎）：\n- 线索 A：还是切成三份，一份是肉，两份是水。\n- 线索 B：钥匙是一句祝愿——写给这个社区的，写在人人读得到的地方。\n- 线索 C：种子被作者斜着写进了正文，它教你在遇到问题的时候该做什么。\n- 线索 D：开头有哨兵，路上要打包，每七步转三格。\n- 线索 E：这一颗洋葱里，条条线索说的都是真话。\n\n规则：全程离线可解；回帖请用折叠隐藏过程与答案。祝剥洋葱愉快。\n（注：题面原始 hex/PEM 密文较长，已省略。）&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T12:08+00:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105842" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105842</a></p>
