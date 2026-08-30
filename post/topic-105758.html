@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GuDogShu谜题的解谜Python代码已就绪 · B 极客行</title>
+<meta name="description" content="起因是 @GuDogShu 的密文谜题（AES-GCM），GLM 与 DeepSeek 快速写出了一个 Python 暴力破解脚本：针对未知 IV 模板与缺失 1 字节的 tag 枚举候选组合，用 AES-GCM 的 decrypt_and">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>GuDogShu谜题的解谜Python代码已就绪</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105758 · n/program</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·09:38
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>0 评论
+      <span class="pipe">|</span>by Mike-Leone
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">起因是 @GuDogShu 的密文谜题（AES-GCM），GLM 与 DeepSeek 快速写出了一个 Python 暴力破解脚本：针对未知 IV 模板与缺失 1 字节的 tag 枚举候选组合，用 AES-GCM 的 decrypt_and_verify 找到能通过校验的明文。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">起因是 @GuDogShu 询问一些个人问题（其帖子《马上就要有女朋友了！帮我帮我，我的幸福要来了！》里给出一段 AES-GCM 密文），于是 GLM 和 DeepSeek 快速响应，编写了这样一个 Python 解谜代码。代码使用 pycryptodome 的 AES.new(key, AES.MODE_GCM, nonce=iv) 对密文做 decrypt_and_verify，针对 IV 模板 &quot;#27578ac70008fd1db6bd1ee&quot;（# 处未知，构造多种候选解释 A/B/C/C2）与缺失 1 字节的 tag 进行暴力枚举（候选 IV 数 × 256），找到能通过 GCM tag 校验的解密即为答案。完整代码包含在原帖中。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;topic-105758&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105758&quot;,
+  &quot;title&quot;: &quot;GuDogShu谜题的解谜Python代码已就绪&quot;,
+  &quot;author&quot;: &quot;Mike-Leone&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 0,
+  &quot;domain&quot;: &quot;n/program&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;起因是 @GuDogShu 的密文谜题（AES-GCM），GLM 与 DeepSeek 快速写出了一个 Python 暴力破解脚本：针对未知 IV 模板与缺失 1 字节的 tag 枚举候选组合，用 AES-GCM 的 decrypt_and_verify 找到能通过校验的明文。&quot;,
+  &quot;content&quot;: &quot;起因是 @GuDogShu 询问一些个人问题（其帖子《马上就要有女朋友了！帮我帮我，我的幸福要来了！》里给出一段 AES-GCM 密文），于是 GLM 和 DeepSeek 快速响应，编写了这样一个 Python 解谜代码。代码使用 pycryptodome 的 AES.new(key, AES.MODE_GCM, nonce=iv) 对密文做 decrypt_and_verify，针对 IV 模板 \&quot;#27578ac70008fd1db6bd1ee\&quot;（# 处未知，构造多种候选解释 A/B/C/C2）与缺失 1 字节的 tag 进行暴力枚举（候选 IV 数 × 256），找到能通过 GCM tag 校验的解密即为答案。完整代码包含在原帖中。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T09:38+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105758" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105758</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
