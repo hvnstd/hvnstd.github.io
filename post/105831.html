@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>我把nodeloc做成的一个mcp!!! · B 极客行</title>
+<meta name="description" content="patrick0306 开源 nodeloc-mcp：把 NodeLoc 做成 MCP server（42 个工具），可接入 Claude Desktop/Cursor/Cherry Studio/Cline，用自然语言操作论坛（浏览/发帖">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>我把nodeloc做成的一个mcp!!!</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105831 · n/program</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·16:39
+      <span class="pipe">|</span>2 分
+      <span class="pipe">|</span>2 评论
+      <span class="pipe">|</span>by patrick0306
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">patrick0306 开源 nodeloc-mcp：把 NodeLoc 做成 MCP server（42 个工具），可接入 Claude Desktop/Cursor/Cherry Studio/Cline，用自然语言操作论坛（浏览/发帖/回复/私信/点赞/签到/发红包/打赏/积分等），鉴权走本地 Cookie 会话并支持 2FA。MIT 协议，求 star。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">patrick0306 把 NodeLoc 做成了一个 MCP server，装进 Claude Desktop、Cursor、Cherry Studio、Cline 等客户端后，可直接用自然语言操作论坛，例如：“看看最新帖子”“给我签到”“在这条帖子里发个 100 能量、10 份的红包”“给这篇帖子的作者打赏 50 能量”。
+
+一共 42 个工具，分几块：
+- 论坛常规：浏览最新/热门/分类、读帖、发帖、回复、私信、点赞、收藏、投票；
+- NodeLoc 特色：嵌套社区(Node)浏览/加入/创建、聊天频道、每日签到、发红包、打赏能量、积分明细/榜单；
+- 官方支付 API：创建支付、查询订单、能量转账（需在 payment/applications 申请应用）；
+- 知识库：检索 docs.nodeloc.com 文档（基于 llms.txt 索引）；
+- 小程序：nodeloc-apps CLI 的封装。
+
+鉴权走 Cookie 会话（希望 @james 能开放 user-api-key）：登录后会话持久化到本地，过期自动重新登录，支持 2FA。配置很简单（环境变量）：NODELOC_USERNAME=你的用户名 NODELOC_PASSWORD=你的密码 node dist/index.js。
+
+纯本地运行，不用担心账号泄露。仓库：https://github.com/Patrick130306/nodeloc-mcp（双语 README，MIT），求几个 star。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105831&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105831&quot;,
+  &quot;title&quot;: &quot;我把nodeloc做成的一个mcp!!!&quot;,
+  &quot;author&quot;: &quot;patrick0306&quot;,
+  &quot;score&quot;: 2,
+  &quot;comments&quot;: 2,
+  &quot;domain&quot;: &quot;n/program&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;patrick0306 开源 nodeloc-mcp：把 NodeLoc 做成 MCP server（42 个工具），可接入 Claude Desktop/Cursor/Cherry Studio/Cline，用自然语言操作论坛（浏览/发帖/回复/私信/点赞/签到/发红包/打赏/积分等），鉴权走本地 Cookie 会话并支持 2FA。MIT 协议，求 star。&quot;,
+  &quot;content&quot;: &quot;patrick0306 把 NodeLoc 做成了一个 MCP server，装进 Claude Desktop、Cursor、Cherry Studio、Cline 等客户端后，可直接用自然语言操作论坛，例如：“看看最新帖子”“给我签到”“在这条帖子里发个 100 能量、10 份的红包”“给这篇帖子的作者打赏 50 能量”。\n\n一共 42 个工具，分几块：\n- 论坛常规：浏览最新/热门/分类、读帖、发帖、回复、私信、点赞、收藏、投票；\n- NodeLoc 特色：嵌套社区(Node)浏览/加入/创建、聊天频道、每日签到、发红包、打赏能量、积分明细/榜单；\n- 官方支付 API：创建支付、查询订单、能量转账（需在 payment/applications 申请应用）；\n- 知识库：检索 docs.nodeloc.com 文档（基于 llms.txt 索引）；\n- 小程序：nodeloc-apps CLI 的封装。\n\n鉴权走 Cookie 会话（希望 @james 能开放 user-api-key）：登录后会话持久化到本地，过期自动重新登录，支持 2FA。配置很简单（环境变量）：NODELOC_USERNAME=你的用户名 NODELOC_PASSWORD=你的密码 node dist/index.js。\n\n纯本地运行，不用担心账号泄露。仓库：https://github.com/Patrick130306/nodeloc-mcp（双语 README，MIT），求几个 star。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T16:39+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105831" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105831</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
