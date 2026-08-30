@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>在vps上运行sub2api的坑 · B 极客行</title>
-<meta name="description" content="Jwz-git 发现把中转站接入 vps 上的 sub2api 与本地用中转站，响应速度差距可达几十秒甚至直接不可用，远超预期（原以为最多差几秒）。">
+<meta name="description" content="我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，差距可达几十秒甚至直接用不了；把类型从 openai 改成 anthropic 之后速度快了不少。">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
     </span>
   </div>
 </header>
@@ -31,35 +31,32 @@
   <div class="single-head">
     <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
     <h1>在vps上运行sub2api的坑</h1>
-    <div class="domain">https://www.nodeloc.com/t/topic/105839 · n/ai</div>
+    <div class="domain">https://www.nodeloc.com/t/topic/105839 · nodeloc.com</div>
     <div class="sub">
-      <span class="band-dot band-evening"></span>晚间·18:02
+      <span class="band-dot band-noon"></span>午间·16:31
       <span class="pipe">|</span>0 分
-      <span class="pipe">|</span>2 评论
-      <span class="pipe">|</span>by Jwz-git
+      <span class="pipe">|</span>13 评论
+      <span class="pipe">|</span>by jwz-git
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">Jwz-git 发现把中转站接入 vps 上的 sub2api 与本地用中转站，响应速度差距可达几十秒甚至直接不可用，远超预期（原以为最多差几秒）。</p>
+    <p class="lede">我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，差距可达几十秒甚至直接用不了；把类型从 openai 改成 anthropic 之后速度快了不少。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">我才发现把中转站接入vps上的sub2api跟本地用中转站，响应速度居然差别那么大，之前我以为响应时间差距的量级最多几秒，结果现在发现差距可以达到几十秒，甚至直接用不了。
-（实战踩坑帖，楼主称可能是小鸡没养好；网友反馈无线路优化的机器也仅约 4s 延迟，怀疑环境与配置差异。）</pre>
+    <pre class="event-json">（未抓取正文）</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105839&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105839&quot;,
   &quot;title&quot;: &quot;在vps上运行sub2api的坑&quot;,
-  &quot;author&quot;: &quot;Jwz-git&quot;,
+  &quot;author&quot;: &quot;jwz-git&quot;,
   &quot;score&quot;: 0,
-  &quot;comments&quot;: 2,
-  &quot;domain&quot;: &quot;n/ai&quot;,
+  &quot;comments&quot;: 13,
   &quot;tags&quot;: [
     &quot;AI&quot;
   ],
-  &quot;excerpt&quot;: &quot;Jwz-git 发现把中转站接入 vps 上的 sub2api 与本地用中转站，响应速度差距可达几十秒甚至直接不可用，远超预期（原以为最多差几秒）。&quot;,
-  &quot;content&quot;: &quot;我才发现把中转站接入vps上的sub2api跟本地用中转站，响应速度居然差别那么大，之前我以为响应时间差距的量级最多几秒，结果现在发现差距可以达到几十秒，甚至直接用不了。\n（实战踩坑帖，楼主称可能是小鸡没养好；网友反馈无线路优化的机器也仅约 4s 延迟，怀疑环境与配置差异。）&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T18:02+08:00&quot;,
-  &quot;band&quot;: &quot;evening&quot;
+  &quot;excerpt&quot;: &quot;我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，差距可达几十秒甚至直接用不了；把类型从 openai 改成 anthropic 之后速度快了不少。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T16:31Z&quot;,
+  &quot;band&quot;: &quot;noon&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105839" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105839</a></p>

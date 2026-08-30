@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NodeLoc 官方 Android 客户端首个 Alpha 版（v1.0.0）发布，iOS 受开发者账号门槛暂落后 · B 极客行</title>
-<meta name="description" content="NodeLoc 官方 Android 客户端首个 Alpha 版（v1.0.0）发布，iOS 受开发者账号门槛暂落后">
+<title>NodeLoc 首个官方 Android APP 发布 Alpha 版：v1.0.0 开放下载尝鲜 · B 极客行</title>
+<meta name="description" content="NodeLoc 首个官方 Android APP 发布 Alpha 版：v1.0.0 开放下载尝鲜">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -33,32 +33,29 @@
     <div class="domain">nodeloc · tid 105608-nodeloc-android-app-alpha · 2026-08-29</div>
   </div>
   <article class="single-body">
-    <pre class="newspaper-md"># NodeLoc 官方 Android 客户端首个 Alpha 版（v1.0.0）发布，iOS 受开发者账号门槛暂落后
+    <pre class="newspaper-md"># NodeLoc 首个官方 Android APP 发布 Alpha 版：v1.0.0 开放下载尝鲜
 
 &gt; 抓取源：nodeloc · 楼层 6 · 作者 James · 抓取时间 2026-08-29T14:50+08:00
 
 ## 事件概述
-2026-08-29 13:21，NodeLoc 站长 James 在论坛发布官方 Android 客户端首个 Alpha 版本 **v1.0.0（versionCode 1）**，比原计划优先的 iOS 先行落地。安装包经 GitHub Releases 分发（`app-release.apk`），并附带 SHA256 校验值 `b75f9a5b0c9378fd68be4b1eb6446c72b63b4575ceedf6c6bb545f1e2b16096a`；问题反馈统一收集至站内 `n/suggestion` 板块。James 自述这是&quot;赶鸭子上架&quot;的尝鲜版，已知问题不少、待发掘 bug 更多。
+2026-08-29 13:21，NodeLoc 站长 James 在论坛发布首个官方 Android 客户端 Alpha 版本（v1.0.0，versionCode 1），并通过 GitHub Release 提供直链下载与 SHA256 校验值（b75f9a5b…16096a）。James 表示原本计划先做 iOS 端，但因苹果开发者账号门槛较高，反而让 Android 先行；站内用户 @lezi-fun、@user94 的催促也推动了此次发布。这是 NodeLoc 首次推出官方移动客户端，目前处于&quot;赶鸭子上架&quot;的尝鲜阶段，作者持续通过 n/suggestion 收集反馈。
 
 ## 背景信息
-- NodeLoc 是面向极客 / 运维人群的社区论坛，长期以网页端为主，官方移动客户端的缺失是社区长期诉求。
-- 发布节奏出现反转：原计划先攻 iOS，但因苹果开发者账号流程复杂而延迟，Android 反而先行；这与独立开发者常见的&quot;iOS 发布瓶颈&quot;一致。
-- 主楼点名 @lezi-fun、@user94 &quot;给了不少压力&quot;，侧面印证社区对官方客户端的期待已积累到相当程度。
+NodeLoc 是一个以 VPS、主机、网络技术为主题的社区，长期仅有网页端，移动端体验依赖浏览器。社区内对官方 APP 的呼声由来已久，本次发布直接回应了这部分需求。iOS 版本因苹果开发者账号（年费、审核、个人/企业资质）等硬性门槛仍在推进中，James 在回帖中确认&quot;iOS 党先别急，已经在搞了&quot;。Android 端选择 GitHub Release 直接分发 APK 而非应用商店，意味着用户需手动下载安装并自行承担侧载风险。
 
 ## 社区讨论
-- **反响积极、立即尝鲜**：首批用户以&quot;沙发&quot;&quot;激动&quot;表态并当场安装，对官方客户端落地普遍欢迎，未出现抵触。
-- **实测反馈已出现**：用户 nodeloc_user_a 在 Pixel 7 / Android 14 上报告冷启动闪退一次（二次打开正常）；James 初步判断为 splash 启动页问题，将查日志跟进。
-- **安全分发建议**：用户 nodeloc_user_b 建议单独发一个 checksum / SHA256 校验帖以便验证；James 已采纳，称下个 release 会单独发校验帖。
-- **平台差异说明**：@lezi-fun 解释 iOS 党需再等，苹果开发者账号是客观硬门槛，非优先级问题。
+- **尝鲜热情高**：用户 user94 抢到沙发并立即安装；被点名&quot;施压&quot;的 lezi-fun 表示激动，称自己是推动者之一，并安抚 iOS 用户。
+- **实测反馈具体**：Pixel 7 / Android 14 用户反映&quot;启动后首页会闪退一下，再开就正常&quot;，作者定位为冷启动 splash 页面问题，表示会看日志修复。
+- **安全意识在线**：有用户建议单独发布 SHA256 校验帖便于验证安装包完整性，James 承诺&quot;下次 release 会单独发个 checksum 帖&quot;。
+- **反馈渠道明确**：作者指定问题统一回流到 n/suggestion 板块，形成&quot;Alpha 尝鲜—集中反馈—迭代&quot;的闭环。
 
 ## 争议点
-本次讨论未形成显著争议。各方仅在&quot;希望更快出 iOS&quot;的节奏上略有期待落差，但无对立立场，属于&quot;社区期待 vs. 现实约束&quot;的共识性讨论，未出现观点撕裂。
+本次讨论未形成显著争议。唯一的小分歧是 Android 与 iOS 的发布先后，根源是苹果开发者账号门槛而非产品取向，社区整体情绪正向、协作性强。
 
 ## 后续影响
-- Android Alpha 进入公开尝鲜阶段，用户实测反馈将直接驱动 bug 修复与后续版本迭代。
-- **iOS 版是社区后续最关注的点**：受苹果开发者账号约束，时间表尚未明确。
-- 若校验帖机制落实，将提升分发安全性与用户信任，对后续下载推广有正向作用。
-- 值得继续观察：冷启动闪退等已知问题的修复进度、iOS 版进展、以及是否出现更多机型兼容性反馈。
+- **质量面**：Alpha 阶段已知冷启动闪退、尚有&quot;待发掘的 bug&quot;，作者已在跟进；能否快速收敛决定口碑。
+- **安全面**：校验机制将补全（单独 checksum 帖），有助于建立侧载包的可信度。
+- **生态面**：官方 APP 若能稳定，将显著改善 NodeLoc 在移动场景下的可读写体验；后续是否上架应用商店、iOS 版何时落地，是接下来最值得观察的两个节点。
 
 ---
 *本文基于 nodeloc_shared/raw/2026-08-29/105608.json，由 nodeloc_monitor 编辑产出。*
