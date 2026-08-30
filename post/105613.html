@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>被 James 逼出来的 v0.3.0 （本帖在 APP 上发布） · B 极客行</title>
+<meta name="description" content="NodeLoc 第三方 Android 客户端 v0.3.0：把楼层编辑/点赞/举报/侧边栏等权限判断彻底交还服务端，逐帖逐用户字段驱动；并修复主页 TagDto 序列化死循环崩溃。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>被 James 逼出来的 v0.3.0 （本帖在 APP 上发布）</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105613 · n/nodeloc-app</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·11:09
+      <span class="pipe">|</span>6 分
+      <span class="pipe">|</span>10 评论
+      <span class="pipe">|</span>by lezi-fun
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">NodeLoc 第三方 Android 客户端 v0.3.0：把楼层编辑/点赞/举报/侧边栏等权限判断彻底交还服务端，逐帖逐用户字段驱动；并修复主页 TagDto 序列化死循环崩溃。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">NodeLoc 第三方 Android 原生客户端 v0.3.0（GitHub: lezi-fun/nodeloc-app），发布于 2026-08-28，更新规模 28 commits / 49 files / +4077 -624。核心是把权限判断责任彻底交还服务端：楼层能否编辑、能否点赞、举报菜单选项、侧边栏内容，过去大半由前端按“是否本人帖子”猜测，现逐项对照 Discourse 官方前端源码与后端 guardian 定义，改为跟随服务端逐帖/逐用户下发的 yours/can_edit/can_delete/can_recover/bookmarked 等字段；举报原因列表动态联查 actions_summary，点赞按钮接上 actions_summary 修正“本人能点赞自己”的疏漏。
+新功能：1) 楼层操作菜单(收藏/举报/编辑/删除/恢复)完全跟随服务端权限；2) 管理员/版主专属操作(锁定编辑、Wiki 化、重新渲染、取消隐藏、变更所有者、永久删除)逐一核对 guardian 后接入；3) 侧边栏改为服务端驱动(节点/标签区块跟随 sidebar_category_ids/sidebar_tags，新增“小程序”区块)；4) 阅读进度上报对齐官网 screen-track(60秒累计/新楼层立即上报/失败重试)；5) 创建话题节点选择器改为可搜索；6) 支持编辑自己发过的帖子(PUT /posts/{id})；7) 显示帖子翻译提示条。
+修复：主页加载崩溃(TagDto 序列化循环初始化，@Serializable 标在类声明上导致与序列化器互相依赖、JVM 类初始化死循环)；节点标签图片改官网真实图标；抽屉用户区信任等级改用青铜/白银/黄金/钻石/王者中文称号。Chore：删除 design/ 目录，.gitignore 补 Playwright MCP 本地快照/日志。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105613&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105613&quot;,
+  &quot;title&quot;: &quot;被 James 逼出来的 v0.3.0 （本帖在 APP 上发布）&quot;,
+  &quot;author&quot;: &quot;lezi-fun&quot;,
+  &quot;score&quot;: 6,
+  &quot;comments&quot;: 10,
+  &quot;domain&quot;: &quot;n/nodeloc-app&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;NodeLoc 第三方 Android 客户端 v0.3.0：把楼层编辑/点赞/举报/侧边栏等权限判断彻底交还服务端，逐帖逐用户字段驱动；并修复主页 TagDto 序列化死循环崩溃。&quot;,
+  &quot;content&quot;: &quot;NodeLoc 第三方 Android 原生客户端 v0.3.0（GitHub: lezi-fun/nodeloc-app），发布于 2026-08-28，更新规模 28 commits / 49 files / +4077 -624。核心是把权限判断责任彻底交还服务端：楼层能否编辑、能否点赞、举报菜单选项、侧边栏内容，过去大半由前端按“是否本人帖子”猜测，现逐项对照 Discourse 官方前端源码与后端 guardian 定义，改为跟随服务端逐帖/逐用户下发的 yours/can_edit/can_delete/can_recover/bookmarked 等字段；举报原因列表动态联查 actions_summary，点赞按钮接上 actions_summary 修正“本人能点赞自己”的疏漏。\n新功能：1) 楼层操作菜单(收藏/举报/编辑/删除/恢复)完全跟随服务端权限；2) 管理员/版主专属操作(锁定编辑、Wiki 化、重新渲染、取消隐藏、变更所有者、永久删除)逐一核对 guardian 后接入；3) 侧边栏改为服务端驱动(节点/标签区块跟随 sidebar_category_ids/sidebar_tags，新增“小程序”区块)；4) 阅读进度上报对齐官网 screen-track(60秒累计/新楼层立即上报/失败重试)；5) 创建话题节点选择器改为可搜索；6) 支持编辑自己发过的帖子(PUT /posts/{id})；7) 显示帖子翻译提示条。\n修复：主页加载崩溃(TagDto 序列化循环初始化，@Serializable 标在类声明上导致与序列化器互相依赖、JVM 类初始化死循环)；节点标签图片改官网真实图标；抽屉用户区信任等级改用青铜/白银/黄金/钻石/王者中文称号。Chore：删除 design/ 目录，.gitignore 补 Playwright MCP 本地快照/日志。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T11:09+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105613" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105613</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
