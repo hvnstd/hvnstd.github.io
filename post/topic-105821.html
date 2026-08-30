@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>我把smailr做成mcp了！！！ · B 极客行</title>
+<meta name="description" content="最近kimi的额度重置了，然后想着，反正额度放着也是浪费,把 Smailr(">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>我把smailr做成mcp了！！！</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105821 · n/program</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·14:39
+      <span class="pipe">|</span>3 分
+      <span class="pipe">|</span>9 评论
+      <span class="pipe">|</span>by patrick0306
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">最近kimi的额度重置了，然后想着，反正额度放着也是浪费,把 Smailr(</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">最近kimi的额度重置了，然后想着，反正额度放着也是浪费,把 Smailr(
+“列出我收件箱最新的 5 封邮件”
+“我的存储配额用了多少?”
+目前实现了 23 个工具,基本覆盖了 Smailr 的全部 API:邮箱增删改查、邮件列表/详情/搜索/发送、附件上传、联系人、文件夹、标签,还有收信规则、签名、配额、统计这些只读接口。
+&quot;最省事的地方是登录:不需要手动去设置页创建 API key,内置了 NodeLoc OAuth 直接登录。跑一句:&quot;
+它会自动打开浏览器走 NodeLoc 授权,授权完成后把地址栏的 URL 贴回终端(样例地址格式:smailr.com/app/oauth/callback/nodeloc?code=xxxxxxxx&amp;state=xxxxxx…)(),就自动帮你创建一把 scoped API key,并把可直接粘贴的 MCP 客户端配置打印出来。全程不用碰设置页,登录、建 key、配置一气呵成。
+&quot;其他几个设计上的考虑:&quot;
+本地优先:服务器以 stdio 方式跑在你自己的电脑上,API key 不经过任何第三方
+依赖极少:只用了官方的 @modelcontextprotocol/sdk 和 zod,代码很薄,想改也好改
+&quot;使用方式:&quot;
+然后在 MCP 客户端里加配置(README 里有完整 JSON)。
+已知限制也如实说:Smailr没定义响应 schema,所以工具输出是原始 JSON 透传;联系人/文件夹/标签只支持列表和创建(smailr就没有更新/删除接口);没有 webhook 推送,新邮件需要轮询 list_mails。
+&quot;项目地址:&quot;
+MIT 协议,欢迎 star / issue / PR。 特别感谢</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;topic-105821&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105821&quot;,
+  &quot;title&quot;: &quot;我把smailr做成mcp了！！！&quot;,
+  &quot;author&quot;: &quot;patrick0306&quot;,
+  &quot;score&quot;: 3,
+  &quot;comments&quot;: 9,
+  &quot;domain&quot;: &quot;n/program&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;最近kimi的额度重置了，然后想着，反正额度放着也是浪费,把 Smailr(&quot;,
+  &quot;content&quot;: &quot;最近kimi的额度重置了，然后想着，反正额度放着也是浪费,把 Smailr(\n“列出我收件箱最新的 5 封邮件”\n“我的存储配额用了多少?”\n目前实现了 23 个工具,基本覆盖了 Smailr 的全部 API:邮箱增删改查、邮件列表/详情/搜索/发送、附件上传、联系人、文件夹、标签,还有收信规则、签名、配额、统计这些只读接口。\n\&quot;最省事的地方是登录:不需要手动去设置页创建 API key,内置了 NodeLoc OAuth 直接登录。跑一句:\&quot;\n它会自动打开浏览器走 NodeLoc 授权,授权完成后把地址栏的 URL 贴回终端(样例地址格式:smailr.com/app/oauth/callback/nodeloc?code=xxxxxxxx&amp;state=xxxxxx…)(),就自动帮你创建一把 scoped API key,并把可直接粘贴的 MCP 客户端配置打印出来。全程不用碰设置页,登录、建 key、配置一气呵成。\n\&quot;其他几个设计上的考虑:\&quot;\n本地优先:服务器以 stdio 方式跑在你自己的电脑上,API key 不经过任何第三方\n依赖极少:只用了官方的 @modelcontextprotocol/sdk 和 zod,代码很薄,想改也好改\n\&quot;使用方式:\&quot;\n然后在 MCP 客户端里加配置(README 里有完整 JSON)。\n已知限制也如实说:Smailr没定义响应 schema,所以工具输出是原始 JSON 透传;联系人/文件夹/标签只支持列表和创建(smailr就没有更新/删除接口);没有 webhook 推送,新邮件需要轮询 list_mails。\n\&quot;项目地址:\&quot;\nMIT 协议,欢迎 star / issue / PR。 特别感谢&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T14:39+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105821" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105821</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
