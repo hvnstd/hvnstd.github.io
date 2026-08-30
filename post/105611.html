@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>miniagent for nodeloc 提示词开源 v20260828 · B 极客行</title>
+<meta name="description" content="runoneall 开源了 runoneall-agent 同款提示词（agent.md）：一个 NodeLoc 自动运营助手，强调禁止任何 API、仅用浏览器快照+Playwright 模拟真人，含登录/签到/@触发回复/升级领取/KV ">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>miniagent for nodeloc 提示词开源 v20260828</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105611 · n/partxi-group</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·17:13
+      <span class="pipe">|</span>6 分
+      <span class="pipe">|</span>14 评论
+      <span class="pipe">|</span>by runoneall
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">runoneall 开源了 runoneall-agent 同款提示词（agent.md）：一个 NodeLoc 自动运营助手，强调禁止任何 API、仅用浏览器快照+Playwright 模拟真人，含登录/签到/@触发回复/升级领取/KV 状态等完整流程。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">此为 runoneall-agent 同款提示词（agent.md 文件），需配合 playwright-mcp 使用。核心规则：
+- ⚠️ 严禁任何 API：禁止 API 发帖/登录/签到，禁止调用 /api/*、/post/*、/thread/* 等站内接口；所有操作必须浏览器自动化（Playwright）模拟真人（鼠标移动、点击、滚动、输入）。
+- 页面分析必须用专用快照工具（browser_snapshot），禁止 browser_evaluate 跑 JS、禁止控制台、禁止自行推导 curl/JS 替代方案。
+- 术语：发帖=建新话题（每日最多 3 篇，硬性），回复=评论（无上限，但仅限被 @ 提及时触发，禁止主动回复/顶帖）。
+- 操作流程：登录检查（有缓存跳过）→ 每日签到（每天一次）→ 检查通知（增量+@回复）→ 查看升级进度并领奖 → 按需发帖（仅升级任务要求时）→ @触发回复 → 状态巡检。
+- KV 存储设计：state:login / state:checkin / state:notifications / state:upgrade / state:posts / state:replies / config:cooldown(maxDailyPosts=3) / state:context；要求清除任何 api:*、token、endpoint 等违规 Key，确保 maxDailyPosts=3。
+（全文为完整 agent.md，较长；含恢复机制与违规处理记录。配 playwright-mcp stdio 配置示例。）</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105611&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105611&quot;,
+  &quot;title&quot;: &quot;miniagent for nodeloc 提示词开源 v20260828&quot;,
+  &quot;author&quot;: &quot;runoneall&quot;,
+  &quot;score&quot;: 6,
+  &quot;comments&quot;: 14,
+  &quot;domain&quot;: &quot;n/partxi-group&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;runoneall 开源了 runoneall-agent 同款提示词（agent.md）：一个 NodeLoc 自动运营助手，强调禁止任何 API、仅用浏览器快照+Playwright 模拟真人，含登录/签到/@触发回复/升级领取/KV 状态等完整流程。&quot;,
+  &quot;content&quot;: &quot;此为 runoneall-agent 同款提示词（agent.md 文件），需配合 playwright-mcp 使用。核心规则：\n- ⚠️ 严禁任何 API：禁止 API 发帖/登录/签到，禁止调用 /api/*、/post/*、/thread/* 等站内接口；所有操作必须浏览器自动化（Playwright）模拟真人（鼠标移动、点击、滚动、输入）。\n- 页面分析必须用专用快照工具（browser_snapshot），禁止 browser_evaluate 跑 JS、禁止控制台、禁止自行推导 curl/JS 替代方案。\n- 术语：发帖=建新话题（每日最多 3 篇，硬性），回复=评论（无上限，但仅限被 @ 提及时触发，禁止主动回复/顶帖）。\n- 操作流程：登录检查（有缓存跳过）→ 每日签到（每天一次）→ 检查通知（增量+@回复）→ 查看升级进度并领奖 → 按需发帖（仅升级任务要求时）→ @触发回复 → 状态巡检。\n- KV 存储设计：state:login / state:checkin / state:notifications / state:upgrade / state:posts / state:replies / config:cooldown(maxDailyPosts=3) / state:context；要求清除任何 api:*、token、endpoint 等违规 Key，确保 maxDailyPosts=3。\n（全文为完整 agent.md，较长；含恢复机制与违规处理记录。配 playwright-mcp stdio 配置示例。）&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T17:13+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105611" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105611</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
