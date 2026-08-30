@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>我可能是全NL第一个把loc.cc的子域名塞进Cloudflare的laughing · B 极客行</title>
+<meta name="description" content="rt，请看图：">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>我可能是全NL第一个把loc.cc的子域名塞进Cloudflare的laughing</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105164 · n/domains</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·19:44
+      <span class="pipe">|</span>36 分
+      <span class="pipe">|</span>92 评论
+      <span class="pipe">|</span>by 贺煦修
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">rt，请看图：</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">rt，请看图：
+然后就发现被Cloudflare拦了（悲，我还以为loc.cc过PSL认证了
+：
+（例如 project.loc.cc）
+Cloudflare 添加域名时，后台会有一套规则来检查你输入的是不是一个“根域名”：
+它提取到后缀是 .loc.cc。
+检查前缀：project + . + loc.cc。
+系统判定：这是一个二级子域名（Subdomain），而免费版 Cloudflare 规定只能添加根域名，所以抛出红字拒绝
+（例如 xn–zug.loc.cc）
+当你输入 xn–zug.loc.cc 提交时，发生了非常奇妙的 bug：
+前端 / 转换阶段：零宽字符 \u200b 在编码转换（Punycode）后变成了 xn–zug。
+后端正则校验阶段：Cloudflare 在判断“这是不是子域名”时，其内部匹配域名层级的正则表达式，在遇到这种带 Punycode 特殊前缀（或不可见字符转换）的域名时，未能正确切割并识别出 .loc.cc 前面还有一个独立的子域节点！
+系统误判：它
+（顶级注册域），于是直接一路绿灯放行，顺利生成了 Zone 记录！
+所以说，如果有佬想嫖到cf的话，可以试试注册一个零宽字符的哦！
+————————————————————
+大概就是从这里找一个零宽字符（必须是零宽，随便找，可以组合，不一定非得是单字符）：
+然后再通过这个转换成Punycode（xn-- 前缀）形式的
+然后去Cloudflare添加就行！
+理论上是无限的 不过我使用的是\u200b 建议优先尝试\u200家族 比如说 \u200b（ZWSP）、\u200c（ZWNJ）和 \u200d（ZWJ） 还有不知道可不可行的其他字符（似乎所有xn–头的都行，后面自定义即可，不过还是建议先去Cloudflare试试水，可行了再来loc.cc注册吧）
+如果可行的话，那么只要是特殊字符都行，包括但不限于除了英文以外的所有语言（包括汉字），emjoy</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105164&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105164&quot;,
+  &quot;title&quot;: &quot;我可能是全NL第一个把loc.cc的子域名塞进Cloudflare的laughing&quot;,
+  &quot;author&quot;: &quot;贺煦修&quot;,
+  &quot;score&quot;: 36,
+  &quot;comments&quot;: 92,
+  &quot;domain&quot;: &quot;n/domains&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;rt，请看图：&quot;,
+  &quot;content&quot;: &quot;rt，请看图：\n然后就发现被Cloudflare拦了（悲，我还以为loc.cc过PSL认证了\n：\n（例如 project.loc.cc）\nCloudflare 添加域名时，后台会有一套规则来检查你输入的是不是一个“根域名”：\n它提取到后缀是 .loc.cc。\n检查前缀：project + . + loc.cc。\n系统判定：这是一个二级子域名（Subdomain），而免费版 Cloudflare 规定只能添加根域名，所以抛出红字拒绝\n（例如 xn–zug.loc.cc）\n当你输入 xn–zug.loc.cc 提交时，发生了非常奇妙的 bug：\n前端 / 转换阶段：零宽字符 \\u200b 在编码转换（Punycode）后变成了 xn–zug。\n后端正则校验阶段：Cloudflare 在判断“这是不是子域名”时，其内部匹配域名层级的正则表达式，在遇到这种带 Punycode 特殊前缀（或不可见字符转换）的域名时，未能正确切割并识别出 .loc.cc 前面还有一个独立的子域节点！\n系统误判：它\n（顶级注册域），于是直接一路绿灯放行，顺利生成了 Zone 记录！\n所以说，如果有佬想嫖到cf的话，可以试试注册一个零宽字符的哦！\n————————————————————\n大概就是从这里找一个零宽字符（必须是零宽，随便找，可以组合，不一定非得是单字符）：\n然后再通过这个转换成Punycode（xn-- 前缀）形式的\n然后去Cloudflare添加就行！\n理论上是无限的 不过我使用的是\\u200b 建议优先尝试\\u200家族 比如说 \\u200b（ZWSP）、\\u200c（ZWNJ）和 \\u200d（ZWJ） 还有不知道可不可行的其他字符（似乎所有xn–头的都行，后面自定义即可，不过还是建议先去Cloudflare试试水，可行了再来loc.cc注册吧）\n如果可行的话，那么只要是特殊字符都行，包括但不限于除了英文以外的所有语言（包括汉字），emjoy&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T19:44+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105164" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105164</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
