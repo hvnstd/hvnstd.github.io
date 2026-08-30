@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek Harness 插件装之前，我现在会先检查这几件事 · B 极客行</title>
+<meta name="description" content="最近折腾 DeepSeek Harness 插件比较多，慢慢发现一个问题：「GitHub 上有这个插件」和「这个插件现在能正常装、适合装」完全是两回事。装陌生插件前现在都会先看一遍几个东西。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>DeepSeek Harness 插件装之前，我现在会先检查这几件事</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105869 · n/ai</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·22:34
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>2 评论
+      <span class="pipe">|</span>by susu su
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">最近折腾 DeepSeek Harness 插件比较多，慢慢发现一个问题：「GitHub 上有这个插件」和「这个插件现在能正常装、适合装」完全是两回事。装陌生插件前现在都会先看一遍几个东西。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">楼主 susu su 分享装 DeepSeek Harness（DSH）插件前的自查清单：①确认安装方式（npm 包/GitHub 仓库是否还在、近期是否更新、是否需要 build、有无 install script）；②能安装成功比 Star 数更重要（DSH 生态新，常遇包不存在、依赖对不上、build 出错、新版不兼容）；③看是否碰 terminal，风险分级：只读 API &lt; 写入外部服务 &lt; 文件系统 &lt; Terminal/Shell；④Credentials（API_KEY/TOKEN/COOKIE/ACCOUNT 存哪、是否仅本地、发到哪个域名、日志会不会输出、有无 telemetry，可搜 process.env / fetch / axios / telemetry / analytics）；⑤「没发现风险」不等于「安全」；⑥最后才看功能值不值得装。共 2 回复、52 浏览、1 赞。属干货帖。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105869&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105869&quot;,
+  &quot;title&quot;: &quot;DeepSeek Harness 插件装之前，我现在会先检查这几件事&quot;,
+  &quot;author&quot;: &quot;susu su&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 2,
+  &quot;domain&quot;: &quot;n/ai&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;最近折腾 DeepSeek Harness 插件比较多，慢慢发现一个问题：「GitHub 上有这个插件」和「这个插件现在能正常装、适合装」完全是两回事。装陌生插件前现在都会先看一遍几个东西。&quot;,
+  &quot;content&quot;: &quot;楼主 susu su 分享装 DeepSeek Harness（DSH）插件前的自查清单：①确认安装方式（npm 包/GitHub 仓库是否还在、近期是否更新、是否需要 build、有无 install script）；②能安装成功比 Star 数更重要（DSH 生态新，常遇包不存在、依赖对不上、build 出错、新版不兼容）；③看是否碰 terminal，风险分级：只读 API &lt; 写入外部服务 &lt; 文件系统 &lt; Terminal/Shell；④Credentials（API_KEY/TOKEN/COOKIE/ACCOUNT 存哪、是否仅本地、发到哪个域名、日志会不会输出、有无 telemetry，可搜 process.env / fetch / axios / telemetry / analytics）；⑤「没发现风险」不等于「安全」；⑥最后才看功能值不值得装。共 2 回复、52 浏览、1 赞。属干货帖。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T22:34+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105869" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105869</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
