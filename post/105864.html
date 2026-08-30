@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>M365-Copilot2API v0.6.5 正式发布 · B 极客行</title>
-<meta name="description" content="本次正式发布的 v0.6.5 主要包含：账号调度与故障切换（API Key 绑定出口账号、故障切换不越权）、限流与额度状态优化、Responses 与工具调用兼容、网络与稳定性、WebUI 修复中文乱码等。">
+<meta name="description" content="M365-Copilot2API v0.6.5 发布：新增 API Key 多账号绑定与故障切换、限流/额度快照展示、Responses 与工具调用兼容增强、WebSocket/重试稳定性改进、WebUI 中文乱码修复；暂时下线 M365 ">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
     </span>
   </div>
 </header>
@@ -31,32 +31,34 @@
   <div class="single-head">
     <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
     <h1>M365-Copilot2API v0.6.5 正式发布</h1>
-    <div class="domain">https://www.nodeloc.com/t/topic/105864 · nodeloc.com</div>
+    <div class="domain">https://www.nodeloc.com/t/topic/105864 · n/m365-copilot</div>
     <div class="sub">
-      <span class="band-dot band-noon"></span>午间·16:31
+      <span class="band-dot band-evening"></span>晚间·18:03
       <span class="pipe">|</span>12 分
       <span class="pipe">|</span>31 评论
-      <span class="pipe">|</span>by user80
+      <span class="pipe">|</span>by 贺煦修
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">本次正式发布的 v0.6.5 主要包含：账号调度与故障切换（API Key 绑定出口账号、故障切换不越权）、限流与额度状态优化、Responses 与工具调用兼容、网络与稳定性、WebUI 修复中文乱码等。</p>
+    <p class="lede">M365-Copilot2API v0.6.5 发布：新增 API Key 多账号绑定与故障切换、限流/额度快照展示、Responses 与工具调用兼容增强、WebSocket/重试稳定性改进、WebUI 中文乱码修复；暂时下线 M365 批量建用户入口。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">（未抓取正文）</pre>
+    <pre class="event-json">楼主 贺煦修（user80）发布 M365-Copilot2API v0.6.5 正式版，主要更新：①账号调度与故障切换——API Key 可绑定一个或多个出口账号，绑定账号限流/认证失败时在其他绑定账号间切换，修复越权使用未绑定账号的问题；②限流与额度状态——优化冷却/恢复检测，WebUI 明确标识“上游额度快照”，冷却提示改为“X 分钟后再次检测”；③Responses 与工具调用兼容——改进参数处理、完善 call_id/流式事件/错误映射，新增 /responses 对 /v1/responses 的兼容入口；④网络与稳定性——改进 WebSocket 关闭与慢消费者处理，网络错误不再自动重放非幂等 POST，本地过载返回明确 503；⑤WebUI 修复中文乱码、增加多账号绑定管理；⑥暂时禁用 M365 批量创建用户前端入口（代码保留，后续可恢复）。发布地址为 GitHub release v0.6.5。目前 12 赞、31 回复、162 浏览。</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105864&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105864&quot;,
   &quot;title&quot;: &quot;M365-Copilot2API v0.6.5 正式发布&quot;,
-  &quot;author&quot;: &quot;user80&quot;,
+  &quot;author&quot;: &quot;贺煦修&quot;,
   &quot;score&quot;: 12,
   &quot;comments&quot;: 31,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
   &quot;tags&quot;: [
     &quot;m365-copilot&quot;
   ],
-  &quot;excerpt&quot;: &quot;本次正式发布的 v0.6.5 主要包含：账号调度与故障切换（API Key 绑定出口账号、故障切换不越权）、限流与额度状态优化、Responses 与工具调用兼容、网络与稳定性、WebUI 修复中文乱码等。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T16:31Z&quot;,
-  &quot;band&quot;: &quot;noon&quot;
+  &quot;excerpt&quot;: &quot;M365-Copilot2API v0.6.5 发布：新增 API Key 多账号绑定与故障切换、限流/额度快照展示、Responses 与工具调用兼容增强、WebSocket/重试稳定性改进、WebUI 中文乱码修复；暂时下线 M365 批量建用户入口。&quot;,
+  &quot;content&quot;: &quot;楼主 贺煦修（user80）发布 M365-Copilot2API v0.6.5 正式版，主要更新：①账号调度与故障切换——API Key 可绑定一个或多个出口账号，绑定账号限流/认证失败时在其他绑定账号间切换，修复越权使用未绑定账号的问题；②限流与额度状态——优化冷却/恢复检测，WebUI 明确标识“上游额度快照”，冷却提示改为“X 分钟后再次检测”；③Responses 与工具调用兼容——改进参数处理、完善 call_id/流式事件/错误映射，新增 /responses 对 /v1/responses 的兼容入口；④网络与稳定性——改进 WebSocket 关闭与慢消费者处理，网络错误不再自动重放非幂等 POST，本地过载返回明确 503；⑤WebUI 修复中文乱码、增加多账号绑定管理；⑥暂时禁用 M365 批量创建用户前端入口（代码保留，后续可恢复）。发布地址为 GitHub release v0.6.5。目前 12 赞、31 回复、162 浏览。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T18:03Z&quot;,
+  &quot;band&quot;: &quot;evening&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105864" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105864</a></p>
