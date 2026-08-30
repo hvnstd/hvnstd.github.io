@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>论坛广告被挂马跳转到博彩网站 · B 极客行</title>
-<meta name="description" content="这啥情况，我点击这家的广告 cstonecloud 跳转到了一个高仿AWS控制台域名的博彩网站，再次访问又恢复正常了">
+<meta name="description" content="Mike-Leone 反馈点击论坛 cstonecloud 广告跳转到高仿 AWS 控制台域名的博彩网站（再次访问又正常，不像 DNS 劫持）；cstonecloud 随后回应“安全事件已修复”：系 nginx Lua 模块注入 + 宝塔 ">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
     </span>
   </div>
 </header>
@@ -33,32 +33,31 @@
     <h1>论坛广告被挂马跳转到博彩网站</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/105795 · n/suggestion</div>
     <div class="sub">
-      <span class="band-dot band-morning"></span>早间·10:35
-      <span class="pipe">|</span>0 分
-      <span class="pipe">|</span>8 评论
+      <span class="band-dot band-evening"></span>晚间·18:02
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>15 评论
       <span class="pipe">|</span>by Mike-Leone
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">这啥情况，我点击这家的广告 cstonecloud 跳转到了一个高仿AWS控制台域名的博彩网站，再次访问又恢复正常了</p>
+    <p class="lede">Mike-Leone 反馈点击论坛 cstonecloud 广告跳转到高仿 AWS 控制台域名的博彩网站（再次访问又正常，不像 DNS 劫持）；cstonecloud 随后回应“安全事件已修复”：系 nginx Lua 模块注入 + 宝塔 WAF 插件被篡改，针对移动端 UA 302 跳转到轮换恶意域名（如 sdflkj4978lj4yh.cyou、vio48sdlvnep7u.xyz），已清理并验证各端恢复正常。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">@James 这啥情况，我点击这家的广告 cstonecloud 跳转到了一个高仿AWS控制台域名的博彩网站，再次访问又恢复正常了，这么看不像是DNS劫持，具体跳转的博彩网站域名不公开了。
-
-评论区（8 条）：James 先判断为本地运营商 DNS 劫持，建议无痕浏览器+手动指定 DNS 复现；Mike Leone（OP）坚持自己用的 DOH 加密 DNS 仍会跳转、不像 DNS 劫持；James 后续推断「也可能是网站被入侵，首次访问跳菠菜（类似早年 BT 破解版后门）」；jjfn1980 也认为「网站被黑的可能性大一些」。</pre>
+    <pre class="event-json">Mike-Leone @James：点击 cstonecloud 广告跳转到一个高仿 AWS 控制台域名的博彩网站，再次访问又恢复正常，不像 DNS 劫持（本地用 DOH，域名很像 AWS）。James 初判为本地运营商 DNS 劫持，建议无痕/换 DNS 复测；后改口“也可能是网站被入侵，第一次访问跳菠菜，之前 bt 破解版后门就这么干”。jjfn1980“网站被黑可能性大一些”。
+cstonecloud（认证商家）回应“安全事件已修复（宝塔AI立大功）”：攻击类型 nginx Lua 模块注入 + 宝塔 WAF 插件篡改；攻击链——在 /www/server/nginx/conf/proxy.conf 注入 access_by_lua_file，创建恶意 /www/server/nginx/html/waf.lua，篡改 /www/server/btwaf/waf.lua；仅针对移动端 UA 返回 302 跳转到轮换恶意域名、设 cookie k=260830 防重复跳转、用字符串反转逃避检测。修复：删除恶意加载指令/脚本、清理被篡改 WAF、移除文件不可变属性、重载 nginx；备份 proxy.conf/html/btwaf；验证 iPhone/Android/桌面 UA 均 HTTP 200 正常、恶意 cookie 不再出现。</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105795&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105795&quot;,
   &quot;title&quot;: &quot;论坛广告被挂马跳转到博彩网站&quot;,
   &quot;author&quot;: &quot;Mike-Leone&quot;,
-  &quot;score&quot;: 0,
-  &quot;comments&quot;: 8,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 15,
   &quot;domain&quot;: &quot;n/suggestion&quot;,
   &quot;tags&quot;: [],
-  &quot;excerpt&quot;: &quot;这啥情况，我点击这家的广告 cstonecloud 跳转到了一个高仿AWS控制台域名的博彩网站，再次访问又恢复正常了&quot;,
-  &quot;content&quot;: &quot;@James 这啥情况，我点击这家的广告 cstonecloud 跳转到了一个高仿AWS控制台域名的博彩网站，再次访问又恢复正常了，这么看不像是DNS劫持，具体跳转的博彩网站域名不公开了。\n\n评论区（8 条）：James 先判断为本地运营商 DNS 劫持，建议无痕浏览器+手动指定 DNS 复现；Mike Leone（OP）坚持自己用的 DOH 加密 DNS 仍会跳转、不像 DNS 劫持；James 后续推断「也可能是网站被入侵，首次访问跳菠菜（类似早年 BT 破解版后门）」；jjfn1980 也认为「网站被黑的可能性大一些」。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T10:35+08:00&quot;,
-  &quot;band&quot;: &quot;morning&quot;
+  &quot;excerpt&quot;: &quot;Mike-Leone 反馈点击论坛 cstonecloud 广告跳转到高仿 AWS 控制台域名的博彩网站（再次访问又正常，不像 DNS 劫持）；cstonecloud 随后回应“安全事件已修复”：系 nginx Lua 模块注入 + 宝塔 WAF 插件被篡改，针对移动端 UA 302 跳转到轮换恶意域名（如 sdflkj4978lj4yh.cyou、vio48sdlvnep7u.xyz），已清理并验证各端恢复正常。&quot;,
+  &quot;content&quot;: &quot;Mike-Leone @James：点击 cstonecloud 广告跳转到一个高仿 AWS 控制台域名的博彩网站，再次访问又恢复正常，不像 DNS 劫持（本地用 DOH，域名很像 AWS）。James 初判为本地运营商 DNS 劫持，建议无痕/换 DNS 复测；后改口“也可能是网站被入侵，第一次访问跳菠菜，之前 bt 破解版后门就这么干”。jjfn1980“网站被黑可能性大一些”。\ncstonecloud（认证商家）回应“安全事件已修复（宝塔AI立大功）”：攻击类型 nginx Lua 模块注入 + 宝塔 WAF 插件篡改；攻击链——在 /www/server/nginx/conf/proxy.conf 注入 access_by_lua_file，创建恶意 /www/server/nginx/html/waf.lua，篡改 /www/server/btwaf/waf.lua；仅针对移动端 UA 返回 302 跳转到轮换恶意域名、设 cookie k=260830 防重复跳转、用字符串反转逃避检测。修复：删除恶意加载指令/脚本、清理被篡改 WAF、移除文件不可变属性、重载 nginx；备份 proxy.conf/html/btwaf；验证 iPhone/Android/桌面 UA 均 HTTP 200 正常、恶意 cookie 不再出现。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T18:02+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105795" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105795</a></p>
