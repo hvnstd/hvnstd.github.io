@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【解密大赛】第一位赏200NL · B 极客行</title>
+<meta name="description" content="两颗洋葱，层层剥开。所有钥匙都藏在 NodeLoc 准则页里——读一遍准则，你需要的每一个字都在上面。解出终点的朋友，欢迎回帖贴出 flag，但请把过程折叠起来，别剧透（新增：我们不喜欢标点符号）。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【解密大赛】第一位赏200NL</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105842 · n/ctf</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·21:39
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>52 评论
+      <span class="pipe">|</span>by lezi-fun
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">两颗洋葱，层层剥开。所有钥匙都藏在 NodeLoc 准则页里——读一遍准则，你需要的每一个字都在上面。解出终点的朋友，欢迎回帖贴出 flag，但请把过程折叠起来，别剧透（新增：我们不喜欢标点符号）。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">【解密大赛】第一位赏 200NL。
+
+主菜「终极怪题」：一段极长的十六进制密文（约 4KB），附一段 PEM 格式 PRIVATE KEY（疑似干扰项）与字节串 0x4E 0x6F 0x64 0x65 0x4C 0x6F 0x63 0x21（ASCII: NodeLoc!）。线索 A-E：一分为三只有一份有肉；钥匙藏在人人看得到却少有人注意的准则页并揉成哈希；随机流同一种子跨语言长出同一串字节；途中经过多种编码最后是机器语言、开头几字节核对身份；半路会有人劝你找管理员（非终点）。
+
+甜点「第二颗洋葱（附加题）」：另一段十六进制密文，字节串 0x47 0x75 0x69 0x64 0x65 0x6C 0x69 0x6E 0x65 0x73（ASCII: Guidelines）。线索 A-E 条条为真：钥匙是一句写给社区的祝愿、写在人人读得到处；种子被斜着写进正文；开头有哨兵、路上要打包、每七步转三格。
+
+规则：全程离线可解；回帖用 [details] 折叠隐藏过程与答案；投票（4 人）结果为「公开」。另有一篇 user80 的 Python 破译解析（topic/105843）。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;topic-105842&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105842&quot;,
+  &quot;title&quot;: &quot;【解密大赛】第一位赏200NL&quot;,
+  &quot;author&quot;: &quot;lezi-fun&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 52,
+  &quot;domain&quot;: &quot;n/ctf&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;两颗洋葱，层层剥开。所有钥匙都藏在 NodeLoc 准则页里——读一遍准则，你需要的每一个字都在上面。解出终点的朋友，欢迎回帖贴出 flag，但请把过程折叠起来，别剧透（新增：我们不喜欢标点符号）。&quot;,
+  &quot;content&quot;: &quot;【解密大赛】第一位赏 200NL。\n\n主菜「终极怪题」：一段极长的十六进制密文（约 4KB），附一段 PEM 格式 PRIVATE KEY（疑似干扰项）与字节串 0x4E 0x6F 0x64 0x65 0x4C 0x6F 0x63 0x21（ASCII: NodeLoc!）。线索 A-E：一分为三只有一份有肉；钥匙藏在人人看得到却少有人注意的准则页并揉成哈希；随机流同一种子跨语言长出同一串字节；途中经过多种编码最后是机器语言、开头几字节核对身份；半路会有人劝你找管理员（非终点）。\n\n甜点「第二颗洋葱（附加题）」：另一段十六进制密文，字节串 0x47 0x75 0x69 0x64 0x65 0x6C 0x69 0x6E 0x65 0x73（ASCII: Guidelines）。线索 A-E 条条为真：钥匙是一句写给社区的祝愿、写在人人读得到处；种子被斜着写进正文；开头有哨兵、路上要打包、每七步转三格。\n\n规则：全程离线可解；回帖用 [details] 折叠隐藏过程与答案；投票（4 人）结果为「公开」。另有一篇 user80 的 Python 破译解析（topic/105843）。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T21:39+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105842" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105842</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

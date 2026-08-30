@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek Harness 插件装之前，我现在会先检查这几件事 · B 极客行</title>
+<meta name="description" content="最近折腾 DeepSeek Harness 插件比较多，慢慢发现一个问题：GitHub 上有这个插件和这个插件现在能正常装、适合装完全是两回事。装陌生插件前先看：安装方式/有无 install script、当前版本能否安装成功、是否碰 t">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>DeepSeek Harness 插件装之前，我现在会先检查这几件事</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105869 · n/ai</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·21:41
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>0 评论
+      <span class="pipe">|</span>by susu_su
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">最近折腾 DeepSeek Harness 插件比较多，慢慢发现一个问题：GitHub 上有这个插件和这个插件现在能正常装、适合装完全是两回事。装陌生插件前先看：安装方式/有无 install script、当前版本能否安装成功、是否碰 terminal、credentials 流向，以及&quot;没发现风险&quot;不等于&quot;安全&quot;。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">最近折腾 DeepSeek Harness（DSH）插件比较多，发现&quot;GitHub 上有这个插件&quot;和&quot;这个插件现在能正常装、适合装&quot;完全是两回事。装陌生插件前现在会先检查：
+
+1. 先确认安装方式：看 README 是 npm package 还是 GitHub repository；额外确认 npm 包是否真存在、package name 是否写错、repo 是否还在、最近有没有更新、是否需要额外 build、有没有 postinstall/install script（install script 会在安装过程额外执行代码，至少要知道它在干什么）。
+2. 能安装成功比 Star 数更重要：DSH 生态还新，有些插件 README 没问题但 package 已不存在 / dependency 版本对不上 / build script 出错 / manifest 格式已变 / 新版本 DSH 不兼容。最好放临时环境完整跑一次：下载安装 → dependency resolve → build → plugin load，能跑通再进正式环境。
+3. 看它有没有碰 terminal：只调 API/读公开数据 与 可操作 terminal/filesystem 风险完全不是一个级别；Agent 场景下模型决定何时调用工具，权限边界宽则影响范围大。粗略分级：只读 API &lt; 写入外部服务 &lt; 文件系统 &lt; Terminal/Shell，越往后越值得看源码。
+4. Credentials 容易忽略：确认 credential 存在哪里、是否只在本地读取、会发到哪个域名、日志会不会输出、有没有额外 telemetry；源码不长时直接搜 process.env / fetch( / axios / telemetry / analytics 几分钟可知数据流向。
+5. &quot;没发现风险&quot;不等于&quot;安全&quot;：自动只能判断有无 install script/terminal/credentials/异常依赖，没发现这些只能说明没发现，不能推出经过安全审计；Agent Plugin 权限大，最终还是要看源码和实际用途。
+6. 最后才看功能值不值得装：顺序反转为 功能需要吗 → 项目维护吗 → 能正常安装吗 → 需要什么权限 → 有无 install script/terminal/credential → 再决定装。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;topic-105869&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105869&quot;,
+  &quot;title&quot;: &quot;DeepSeek Harness 插件装之前，我现在会先检查这几件事&quot;,
+  &quot;author&quot;: &quot;susu_su&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 0,
+  &quot;domain&quot;: &quot;n/ai&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;最近折腾 DeepSeek Harness 插件比较多，慢慢发现一个问题：GitHub 上有这个插件和这个插件现在能正常装、适合装完全是两回事。装陌生插件前先看：安装方式/有无 install script、当前版本能否安装成功、是否碰 terminal、credentials 流向，以及\&quot;没发现风险\&quot;不等于\&quot;安全\&quot;。&quot;,
+  &quot;content&quot;: &quot;最近折腾 DeepSeek Harness（DSH）插件比较多，发现\&quot;GitHub 上有这个插件\&quot;和\&quot;这个插件现在能正常装、适合装\&quot;完全是两回事。装陌生插件前现在会先检查：\n\n1. 先确认安装方式：看 README 是 npm package 还是 GitHub repository；额外确认 npm 包是否真存在、package name 是否写错、repo 是否还在、最近有没有更新、是否需要额外 build、有没有 postinstall/install script（install script 会在安装过程额外执行代码，至少要知道它在干什么）。\n2. 能安装成功比 Star 数更重要：DSH 生态还新，有些插件 README 没问题但 package 已不存在 / dependency 版本对不上 / build script 出错 / manifest 格式已变 / 新版本 DSH 不兼容。最好放临时环境完整跑一次：下载安装 → dependency resolve → build → plugin load，能跑通再进正式环境。\n3. 看它有没有碰 terminal：只调 API/读公开数据 与 可操作 terminal/filesystem 风险完全不是一个级别；Agent 场景下模型决定何时调用工具，权限边界宽则影响范围大。粗略分级：只读 API &lt; 写入外部服务 &lt; 文件系统 &lt; Terminal/Shell，越往后越值得看源码。\n4. Credentials 容易忽略：确认 credential 存在哪里、是否只在本地读取、会发到哪个域名、日志会不会输出、有没有额外 telemetry；源码不长时直接搜 process.env / fetch( / axios / telemetry / analytics 几分钟可知数据流向。\n5. \&quot;没发现风险\&quot;不等于\&quot;安全\&quot;：自动只能判断有无 install script/terminal/credentials/异常依赖，没发现这些只能说明没发现，不能推出经过安全审计；Agent Plugin 权限大，最终还是要看源码和实际用途。\n6. 最后才看功能值不值得装：顺序反转为 功能需要吗 → 项目维护吗 → 能正常安装吗 → 需要什么权限 → 有无 install script/terminal/credential → 再决定装。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T21:41+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105869" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105869</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
