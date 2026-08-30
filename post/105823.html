@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>发现一个来抢救B站（Mikufans）早期数据（在新浪云）的项目（9月26号后将彻底消失），大家可以帮忙用闲置的VPS/NAS或者你的电脑等提供支援 · B 极客行</title>
-<meta name="description" content="抢救 B 站早期（新浪云）数据：约 420TB，9月16日关停倒计时，用 ArchiveTeam Warrior（docker）分布式归档直传 Internet Archive，无需本地存储">
+<meta name="description" content="早期 B 站本质是外挂弹幕壳，UP 主把视频传新浪视频/优酷等第三方；大量古早 AV 号、未迁移原画、已下架但新浪云仍有底的老内容将随新浪云视频关停（倒计时 2026-9-16 24:00）彻底消失。总量约 420TB、约 14TB/天，按">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
     </span>
   </div>
 </header>
@@ -33,30 +33,44 @@
     <h1>发现一个来抢救B站（Mikufans）早期数据（在新浪云）的项目（9月26号后将彻底消失），大家可以帮忙用闲置的VPS/NAS或者你的电脑等提供支援</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/105823 · n/chit-chat</div>
     <div class="sub">
-      <span class="band-dot band-evening"></span>晚间·19:40
-      <span class="pipe">|</span>3 分
+      <span class="band-dot band-midnight"></span>午夜·23:45
+      <span class="pipe">|</span>0 分
       <span class="pipe">|</span>15 评论
-      <span class="pipe">|</span>by user80
+      <span class="pipe">|</span>by 贺煦修
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">抢救 B 站早期（新浪云）数据：约 420TB，9月16日关停倒计时，用 ArchiveTeam Warrior（docker）分布式归档直传 Internet Archive，无需本地存储</p>
+    <p class="lede">早期 B 站本质是外挂弹幕壳，UP 主把视频传新浪视频/优酷等第三方；大量古早 AV 号、未迁移原画、已下架但新浪云仍有底的老内容将随新浪云视频关停（倒计时 2026-9-16 24:00）彻底消失。总量约 420TB、约 14TB/天，按速度关停前约能救 240TB+。可用 ArchiveTeam Warrior（docker 虚拟机，只占带宽与少量临时盘，直传 Internet Archive）帮忙。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">早期 B 站本质是外挂弹幕外壳，UP 主把视频上传到新浪视频（新浪播客）等第三方，解析 v.iask.com 等流地址播放。后来 B 站自建机房迁移，但仍有大量早期古早 AV 号视频、未迁移的原画高码率源、已下架但在新浪云留底的远古 MAD/二次创作。这些老数据随新浪云视频关停将彻底抹去，是中国早期 ACG 弹幕文化与草根互联网的“原版历史断代”。数据总量约 420TB，关停倒计时 2026-9-16 24:00，目前约 14TB/天，关停前约能救 240TB+，还需更多节点。ArchiveTeam Warrior 是虚拟机形式的分布式归档工具，只占用临时磁盘与带宽，直传 Internet Archive（WARC），无需本地存储 420TB；只要有能跑 docker、能联网的设备即可。具体部署见原文 blog.hw233.cn/archives/169。</pre>
+    <pre class="event-json">早期的 B 站并没有自己的视频存储服务器和 CDN，本质上是一个“外挂弹幕外壳”。当时的 UP 主们全是把视频上传到新浪视频（新浪播客）、优酷、土豆等第三方平台，然后解析出新浪的 v.iask.com 等视频流地址拉到 B 站配上弹幕播放！而新浪视频因为当时画质高、限制少，是早期 UP 主最爱的首选服务器。
+
+虽然后来 B 站自建了机房并进行了视频迁移，但依然有大量的早期古早 AV 号视频、未迁移的原画高码率源文件、已经被 B 站下架但在新浪云存储里还留着底的远古梗图/MAD/二次创作！
+
+这些老数据一旦随新浪云视频关停而彻底抹去，中国早期 ACG 弹幕文化和草根互联网的“原版历史断代”就真的再也找不回来了！
+
+所以抢救这 420TB，实际上就是在抢救二次元与早期互联网的“元数据”！你手里的闲置VPS资源如果投入进来，救下的不仅仅是冷冰冰的数据，更是十几年前无数早期 UP 主和网友留下的绝版青春。
+
+而这完全是一场跟服务器倒计时的赛跑：
+- 数据总量：约 420 TB
+- 关停倒计时：2026年9月16日 24:00
+- 目前速度：约 14 TB / 天
+- 按目前速度，关停前大概能救下 240TB+，还有将近一半的数据需要更多节点加入才能跑赢时间线。
+
+ArchiveTeam Warrior 是一种虚拟的归档工具（docker 虚拟机，不会对计算机造成风险，只占网络带宽与少量临时磁盘，直传 Internet Archive，无需本地存这 420TB）。只要有能跑 docker、能联网的设备即可。具体部署方法见原文：部署 ArchiveTeam Warrior 协助备份新浪云视频！（blog.hw233.cn/archives/169）。</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105823&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105823&quot;,
   &quot;title&quot;: &quot;发现一个来抢救B站（Mikufans）早期数据（在新浪云）的项目（9月26号后将彻底消失），大家可以帮忙用闲置的VPS/NAS或者你的电脑等提供支援&quot;,
-  &quot;author&quot;: &quot;user80&quot;,
-  &quot;score&quot;: 3,
+  &quot;author&quot;: &quot;贺煦修&quot;,
+  &quot;score&quot;: 0,
   &quot;comments&quot;: 15,
   &quot;domain&quot;: &quot;n/chit-chat&quot;,
   &quot;tags&quot;: [],
-  &quot;excerpt&quot;: &quot;抢救 B 站早期（新浪云）数据：约 420TB，9月16日关停倒计时，用 ArchiveTeam Warrior（docker）分布式归档直传 Internet Archive，无需本地存储&quot;,
-  &quot;content&quot;: &quot;早期 B 站本质是外挂弹幕外壳，UP 主把视频上传到新浪视频（新浪播客）等第三方，解析 v.iask.com 等流地址播放。后来 B 站自建机房迁移，但仍有大量早期古早 AV 号视频、未迁移的原画高码率源、已下架但在新浪云留底的远古 MAD/二次创作。这些老数据随新浪云视频关停将彻底抹去，是中国早期 ACG 弹幕文化与草根互联网的“原版历史断代”。数据总量约 420TB，关停倒计时 2026-9-16 24:00，目前约 14TB/天，关停前约能救 240TB+，还需更多节点。ArchiveTeam Warrior 是虚拟机形式的分布式归档工具，只占用临时磁盘与带宽，直传 Internet Archive（WARC），无需本地存储 420TB；只要有能跑 docker、能联网的设备即可。具体部署见原文 blog.hw233.cn/archives/169。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T19:40:00+00:00&quot;,
-  &quot;band&quot;: &quot;evening&quot;
+  &quot;excerpt&quot;: &quot;早期 B 站本质是外挂弹幕壳，UP 主把视频传新浪视频/优酷等第三方；大量古早 AV 号、未迁移原画、已下架但新浪云仍有底的老内容将随新浪云视频关停（倒计时 2026-9-16 24:00）彻底消失。总量约 420TB、约 14TB/天，按速度关停前约能救 240TB+。可用 ArchiveTeam Warrior（docker 虚拟机，只占带宽与少量临时盘，直传 Internet Archive）帮忙。&quot;,
+  &quot;content&quot;: &quot;早期的 B 站并没有自己的视频存储服务器和 CDN，本质上是一个“外挂弹幕外壳”。当时的 UP 主们全是把视频上传到新浪视频（新浪播客）、优酷、土豆等第三方平台，然后解析出新浪的 v.iask.com 等视频流地址拉到 B 站配上弹幕播放！而新浪视频因为当时画质高、限制少，是早期 UP 主最爱的首选服务器。\n\n虽然后来 B 站自建了机房并进行了视频迁移，但依然有大量的早期古早 AV 号视频、未迁移的原画高码率源文件、已经被 B 站下架但在新浪云存储里还留着底的远古梗图/MAD/二次创作！\n\n这些老数据一旦随新浪云视频关停而彻底抹去，中国早期 ACG 弹幕文化和草根互联网的“原版历史断代”就真的再也找不回来了！\n\n所以抢救这 420TB，实际上就是在抢救二次元与早期互联网的“元数据”！你手里的闲置VPS资源如果投入进来，救下的不仅仅是冷冰冰的数据，更是十几年前无数早期 UP 主和网友留下的绝版青春。\n\n而这完全是一场跟服务器倒计时的赛跑：\n- 数据总量：约 420 TB\n- 关停倒计时：2026年9月16日 24:00\n- 目前速度：约 14 TB / 天\n- 按目前速度，关停前大概能救下 240TB+，还有将近一半的数据需要更多节点加入才能跑赢时间线。\n\nArchiveTeam Warrior 是一种虚拟的归档工具（docker 虚拟机，不会对计算机造成风险，只占网络带宽与少量临时磁盘，直传 Internet Archive，无需本地存这 420TB）。只要有能跑 docker、能联网的设备即可。具体部署方法见原文：部署 ArchiveTeam Warrior 协助备份新浪云视频！（blog.hw233.cn/archives/169）。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T23:45+00:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105823" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105823</a></p>

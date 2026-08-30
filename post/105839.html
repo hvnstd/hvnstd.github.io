@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>在vps上运行sub2api的坑 · B 极客行</title>
-<meta name="description" content="我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，之前以为差距最多几秒，结果可达几十秒甚至直接用不了。">
+<meta name="description" content="把中转站接入 VPS 上的 sub2api，响应速度比本地用中转站慢几十秒甚至直接不可用；排查发现是类型选错——从 openai 改成 anthropic 后速度明显变快。楼下讨论集中在 VPS 线路/配置（1核2G 供 20 人没问题）。">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
     </span>
   </div>
 </header>
@@ -31,32 +31,38 @@
   <div class="single-head">
     <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
     <h1>在vps上运行sub2api的坑</h1>
-    <div class="domain">https://www.nodeloc.com/t/topic/105839 · nodeloc.com</div>
+    <div class="domain">https://www.nodeloc.com/t/topic/105839 · n/ai</div>
     <div class="sub">
-      <span class="band-dot band-noon"></span>午间·20:18
+      <span class="band-dot band-midnight"></span>午夜·23:43
       <span class="pipe">|</span>0 分
-      <span class="pipe">|</span>13 评论
-      <span class="pipe">|</span>by Jwz-git
+      <span class="pipe">|</span>15 评论
+      <span class="pipe">|</span>by Jwz
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，之前以为差距最多几秒，结果可达几十秒甚至直接用不了。</p>
+    <p class="lede">把中转站接入 VPS 上的 sub2api，响应速度比本地用中转站慢几十秒甚至直接不可用；排查发现是类型选错——从 openai 改成 anthropic 后速度明显变快。楼下讨论集中在 VPS 线路/配置（1核2G 供 20 人没问题）。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">（未抓取正文）</pre>
+    <pre class="event-json">我才发现 把中转站接入vps上的sub2api 跟 本地用中转站 ，响应速度居然差别那么大，之前我以为响应时间差距的量级最多几秒，结果现在发现差距可以达到几十秒，甚至直接用不了 😮
+
+我发现是我类型选的不对，我把类型从openai改成anthropic之后，速度快了不少 无敌了 😄
+
+（回复摘录：Ametsvar「没这么长吧，我那台没线路优化的也才 4s 左右延迟」；520bingge「你服务器的问题吧，这是我的中转站（截图）」「我这个是 1核2G，20个人都没问题」「你不会你就问AI」；fenghuaxueyue65「大佬请问1核512M能流畅跑2api吗，大概10个人用 1核256M呢」）</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105839&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105839&quot;,
   &quot;title&quot;: &quot;在vps上运行sub2api的坑&quot;,
-  &quot;author&quot;: &quot;Jwz-git&quot;,
+  &quot;author&quot;: &quot;Jwz&quot;,
   &quot;score&quot;: 0,
-  &quot;comments&quot;: 13,
+  &quot;comments&quot;: 15,
+  &quot;domain&quot;: &quot;n/ai&quot;,
   &quot;tags&quot;: [
-    &quot;ai&quot;
+    &quot;AI&quot;
   ],
-  &quot;excerpt&quot;: &quot;我才发现把中转站接入 vps 上的 sub2api 跟本地用中转站，响应速度差别居然那么大，之前以为差距最多几秒，结果可达几十秒甚至直接用不了。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T20:18Z&quot;,
-  &quot;band&quot;: &quot;noon&quot;
+  &quot;excerpt&quot;: &quot;把中转站接入 VPS 上的 sub2api，响应速度比本地用中转站慢几十秒甚至直接不可用；排查发现是类型选错——从 openai 改成 anthropic 后速度明显变快。楼下讨论集中在 VPS 线路/配置（1核2G 供 20 人没问题）。&quot;,
+  &quot;content&quot;: &quot;我才发现 把中转站接入vps上的sub2api 跟 本地用中转站 ，响应速度居然差别那么大，之前我以为响应时间差距的量级最多几秒，结果现在发现差距可以达到几十秒，甚至直接用不了 😮\n\n我发现是我类型选的不对，我把类型从openai改成anthropic之后，速度快了不少 无敌了 😄\n\n（回复摘录：Ametsvar「没这么长吧，我那台没线路优化的也才 4s 左右延迟」；520bingge「你服务器的问题吧，这是我的中转站（截图）」「我这个是 1核2G，20个人都没问题」「你不会你就问AI」；fenghuaxueyue65「大佬请问1核512M能流畅跑2api吗，大概10个人用 1核256M呢」）&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T23:43+00:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105839" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105839</a></p>

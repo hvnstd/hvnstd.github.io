@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NodeLoc APP更新日志（当前v0.3.2） · B 极客行</title>
+<meta name="description" content="仓库地址：">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>NodeLoc APP更新日志（当前v0.3.2）</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105845 · n/nodeloc-app</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·05:41
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>3 评论
+      <span class="pipe">|</span>by 乐子
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">仓库地址：</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">仓库地址：
+这一版围绕实时性与自动化补两笔硬账：
+——启动时自动检查 GitHub Release 最新版本，Material 3 风格更新提示对话框显示版本号和更新内容，一键下载 universal APK 并自动触发安装，支持版本号智能比较（x.y.z 格式），后台下载进度通知，完成后弹出系统安装界面；
+&quot;——完整实现 Discourse MessageBus 长轮询机制，支持 15+ 个频道类型订阅（/latest、/topic/{id}、/categories 等），自动重连机制（指数退避策略），话题详情页动态订阅收到更新时自动刷新。用户体验侧新增&quot;
+，根据
+设置自动添加设备信息，话题详情页显示发帖设备徽章（平台、品牌、型号），圆角背景徽章样式与称号样式保持一致。本版
+，版本号统一管理支持通过
+或环境变量指定。
+：2026-08-30
+：15 commits | +2,800 / -150 lines
+启动时自动检查 GitHub Release 最新版本，Material 3 风格更新提示对话框显示版本号和更新内容。点击&quot;前往下载&quot;后台下载 universal APK 并自动触发安装，支持版本号智能比较（x.y.z 格式）。后台下载进度通知，完成后弹出系统安装界面。新增
+管理 GitHub API 集成与版本比较，
+处理 DownloadManager + BroadcastReceiver，
+提供 Material 3 对话框。添加 FileProvider 支持 Android 7.0+ APK 安装，新增
+权限。（
+&quot;完整实现 Discourse MessageBus 长轮询机制，用于接收服务端实时推送的消息。支持 15+ 个频道类型订阅（/latest、/topic/{id}、/categories、/delete、/recover、/destroy、/global/asset-version、/file-change、/site/banner、/site/read-only、/private-messages 等）。自动重连机制（指数退避策略），话题详情页动态订阅，收到更新时自动刷新。新增&quot;
+实现长轮询客户端，
+提供全局实例管理，
+作为 Compose 组合本地变量。（
+发帖时根据
+设置自动添加设备信息（平台、品牌、型号）。话题详情页显示发帖设备徽章，圆角背景徽章样式与称号样式保持一致。新增
+获取设备信息，
+枚举定义显示级别，
+渲染设备徽章。（
+完整实现 OAuth 第三方登录流程，支持 Google、GitHub、Discord 等平台。新增
+处理授权回调，
+接收第三方登录结果，
+管理登录状态与会话。登录页显示第三方登录按钮，点击后跳转授权页面，授权成功后自动返回应用并完成登录。（
+新增设置页面，支持主题切换、通知设置、账号管理等功能。小程序 WebView 优化加载体验，支持加载进度显示、错误提示、刷新重试。侧边栏小程序列表完善，显示小程序图标、名称、描述。（
+搜索页新增类型选择器，支持按话题、帖子、用户、标签等类型筛选搜索结果。发帖来源 API 集成，支持获取发帖设备信息配置，根据服务端设置决定是否显示设备信息。（
+修正 User-Agent 字符串，完全模拟真实 Android Chrome 浏览器，包含完整的设备型号、Android 版本、Chrome 版本等信息，确保与官网后端兼容。（
+修正签到请求格式，确保 POST 请求参数与官网后端完全一致，解决签到失败问题。同时修复签到后的响应处理，正确显示签到结果提示。（
+修复表情选择器和 Markdown 预览功能，表情选择器按名称前缀正确分组，只显示 NodeLoc 自定义表情过滤系统表情。表情分组显示友好名称，提升用户体验。（
+禁用侧边栏滑动手势避免误触，点击侧边栏用户头像可打开个人资料页面。（
+初始版本设为 v0.0.1，版本号统一管理支持通过
+或环境变量
+指定。
+默认版本号从
+开始，自动移除
+前缀。（
+添加 FileProvider 支持 Android 7.0+ APK 安装，
+配置
+，
+定义外部下载目录路径。新增
+权限。
+实现 APK 下载管理器，使用 DownloadManager 后台下载，BroadcastReceiver 监听下载完成，FileProvider 共享 APK 文件，ACTION_VIEW 触发系统安装。
+访问
+支持
+、
+、
+和
+四种架构，同时提供
+（包含所有架构）。
+：下载后直接安装，首次安装需允许&quot;安装未知应用&quot;权限。
+感谢 NodeLoc 社区的支持，感谢所有测试用户的反馈。NodeLoc App 是一个开源项目，欢迎贡献代码和提出建议。
+NodeLoc App 采用</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105845&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105845&quot;,
+  &quot;title&quot;: &quot;NodeLoc APP更新日志（当前v0.3.2）&quot;,
+  &quot;author&quot;: &quot;乐子&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 3,
+  &quot;domain&quot;: &quot;n/nodeloc-app&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;仓库地址：&quot;,
+  &quot;content&quot;: &quot;仓库地址：\n这一版围绕实时性与自动化补两笔硬账：\n——启动时自动检查 GitHub Release 最新版本，Material 3 风格更新提示对话框显示版本号和更新内容，一键下载 universal APK 并自动触发安装，支持版本号智能比较（x.y.z 格式），后台下载进度通知，完成后弹出系统安装界面；\n\&quot;——完整实现 Discourse MessageBus 长轮询机制，支持 15+ 个频道类型订阅（/latest、/topic/{id}、/categories 等），自动重连机制（指数退避策略），话题详情页动态订阅收到更新时自动刷新。用户体验侧新增\&quot;\n，根据\n设置自动添加设备信息，话题详情页显示发帖设备徽章（平台、品牌、型号），圆角背景徽章样式与称号样式保持一致。本版\n，版本号统一管理支持通过\n或环境变量指定。\n：2026-08-30\n：15 commits | +2,800 / -150 lines\n启动时自动检查 GitHub Release 最新版本，Material 3 风格更新提示对话框显示版本号和更新内容。点击\&quot;前往下载\&quot;后台下载 universal APK 并自动触发安装，支持版本号智能比较（x.y.z 格式）。后台下载进度通知，完成后弹出系统安装界面。新增\n管理 GitHub API 集成与版本比较，\n处理 DownloadManager + BroadcastReceiver，\n提供 Material 3 对话框。添加 FileProvider 支持 Android 7.0+ APK 安装，新增\n权限。（\n\&quot;完整实现 Discourse MessageBus 长轮询机制，用于接收服务端实时推送的消息。支持 15+ 个频道类型订阅（/latest、/topic/{id}、/categories、/delete、/recover、/destroy、/global/asset-version、/file-change、/site/banner、/site/read-only、/private-messages 等）。自动重连机制（指数退避策略），话题详情页动态订阅，收到更新时自动刷新。新增\&quot;\n实现长轮询客户端，\n提供全局实例管理，\n作为 Compose 组合本地变量。（\n发帖时根据\n设置自动添加设备信息（平台、品牌、型号）。话题详情页显示发帖设备徽章，圆角背景徽章样式与称号样式保持一致。新增\n获取设备信息，\n枚举定义显示级别，\n渲染设备徽章。（\n完整实现 OAuth 第三方登录流程，支持 Google、GitHub、Discord 等平台。新增\n处理授权回调，\n接收第三方登录结果，\n管理登录状态与会话。登录页显示第三方登录按钮，点击后跳转授权页面，授权成功后自动返回应用并完成登录。（\n新增设置页面，支持主题切换、通知设置、账号管理等功能。小程序 WebView 优化加载体验，支持加载进度显示、错误提示、刷新重试。侧边栏小程序列表完善，显示小程序图标、名称、描述。（\n搜索页新增类型选择器，支持按话题、帖子、用户、标签等类型筛选搜索结果。发帖来源 API 集成，支持获取发帖设备信息配置，根据服务端设置决定是否显示设备信息。（\n修正 User-Agent 字符串，完全模拟真实 Android Chrome 浏览器，包含完整的设备型号、Android 版本、Chrome 版本等信息，确保与官网后端兼容。（\n修正签到请求格式，确保 POST 请求参数与官网后端完全一致，解决签到失败问题。同时修复签到后的响应处理，正确显示签到结果提示。（\n修复表情选择器和 Markdown 预览功能，表情选择器按名称前缀正确分组，只显示 NodeLoc 自定义表情过滤系统表情。表情分组显示友好名称，提升用户体验。（\n禁用侧边栏滑动手势避免误触，点击侧边栏用户头像可打开个人资料页面。（\n初始版本设为 v0.0.1，版本号统一管理支持通过\n或环境变量\n指定。\n默认版本号从\n开始，自动移除\n前缀。（\n添加 FileProvider 支持 Android 7.0+ APK 安装，\n配置\n，\n定义外部下载目录路径。新增\n权限。\n实现 APK 下载管理器，使用 DownloadManager 后台下载，BroadcastReceiver 监听下载完成，FileProvider 共享 APK 文件，ACTION_VIEW 触发系统安装。\n访问\n支持\n、\n、\n和\n四种架构，同时提供\n（包含所有架构）。\n：下载后直接安装，首次安装需允许\&quot;安装未知应用\&quot;权限。\n感谢 NodeLoc 社区的支持，感谢所有测试用户的反馈。NodeLoc App 是一个开源项目，欢迎贡献代码和提出建议。\nNodeLoc App 采用&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-31T05:41+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105845" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105845</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
