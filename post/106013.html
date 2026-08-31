@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一点小问题：newapi做中转，结果模型不知情就映射了？ · B 极客行</title>
+<meta name="description" content="刚把 New API 迁到新服务器就出差错：用户充值 10 元，用 0.8x 的 Claude（opus5）5 分钟就用完，查日志发现上游按 fable5 计费，用户却称没手动映射，求原因。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>一点小问题：newapi做中转，结果模型不知情就映射了？</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/106013 · n/chit-chat</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·19:04
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>11 评论
+      <span class="pipe">|</span>by Leyanshi
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">刚把 New API 迁到新服务器就出差错：用户充值 10 元，用 0.8x 的 Claude（opus5）5 分钟就用完，查日志发现上游按 fable5 计费，用户却称没手动映射，求原因。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">刚装的New API迁移到新服务器，就似乎出差错了。 一个用户，刚充值10元，结果…用了0.8x的Claude，5分钟就用完了，用的是opus5（用户发截图，已抹去敏感信息）。
+我一看说这不对啊，大家肯定也一算就知道不对，我更知道不对啊！Opus5怎么可能二十多万就九块钱啊？？ 我啥都没调 刚开没多久啊，很诧异，我一看日志：我一看就觉得知道答案了。他用了fable5啊！这不就正常了！可是我一问顾客，他说他没用，还捧出CC Switch日志为证……？？？？？？？
+我给他补了5块，正在找原因，我啥也没调啊，上游也给我计费fable5，我是亏的呜呜呜。我newapi如图，无映射。新用户发不了更多图了，上游计费在评论区。饿啊…………是不是Newapi的问题…………</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;106013&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/106013&quot;,
+  &quot;title&quot;: &quot;一点小问题：newapi做中转，结果模型不知情就映射了？&quot;,
+  &quot;author&quot;: &quot;Leyanshi&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 11,
+  &quot;domain&quot;: &quot;n/chit-chat&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;刚把 New API 迁到新服务器就出差错：用户充值 10 元，用 0.8x 的 Claude（opus5）5 分钟就用完，查日志发现上游按 fable5 计费，用户却称没手动映射，求原因。&quot;,
+  &quot;content&quot;: &quot;刚装的New API迁移到新服务器，就似乎出差错了。 一个用户，刚充值10元，结果…用了0.8x的Claude，5分钟就用完了，用的是opus5（用户发截图，已抹去敏感信息）。\n我一看说这不对啊，大家肯定也一算就知道不对，我更知道不对啊！Opus5怎么可能二十多万就九块钱啊？？ 我啥都没调 刚开没多久啊，很诧异，我一看日志：我一看就觉得知道答案了。他用了fable5啊！这不就正常了！可是我一问顾客，他说他没用，还捧出CC Switch日志为证……？？？？？？？\n我给他补了5块，正在找原因，我啥也没调啊，上游也给我计费fable5，我是亏的呜呜呜。我newapi如图，无映射。新用户发不了更多图了，上游计费在评论区。饿啊…………是不是Newapi的问题…………&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-31T19:04+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/106013" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/106013</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

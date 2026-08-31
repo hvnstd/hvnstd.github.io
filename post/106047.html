@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【GSVPS测评】666clouds 英国伦敦 VPS 测评：原生IP、三网回程与流媒体解锁实测 · B 极客行</title>
+<meta name="description" content="666clouds 英国伦敦 VPS 测评：三网回程均为普通线路（电信163/联通4837/移动CMI），全国平均延迟 227~266ms，联通无丢包；英国原生IP纯净度67%；18项流媒体17项可用（BBC iPlayer/DAZN/Ch">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【GSVPS测评】666clouds 英国伦敦 VPS 测评：原生IP、三网回程与流媒体解锁实测</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/106047 · n/review</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·13:11
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>0 评论
+      <span class="pipe">|</span>by GSVPS
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">666clouds 英国伦敦 VPS 测评：三网回程均为普通线路（电信163/联通4837/移动CMI），全国平均延迟 227~266ms，联通无丢包；英国原生IP纯净度67%；18项流媒体17项可用（BBC iPlayer/DAZN/ChatGPT/Claude识别英国区）；4K随机写偏弱（约1.8k IOPS）。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">简评：伦敦 VPS 三网回程均为普通线路，全国平均延迟约 227~266ms，网络测速较高但单核 CPU 与 4K 随机写有限；IP 为英国机房原生类型，纯净度偏低。适合对国内延迟不敏感的轻量服务、英国区流媒体与 AI 访问。
+回程路由：电信（北京/上海/广州 163，204~260ms）、联通（4837，196~203ms）、移动（CMI，205~252ms），无精品/高端优化。
+全国三网延迟/丢包：电信 266.3ms/8.8%、联通 239.7ms/0.0%、移动 226.8ms/2.9%（102 个目标全响应）。
+IP质量：英国伦敦机房原生IP，纯净度67%，108个DNSBL源中4个标记，风险低；25端口可用但纯净度不足，不宜直接发邮件。
+流媒体解锁：18项测17项可用，YouTube Premium/TikTok/BBC iPlayer/DAZN/ChatGPT/Claude 识别英国区；Netflix 完整解锁识别美区；Gemini 被封。
+I/O性能：磁盘约19.5GiB，顺序写192.3 MiB/s、读2055.2 MiB/s，4K随机读615k IOPS、随机写1.8k IOPS，随机写偏弱。
+超售：CPU偷取率0%，单核 Xeon Gold 6230 SHA-256 约292 MiB/s、gzip 177.7 MiB/s；968MB内存+967MB Swap，晚高峰建议复测。
+注意事项：1核968MB不适合内存密集/高并发；已启用BBR，测速下载671.8Mbps/上传620Mbps（单次不代表长期）；电信丢包高，购买前晚高峰复测。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;106047&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/106047&quot;,
+  &quot;title&quot;: &quot;【GSVPS测评】666clouds 英国伦敦 VPS 测评：原生IP、三网回程与流媒体解锁实测&quot;,
+  &quot;author&quot;: &quot;GSVPS&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 0,
+  &quot;domain&quot;: &quot;n/review&quot;,
+  &quot;tags&quot;: [],
+  &quot;excerpt&quot;: &quot;666clouds 英国伦敦 VPS 测评：三网回程均为普通线路（电信163/联通4837/移动CMI），全国平均延迟 227~266ms，联通无丢包；英国原生IP纯净度67%；18项流媒体17项可用（BBC iPlayer/DAZN/ChatGPT/Claude识别英国区）；4K随机写偏弱（约1.8k IOPS）。&quot;,
+  &quot;content&quot;: &quot;简评：伦敦 VPS 三网回程均为普通线路，全国平均延迟约 227~266ms，网络测速较高但单核 CPU 与 4K 随机写有限；IP 为英国机房原生类型，纯净度偏低。适合对国内延迟不敏感的轻量服务、英国区流媒体与 AI 访问。\n回程路由：电信（北京/上海/广州 163，204~260ms）、联通（4837，196~203ms）、移动（CMI，205~252ms），无精品/高端优化。\n全国三网延迟/丢包：电信 266.3ms/8.8%、联通 239.7ms/0.0%、移动 226.8ms/2.9%（102 个目标全响应）。\nIP质量：英国伦敦机房原生IP，纯净度67%，108个DNSBL源中4个标记，风险低；25端口可用但纯净度不足，不宜直接发邮件。\n流媒体解锁：18项测17项可用，YouTube Premium/TikTok/BBC iPlayer/DAZN/ChatGPT/Claude 识别英国区；Netflix 完整解锁识别美区；Gemini 被封。\nI/O性能：磁盘约19.5GiB，顺序写192.3 MiB/s、读2055.2 MiB/s，4K随机读615k IOPS、随机写1.8k IOPS，随机写偏弱。\n超售：CPU偷取率0%，单核 Xeon Gold 6230 SHA-256 约292 MiB/s、gzip 177.7 MiB/s；968MB内存+967MB Swap，晚高峰建议复测。\n注意事项：1核968MB不适合内存密集/高并发；已启用BBR，测速下载671.8Mbps/上传620Mbps（单次不代表长期）；电信丢包高，购买前晚高峰复测。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-31T13:11+0000&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/106047" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/106047</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
