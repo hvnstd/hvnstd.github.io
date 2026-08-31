@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【GSVPS测评】Nosla 美国圣何塞 VPS 测评：CN2 GIA/9929/CMIN2 三网优化回程实测 · B 极客行</title>
+<meta name="description" content="Nosla 圣何塞 VPS 三网回程均有优化线路（电信CN2 GIA/联通9929/移动CMIN2），全国延迟约143-157ms，IP纯净度75%，流媒体18项测16项可用；内存占用偏高、磁盘实测缺失。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【GSVPS测评】Nosla 美国圣何塞 VPS 测评：CN2 GIA/9929/CMIN2 三网优化回程实测</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105054 · n/review</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·10:41
+      <span class="pipe">|</span>2 分
+      <span class="pipe">|</span>1 评论
+      <span class="pipe">|</span>by GSVPS
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">Nosla 圣何塞 VPS 三网回程均有优化线路（电信CN2 GIA/联通9929/移动CMIN2），全国延迟约143-157ms，IP纯净度75%，流媒体18项测16项可用；内存占用偏高、磁盘实测缺失。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">简评：这台圣何塞 VPS 的三网回程均识别到优化线路，全国延迟集中在约 143～157 ms，CPU 与网络测速表现尚可；IP 纯净度一般，且探针没有获得有效的真实磁盘测试。适合面向中国大陆的轻量代理、流媒体和小型服务，主要优点是回程线路整齐，明显不足是内存占用偏高、磁盘性能无法判断。
+回程路由：电信（北京/上海/广州经 CN2 GIA 转 163，约 123.8～164.2 ms）；联通（三地经 9929，上海后段转 4837，约 134.0～171.0 ms）；移动（三地经 CMIN2 转 CMI，约 154.4～166.2 ms）。
+全国三网：电信 142.8ms(128-188ms)/0.0%丢包；联通 153.8ms(143-174.7ms)/0.0%；移动 157.1ms(142.7-232ms)/1.0%。
+IP质量：美国圣何塞广播IP，纯净度75%，108个DNSBL中4个标记，低风险；25端口可用，黑名单可能影响邮件送达。
+流媒体解锁：18项测16项可用，YouTube Premium/TikTok/ChatGPT/Claude 识别美区，Netflix仅自制，DAZN失败，Reddit被封。
+I/O性能：本次为tmpfs，不能代表真实磁盘，需补测。
+超售情况：CPU偷取率0.0%，双核AMD EPYC 7C13，SHA-256约2616.4 MiB/s、gzip 155.5 MiB/s；内存气球启用，1.9GB已用76%，1GB Swap用约18%。
+注意事项：仅余约467MB可用内存；已启用BBR，下载404.9Mbps/上传612.8Mbps；优化回程不等于晚高峰稳定；IP风险/流媒体可用性可能随策略变化。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105054&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105054&quot;,
+  &quot;title&quot;: &quot;【GSVPS测评】Nosla 美国圣何塞 VPS 测评：CN2 GIA/9929/CMIN2 三网优化回程实测&quot;,
+  &quot;author&quot;: &quot;GSVPS&quot;,
+  &quot;score&quot;: 2,
+  &quot;comments&quot;: 1,
+  &quot;domain&quot;: &quot;n/review&quot;,
+  &quot;tags&quot;: [
+    &quot;原创&quot;
+  ],
+  &quot;excerpt&quot;: &quot;Nosla 圣何塞 VPS 三网回程均有优化线路（电信CN2 GIA/联通9929/移动CMIN2），全国延迟约143-157ms，IP纯净度75%，流媒体18项测16项可用；内存占用偏高、磁盘实测缺失。&quot;,
+  &quot;content&quot;: &quot;简评：这台圣何塞 VPS 的三网回程均识别到优化线路，全国延迟集中在约 143～157 ms，CPU 与网络测速表现尚可；IP 纯净度一般，且探针没有获得有效的真实磁盘测试。适合面向中国大陆的轻量代理、流媒体和小型服务，主要优点是回程线路整齐，明显不足是内存占用偏高、磁盘性能无法判断。\n回程路由：电信（北京/上海/广州经 CN2 GIA 转 163，约 123.8～164.2 ms）；联通（三地经 9929，上海后段转 4837，约 134.0～171.0 ms）；移动（三地经 CMIN2 转 CMI，约 154.4～166.2 ms）。\n全国三网：电信 142.8ms(128-188ms)/0.0%丢包；联通 153.8ms(143-174.7ms)/0.0%；移动 157.1ms(142.7-232ms)/1.0%。\nIP质量：美国圣何塞广播IP，纯净度75%，108个DNSBL中4个标记，低风险；25端口可用，黑名单可能影响邮件送达。\n流媒体解锁：18项测16项可用，YouTube Premium/TikTok/ChatGPT/Claude 识别美区，Netflix仅自制，DAZN失败，Reddit被封。\nI/O性能：本次为tmpfs，不能代表真实磁盘，需补测。\n超售情况：CPU偷取率0.0%，双核AMD EPYC 7C13，SHA-256约2616.4 MiB/s、gzip 155.5 MiB/s；内存气球启用，1.9GB已用76%，1GB Swap用约18%。\n注意事项：仅余约467MB可用内存；已启用BBR，下载404.9Mbps/上传612.8Mbps；优化回程不等于晚高峰稳定；IP风险/流媒体可用性可能随策略变化。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-31T10:41:02+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105054" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105054</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
