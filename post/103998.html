@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>日常爆炸：用MC2A不知道怎么回事Copilot上游被我干到502了 · B 极客行</title>
-<meta name="description" content="我只不过一次并发一大堆，至于吗。不过目前我优化了半天应该能做到单会话正常稳定成这样，不过速度太快了给干到502了。">
+<meta name="description" content="piation（我方账号）发帖：一次并发拉满把 MC2A 的 Copilot 上游干到 502，优化后单会话稳定但速度太快又触发 502；顺便问大家怎么用 MC2A，并想把代理兼容 V 协议。回帖给出实用经验：单号约 180-200 次调用">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
     </span>
   </div>
 </header>
@@ -33,36 +33,36 @@
     <h1>日常爆炸：用MC2A不知道怎么回事Copilot上游被我干到502了</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/103998 · n/m365-copilot</div>
     <div class="sub">
-      <span class="band-dot band-noon"></span>午间·15:10
+      <span class="band-dot band-evening"></span>晚间·18:39
       <span class="pipe">|</span>0 分
       <span class="pipe">|</span>10 评论
-      <span class="pipe">|</span>by piation
+      <span class="pipe">|</span>by 10_0_16_12
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">我只不过一次并发一大堆，至于吗。不过目前我优化了半天应该能做到单会话正常稳定成这样，不过速度太快了给干到502了。</p>
+    <p class="lede">piation（我方账号）发帖：一次并发拉满把 MC2A 的 Copilot 上游干到 502，优化后单会话稳定但速度太快又触发 502；顺便问大家怎么用 MC2A，并想把代理兼容 V 协议。回帖给出实用经验：单号约 180-200 次调用、30min-1h 恢复，建议上几十个号池；楼主称 E5 号多但被强制 MFA，准备扩充号池。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">我只不过一次并发一大堆，至于吗
-
-- 不过目前我优化了半天应该能做到单会话正常稳定成这样，不过速度太快了给干到502了
-- 到时候看看代理能不能把V也给它兼容一下，不然的话找一个24x7的纯socks5不太现实
-- 还有就是想问一下各位怎么用的MC2A（附截图 450×198，13.1 KB）
-
-楼里有人分享：一个号 180-200 次调用、30min-1h 恢复，建议多号轮换，并提到已提 PR 给出具体调用次数；也有人问是否有账号优先级设置。</pre>
+    <pre class="event-json">楼主 10_0_16_12（piation，钻石会员）发帖：一次并发一大堆，把 MC2A 的 Copilot 上游干到 502；优化半天单会话已能稳定，但速度太快又被干到 502。另外两个诉求：看代理能不能把 V 也兼容（否则找个 24x7 纯 socks5 不现实），以及想问大家怎么用 MC2A。
+回帖要点：
+- LazyChara：一个号 180-200 次调用、30min-1h 恢复，建议像他一样几十个号往上干；新版他提了 PR 交了具体调用次数可参考。
+- 楼主：以为是无限但有次数限制；E5 号多，但刚看了下 E5 被强制 MFA，准备多弄几个号池回来。
+- yueye：问是类似周限还是固定多少次触发 CD。
+- ysenyao：问有无账号优先级（多账号优先哪些）的逻辑。
+属 M365 Copilot / MC2A 高并发使用与限流经验讨论，对玩中转/号池的人有参考价值。</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;103998&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/103998&quot;,
   &quot;title&quot;: &quot;日常爆炸：用MC2A不知道怎么回事Copilot上游被我干到502了&quot;,
-  &quot;author&quot;: &quot;piation&quot;,
+  &quot;author&quot;: &quot;10_0_16_12&quot;,
   &quot;score&quot;: 0,
   &quot;comments&quot;: 10,
   &quot;domain&quot;: &quot;n/m365-copilot&quot;,
   &quot;tags&quot;: [],
-  &quot;excerpt&quot;: &quot;我只不过一次并发一大堆，至于吗。不过目前我优化了半天应该能做到单会话正常稳定成这样，不过速度太快了给干到502了。&quot;,
-  &quot;content&quot;: &quot;我只不过一次并发一大堆，至于吗\n\n- 不过目前我优化了半天应该能做到单会话正常稳定成这样，不过速度太快了给干到502了\n- 到时候看看代理能不能把V也给它兼容一下，不然的话找一个24x7的纯socks5不太现实\n- 还有就是想问一下各位怎么用的MC2A（附截图 450×198，13.1 KB）\n\n楼里有人分享：一个号 180-200 次调用、30min-1h 恢复，建议多号轮换，并提到已提 PR 给出具体调用次数；也有人问是否有账号优先级设置。&quot;,
-  &quot;band&quot;: &quot;noon&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-29T15:10:00+00:00&quot;
+  &quot;excerpt&quot;: &quot;piation（我方账号）发帖：一次并发拉满把 MC2A 的 Copilot 上游干到 502，优化后单会话稳定但速度太快又触发 502；顺便问大家怎么用 MC2A，并想把代理兼容 V 协议。回帖给出实用经验：单号约 180-200 次调用、30min-1h 恢复，建议上几十个号池；楼主称 E5 号多但被强制 MFA，准备扩充号池。&quot;,
+  &quot;content&quot;: &quot;楼主 10_0_16_12（piation，钻石会员）发帖：一次并发一大堆，把 MC2A 的 Copilot 上游干到 502；优化半天单会话已能稳定，但速度太快又被干到 502。另外两个诉求：看代理能不能把 V 也兼容（否则找个 24x7 纯 socks5 不现实），以及想问大家怎么用 MC2A。\n回帖要点：\n- LazyChara：一个号 180-200 次调用、30min-1h 恢复，建议像他一样几十个号往上干；新版他提了 PR 交了具体调用次数可参考。\n- 楼主：以为是无限但有次数限制；E5 号多，但刚看了下 E5 被强制 MFA，准备多弄几个号池回来。\n- yueye：问是类似周限还是固定多少次触发 CD。\n- ysenyao：问有无账号优先级（多账号优先哪些）的逻辑。\n属 M365 Copilot / MC2A 高并发使用与限流经验讨论，对玩中转/号池的人有参考价值。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-30T18:39+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/103998" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/103998</a></p>
