@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【9.5更新】M365-CF稳定版（修复诸多问题） · B 极客行</title>
+<meta name="description" content="OP（TXT）发布 M365-Gateway-CF4 9.5 稳定版：CF 部署无需服务器；修复 Codex 0.153.2 Responses Lite 兼容、previous_response_id 多轮对话续接、无状态工具续接、exe">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【9.5更新】M365-CF稳定版（修复诸多问题）</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/106457 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·09:45
+      <span class="pipe">|</span>40 分
+      <span class="pipe">|</span>77 评论
+      <span class="pipe">|</span>by TXT
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">OP（TXT）发布 M365-Gateway-CF4 9.5 稳定版：CF 部署无需服务器；修复 Codex 0.153.2 Responses Lite 兼容、previous_response_id 多轮对话续接、无状态工具续接、exec_command/write_stdin、Windows PS 特殊字符、长任务上下文保持；支持 Chat Completions/Responses/Anthropic Messages、Claude thinking 映射、tool_mode=code_mode_only、multi_agent_version=v2；适配 codex-cli/opencode/Claude/herme；附 9.4/9.5 开源 ZIP。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">OP（TXT / asdzxc252）2 天前发帖，M365 Copilot 板块 AI 标签。
+
+注意事项：让 AI 部署（CF 部署，无需服务器 / 本地部署）。问题反馈 QQ 群：35337083。
+
+9.5 修复 / 新增清单：
+- 修复 Codex 0.153.2 的 Responses Lite 兼容
+- 支持 tool_mode=code_mode_only
+- 支持 multi_agent_version=v2
+- 保留旧版客户端使用的 direct 路径，避免升级后旧客户端失效
+- 修复 previous_response_id 多轮对话续接
+- 修复无状态工具续接
+- 修复 exec_command 和 write_stdin 工具调用流程
+- 修复 Windows PowerShell 命令中的特殊字符和变量传输
+- 修复长任务、网页构建和多步工具执行时的上下文保持
+- 支持 Chat Completions、Responses 和 Anthropic Messages 三套接口
+- 支持 Claude thinking 参数映射到内部深度推理路由（暂不公开完整隐藏思维链）
+- 增加工具调用安全检查，避免重复执行、伪造本地执行成功或错误地使用托管环境替代本地工具
+- 增强流式响应、取消请求、超时、账号切换和会话状态处理
+- 将较重的推理处理放入 InferenceGateway Durable Object，降低 Worker 入口 CPU 压力
+
+常见错误：503 / 502 / 1101 / 413 — 重开或等几分钟解决。
+
+长任务最好跑 /goal 内容。
+
+适配：codex + cli / opencode / Claude / herme。
+
+下载：
+- 9.5：M365-Gateway-CF4-OpenSource-2026-09-05.zip（564.7 KB）
+- 9.4：M365-Gateway-open-source-20260904.zip（545.6 KB）
+
+热度：700 浏览 / 77 回复 / 40 赞 / 31 回应，附超长任务测试水贴。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;106457&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/106457&quot;,
+  &quot;title&quot;: &quot;【9.5更新】M365-CF稳定版（修复诸多问题）&quot;,
+  &quot;author&quot;: &quot;TXT&quot;,
+  &quot;score&quot;: 40,
+  &quot;comments&quot;: 77,
+  &quot;views&quot;: 700,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;M365 Copilot&quot;,
+    &quot;Codex&quot;,
+    &quot;Cloudflare Workers&quot;,
+    &quot;开源&quot;
+  ],
+  &quot;excerpt&quot;: &quot;OP（TXT）发布 M365-Gateway-CF4 9.5 稳定版：CF 部署无需服务器；修复 Codex 0.153.2 Responses Lite 兼容、previous_response_id 多轮对话续接、无状态工具续接、exec_command/write_stdin、Windows PS 特殊字符、长任务上下文保持；支持 Chat Completions/Responses/Anthropic Messages、Claude thinking 映射、tool_mode=code_mode_only、multi_agent_version=v2；适配 codex-cli/opencode/Claude/herme；附 9.4/9.5 开源 ZIP。&quot;,
+  &quot;content&quot;: &quot;OP（TXT / asdzxc252）2 天前发帖，M365 Copilot 板块 AI 标签。\n\n注意事项：让 AI 部署（CF 部署，无需服务器 / 本地部署）。问题反馈 QQ 群：35337083。\n\n9.5 修复 / 新增清单：\n- 修复 Codex 0.153.2 的 Responses Lite 兼容\n- 支持 tool_mode=code_mode_only\n- 支持 multi_agent_version=v2\n- 保留旧版客户端使用的 direct 路径，避免升级后旧客户端失效\n- 修复 previous_response_id 多轮对话续接\n- 修复无状态工具续接\n- 修复 exec_command 和 write_stdin 工具调用流程\n- 修复 Windows PowerShell 命令中的特殊字符和变量传输\n- 修复长任务、网页构建和多步工具执行时的上下文保持\n- 支持 Chat Completions、Responses 和 Anthropic Messages 三套接口\n- 支持 Claude thinking 参数映射到内部深度推理路由（暂不公开完整隐藏思维链）\n- 增加工具调用安全检查，避免重复执行、伪造本地执行成功或错误地使用托管环境替代本地工具\n- 增强流式响应、取消请求、超时、账号切换和会话状态处理\n- 将较重的推理处理放入 InferenceGateway Durable Object，降低 Worker 入口 CPU 压力\n\n常见错误：503 / 502 / 1101 / 413 — 重开或等几分钟解决。\n\n长任务最好跑 /goal 内容。\n\n适配：codex + cli / opencode / Claude / herme。\n\n下载：\n- 9.5：M365-Gateway-CF4-OpenSource-2026-09-05.zip（564.7 KB）\n- 9.4：M365-Gateway-open-source-20260904.zip（545.6 KB）\n\n热度：700 浏览 / 77 回复 / 40 赞 / 31 回应，附超长任务测试水贴。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-05T09:45+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/106457" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/106457</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

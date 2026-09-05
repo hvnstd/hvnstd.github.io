@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>clash漏洞，当心你的电脑中招！ · B 极客行</title>
+<meta name="description" content="OP（deity）警告 Sub-Store 本地服务（127.0.0.1:38324）存在被恶意网页 JS 远程执行命令的漏洞：本地无鉴权、CORS 放行、new Function 执行任意脚本，配合 child_process.execS">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>clash漏洞，当心你的电脑中招！</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/106779 · n/program</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·09:33
+      <span class="pipe">|</span>6 分
+      <span class="pipe">|</span>14 评论
+      <span class="pipe">|</span>by deity
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">OP（deity）警告 Sub-Store 本地服务（127.0.0.1:38324）存在被恶意网页 JS 远程执行命令的漏洞：本地无鉴权、CORS 放行、new Function 执行任意脚本，配合 child_process.execSync 下载木马。给出 4 条防护（开 auth token、不开陌生网页、不暴露 0.0.0.0、升级新版）。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">OP（deity）10 小时前发帖：
+对仍在用 clash 或 Sub-Store 的用户，务必注意以下漏洞。
+
+攻击完整流程：
+1. 用户打开攻击者控制的恶意网页
+2. 网页内 JS 直接请求本机 http://127.0.0.1:38324
+关键点：浏览器页面可访问本机回环地址，仅绑 127.0.0.1 不能阻挡网页 JS 发起请求。
+3. Sub-Store 本地服务无身份认证，直接接收外部传入的请求，无需密码 token
+4. 接口返回头带 Access-Control-Allow-Origin: *，CORS 放行，网页 JS 可读接口返回
+5. 恶意网页发 POST /api/preview/sub，传入恶意脚本代码
+6. Sub-Store 用 new Function() 动态执行传入脚本
+7. 恶意脚本拿到 node 底层模块 require(&quot;child_process&quot;)
+8. 使用 execSync() 在本机执行系统命令（whoami → certutil 下载木马 → 沦陷）
+
+防护方案：
+- 设置 Sub-Store 访问密码（auth token），开启接口鉴权；不要裸跑无密码本地实例
+- 不要随便打开陌生网页；本机跑 Sub-Store 期间避免访问来历不明的站点
+- 不把端口暴露公网；仅本地使用，不要 0.0.0.0 监听
+- 升级到最新版本（该风险已在新版做限制）
+
+本质属于本地服务被浏览器网页侧攻击，是很多 Node 写的本地桌面工具常见安全坑。简单自测（主要 Windows 端）：开 Sub-Store 节点后访问 http://127.0.0.1:38324 看是否可通。
+
+NodeLoc 编程开发板块。6 赞 / 14 回复 / 172 浏览。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;106779&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/106779&quot;,
+  &quot;title&quot;: &quot;clash漏洞，当心你的电脑中招！&quot;,
+  &quot;author&quot;: &quot;deity&quot;,
+  &quot;score&quot;: 6,
+  &quot;comments&quot;: 14,
+  &quot;views&quot;: 172,
+  &quot;domain&quot;: &quot;n/program&quot;,
+  &quot;tags&quot;: [
+    &quot;安全&quot;,
+    &quot;Sub-Store&quot;,
+    &quot;代理&quot;,
+    &quot;漏洞&quot;
+  ],
+  &quot;excerpt&quot;: &quot;OP（deity）警告 Sub-Store 本地服务（127.0.0.1:38324）存在被恶意网页 JS 远程执行命令的漏洞：本地无鉴权、CORS 放行、new Function 执行任意脚本，配合 child_process.execSync 下载木马。给出 4 条防护（开 auth token、不开陌生网页、不暴露 0.0.0.0、升级新版）。&quot;,
+  &quot;content&quot;: &quot;OP（deity）10 小时前发帖：\n对仍在用 clash 或 Sub-Store 的用户，务必注意以下漏洞。\n\n攻击完整流程：\n1. 用户打开攻击者控制的恶意网页\n2. 网页内 JS 直接请求本机 http://127.0.0.1:38324\n关键点：浏览器页面可访问本机回环地址，仅绑 127.0.0.1 不能阻挡网页 JS 发起请求。\n3. Sub-Store 本地服务无身份认证，直接接收外部传入的请求，无需密码 token\n4. 接口返回头带 Access-Control-Allow-Origin: *，CORS 放行，网页 JS 可读接口返回\n5. 恶意网页发 POST /api/preview/sub，传入恶意脚本代码\n6. Sub-Store 用 new Function() 动态执行传入脚本\n7. 恶意脚本拿到 node 底层模块 require(\&quot;child_process\&quot;)\n8. 使用 execSync() 在本机执行系统命令（whoami → certutil 下载木马 → 沦陷）\n\n防护方案：\n- 设置 Sub-Store 访问密码（auth token），开启接口鉴权；不要裸跑无密码本地实例\n- 不要随便打开陌生网页；本机跑 Sub-Store 期间避免访问来历不明的站点\n- 不把端口暴露公网；仅本地使用，不要 0.0.0.0 监听\n- 升级到最新版本（该风险已在新版做限制）\n\n本质属于本地服务被浏览器网页侧攻击，是很多 Node 写的本地桌面工具常见安全坑。简单自测（主要 Windows 端）：开 Sub-Store 节点后访问 http://127.0.0.1:38324 看是否可通。\n\nNodeLoc 编程开发板块。6 赞 / 14 回复 / 172 浏览。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-05T09:33+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/106779" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/106779</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

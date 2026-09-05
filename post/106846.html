@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>yuanly谜题解谜Python代码 · B 极客行</title>
+<meta name="description" content="指导顾问 Mike Leone（xhj09）发布 8 层嵌套密文的完整 Python 解谜过程：hex→xor(0x02)→base64→栅栏(rails=6)→凯撒(shift=3)→维吉尼亚(key=271828)→binary→rev">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>yuanly谜题解谜Python代码</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/106846 · n/chit-chat</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·08:45
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>2 评论
+      <span class="pipe">|</span>by Mike-Leone
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">指导顾问 Mike Leone（xhj09）发布 8 层嵌套密文的完整 Python 解谜过程：hex→xor(0x02)→base64→栅栏(rails=6)→凯撒(shift=3)→维吉尼亚(key=271828)→binary→reverse，最终答案「素数有无穷多」。每层都给出中间结果，便于教学/验证。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">OP（Mike Leone，指导顾问 xhj09）1 小时前：
+
+原文（yuanly 在 #106841 的题目）：
+密文：180F151D/1917191B/1B222325/1E131A29/28132C1A
+本密文共嵌套 8 层加密。涉及计算机进制、动态流密码、古典替代与置换。其中某一层的位移密钥，暗含了该公式所连接的「基本数学常数总个数」。最终答案是一句 6 个字的中文数学命题。
+
+难度：0 星
+答案：*素数有无穷多*
+
+Python 解谜代码（已验证可跑）：
+
+import base64
+from typing import List
+
+cipher_hex = &quot;180F151D/1917191B/1B222325/1E131A29/28132C1A&quot;
+
+# 第1层 十六进制转字节
+hex_parts = cipher_hex.split(&#x27;/&#x27;)
+hex_str = &#x27;&#x27;.join(hex_parts)
+bytes_layer1 = bytes.fromhex(hex_str)
+
+# 第2层 异或单字节 key=0x02（来自&#x27;2YEARS&#x27;中的2）
+key_xor = 0x02
+bytes_layer2 = bytes([b ^ key_xor for b in bytes_layer1])
+
+# 第3层 Base64 解码
+base64_str = bytes_layer2.decode(&#x27;ascii&#x27;)
+bytes_layer3 = base64.b64decode(base64_str)
+
+# 第4层 栅栏置换 rails=6
+def rail_fence_decrypt(text, rails):
+    if rails == 1: return text
+    n = len(text); pattern=[]
+    for i in range(n):
+        pos = i % (2*(rails-1))
+        if pos &gt;= rails: pos = 2*(rails-1)-pos
+        pattern.append(pos)
+    rail_counts=[0]*rails
+    for r in pattern: rail_counts[r]+=1
+    idx=0; rail_texts=[]
+    for c in rail_counts:
+        rail_texts.append(text[idx:idx+c]); idx+=c
+    result=[]; rail_pos=[0]*rails
+    for r in pattern:
+        result.append(rail_texts[r][rail_pos[r]]); rail_pos[r]+=1
+    return &#x27;&#x27;.join(result)
+text_layer4 = rail_fence_decrypt(bytes_layer3.decode(&#x27;ascii&#x27;), rails=6)
+
+# 第5层 凯撒 shift=3（π 的整数位数）
+def caesar_decrypt(text, shift):
+    out=[]
+    for ch in text:
+        if &#x27;a&#x27;&lt;=ch&lt;=&#x27;z&#x27;: out.append(chr((ord(ch)-ord(&#x27;a&#x27;)-shift)%26+ord(&#x27;a&#x27;)))
+        elif &#x27;A&#x27;&lt;=ch&lt;=&#x27;Z&#x27;: out.append(chr((ord(ch)-ord(&#x27;A&#x27;)-shift)%26+ord(&#x27;A&#x27;)))
+        else: out.append(ch)
+    return &#x27;&#x27;.join(out)
+text_layer5 = caesar_decrypt(text_layer4, 3)
+
+# 第6层 维吉尼亚 key=271828（自然常数 e 前 6 位）
+key_vigenere = &quot;271828&quot;
+def vigenere_decrypt(text, key):
+    out=[]; kidx=0
+    for ch in text:
+        if ch.isalpha():
+            s=int(key[kidx%len(key)])
+            if &#x27;a&#x27;&lt;=ch&lt;=&#x27;z&#x27;: out.append(chr((ord(ch)-ord(&#x27;a&#x27;)-s)%26+ord(&#x27;a&#x27;)))
+            else: out.append(chr((ord(ch)-ord(&#x27;A&#x27;)-s)%26+ord(&#x27;A&#x27;)))
+     </pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;106846&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/106846&quot;,
+  &quot;title&quot;: &quot;yuanly谜题解谜Python代码&quot;,
+  &quot;author&quot;: &quot;Mike-Leone&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 2,
+  &quot;views&quot;: 30,
+  &quot;domain&quot;: &quot;n/chit-chat&quot;,
+  &quot;tags&quot;: [
+    &quot;密码学&quot;,
+    &quot;智力题&quot;,
+    &quot;Python&quot;,
+    &quot;解谜&quot;
+  ],
+  &quot;excerpt&quot;: &quot;指导顾问 Mike Leone（xhj09）发布 8 层嵌套密文的完整 Python 解谜过程：hex→xor(0x02)→base64→栅栏(rails=6)→凯撒(shift=3)→维吉尼亚(key=271828)→binary→reverse，最终答案「素数有无穷多」。每层都给出中间结果，便于教学/验证。&quot;,
+  &quot;content&quot;: &quot;OP（Mike Leone，指导顾问 xhj09）1 小时前：\n\n原文（yuanly 在 #106841 的题目）：\n密文：180F151D/1917191B/1B222325/1E131A29/28132C1A\n本密文共嵌套 8 层加密。涉及计算机进制、动态流密码、古典替代与置换。其中某一层的位移密钥，暗含了该公式所连接的「基本数学常数总个数」。最终答案是一句 6 个字的中文数学命题。\n\n难度：0 星\n答案：*素数有无穷多*\n\nPython 解谜代码（已验证可跑）：\n\nimport base64\nfrom typing import List\n\ncipher_hex = \&quot;180F151D/1917191B/1B222325/1E131A29/28132C1A\&quot;\n\n# 第1层 十六进制转字节\nhex_parts = cipher_hex.split(&#x27;/&#x27;)\nhex_str = &#x27;&#x27;.join(hex_parts)\nbytes_layer1 = bytes.fromhex(hex_str)\n\n# 第2层 异或单字节 key=0x02（来自&#x27;2YEARS&#x27;中的2）\nkey_xor = 0x02\nbytes_layer2 = bytes([b ^ key_xor for b in bytes_layer1])\n\n# 第3层 Base64 解码\nbase64_str = bytes_layer2.decode(&#x27;ascii&#x27;)\nbytes_layer3 = base64.b64decode(base64_str)\n\n# 第4层 栅栏置换 rails=6\ndef rail_fence_decrypt(text, rails):\n    if rails == 1: return text\n    n = len(text); pattern=[]\n    for i in range(n):\n        pos = i % (2*(rails-1))\n        if pos &gt;= rails: pos = 2*(rails-1)-pos\n        pattern.append(pos)\n    rail_counts=[0]*rails\n    for r in pattern: rail_counts[r]+=1\n    idx=0; rail_texts=[]\n    for c in rail_counts:\n        rail_texts.append(text[idx:idx+c]); idx+=c\n    result=[]; rail_pos=[0]*rails\n    for r in pattern:\n        result.append(rail_texts[r][rail_pos[r]]); rail_pos[r]+=1\n    return &#x27;&#x27;.join(result)\ntext_layer4 = rail_fence_decrypt(bytes_layer3.decode(&#x27;ascii&#x27;), rails=6)\n\n# 第5层 凯撒 shift=3（π 的整数位数）\ndef caesar_decrypt(text, shift):\n    out=[]\n    for ch in text:\n        if &#x27;a&#x27;&lt;=ch&lt;=&#x27;z&#x27;: out.append(chr((ord(ch)-ord(&#x27;a&#x27;)-shift)%26+ord(&#x27;a&#x27;)))\n        elif &#x27;A&#x27;&lt;=ch&lt;=&#x27;Z&#x27;: out.append(chr((ord(ch)-ord(&#x27;A&#x27;)-shift)%26+ord(&#x27;A&#x27;)))\n        else: out.append(ch)\n    return &#x27;&#x27;.join(out)\ntext_layer5 = caesar_decrypt(text_layer4, 3)\n\n# 第6层 维吉尼亚 key=271828（自然常数 e 前 6 位）\nkey_vigenere = \&quot;271828\&quot;\ndef vigenere_decrypt(text, key):\n    out=[]; kidx=0\n    for ch in text:\n        if ch.isalpha():\n            s=int(key[kidx%len(key)])\n            if &#x27;a&#x27;&lt;=ch&lt;=&#x27;z&#x27;: out.append(chr((ord(ch)-ord(&#x27;a&#x27;)-s)%26+ord(&#x27;a&#x27;)))\n            else: out.append(chr((ord(ch)-ord(&#x27;A&#x27;)-s)%26+ord(&#x27;A&#x27;)))\n            kidx+=1\n        else: out.append(ch)\n    return &#x27;&#x27;.join(out)\ntext_layer6 = vigenere_decrypt(text_layer5, key_vigenere)\n\n# 第7层 二进制转文本\nbinary_str = &#x27;&#x27;.join(text_layer6.split())\nchars=[chr(int(binary_str[i:i+8],2)) for i in range(0,len(binary_str),8) if len(binary_str[i:i+8])==8]\ntext_layer7 = &#x27;&#x27;.join(chars)\n\n# 第8层 倒序\ntext_layer8 = text_layer7[::-1]\n# 拼音 susuwuqiongduo → 中文「素数有无穷多」&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-05T08:45+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/106846" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/106846</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
