@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【存档】免费白嫖日本/韩国原生家宽节点！基于 Serv00 + PHP 打造专属 Mihomo 订阅接口 · B 极客行</title>
+<meta name="description" content="原帖发在内版被系统过期自动隐藏了，看到有人还需要，就自己创建节点重新发表一次；利用薅来的 Serv00 免费服务器跑一段 PHP（openvpn.php），抓取 VPNGate 公开的家宽 .ovpn，自动转成 Mihomo 可用的 YAM">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【存档】免费白嫖日本/韩国原生家宽节点！基于 Serv00 + PHP 打造专属 Mihomo 订阅接口</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/106746 · n/haoyihao</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·04:01
+      <span class="pipe">|</span>18 分
+      <span class="pipe">|</span>15 评论
+      <span class="pipe">|</span>by 1panel
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">原帖发在内版被系统过期自动隐藏了，看到有人还需要，就自己创建节点重新发表一次；利用薅来的 Serv00 免费服务器跑一段 PHP（openvpn.php），抓取 VPNGate 公开的家宽 .ovpn，自动转成 Mihomo 可用的 YAML 并加 1 小时文件缓存，直接当作订阅源；搭配前置节点即可在国内场景使用。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">原帖发在内版被系统过期自动隐藏了，看到有人还需要，就自己创建节点重新发表一次，不喜直接划走
+之前薅的 Serv00 免费vps服务器一直闲着不知道干点儿啥 不记得在哪里看到的，VPNGate 提供海量日本/韩国志愿家宽节点 VPNGate 官方仅提供原始 CSV 和单个 .ovpn 格式，无法直接给 Mihomo 使用 因此需要一个自动化转换层，这不就有了嘛，终于可以让 Serv00 派上用场了
+废话不多说，直接上代码，保存为 openvpn.php，上传到 Serv00 服务器上即可使用
+[完整 PHP 代码: 含 AUTH_TOKEN 鉴权、1 小时文件缓存、抓取 VPNGate iPhone CSV → base64 解码 → 解析 .ovpn → 拼成 Mihomo proxies YAML；过滤 public 节点、丢弃 UDP 节点]
+当然这些家宽节点在国内大概率无法直连 这就需要自己找个前置节点，至于去哪里搞到线路好还便宜的节点那是另外一篇帖子了，这里不展开讲 找好前置节点后，配置好规则分组，导入到自己熟悉的客户端就可以使用了。
+[示例 mihomo 配置: proxy-providers provider1 interval 3600 override dialer-proxy 你的前置节点 path ./provider/openvpn.yaml type http url https://789.nx.kg/openvpn.php?token=JJmi1vwutFHfssyH8Ym88NQNp2pZQ6Lo]
+我比较懒，就不写规则分组了，将以上配置直接导入到 Pandora-Box 可直接使用，这个客户端直接支持不写规则分组导入节点或者配置
+最终效果：节点列表、ping0.cc 质量、速度测试截图
+订阅地址: https://789.nx.kg/openvpn.php?token=JJmi1vwutFHfssyH8Ym88NQNp2pZQ6Lo （拿去拿去）
+题外话：这种方法不是使用 Serv00 搭建节点，不会封号，放心</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;106746&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/106746&quot;,
+  &quot;title&quot;: &quot;【存档】免费白嫖日本/韩国原生家宽节点！基于 Serv00 + PHP 打造专属 Mihomo 订阅接口&quot;,
+  &quot;author&quot;: &quot;1panel&quot;,
+  &quot;score&quot;: 18,
+  &quot;comments&quot;: 15,
+  &quot;domain&quot;: &quot;n/haoyihao&quot;,
+  &quot;tags&quot;: [
+    &quot;原创&quot;,
+    &quot;免费节点&quot;,
+    &quot;Mihomo&quot;,
+    &quot;Serv00&quot;,
+    &quot;VPNGate&quot;
+  ],
+  &quot;excerpt&quot;: &quot;原帖发在内版被系统过期自动隐藏了，看到有人还需要，就自己创建节点重新发表一次；利用薅来的 Serv00 免费服务器跑一段 PHP（openvpn.php），抓取 VPNGate 公开的家宽 .ovpn，自动转成 Mihomo 可用的 YAML 并加 1 小时文件缓存，直接当作订阅源；搭配前置节点即可在国内场景使用。&quot;,
+  &quot;content&quot;: &quot;原帖发在内版被系统过期自动隐藏了，看到有人还需要，就自己创建节点重新发表一次，不喜直接划走\n之前薅的 Serv00 免费vps服务器一直闲着不知道干点儿啥 不记得在哪里看到的，VPNGate 提供海量日本/韩国志愿家宽节点 VPNGate 官方仅提供原始 CSV 和单个 .ovpn 格式，无法直接给 Mihomo 使用 因此需要一个自动化转换层，这不就有了嘛，终于可以让 Serv00 派上用场了\n废话不多说，直接上代码，保存为 openvpn.php，上传到 Serv00 服务器上即可使用\n[完整 PHP 代码: 含 AUTH_TOKEN 鉴权、1 小时文件缓存、抓取 VPNGate iPhone CSV → base64 解码 → 解析 .ovpn → 拼成 Mihomo proxies YAML；过滤 public 节点、丢弃 UDP 节点]\n当然这些家宽节点在国内大概率无法直连 这就需要自己找个前置节点，至于去哪里搞到线路好还便宜的节点那是另外一篇帖子了，这里不展开讲 找好前置节点后，配置好规则分组，导入到自己熟悉的客户端就可以使用了。\n[示例 mihomo 配置: proxy-providers provider1 interval 3600 override dialer-proxy 你的前置节点 path ./provider/openvpn.yaml type http url https://789.nx.kg/openvpn.php?token=JJmi1vwutFHfssyH8Ym88NQNp2pZQ6Lo]\n我比较懒，就不写规则分组了，将以上配置直接导入到 Pandora-Box 可直接使用，这个客户端直接支持不写规则分组导入节点或者配置\n最终效果：节点列表、ping0.cc 质量、速度测试截图\n订阅地址: https://789.nx.kg/openvpn.php?token=JJmi1vwutFHfssyH8Ym88NQNp2pZQ6Lo （拿去拿去）\n题外话：这种方法不是使用 Serv00 搭建节点，不会封号，放心&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-06T04:01+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/106746" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/106746</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

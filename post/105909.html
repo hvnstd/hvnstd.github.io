@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>如何获得一个图床（建站三件套第三套） · B 极客行</title>
-<meta name="description" content="上篇写了邮件系统，这篇写图床，用作者最爱的 Cloudflare 部署大法（CloudFlare-ImgBed 项目）。步骤：fork 仓库→Pages 导入部署（构建 npm install，输出 /frontend-dist）→绑定 K">
+<meta name="description" content=""上一篇:"">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -22,7 +22,7 @@
     </nav>
     <span class="spacer"></span>
     <span class="right">
-      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
     </span>
   </div>
 </header>
@@ -33,47 +33,36 @@
     <h1>如何获得一个图床（建站三件套第三套）</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/105909 · n/website-tech</div>
     <div class="sub">
-      <span class="band-dot band-midnight"></span>午夜·23:33
-      <span class="pipe">|</span>0 分
-      <span class="pipe">|</span>2 评论
+      <span class="band-dot band-noon"></span>午间·13:43
+      <span class="pipe">|</span>5 分
+      <span class="pipe">|</span>7 评论
       <span class="pipe">|</span>by heyuxuanyyds
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">上篇写了邮件系统，这篇写图床，用作者最爱的 Cloudflare 部署大法（CloudFlare-ImgBed 项目）。步骤：fork 仓库→Pages 导入部署（构建 npm install，输出 /frontend-dist）→绑定 KV（img_url）→重新部署→/dashboard 配置安全密码与上传设置。</p>
+    <p class="lede">&quot;上一篇:&quot;</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">上篇写了邮件系统了，这篇就该写图床了（用我最喜欢的cloudflare部署大法）。这个项目是别人告诉我的但不是我的，所以写错了帮我指正一下哈。
-
-1. 准备
-1.1 登录 cloudflare（略）
-1.2 fork github 项目：MarSeventh/CloudFlare-ImgBed（🏖️ A serverless, open-source file hosting solution built on Cloudflare. 支持图床、安全文件存储与个人云盘）。
-
-2. 部署
-2.1 部署 Pages：打开 计算-Workers和Pages → 点击创建应用程序 → 下方小字使用 Pages → 点击导入现有 git 存储库 → 选择账户与 fork 的仓库 → 点击开始设置。项目名称自定义，生产分支 main，构建命令 npm install（不要被老教程误导），构建输出目录 /frontend-dist。然后点击保存并部署，等待部署即可。
-
-3. 绑定 KV（D1 也行，推荐 KV）
-3.1 打开 存储和数据桶 - Workers KV，创建名为 img_url 的 KV。
-3.2 绑定：回到 Pages，在设置里绑定那个 KV，名称为 img_url。
-
-4. 重新部署：去部署页，找到最新部署点击重新部署。
-
-5. 配置：去 你的网址/dashboard → 系统设置 → 左侧安全设置，密码设上（一个上传用，一个登录管理台用）→ 左侧上传设置，随便选一个并配置（作者选的 TG）。然后就可以快乐使用图床了，不再用网盘存图被屏蔽。</pre>
+    <pre class="event-json">&quot;上一篇:&quot;
+1.准备 1.1 登录cloudflare 这个不讲了 1.2 fork github项目
+这就是我用的那个项目 2.部署 2.1 部署pages 打开计算-workers和pages
+&quot;这篇写的好不好:&quot;
+我aff标签加的有必要吗</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;105909&quot;,
   &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105909&quot;,
   &quot;title&quot;: &quot;如何获得一个图床（建站三件套第三套）&quot;,
   &quot;author&quot;: &quot;heyuxuanyyds&quot;,
-  &quot;score&quot;: 0,
-  &quot;comments&quot;: 2,
+  &quot;score&quot;: 5,
+  &quot;comments&quot;: 7,
   &quot;domain&quot;: &quot;n/website-tech&quot;,
   &quot;tags&quot;: [
     &quot;AFF&quot;
   ],
-  &quot;excerpt&quot;: &quot;上篇写了邮件系统，这篇写图床，用作者最爱的 Cloudflare 部署大法（CloudFlare-ImgBed 项目）。步骤：fork 仓库→Pages 导入部署（构建 npm install，输出 /frontend-dist）→绑定 KV（img_url）→重新部署→/dashboard 配置安全密码与上传设置。&quot;,
-  &quot;content&quot;: &quot;上篇写了邮件系统了，这篇就该写图床了（用我最喜欢的cloudflare部署大法）。这个项目是别人告诉我的但不是我的，所以写错了帮我指正一下哈。\n\n1. 准备\n1.1 登录 cloudflare（略）\n1.2 fork github 项目：MarSeventh/CloudFlare-ImgBed（🏖️ A serverless, open-source file hosting solution built on Cloudflare. 支持图床、安全文件存储与个人云盘）。\n\n2. 部署\n2.1 部署 Pages：打开 计算-Workers和Pages → 点击创建应用程序 → 下方小字使用 Pages → 点击导入现有 git 存储库 → 选择账户与 fork 的仓库 → 点击开始设置。项目名称自定义，生产分支 main，构建命令 npm install（不要被老教程误导），构建输出目录 /frontend-dist。然后点击保存并部署，等待部署即可。\n\n3. 绑定 KV（D1 也行，推荐 KV）\n3.1 打开 存储和数据桶 - Workers KV，创建名为 img_url 的 KV。\n3.2 绑定：回到 Pages，在设置里绑定那个 KV，名称为 img_url。\n\n4. 重新部署：去部署页，找到最新部署点击重新部署。\n\n5. 配置：去 你的网址/dashboard → 系统设置 → 左侧安全设置，密码设上（一个上传用，一个登录管理台用）→ 左侧上传设置，随便选一个并配置（作者选的 TG）。然后就可以快乐使用图床了，不再用网盘存图被屏蔽。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-08-30T23:33+00:00&quot;,
-  &quot;band&quot;: &quot;midnight&quot;
+  &quot;excerpt&quot;: &quot;\&quot;上一篇:\&quot;&quot;,
+  &quot;content&quot;: &quot;\&quot;上一篇:\&quot;\n1.准备 1.1 登录cloudflare 这个不讲了 1.2 fork github项目\n这就是我用的那个项目 2.部署 2.1 部署pages 打开计算-workers和pages\n\&quot;这篇写的好不好:\&quot;\n我aff标签加的有必要吗&quot;,
+  &quot;fetched_at&quot;: &quot;2026-08-31T13:43+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
 }</pre>
     <h2>来源</h2>
     <p><a href="https://www.nodeloc.com/t/topic/105909" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105909</a></p>
