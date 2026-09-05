@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>可以看 4k 视频的 IPFS 网关 · B 极客行</title>
-<meta name="description" content="OP 分享一个 IPFS 网关 https://dget.top ，称可流畅播放 4K 视频；同时附 IPFS inbrowser 链接做速度对比。">
+<meta name="description" content="OP（cpp）分享 IPFS 4K 网关 dget.top（需先打开主页再访问 CID 子域），对比 ipfs inbrowser 速度；回复中给出 Kubo 自建节点注意事项：需升级到 ≥0.36.0（建议 0.43.0），旧版 go-i">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css?v=6">
@@ -33,22 +33,28 @@
     <h1>可以看 4k 视频的 IPFS 网关</h1>
     <div class="domain">https://www.nodeloc.com/t/topic/106880 · n/ipfs</div>
     <div class="sub">
-      <span class="band-dot band-noon"></span>午间·12:34
+      <span class="band-dot band-noon"></span>午间·16:07
       <span class="pipe">|</span>1 分
-      <span class="pipe">|</span>0 评论
+      <span class="pipe">|</span>11 评论
       <span class="pipe">|</span>by cpp
     </div>
   </div>
   <article class="single-body">
-    <p class="lede">OP 分享一个 IPFS 网关 https://dget.top ，称可流畅播放 4K 视频；同时附 IPFS inbrowser 链接做速度对比。</p>
+    <p class="lede">OP（cpp）分享 IPFS 4K 网关 dget.top（需先打开主页再访问 CID 子域），对比 ipfs inbrowser 速度；回复中给出 Kubo 自建节点注意事项：需升级到 ≥0.36.0（建议 0.43.0），旧版 go-ipfs 因不支持 blake3 报 insecure hash 错误。</p>
     <h2>原文摘录</h2>
-    <pre class="event-json">OP（cpp）3 分钟前发帖：分享一个能看 4K 视频的 IPFS 网关 https://dget.top。
+    <pre class="event-json">OP（cpp，4 小时前）分享可以看 4K 视频的 IPFS 网关：
+- 主页：https://dget.top/
+- 用法：必须先打开 dget.top 主页再打开分享链接（形如 bafy...ipfs.dget.top）；
+- 测试样例：4K mp4 文件通过 dget.top 加速播放；
+- 对照方案：ipfs inbrowser（https://inbrowser.dev）也能用，但完事后需要 F12 删除网站数据避免吃存储，建议隐私模式打开；
+- 资源量参考：ProbeLab Analytics 显示 IPFS 每天有约 1.044 亿不同 CID。
 
-- 网关需要先访问 dget.top 主页再打开测试例子（首次进入后再点 IPFS 链接能播放 4K mp4）。
-- 给出测试例子：https://bafyb4icmx4c3vf5oexrfzpqfmfrexs2kalwxrmpnp6w3abpsxeykwabqzi.ipfs.dget.top/?pt=3&amp;ps=30&amp;path=...mp4
-- 对比 IPFS inbrowser 速度：同 CID 在 .ipfs.inbrowser.dev/ 下表现。
-- 节点：n/ipfs（新节点，2026-09-01 创建，2 主题 4 帖子）。
-- 1 赞 / 11 浏览 / 0 回复。</pre>
+关键回复：
+- 小永高吖：自建 Kubo 网关访问时报 potentially insecure hash functions not allowed；
+- OP：IPFS 旧版不支持 blake3，Filecoin 资源建议 Kubo ≥ 0.36.0，推荐 0.43.0（Windows / Linux 下载地址见官方 dist.ipfs.tech）；
+- 小永高吖：果然是旧版 go-ipfs，升级 Kubo 后解决。
+
+70 浏览 / 11 回复。</pre>
     <h2>字段原始数据</h2>
     <pre class="event-json">{
   &quot;slug&quot;: &quot;106880&quot;,
@@ -56,15 +62,17 @@
   &quot;title&quot;: &quot;可以看 4k 视频的 IPFS 网关&quot;,
   &quot;author&quot;: &quot;cpp&quot;,
   &quot;score&quot;: 1,
-  &quot;comments&quot;: 0,
-  &quot;views&quot;: 11,
+  &quot;comments&quot;: 11,
+  &quot;views&quot;: 70,
   &quot;domain&quot;: &quot;n/ipfs&quot;,
   &quot;tags&quot;: [
-    &quot;IPFS&quot;
+    &quot;IPFS&quot;,
+    &quot;网关&quot;,
+    &quot;4K 视频&quot;
   ],
-  &quot;excerpt&quot;: &quot;OP 分享一个 IPFS 网关 https://dget.top ，称可流畅播放 4K 视频；同时附 IPFS inbrowser 链接做速度对比。&quot;,
-  &quot;content&quot;: &quot;OP（cpp）3 分钟前发帖：分享一个能看 4K 视频的 IPFS 网关 https://dget.top。\n\n- 网关需要先访问 dget.top 主页再打开测试例子（首次进入后再点 IPFS 链接能播放 4K mp4）。\n- 给出测试例子：https://bafyb4icmx4c3vf5oexrfzpqfmfrexs2kalwxrmpnp6w3abpsxeykwabqzi.ipfs.dget.top/?pt=3&amp;ps=30&amp;path=...mp4\n- 对比 IPFS inbrowser 速度：同 CID 在 .ipfs.inbrowser.dev/ 下表现。\n- 节点：n/ipfs（新节点，2026-09-01 创建，2 主题 4 帖子）。\n- 1 赞 / 11 浏览 / 0 回复。&quot;,
-  &quot;fetched_at&quot;: &quot;2026-09-05T12:34+00:00&quot;,
+  &quot;excerpt&quot;: &quot;OP（cpp）分享 IPFS 4K 网关 dget.top（需先打开主页再访问 CID 子域），对比 ipfs inbrowser 速度；回复中给出 Kubo 自建节点注意事项：需升级到 ≥0.36.0（建议 0.43.0），旧版 go-ipfs 因不支持 blake3 报 insecure hash 错误。&quot;,
+  &quot;content&quot;: &quot;OP（cpp，4 小时前）分享可以看 4K 视频的 IPFS 网关：\n- 主页：https://dget.top/\n- 用法：必须先打开 dget.top 主页再打开分享链接（形如 bafy...ipfs.dget.top）；\n- 测试样例：4K mp4 文件通过 dget.top 加速播放；\n- 对照方案：ipfs inbrowser（https://inbrowser.dev）也能用，但完事后需要 F12 删除网站数据避免吃存储，建议隐私模式打开；\n- 资源量参考：ProbeLab Analytics 显示 IPFS 每天有约 1.044 亿不同 CID。\n\n关键回复：\n- 小永高吖：自建 Kubo 网关访问时报 potentially insecure hash functions not allowed；\n- OP：IPFS 旧版不支持 blake3，Filecoin 资源建议 Kubo ≥ 0.36.0，推荐 0.43.0（Windows / Linux 下载地址见官方 dist.ipfs.tech）；\n- 小永高吖：果然是旧版 go-ipfs，升级 Kubo 后解决。\n\n70 浏览 / 11 回复。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-05T16:07+00:00&quot;,
   &quot;band&quot;: &quot;noon&quot;
 }</pre>
     <h2>来源</h2>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek进行base64加解密时似乎会出问题 · B 极客行</title>
+<meta name="description" content="OP 实测发现 DeepSeek（含腾讯元宝 DeepSeek 模式）在做 base64 加解密时，会重复粘贴大段文本出错；Str 指出根因是概率语言模型无 toolcall 时中文 base64 表现差（英文略好），GFW 补充敏感词/地">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>DeepSeek进行base64加解密时似乎会出问题</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/106909 · n/ai</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·16:02
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>2 评论
+      <span class="pipe">|</span>by Mike-Leone
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">OP 实测发现 DeepSeek（含腾讯元宝 DeepSeek 模式）在做 base64 加解密时，会重复粘贴大段文本出错；Str 指出根因是概率语言模型无 toolcall 时中文 base64 表现差（英文略好），GFW 补充敏感词/地名会被切断。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">OP（Mike-Leone，42 分钟前）报告：
+RT，一直重复粘贴大段的文本，并且元宝（DeepSeek 模式）和 DeepSeek 都有这种问题，我猜是 DeepSeek 底层的问题。看来某个临时工写的屎山又发作了。
+附截图：手机 App 实测 base64 输出明显异常，输出框出现大段重复乱码。
+
+关键回复：
+- Str（41 分钟前）：毕竟是基于概率的语言模型，没 toolcall 的话中文 base64 就这样，英文还好点；
+- GFW（19 分钟前）：敏感词也很严重，有些地名都直接给你切断了。
+
+29 浏览 / 2 回复 / 0 赞。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;106909&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/106909&quot;,
+  &quot;title&quot;: &quot;DeepSeek进行base64加解密时似乎会出问题&quot;,
+  &quot;author&quot;: &quot;Mike-Leone&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 2,
+  &quot;views&quot;: 29,
+  &quot;domain&quot;: &quot;n/ai&quot;,
+  &quot;tags&quot;: [
+    &quot;DeepSeek&quot;,
+    &quot;base64&quot;,
+    &quot;LLM 局限&quot;
+  ],
+  &quot;excerpt&quot;: &quot;OP 实测发现 DeepSeek（含腾讯元宝 DeepSeek 模式）在做 base64 加解密时，会重复粘贴大段文本出错；Str 指出根因是概率语言模型无 toolcall 时中文 base64 表现差（英文略好），GFW 补充敏感词/地名会被切断。&quot;,
+  &quot;content&quot;: &quot;OP（Mike-Leone，42 分钟前）报告：\nRT，一直重复粘贴大段的文本，并且元宝（DeepSeek 模式）和 DeepSeek 都有这种问题，我猜是 DeepSeek 底层的问题。看来某个临时工写的屎山又发作了。\n附截图：手机 App 实测 base64 输出明显异常，输出框出现大段重复乱码。\n\n关键回复：\n- Str（41 分钟前）：毕竟是基于概率的语言模型，没 toolcall 的话中文 base64 就这样，英文还好点；\n- GFW（19 分钟前）：敏感词也很严重，有些地名都直接给你切断了。\n\n29 浏览 / 2 回复 / 0 赞。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-05T16:02+00:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/106909" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/106909</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
