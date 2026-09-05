@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>零预算装 X 指南：如何不花一分钱拥有属于自己的专属后缀邮箱？ · B 极客行</title>
+<meta name="description" content="1panel 原创教程：薅免费域名 → DNS 托管到 Gcore → 接入 tinkmail/oqumail 自建邮箱，0 成本获得专属后缀邮箱。步骤含 NS 记录、MX/TXT 记录配置、SPF/DKIM/DMARC。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>零预算装 X 指南：如何不花一分钱拥有属于自己的专属后缀邮箱？</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/106761 · n/haoyihao</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·21:00
+      <span class="pipe">|</span>9 分
+      <span class="pipe">|</span>7 评论
+      <span class="pipe">|</span>by 1panel
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">1panel 原创教程：薅免费域名 → DNS 托管到 Gcore → 接入 tinkmail/oqumail 自建邮箱，0 成本获得专属后缀邮箱。步骤含 NS 记录、MX/TXT 记录配置、SPF/DKIM/DMARC。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">1panel 原创小白向教程。需要有手。
+
+1、第一步先去薅个域名（论坛友情链接里有大量免费域名汇总：https://www.nodeloc.com/projects?category_id=2 ）
+1.1 选一个短的（如两位字符）
+1.2 填写两个 NS 记录
+
+2、将域名托管到 Gcore（https://gcore.com/ 注册账号 → DNS 管理 → 添加区域）
+2.1 添加域名 → 拿到 NS 记录
+2.2 把两个 NS 值填回步骤 1.2
+2.3 看到『已委托』即可
+
+3、将域名指定到免费邮箱服务
+3.1 推荐 tinkmail.me（10GB 免费 / 安全反垃圾） 或 oqumail.com（最多 15 个邮箱 / 含 SPF/DKIM/DMARC 引导）
+3.2 添加域名 → 复制 DNS 记录
+3.3 在 Gcore 添加 DNS：只有两个类型是 MX，其他都是 TXT
+3.4 等 Active 验证
+3.5 添加自定义邮箱成员
+3.6 退出当前账号，用新邮箱登录
+
+总结：果然免费的都是最贵的啊，每一个步骤都需要注册。当然如果你提前准备好了域名，那只需操作第 3 步就很快。
+
+9 赞 / 7 回复 / 116 浏览。原创 + 域名 + 薅一薅 节点。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;106761&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/106761&quot;,
+  &quot;title&quot;: &quot;零预算装 X 指南：如何不花一分钱拥有属于自己的专属后缀邮箱？&quot;,
+  &quot;author&quot;: &quot;1panel&quot;,
+  &quot;score&quot;: 9,
+  &quot;comments&quot;: 7,
+  &quot;views&quot;: 116,
+  &quot;domain&quot;: &quot;n/haoyihao&quot;,
+  &quot;tags&quot;: [
+    &quot;域名&quot;,
+    &quot;原创&quot;,
+    &quot;DNS&quot;,
+    &quot;邮箱&quot;,
+    &quot;教程&quot;
+  ],
+  &quot;excerpt&quot;: &quot;1panel 原创教程：薅免费域名 → DNS 托管到 Gcore → 接入 tinkmail/oqumail 自建邮箱，0 成本获得专属后缀邮箱。步骤含 NS 记录、MX/TXT 记录配置、SPF/DKIM/DMARC。&quot;,
+  &quot;content&quot;: &quot;1panel 原创小白向教程。需要有手。\n\n1、第一步先去薅个域名（论坛友情链接里有大量免费域名汇总：https://www.nodeloc.com/projects?category_id=2 ）\n1.1 选一个短的（如两位字符）\n1.2 填写两个 NS 记录\n\n2、将域名托管到 Gcore（https://gcore.com/ 注册账号 → DNS 管理 → 添加区域）\n2.1 添加域名 → 拿到 NS 记录\n2.2 把两个 NS 值填回步骤 1.2\n2.3 看到『已委托』即可\n\n3、将域名指定到免费邮箱服务\n3.1 推荐 tinkmail.me（10GB 免费 / 安全反垃圾） 或 oqumail.com（最多 15 个邮箱 / 含 SPF/DKIM/DMARC 引导）\n3.2 添加域名 → 复制 DNS 记录\n3.3 在 Gcore 添加 DNS：只有两个类型是 MX，其他都是 TXT\n3.4 等 Active 验证\n3.5 添加自定义邮箱成员\n3.6 退出当前账号，用新邮箱登录\n\n总结：果然免费的都是最贵的啊，每一个步骤都需要注册。当然如果你提前准备好了域名，那只需操作第 3 步就很快。\n\n9 赞 / 7 回复 / 116 浏览。原创 + 域名 + 薅一薅 节点。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-05T21:00+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/106761" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/106761</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
