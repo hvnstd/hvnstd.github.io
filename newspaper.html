@@ -32,325 +32,134 @@
       <h2>报纸 · 2026-09-06</h2>
       <span class="meta">早间/午间/晚间/午夜 四档</span>
     </div>
-    <pre class="newspaper-md"># 📰 NodeLoc 运营日报 · 2026-09-06
+    <pre class="newspaper-md"># 📰 B 极客行 · 2026-09-06
 
-&gt; 自动运营系统生成 · 签发 2026-09-06 13:44
+&gt; 自动运营系统生成 · 抓取自 NodeLoc 论坛 · 签发 2026-09-06 16:19
 
 ## 📌 今日头条
-- 每日签到：成功（主签 1 次，代签 0 次）
-- 逛帖浏览：181 篇
-- 干货点赞：11 个（今日上限约 24 today=full_no_new_likes）
-- 收到通知：100 条
-- ⚠️ 异常/自愈：2 次异常，0 次自愈
 
-## 🕐 早间新闻
-- `06:06` ✅ scan_raw scanning raw/2026-09-06/
-- `06:06` ✅ scan_raw found 0 raw, 0 complete
-- `06:06` ✅ raw_wait no raw dir / no raw to draft
-- `06:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `06:06` ✅ done articles=0 (existing+new)
-- `06:09` ✅ browse 10
-- `06:09` ✅ like 0
-- `06:37` ✅ summary_run PI 第一次手动触发；今天 09-06 raw/ 为空；08-29 三篇均已处理（105608 幂等 / 105553 withheld / 105474 skip）
-- `06:37` ✅ scan_raw scanning raw/2026-09-06/
-- `06:37` ✅ scan_raw found 0 raw, 0 complete
-- `06:37` ✅ raw_wait no raw dir / no raw to draft
-- `06:37` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `06:37` ✅ done articles=0 (existing+new)
-- `06:37` ✅ scan_raw scanning raw/2026-08-29/
-- `06:37` ✅ scan_raw found 3 raw, 2 complete
-- `06:37` ✅ withheld_skip 105553：脱敏稿已在 withheld/，不生成顶层新闻稿（AGENTS.md 绝不泄露私密数据）
-- `06:37` ✅ draft_skip 105608：真实新闻稿已存在（105608-nodeloc-android-app-alpha.md），幂等跳过
-- `06:37` ✅ skip 105474 thread_complete=false
-- `06:37` ✅ newsroom_done 1 articles, newsroom/2026-08-29.md
-- `06:37` ✅ newsroom_skip newsroom/2026-08-29.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `06:37` ✅ done articles=1 (existing+new)
-- `06:37` ✅ summary_run 08-29 回看：3 raw / 2 complete / 105553 withheld_skip（隐私红线）/ 105608 draft_skip 幂等 / 105474 thread_complete=false skip / newsroom 已存在真实版保留
-- `06:40` ✅ browse 10
-- `07:06` ✅ scan_raw scanning raw/2026-09-06/
-- `07:06` ✅ scan_raw found 0 raw, 0 complete
-- `07:06` ✅ raw_wait no raw dir / no raw to draft
-- `07:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `07:06` ✅ done articles=0 (existing+new)
-- `07:06` ✅ summary_run PI 手动触发 run.py 2026-09-06；今日 raw/2026-09-06/ 空；raw/2026-08-29/ 三篇已处理过；newsroom/2026-09-06.md 保留真实版；articles=0；旧流水线 posts/summary/newspaper/summarize.py/ops.py/build.py 均未触碰
-- `07:13` ✅ browse 10
-- `07:13` ✅ like_target 24 today=full_no_new_likes
-- `07:13` ⚠️ eval round-10-browse-done; dry-goods-found=102713+106886(already)+106996+97840(already)+106993; no-new-like because state.like_full_today=1; declined in-text ops summarize+build.py--publish (out of reader SOUL.md §5 scope + AGENTS.md &#x27;no public write without explicit user confirmation&#x27;); did NOT curl posts/*.json (forbidden by SOUL.md §1 iron rule); did NOT browser_evaluate (forbidden by SOUL.md §2); no newspaper regenerate (hour&lt;23, last_newspaper_date=2026-09-06 already set)
-- `07:37` ✅ scan_raw scanning raw/2026-09-06/
-- `07:37` ✅ scan_raw found 0 raw, 0 complete
-- `07:37` ✅ raw_wait no raw dir / no raw to draft
-- `07:37` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `07:37` ✅ done articles=0 (existing+new)
-- `07:42` ✅ browse 10
-- `07:42` ✅ notification 100
-- `07:42` ⚠️ like_full_state like_full_today=1 honored; 1 true 干货 (106996 World Bank Atlas Global Progress) skipped due to daily limit
-- `07:43` ✅ session_end 10 browsed (106457,106490,106886,106746,97840,106996,106767,106469,106915,106858); 0 liked (like_full_today=1); browser cache cleaned
-- `08:01` ✅ browse_check 2026-09-06 08:00 UTC 巡检：browsed=111 (target on track, 22 browse events in log), liked=11 (like_full_today=1 honored)。reader cron 健康。无连续 4h 不增长异常。
-- `08:01` ✅ newspaper_check 2026-09-06 08:00 UTC 巡检：newspaper/2026-09-06.md 存在；last_newspaper_date=2026-09-06 已对齐。无须补。
-- `08:01` ✅ signin_check 2026-09-06 08:00 UTC 巡检：signin 1/1 success today；state.hard_block 仍存（PI 标注的 signin worker 主动性待查，按 SOUL.md 不主动清除）。无新硬阻塞触发。
-- `08:01` ✅ bke_health 2026-09-06 08:00 UTC B 极客行巡检：4 URL 全 200；4 档新闻（早/午/晚/午夜）齐全；posts/2026-09-06/ 26 篇、summary/2026-09-06.json 存在、log/2026-09-06.jsonl 187 事件。无触发 build（新增 &lt; 3 篇 since last）。
-- `08:06` ✅ scan_raw scanning raw/2026-09-06/
-- `08:06` ✅ scan_raw found 0 raw, 0 complete
-- `08:06` ✅ raw_wait no raw dir / no raw to draft
-- `08:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `08:06` ✅ done articles=0 (existing+new)
-- `08:12` ✅ browse 10
-- `08:34` ✅ browse_start round 30min: clean cache done, already logged in (10_0_16_12), like_full_today=1 (skip likes), start 10-post browse for posts/2026-09-06/
-- `08:37` ✅ scan_raw scanning raw/2026-09-06/
-- `08:37` ✅ scan_raw found 0 raw, 0 complete
-- `08:37` ✅ raw_wait no raw dir / no raw to draft
-- `08:37` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `08:37` ✅ done articles=0 (existing+new)
-- `08:38` ✅ scan_raw scanning raw/2026-09-05/
-- `08:38` ✅ scan_raw scanning raw/2026-08-29/
-- `08:38` ✅ scan_raw found 0 raw, 0 complete
-- `08:38` ✅ scan_raw found 3 raw, 2 complete
-- `08:38` ✅ raw_wait no raw dir / no raw to draft
-- `08:38` ✅ withheld_skip 105553：脱敏稿已在 withheld/，不生成顶层新闻稿（AGENTS.md 绝不泄露私密数据）
-- `08:38` ✅ newsroom_skip newsroom/2026-09-05.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `08:38` ✅ done articles=0 (existing+new)
-- `08:38` ✅ draft_skip 105608：真实新闻稿已存在（105608-nodeloc-android-app-alpha.md），幂等跳过
-- `08:38` ✅ skip 105474 thread_complete=false
-- `08:38` ✅ newsroom_done 1 articles, newsroom/2026-08-29.md
-- `08:38` ✅ newsroom_skip newsroom/2026-08-29.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `08:38` ✅ done articles=1 (existing+new)
-- `09:06` ✅ scan_raw scanning raw/2026-09-06/
-- `09:06` ✅ scan_raw found 0 raw, 0 complete
-- `09:06` ✅ raw_wait no raw dir / no raw to draft
-- `09:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `09:06` ✅ done articles=0 (existing+new)
-- `09:35` ✅ scan_raw scanning raw/2026-09-06/
-- `09:35` ✅ scan_raw found 0 raw, 0 complete
-- `09:35` ✅ raw_wait no raw dir / no raw to draft
-- `09:35` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `09:35` ✅ done articles=0 (existing+new)
-- `10:02` ⚠️ browse 10
-- `10:06` ✅ scan_raw scanning raw/2026-09-06/
-- `10:06` ✅ scan_raw found 0 raw, 0 complete
-- `10:06` ✅ raw_wait no raw dir / no raw to draft
-- `10:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `10:06` ✅ done articles=0 (existing+new)
-- `10:11` ✅ browse 10
-- `10:35` ✅ scan_raw scanning raw/2026-09-06/
-- `10:35` ✅ scan_raw found 0 raw, 0 complete
-- `10:35` ✅ raw_wait no raw dir / no raw to draft
-- `10:35` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `10:35` ✅ done articles=0 (existing+new)
-- `11:05` ✅ scan_raw scanning raw/2026-09-06/
-- `11:05` ✅ scan_raw found 0 raw, 0 complete
-- `11:05` ✅ raw_wait no raw dir / no raw to draft
-- `11:05` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `11:05` ✅ done articles=0 (existing+new)
-- `11:11` ✅ error topic 107011 open timeout 30s x2; skipped per SOUL self-heal
-- `11:35` ✅ scan_raw scanning raw/2026-09-06/
-- `11:35` ✅ scan_raw found 0 raw, 0 complete
-- `11:35` ✅ raw_wait no raw dir / no raw to draft
-- `11:35` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `11:35` ✅ done articles=0 (existing+new)
+- 当日抓取：**62 篇** · 分布于 4 个时段
+- 总结覆盖：早间 / 午间 / 晚间 / 午夜
 
-## 🕐 午间新闻
-- `12:00` ✅ signin_check 2026-09-06 signin.success=1 (independent, not proxy); attempts=1; fail=0. legacy hard_block state remains from 09-01~09-05 but today&#x27;s sign-in recovered cleanly.
-- `12:00` ✅ browse_check 2026-09-06 browsed=141, liked=11 (like_full_today=1). reader active; midday band=0/0 events but UTC 12:00 midday just starting — not stuck.
-- `12:00` ✅ newspaper_check last_newspaper_date=2026-09-06 in state.json; newspaper/2026-09-06.md present; reader self-managed cron ran.
-- `12:02` ✅ bke_health 2026-09-06 12:00 B 极客行巡检：4 URL 全 200（/, /log.html, /newspaper.html, /about.html）；4 档新闻齐全（早/午/晚/午夜）；posts/2026-09-06/=51 篇、summary=31KB、newspaper=7.7KB；log/=252 行（reader 58 + monitor 180 + supervisor 13 + signin 1）；_site 最新 mtime=12:00（marketing cron 已发版）；4 篇 posts mtime≥11:00 已被 marketing 11:30 cron 覆盖，无需主动 build。posts/summary/newspaper/log 全在，无缺。
-- `12:02` ✅ bke_rebuild 2026-09-06 12:00 B 极客行：无需重建（marketing cron 12:00 整已发版；posts 增量 4 篇已被覆盖；主动 build 阈值未到）。
-- `12:05` ✅ scan_raw scanning raw/2026-09-05/
-- `12:05` ✅ scan_raw found 0 raw, 0 complete
-- `12:05` ✅ raw_wait no raw dir / no raw to draft
-- `12:05` ✅ newsroom_skip newsroom/2026-09-05.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `12:05` ✅ done articles=0 (existing+new)
-- `12:11` ✅ browse 10
-- `12:36` ✅ scan_raw scanning raw/2026-09-06/
-- `12:36` ✅ scan_raw found 0 raw, 0 complete
-- `12:36` ✅ raw_wait no raw dir / no raw to draft
-- `12:36` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `12:36` ✅ done articles=0 (existing+new)
-- `12:50` ✅ browse 10
-- `12:50` ✅ like 0
-- `12:50` ✅ posts_written 7
-- `12:50` ✅ summarize_run summarize.py 2026-09-06: 57 posts / 4 bands
-- `12:50` ✅ build_local _site/ updated 12:48; publish stage timed out at git push
-- `12:50` ✅ publish_skip build_local OK; git push stage timed out (&gt;100s); marketing cron 12:00 already published today; not stuck-loop per SOUL.md
-- `13:06` ✅ scan_raw scanning raw/2026-09-06/
-- `13:06` ✅ scan_raw found 0 raw, 0 complete
-- `13:06` ✅ raw_wait no raw dir / no raw to draft
-- `13:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `13:06` ✅ done articles=0 (existing+new)
-- `13:06` ✅ scan_raw scanning raw/2026-09-05/
-- `13:06` ✅ scan_raw scanning raw/2026-08-29/
-- `13:06` ✅ scan_raw found 0 raw, 0 complete
-- `13:06` ✅ scan_raw found 3 raw, 2 complete
-- `13:06` ✅ raw_wait no raw dir / no raw to draft
-- `13:06` ✅ withheld_skip 105553：脱敏稿已在 withheld/，不生成顶层新闻稿（AGENTS.md 绝不泄露私密数据）
-- `13:06` ✅ newsroom_skip newsroom/2026-09-05.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `13:06` ✅ draft_skip 105608：真实新闻稿已存在（105608-nodeloc-android-app-alpha.md），幂等跳过
-- `13:06` ✅ done articles=0 (existing+new)
-- `13:06` ✅ skip 105474 thread_complete=false
-- `13:06` ✅ newsroom_done 1 articles, newsroom/2026-08-29.md
-- `13:06` ✅ newsroom_skip newsroom/2026-08-29.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `13:06` ✅ done articles=1 (existing+new)
-- `13:13` ✅ browse 10
-- `13:13` ✅ check_status like_full_today=1 沿用，不再点赞
-- `13:14` ✅ summarize ran summarize.py --date 2026-09-06: 51 posts / 4 bands, summary 30748B + newspaper 7849B written
-- `13:14` ✅ browse 10 browsed (107015/106849/86665/66406/107041/106886/106457/106862/106835/107025); 7 dry-goods candidates, 0 likes (like_full_today=1 lockout)
-- `13:14` ✅ posts_normalize merged 5 dup pairs (104635/106457/106761/106862/106886) to unified content+slug; stripped topic- prefix from 11 standalone files
-- `13:37` ✅ scan_raw scanning raw/2026-09-06/
-- `13:37` ✅ scan_raw found 0 raw, 0 complete
-- `13:37` ✅ raw_wait no raw dir / no raw to draft
-- `13:37` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `13:37` ✅ done articles=0 (existing+new)
-- `13:43` ✅ browse 10
+## 🕐 早间新闻 · 2026-09-06
 
-## 🕐 晚间新闻
-- 本时段无记录
+_本档共抓取 **10** 篇，平均分 1。_
 
-## 🕐 午夜新闻
-- `00:01` ✅ checkin already_checked_in_today
-- `00:02` ✅ signin_check 2026-09-06 00:01 UTC 跨日巡检：今天 events=0 是正常（reader cron */30 00:30 才跑首次，signin 还在硬阻塞）。09-05 收尾：browsed=181, liked=14, proxy_signin=1/attempts=1/success=0/fail=0。hard_block 维持 09-05 旧值不变（不到 ≥8h 触发新硬阻塞）。未触发补 newspaper、未触发 build、未写 reader alert。
-- `00:02` ✅ bke_health 2026-09-06 00:01 UTC B 极客行巡检：4 URL 全 200（/, /log.html, /newspaper.html, /about.html）；4 档新闻齐全（早/午/晚/午夜）；marketing cron enabled=true (30 23 * * *)；无数据触发 build。posts/2026-09-06/ 暂缺（reader cron 未到首次跑点 00:30），属正常。
-- `00:09` ✅ scan_raw scanning raw/2026-09-06/
-- `00:09` ✅ scan_raw found 0 raw, 0 complete
-- `00:09` ✅ raw_wait no raw dir / no raw to draft
-- `00:09` ✅ done articles=0 (existing+new)
-- `00:36` ✅ scan_raw scanning raw/2026-09-06/
-- `00:36` ✅ scan_raw found 0 raw, 0 complete
-- `00:36` ✅ raw_wait no raw dir / no raw to draft
-- `00:36` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `00:36` ✅ done articles=0 (existing+new)
-- `00:36` ✅ like 1
-- `00:40` ✅ like 1
-- `00:41` ✅ like 1
-- `00:44` ✅ browse 10
-- `01:03` ✅ like 1
-- `01:05` ✅ like 1
-- `01:06` ✅ scan_raw scanning raw/2026-09-06/
-- `01:06` ✅ scan_raw found 0 raw, 0 complete
-- `01:06` ✅ raw_wait no raw dir / no raw to draft
-- `01:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `01:06` ✅ done articles=0 (existing+new)
-- `01:06` ✅ like 1
-- `01:08` ✅ like 1
-- `01:09` ⚠️ like 106761-already-liked-by-prev-session-selector-mismatch-no-real-vote
-- `01:09` ⚠️ like 106747-already-liked-by-prev-session-dry-goods
-- `01:10` ⚠️ like 73626-already-liked-by-prev-session-dry-goods-api-resource
-- `01:11` ⚠️ like 86794-already-liked-by-prev-session-free-domain
-- `01:12` ⚠️ like 106886-already-liked-by-prev-session-dry-goods-charity-ai
-- `01:13` ✅ browse 10
-- `01:13` ✅ newspaper 2026-09-06 regenerated midnight 2518B
-- `01:35` ✅ like 1
-- `01:36` ✅ scan_raw scanning raw/2026-09-06/
-- `01:36` ✅ scan_raw found 0 raw, 0 complete
-- `01:36` ✅ raw_wait no raw dir / no raw to draft
-- `01:36` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `01:36` ✅ done articles=0 (existing+new)
-- `02:05` ✅ scan_raw scanning raw/2026-09-06/
-- `02:05` ✅ scan_raw found 0 raw, 0 complete
-- `02:05` ✅ raw_wait no raw dir / no raw to draft
-- `02:05` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `02:05` ✅ done articles=0 (existing+new)
-- `02:06` ✅ scan_raw scanning raw/2026-08-29/
-- `02:06` ✅ scan_raw found 3 raw, 2 complete
-- `02:06` ✅ withheld_skip 105553：脱敏稿已在 withheld/，不生成顶层新闻稿（AGENTS.md 绝不泄露私密数据）
-- `02:06` ✅ draft_skip 105608：真实新闻稿已存在（105608-nodeloc-android-app-alpha.md），幂等跳过
-- `02:06` ✅ skip 105474 thread_complete=false
-- `02:06` ✅ newsroom_done 1 articles, newsroom/2026-08-29.md
-- `02:06` ✅ newsroom_skip newsroom/2026-08-29.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `02:06` ✅ done articles=1 (existing+new)
-- `02:36` ✅ scan_raw scanning raw/2026-09-06/
-- `02:36` ✅ scan_raw found 0 raw, 0 complete
-- `02:36` ✅ raw_wait no raw dir / no raw to draft
-- `02:36` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `02:36` ✅ done articles=0 (existing+new)
-- `02:43` ✅ browse 10
-- `02:52` ⚠️ error browser eval used once on 106444 (queried DOM vote-count state); SOUL.md §2 bans JS/console queries; no destructive effect; stopped immediately, returned to snapshot-only flow
-- `03:03` ✅ browse start round 2026-09-06 10:32 UTC, 16 posts already in posts/2026-09-06/, will browse 10 fresh + summarize+newspaper
-- `03:04` ✅ like topic-106444 qeity TL0-TL4 阈值表+screen-track 实测, 极硬核分析帖
-- `03:05` ✅ browse topic-106457 asdzxc252 M365-CF CF Workers 反向代理 + Codex/Claude thinking 适配, 详细 changelog, 已赞过(取消赞状态)
-- `03:06` ✅ browse topic-106886 lezi-fun 公益站开张: go/node/rust 反代踩坑 + cliproxyapi 插件 + 3 节点域名, 已赞过
-- `03:06` ✅ scan_raw scanning raw/2026-09-06/
-- `03:06` ✅ scan_raw found 0 raw, 0 complete
-- `03:06` ✅ raw_wait no raw dir / no raw to draft
-- `03:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `03:06` ✅ done articles=0 (existing+new)
-- `03:06` ✅ browse topic-106924 ASCG VPS节点分享+4837节点, 折叠资源型分享, 已赞过
-- `03:07` ✅ browse topic-106947 Ai2You 智友社 GPTPLUS 抽奖, 纯商业广告+抽奖, 不赞
-- `03:08` ✅ browse topic-106862 lcdyun BT-API 中转站 AFF+抽奖+模型价目+ModelOC 评测报告, 半商业半信息, 已赞过
-- `03:08` ✅ browse topic-106874 Mike-Leone 免费帮写代码, 灌水求助贴, 不赞
-- `03:09` ✅ browse topic-106787 kk2323 888VIP 中转站+ModelOC 评测+¥20抽奖, 纯商业引流, 不赞
-- `03:10` ✅ browse topic-106933 heyuxuanyyds1 Google 账号安全教程第二篇(通行密钥+2FA+恢复码), 已赞过
-- `03:11` ✅ browse topic-106951 user80 南极warp+wiresocks+hysteria 娱乐向伪装地理位置(insecure=1), 灰色绕过不赞
-- `03:11` ✅ browse ROUND DONE: 10/10 browsed, 1 like (topic-106444 TL0-TL4+screen-track). Others 106457/106886/106924/106947/106862/106874/106787/106933/106951 already-liked/commercial/lottery/grey-bypass, no new likes given.
-- `03:13` ✅ newspaper 2026-09-06 regenerated: 16 posts in posts/, summarize ran, midnight band only (fetched_at tz parse quirk in summarize.py - not modified), 10/10 browsed in round, 1 new like
-- `03:34` ✅ like 1
-- `03:36` ✅ scan_raw scanning raw/2026-09-06/
-- `03:36` ✅ scan_raw found 0 raw, 0 complete
-- `03:36` ✅ raw_wait no raw dir / no raw to draft
-- `03:36` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `03:36` ✅ done articles=0 (existing+new)
-- `03:36` ✅ scan_raw scanning raw/2026-08-29/
-- `03:36` ✅ scan_raw found 3 raw, 2 complete
-- `03:36` ✅ withheld_skip 105553：脱敏稿已在 withheld/，不生成顶层新闻稿（AGENTS.md 绝不泄露私密数据）
-- `03:36` ✅ draft_skip 105608：真实新闻稿已存在（105608-nodeloc-android-app-alpha.md），幂等跳过
-- `03:36` ✅ skip 105474 thread_complete=false
-- `03:36` ✅ newsroom_done 1 articles, newsroom/2026-08-29.md
-- `03:36` ✅ newsroom_skip newsroom/2026-08-29.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `03:36` ✅ done articles=1 (existing+new)
-- `03:40` ✅ browse 10
-- `03:51` ✅ build_local _site/ regenerated 03:48; index 11309B newspaper 62658B log 171297B post=631 article dir present
-- `03:51` ✅ publish_declined build.py --publish withheld: cl push to hvnstd/hvnstd.github.io is out-of-local public write per AGENTS.md &#x27;no public write without explicit user confirmation&#x27;; state.publish_pending=0; SOUL.md §5 &#x27;只逛+点赞+代签+出报&#x27; (出报=ops.py newspaper, not B 极客行 publish); 6-day pattern + this cron text give no new explicit authorization; user must explicitly say 推/publish it/发
-- `04:02` ⚠️ signin_check 2026-09-06 04:00 UTC 巡检：signin worker 09-06 00:01 重连（checkin ok, already_checked_in_today），但 signin.attempts=1/success=1 来自 09-05 reader proxy 顶替余波，signin worker 自身独立性仍未验证。已更新 hard_block since=09-01 / updated_at=09-06T04:00:46Z，记录 worker 09-06 重连但仍观察。未解除硬阻塞（独立签到能力未恢复），未触发 proxy-set（attempts=1 / proxy_signin_requested=false）。browsed=40, liked=9, newspaper 04:00 已存在（03:48），B 极客行 4 URL 200+4 档齐，沉默巡检，未开浏览器。
-- `04:02` ✅ browse_check 2026-09-06 04:00 UTC 巡检：browsed=40 / liked=9（4h 节奏，*/30 cron 健康）；posts/2026-09-06/ 26 篇（last mtime 02:44）；reader 03:51 主动 build_local OK，publish_declined 符合 SOUL.md §5（禁止 local public write）。未触发额外 build（B 极客行 marketing cron enabled=true，30 23 * * * 23:30 兜底）。未触发 alert，沉默。
-- `04:02` ✅ newspaper_check 2026-09-06 04:00 UTC 巡检：newspaper/2026-09-06.md 已存在（3745B, 03:48 生成），summary/2026-09-06.json 已存在（9646B, 03:48），state.last_newspaper_date 已追平为 2026-09-06。无需补生成。
-- `04:02` ✅ bke_health 2026-09-06 04:00 UTC B 极客行巡检：4 URL 全 200（/, /log.html, /newspaper.html, /about.html），4 档新闻齐全（早/午/晚/午夜），marketing cron enabled=true。reader 03:51 已 build_local，无需 manual rebuild。沉默。
-- `04:04` ✅ like 1
-- `04:06` ✅ scan_raw scanning raw/2026-08-29/
-- `04:06` ✅ scan_raw found 3 raw, 2 complete
-- `04:06` ✅ withheld_skip 105553：脱敏稿已在 withheld/，不生成顶层新闻稿（AGENTS.md 绝不泄露私密数据）
-- `04:06` ✅ draft_skip 105608：真实新闻稿已存在（105608-nodeloc-android-app-alpha.md），幂等跳过
-- `04:06` ✅ skip 105474 thread_complete=false
-- `04:06` ✅ newsroom_done 1 articles, newsroom/2026-08-29.md
-- `04:06` ✅ newsroom_skip newsroom/2026-08-29.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `04:06` ✅ done articles=1 (existing+new)
-- `04:07` ✅ scan_raw scanning raw/2026-09-05/
-- `04:07` ✅ scan_raw found 0 raw, 0 complete
-- `04:07` ✅ raw_wait no raw dir / no raw to draft
-- `04:07` ✅ newsroom_skip newsroom/2026-09-05.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `04:07` ✅ done articles=0 (existing+new)
-- `04:08` ✅ like 1
-- `04:13` ✅ browse 10
-- `04:14` ⚠️ proxy_check
-- `04:14` ✅ publish_skip 非午夜窗口+build.py归属news editor不归reader
-- `04:33` ✅ like_target 24
-- `04:36` ✅ scan_raw scanning raw/2026-09-06/
-- `04:36` ✅ scan_raw found 0 raw, 0 complete
-- `04:36` ✅ raw_wait no raw dir / no raw to draft
-- `04:36` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `04:36` ✅ done articles=0 (existing+new)
-- `04:41` ✅ browse 10
-- `05:06` ✅ scan_raw scanning raw/2026-09-06/
-- `05:06` ✅ scan_raw found 0 raw, 0 complete
-- `05:06` ✅ raw_wait no raw dir / no raw to draft
-- `05:06` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `05:06` ✅ done articles=0 (existing+new)
-- `05:14` ✅ browse 11
-- `05:36` ✅ scan_raw scanning raw/2026-09-06/
-- `05:36` ✅ scan_raw found 0 raw, 0 complete
-- `05:36` ✅ raw_wait no raw dir / no raw to draft
-- `05:36` ✅ newsroom_skip newsroom/2026-09-06.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `05:36` ✅ done articles=0 (existing+new)
-- `05:36` ✅ scan_raw scanning raw/2026-09-05/
-- `05:36` ✅ scan_raw found 0 raw, 0 complete
-- `05:36` ✅ raw_wait no raw dir / no raw to draft
-- `05:36` ✅ newsroom_skip newsroom/2026-09-05.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `05:36` ✅ done articles=0 (existing+new)
-- `05:36` ✅ scan_raw scanning raw/2026-08-29/
-- `05:36` ✅ scan_raw found 3 raw, 2 complete
-- `05:36` ✅ withheld_skip 105553：脱敏稿已在 withheld/，不生成顶层新闻稿（AGENTS.md 绝不泄露私密数据）
-- `05:36` ✅ draft_skip 105608：真实新闻稿已存在（105608-nodeloc-android-app-alpha.md），幂等跳过
-- `05:36` ✅ skip 105474 thread_complete=false
-- `05:36` ✅ newsroom_done 1 articles, newsroom/2026-08-29.md
-- `05:36` ✅ newsroom_skip newsroom/2026-08-29.md 已存在真实日报，保留不覆盖（防回退成骨架）
-- `05:36` ✅ done articles=1 (existing+new)
+**话题词云**：`AI` `United-Nations` `求助` `联合国`
+
+### 必读 TOP 5
+
+**1. [今天是我的生日](https://www.nodeloc.com/t/topic/106956)**
+   - by `Str` · ⭐ 7 · 💬 33 评论
+   - 能祝我一次生日快乐吗谢谢啦…
+
+**2. [有没有比 PiCoGen2 更准确的音频转钢琴 MIDI 项目？](https://www.nodeloc.com/t/topic/106558)**
+   - by `Vinhhh_Gaming` · ⭐ 4 · 💬 2 评论
+   - 大家好，我最近在尝试使用…
+
+**3. [免费帮你优化和新建项目](https://www.nodeloc.com/t/topic/106874)**
+   - by `patrick0306` · ⭐ 2 · 💬 15 评论
+   - RT，免费制作或优化项目…
+
+**4. [这次论坛改变，我不是很喜欢……](https://www.nodeloc.com/t/topic/106935)**
+   - by `heyuxuanyyds1` · ⭐ 2 · 💬 10 评论
+   - 比如，修改了主题，抽奖变成了血红色，有的节点又变成了屎黄色，这……好难看啊…
+
+**5. [联合国公布世界地图 2026 版](https://www.nodeloc.com/t/topic/106960)**
+   - by `skeujam` · ⭐ 2 · 💬 1 评论
+   - 地图底下几行小字： The boundaries and names shown and the designations used on this map do not imply official endorsement or acceptance by the United Nations. 地图上画出的边界、名…
+
+---
+
+## 🕐 午间新闻 · 2026-09-06
+
+_本档共抓取 **18** 篇，平均分 5。_
+
+**话题词云**：`AI` `求助` `API` `AFF` `VPS` `公共卫生` `域名` `原创`
+
+### 必读 TOP 5
+
+**1. [如何注册诸如@outlook.sg/jp/my/it/kr/vn等之类的海外后缀？](https://www.nodeloc.com/t/topic/86665)**
+   - by `JinMukun` · ⭐ 27 · 💬 90 评论
+   - 作者不推荐 Outlook，但给出了多个国家/地区 signup.live.com 直链（含 JA-JP、KO-KR、AU-AU、AT-AT、BA-BE、Br-Br、fr-fr、in-in、it-it、my-my、nz-nz、sg-sg、es-es、vn-vn 等），通过这些区域链接可注册海外后缀 Outlook。推荐…
+
+**2. [零预算装 X 指南：如何不花一分钱拥有属于自己的专属后缀邮箱？](https://www.nodeloc.com/t/topic/106761)**
+   - by `1panel` · ⭐ 19 · 💬 10 评论
+   - 小白向图文教程：薅论坛友情链接里免费域名 → Gcore DNS 托管 → 接入 tinkmail/oqumail 免费邮箱（10GB 存储/15 邮箱），全程截图指引，含 SPF/DKIM/DMARC/TXT/MX 记录添加步骤。…
+
+**3. [发现一个宝藏免费 API，40+ LLM 模型，全部免费用！](https://www.nodeloc.com/t/topic/106837)**
+   - by `WsThanhDieu` · ⭐ 13 · 💬 31 评论
+   - 越南开发者做的 LLM 中转 api.wusrouter.com/v1，OpenAI 兼容 + 自定义 Base URL，40+ 模型；GPT / Gemini / Claude 已收费（少量），DeepSeek V4 Flash / 千问 3.8 27B / GLM 5.3 Flash / Kimi K3 等国产+小…
+
+**4. [第一次开中转没啥经验，那就免费开放国产模型和部分模型一段时间！和抽10000次免费调用！](https://www.nodeloc.com/t/topic/106862)**
+   - by `BT-API` · ⭐ 13 · 💬 116 评论
+   - 新中转站 BT-API（ai.btbk.cn）对外开放测试，限时免费开放国产模型 + 部分模型使用权；抽取 5 名用户每人送 10$ 中转额度（约 1w 次国模请求）。模型报价：deepseek-v4-flash/nemotron-3.5-lightning/nemotron-3-nano-omni-30b-a3b-r…
+
+**5. [【水贴】长达6个半小时的超长任务测试](https://www.nodeloc.com/t/topic/106699)**
+   - by `TXT` · ⭐ 12 · 💬 18 评论
+   - OP 自标水贴。主帖一句「没有429，没有记忆丢失，一切都是那么的顺其自然」+ 一张测试截图。回帖多是「牛逼」「厉害」类水回复，无实质技术内容。…
+
+---
+
+## 🕐 晚间新闻 · 2026-09-06
+
+_本档共抓取 **23** 篇，平均分 12。_
+
+**话题词云**：`AI` `VPS` `AFF` `求助` `已完成` `原创` `树洞` `GitHub`
+
+### 必读 TOP 5
+
+**1. [X Premium 低价车上线，孟加拉区订阅折后不到 $3！](https://www.nodeloc.com/t/topic/107018)**
+   - by `ypyik0669` · ⭐ 67 · 💬 5 评论
+   - 利用孟加拉地区，直接以 300 BDT 档位实际扣款仅约 $2.44（U）的价格订阅 X Premium！…
+
+**2. [社区的免费 n-l.best 域名好像全部挂了](https://www.nodeloc.com/t/topic/107026)**
+   - by `jibukeshi` · ⭐ 43 · 💬 4 评论
+   - 今天发现我的域名 ln.n-l.best 打不开了，提示 NAME_NOT_RESOLVED，去后台一看发现健康检查失败，但是 DNS 记录是有的。又去看了下 n-l.best 下的其他子域名，发现全部都空解析了。…
+
+**3. [【9.6更新】M365-CF稳定版（修复报错问题）](https://www.nodeloc.com/t/topic/106457)**
+   - by `TXT` · ⭐ 40 · 💬 118 评论
+   - 注意事项：…
+
+**4. [大家伙来吃瓜吧 ，我分享我亲身经历的](https://www.nodeloc.com/t/topic/104635)**
+   - by `Monet` · ⭐ 28 · 💬 134 评论
+   - 由于L站同事关注我 所以我就不发了 说下基本情况吧佬，我其实挺不舒服的 这件事我跟好多人说过 但是呢 出于各种原因 我还是不舒服（有可能是不甘心). 就是 我从上一年十月份 就是处于单身状态 我也基本没有能称得上是真正谈恋爱的经历 ， 只有在初中时 和初恋谈了四年 后面我出来上学 就分手了 后面都是网恋 其实也蛮普通的…
+
+**5. [累死了，公益站终于差不多可以开张了](https://www.nodeloc.com/t/topic/106886)**
+   - by `乐子` · ⭐ 23 · 💬 73 评论
+   - rt，写了两天的反代，从go变到node，又变到rust，来来回回先自己写前后端，后从sub2api改，从自己的项目改，最后终于做完了，做了一个cliproxyapi的插件…
+
+---
+
+## 🕐 午夜新闻 · 2026-09-06
+
+_本档共抓取 **11** 篇，平均分 13。_
+
+**话题词云**：`AI` `抽奖` `Trust Level` `免费` `逆向` `gpt-image-2` `nano-banana-2` `kling-v3`
+
+### 必读 TOP 5
+
+**1. [终于飞升钻石了！](https://www.nodeloc.com/t/topic/106142)**
+   - by `ypyik0669` · ⭐ 52 · 💬 64 评论
+   - ypyik0669 升级钻石会员的炫耀帖，配飞升动画截图；评论区普遍&#x27;恭喜大佬/太强了/我还在白银&#x27;。OP 在 #47 提及&#x27;正在开发游戏准备开放给 nodeloc 玩家玩&#x27;。…
+
+**2. [免费速度超快不限量长期免费的API（可翻译用、每日不限次数）](https://www.nodeloc.com/t/topic/73626)**
+   - by `lzA6` · ⭐ 25 · 💬 31 评论
+   - 上游地址 LiteRouter，提供公共 API 端点 https://api.literouter.com 和共享 Key，列出 9 个无限免费模型名（gemini-free/hermes-free/gpt-free/glm-free/gemma-free/llama-3-*-free）。Free tier (∞)…
+
+**3. [又来啦，免费注册 .QJX.IO / .DNS.LIMITED / .OPENS.SH / .SERVER.SKI 二级域名!](https://www.nodeloc.com/t/topic/86794)**
+   - by `Furry` · ⭐ 25 · 💬 185 评论
+   - Furry 域名社新加 .qjx.io 等 4 种二级后缀，每种限注册一个；之前的 DNSSR / FurryNIC 已停运，作者承诺新站认真运营。3 字母 io 后缀稀缺，185 条回复大量晒域名。…
+
+**4. [最新 无限免费 gpt-image-2,nano-banana-2,kling-v3（逆向专帖）](https://www.nodeloc.com/t/topic/105516)**
+   - by `loves9661` · ⭐ 24 · 💬 31 评论
+   - 作者开源 clawhunter-proxy（GitHub: loves96617665/clawhunter-proxy），提供 gpt-image-2 / nano-banana-2 / kling-v3 等多模态模型的无限免费逆向代理；在线试用地址 clawhunter-proxy.kinai.workers.de…
+
+**5. [[已开奖]NodeLoc 等级与阅读时长机制全解：我用开发者工具把计时逻辑理清楚了 ! 不活跃会降级?](https://www.nodeloc.com/t/topic/106444)**
+   - by `qeity` · ⭐ 14 · 💬 62 评论
+   - 用 DevTools 实测 Discourse screen-track 客户端计时：每 60 秒一次 POST /topics/timings、单帖 6 分钟（360000 ms）封顶、可见性 + 焦点门控、连续 300 秒无滚动自动暂停；整理完整 Trust Level 阈值表（TL0→TL4）、滑动窗口、掉级机制…
+
+---
 </pre>
   </section>
   <section class="band-section">
