@@ -38,21 +38,59 @@
       <summary>编辑日报 newsroom/2026-09-07.md</summary>
       <pre class="newspaper-md"># 📰 B 极客行 · 编辑日报 · 2026-09-07
 
-&gt; 由 nodeloc_monitor 总编辑产出 · 签发 00:06
+&gt; 由 nodeloc_monitor 总编辑产出 · 签发 00:36
 
 ## 今日头条
 
-（今日无可发新闻：raw/ 中没有 thread_complete=true 的帖子，
-或记者（nodeloc_reader）尚未抓回当日数据。）
+**今日继续无可发新闻** — raw/2026-09-07/ 为空目录，记者（nodeloc_reader）
+今日尚未把任何帖子写入 raw/。在缺少完整原始资料的情况下，总编辑无法
+撰写新闻稿（SOUL.md §三.1 禁止&quot;换个说法重发&quot;，§八 明确&quot;没有 raw 不出稿&quot;）。
+
+最近一篇真实新闻稿仍是 **2026-08-29 · 105608 · NodeLoc Android APP Alpha 版本发布**
+（距今已 **9 天**未出新稿）。
+
+## 精选事件
+
+（今日无新稿，articles/2026-09-07/ 不创建。）
+
+- 上一批真实稿（2026-08-29）：[105608](articles/2026-08-29/105608-nodeloc-android-app-alpha.md) — NodeLoc Android APP Alpha 版本发布
+- 脱敏留存（2026-08-29）：[105553](articles/2026-08-29/withheld/105553-conversion-school-partner.md) — 仅在 withheld/，不进入顶层发布
+- 9/6 总编辑手写的&quot;无新闻&quot;日报：[newsroom/2026-09-06.md](2026-09-06.md) — 9/6 与今天同因（raw/ 为空）
+
+## 社区动态
+
+**今日仍无原始资料可综合**。从 reader 的访问行为旁路信号
+（log/2026-09-07.jsonl，截至 00:36）可观察：
+
+- **reader 在岗**：00:00 起已记录 10 次 browse、6 次 like 成功
+- **reader 仍未产出 raw**：今天所有动作都是浏览/点赞，没有任何帖子的完整楼层晋升到 raw/
+- **关键异常**：raw/2026-09-05/ 仍是空目录（建立于 9/5 14:03），距今已 2 天
+  - 同期 posts/2026-09-05/ 已沉淀 17 篇抓取对象（100120 / 102255 / 103237 / 105127 / 105305 / 105417 / 105481 / 105811 / 105857 / 105889 / 105942 / 106362 / 106456 / 106457 / 106482 / 106490 / 106497）
+  - 17 篇里**没有任何一篇晋升为 thread_complete=true 的 raw/** — reader 的&quot;完成判定 / 写稿完成&quot;环节仍在阻塞
+- **state.json hard_block 仍未清除**：supervisor 已在 09-06 note 中建议&quot;PI 下次巡检时 review 清除 hard_block&quot;，目前仍未动作
+  - signin worker 09-06 已反证独立签到成功（supervisor_note_2026_09_06），独立性证据已成立
+  - 但 hard_block 字段本身仍未被 PI / supervisor 显式清除 → 其它 worker 仍可能在决策时看到&quot;未解除&quot;信号
+
+**总编辑判断**：等 reader 把 09-05 ~ 09-07 区间里某篇帖子的完整楼层写完
+（thread_complete=true），本日报再升级为&quot;今日头条 + 精选事件&quot;版。强行编稿
+违反 SOUL.md §三.1。同时建议 PI 在 reader 的写稿链路恢复后，做一次
+&quot;哪些 raw 候选被卡住&quot;的专题巡检。
 
 ## 简讯
 
-- 无新增可发新闻。
+- 📭 **0 raw**：raw/2026-09-07/ 为空目录
+- 📊 **历史最新真实稿仍为 08-29（105608）**：距今已 9 天未出新稿
+- 🟢 **reader 主功能持续在线**：今天截至 00:36 共 10 次 browse + 6 次 like ok
+- 🔴 **reader 写稿链路持续异常**：raw/2026-09-05/ 2 天内未恢复，posts/2026-09-05/ 17 篇抓取对象无一晋升
+- 🟡 **state.hard_block 仍未清除**：supervisor 已建议清除（09-06 反证已成立），但字段未更新
+- 🔒 **隐私红线守住**：withheld/105553 仍只在脱敏子目录，未被提升到顶层（与 9/6 一致）
+- 🛡️ **旧流水线未动**：summarize.py / ops.py / posts/ · summary/ · newspaper/ 均未触碰
+- 🧭 **建议 PI 巡检项**：① reader 写稿链路阻塞点定位；② hard_block 是否需要清除
 
 ---
-*数据源：nodeloc_shared/raw/2026-09-07/ · articles/2026-09-07/*
+*数据源：nodeloc_shared/raw/2026-09-07/（空） · articles/2026-09-07/（未创建） · 上一批 articles/2026-08-29/*
 *本日报与旧版 ops.py:newspaper 生成的 nodeloc_shared/newspaper/ 并行运行，互不影响。*
-</pre>
+*本日报为总编辑手动签发（覆盖 run.py 00:06 的&quot;无可发新闻&quot;骨架），保留 run.py 后续扫描的幂等安全。*</pre>
     </details>
   </section>
   <section class="band-section">
