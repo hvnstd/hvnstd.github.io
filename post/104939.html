@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>推荐 Qingyu'Blog · 一个可以双击打开的原生 JS 博客 · B 极客行</title>
+<meta name="description" content="零框架 · 零构建 · 零依赖 —— 双击 index.html 就能用的个人博客，也可以一键部署到 Cloudflare 免费上云">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>推荐 Qingyu&#x27;Blog · 一个可以双击打开的原生 JS 博客</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/104939 · n/hidns</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·01:32
+      <span class="pipe">|</span>46 分
+      <span class="pipe">|</span>41 评论
+      <span class="pipe">|</span>by kejiland
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">零框架 · 零构建 · 零依赖 —— 双击 index.html 就能用的个人博客，也可以一键部署到 Cloudflare 免费上云</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">硬干货原创项目。Qingyu&#x27;Blog 是 kejiland 开发的纯原生 JS 博客系统（零框架/零依赖）：整个博客=4 文件（index.html + style.css + app.js + posts.js），双击 index.html 离线即用，无需 npm install；也可一键部署到 Cloudflare Workers + D1（免费额度），GitHub Actions 自动部署。核心功能：Markdown写作台（草稿不丢）、PBKDF2+AES-GCM 端到端文章加密（正文只存密文，列表接口也屏蔽）、D1 全局评论（XSS全转义+SQL参数化+IP限频+Origin校验）、管理员 PBKDF2-SHA256 加盐哈希（10万次迭代）+ 7天会话令牌 + 5次失败锁15分钟 + 一次性 setup key 防抢注。阅读体验：卡片列表、深色/浅色切换、TOC、代码高亮（js/ts/py/bash/css/html/json）、站内搜索、归档/标签云/上一篇下一篇。分发：RSS（加密文章自动排除）+ Sitemap 自动生成。测试：68 项回归（node smoke-test.js 零依赖）。仓库 https://github.com/kejiland/qingyu-blog ，在线 Demo https://kejiland.2024921.xyz/ ，MIT 协议。技术栈：原生 JS ES5 / Cloudflare Workers + D1 + KV / PBKDF2 + AES-GCM / Markdown 文件双通道。46赞高赞帖。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;104939&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/104939&quot;,
+  &quot;title&quot;: &quot;推荐 Qingyu&#x27;Blog · 一个可以双击打开的原生 JS 博客&quot;,
+  &quot;author&quot;: &quot;kejiland&quot;,
+  &quot;score&quot;: 46,
+  &quot;comments&quot;: 41,
+  &quot;domain&quot;: &quot;n/hidns&quot;,
+  &quot;tags&quot;: [
+    &quot;原创&quot;
+  ],
+  &quot;excerpt&quot;: &quot;零框架 · 零构建 · 零依赖 —— 双击 index.html 就能用的个人博客，也可以一键部署到 Cloudflare 免费上云&quot;,
+  &quot;content&quot;: &quot;硬干货原创项目。Qingyu&#x27;Blog 是 kejiland 开发的纯原生 JS 博客系统（零框架/零依赖）：整个博客=4 文件（index.html + style.css + app.js + posts.js），双击 index.html 离线即用，无需 npm install；也可一键部署到 Cloudflare Workers + D1（免费额度），GitHub Actions 自动部署。核心功能：Markdown写作台（草稿不丢）、PBKDF2+AES-GCM 端到端文章加密（正文只存密文，列表接口也屏蔽）、D1 全局评论（XSS全转义+SQL参数化+IP限频+Origin校验）、管理员 PBKDF2-SHA256 加盐哈希（10万次迭代）+ 7天会话令牌 + 5次失败锁15分钟 + 一次性 setup key 防抢注。阅读体验：卡片列表、深色/浅色切换、TOC、代码高亮（js/ts/py/bash/css/html/json）、站内搜索、归档/标签云/上一篇下一篇。分发：RSS（加密文章自动排除）+ Sitemap 自动生成。测试：68 项回归（node smoke-test.js 零依赖）。仓库 https://github.com/kejiland/qingyu-blog ，在线 Demo https://kejiland.2024921.xyz/ ，MIT 协议。技术栈：原生 JS ES5 / Cloudflare Workers + D1 + KV / PBKDF2 + AES-GCM / Markdown 文件双通道。46赞高赞帖。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-07T01:32+00:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;,
+  &quot;browse_judgment&quot;: &quot;dry&quot;,
+  &quot;fetched_by&quot;: &quot;reader&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/104939" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/104939</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
