@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>告别单栈！免费让纯 IPv4 主机拥有固定公网 IPv6 · B 极客行</title>
+<meta name="description" content="当我猫在厕所，惬意地欣赏某女主播诱人的舞姿时，画面突然卡了，转起小圈圈 ——">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>告别单栈！免费让纯 IPv4 主机拥有固定公网 IPv6</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/107317 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·06:35
+      <span class="pipe">|</span>14 分
+      <span class="pipe">|</span>18 评论
+      <span class="pipe">|</span>by 1panel
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">当我猫在厕所，惬意地欣赏某女主播诱人的舞姿时，画面突然卡了，转起小圈圈 ——</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">当我猫在厕所，惬意地欣赏某女主播诱人的舞姿时，画面突然卡了，转起小圈圈 ——
+我瞟着空空的卷纸盒，立刻马上，提起裤子，打开itdog测试一下，大地一片红
+歪思，我想是时候来点儿黑科技 ——
+简单些，ipv6流量交给
+中转到 你的IPv4主机
+隧道服务提供商 与 你的IPv4主机建立隧道使用的协议，比较流行的有这两种
+：直接在 IP 层封装（没有 UDP 头部），开销最小、效率最高。
+：要求 VPS 必须有独立公网 IPv4，且云厂商不能拦截 41 协议。
+：把 IPv6 数据封装在标准的 UDP 报文里。
+：穿透力强，即使是 NAT 内网或拦截了 41 协议的 VPS 也能正常使用。
+Free transit provider for ipv4 and ipv6 transit to support ipv6 distribution or get a free ipv6 subnet via our tunnelbroker service
+： 除了支持传统的
+，它还支持通过
+或
+搭建隧道
+：
+：这是它相比 HE 的最大差异点。如果你的 VPS 厂商（如某些 NAT 鸡或严格的云厂商）在防火墙里拦截了 Protocol 41，用 HE 的 SIT 隧道就会 Ping 不通，而 Route64 允许走 WireGuard (UDP) 绕过封锁
+：防火墙里拦截了 Protocol 41
+给纯 IPv4 的 VPS 挂上 IPv6 隧道，就像给老机型绑上“赛博外骨骼”，直接开启双栈全拼体验！
+：只要云厂商没拦截 Protocol 41，首选
+：如果不幸遇到防火墙死封 41 协议，直接改用
+好了不多废话了，我先去借几张纸……</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;107317&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/107317&quot;,
+  &quot;title&quot;: &quot;告别单栈！免费让纯 IPv4 主机拥有固定公网 IPv6&quot;,
+  &quot;author&quot;: &quot;1panel&quot;,
+  &quot;score&quot;: 14,
+  &quot;comments&quot;: 18,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;VPS&quot;,
+    &quot;原创&quot;,
+    &quot;ipv6&quot;
+  ],
+  &quot;excerpt&quot;: &quot;当我猫在厕所，惬意地欣赏某女主播诱人的舞姿时，画面突然卡了，转起小圈圈 ——&quot;,
+  &quot;content&quot;: &quot;当我猫在厕所，惬意地欣赏某女主播诱人的舞姿时，画面突然卡了，转起小圈圈 ——\n我瞟着空空的卷纸盒，立刻马上，提起裤子，打开itdog测试一下，大地一片红\n歪思，我想是时候来点儿黑科技 ——\n简单些，ipv6流量交给\n中转到 你的IPv4主机\n隧道服务提供商 与 你的IPv4主机建立隧道使用的协议，比较流行的有这两种\n：直接在 IP 层封装（没有 UDP 头部），开销最小、效率最高。\n：要求 VPS 必须有独立公网 IPv4，且云厂商不能拦截 41 协议。\n：把 IPv6 数据封装在标准的 UDP 报文里。\n：穿透力强，即使是 NAT 内网或拦截了 41 协议的 VPS 也能正常使用。\nFree transit provider for ipv4 and ipv6 transit to support ipv6 distribution or get a free ipv6 subnet via our tunnelbroker service\n： 除了支持传统的\n，它还支持通过\n或\n搭建隧道\n：\n：这是它相比 HE 的最大差异点。如果你的 VPS 厂商（如某些 NAT 鸡或严格的云厂商）在防火墙里拦截了 Protocol 41，用 HE 的 SIT 隧道就会 Ping 不通，而 Route64 允许走 WireGuard (UDP) 绕过封锁\n：防火墙里拦截了 Protocol 41\n给纯 IPv4 的 VPS 挂上 IPv6 隧道，就像给老机型绑上“赛博外骨骼”，直接开启双栈全拼体验！\n：只要云厂商没拦截 Protocol 41，首选\n：如果不幸遇到防火墙死封 41 协议，直接改用\n好了不多废话了，我先去借几张纸……&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-14T06:35+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/107317" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/107317</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

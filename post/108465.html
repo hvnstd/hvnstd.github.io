@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>为什么开了代理，Claude 还是可能知道你的 IP？ · B 极客行</title>
+<meta name="description" content="很多人理解代理时，会先想到这样一条链路：">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>为什么开了代理，Claude 还是可能知道你的 IP？</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/108465 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·13:43
+      <span class="pipe">|</span>5 分
+      <span class="pipe">|</span>7 评论
+      <span class="pipe">|</span>by skeujam
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">很多人理解代理时，会先想到这样一条链路：</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">很多人理解代理时，会先想到这样一条链路：
+于是很容易得出结论：既然请求从代理节点出去，Anthropic 看到的应该只是代理服务器，真实 IP 已经被隐藏。
+这个判断有一个前提：
+现实网络环境通常更复杂。
+先说明一点。本文标题里的“Claude 看到 IP”，严格来说指的是
+。这不代表 Claude 模型本身会直接在上下文中读取你的 IP。
+Anthropic 在隐私说明中写得很明确：
+“Anthropic uses IP address and other signals to infer coarse-grained location.”
+也就是，Anthropic 会使用
+推断国家或地区级位置，用于地区访问控制、防滥用和平台安全。
+在最理想的情况下：
+Anthropic 直接接收到的连接来自代理服务器。
+此时网络层看到的通常是：
+只看这一条 TCP / TLS 连接，Anthropic 无法凭空得知上一跳家庭宽带地址。
+因此，一个配置正确的代理确实可以隐藏这一条连接的原始公网 IP。
+问题在于，互联网代理体系还有应用层信息。
+最常见的例子是：
+MDN 对
+的定义很直接：它用于标识
+。
+多级代理时，还可以形成一整条地址链：
+大致对应：
+标准化的
+Header 也可以承担类似功能。
+这类机制本来就是为反向代理、负载均衡、CDN、日志和安全审计设计的。
+所以，服务器直接连接到代理，并不意味着应用层一定没有客户端来源信息。
+当然，
+本身可以伪造。安全系统通常只信任受控代理链添加的部分，不能把任意客户端提交的 Header 当成真实身份。
+网站使用 Cloudflare 后，源站直接看到的连接来自 Cloudflare 节点。
+链路大概是：
+同时，Cloudflare 会通过：
+把客户端地址继续传给源站。
+Cloudflare 官方文档明确说明，
+用于向源站提供连接到 Cloudflare 的客户端 IP。
+于是一个请求可能同时具备：
+这是正常的基础设施设计。
+网站需要真实来源信息完成限流、反欺诈、风控、地理判断和安全日志。
+假设用户通过一个第三方 AI 中转：
+中转站可能先收到：
+如果它向 Anthropic 发请求时重新构造连接，并删除这些来源字段：
+那么 Anthropic 能直接观察到的通常只是中转站出口。
+如果中转系统继续携带客户端 Metadata，或者某些辅助请求走了另一条链路，情况就会不同。
+所以判断“真实 IP 是否被隐藏”，需要看整条代理链怎样配置。
+Claude Pro、Max 等官网订阅用户使用的并不只有一个聊天接口。
+一次正常会话可能同时涉及：
+假设聊天主请求通过代理：
+另一个与同一账户有关的请求却走了本地网络：
+服务端此时可以同时看到：
+关键不再只是“这一条请求用了什么 IP”，还包括
+。
+Anthropic 的企业产品支持按照 authenticated request 的 source IP 做 IP Allowlist，这也说明 IP 本身属于其平台可以处理的安全元数据。
+Claude 支持邮件 Secure Link 登录。
+点击登录邮件，本质上会向 Anthropic 的认证系统发送另一条 HTTPS 请求。
+例如：
+同时：
+如果两条请求属于同一个登录过程，服务端就有条件把两个网络出口关联到同一账户。
+这也是为什么社区过去会讨论“邮件登录可能暴露另一条网络来源”。
+目前能够确认的是：
+Anthropic 会使用 IP 和其他信号判断地区；Claude 使用邮件登录链接；点击登录链接会产生新的网络请求。
+到了 Claude Code，网络路径会进一步复杂。
+浏览器可能遵循系统代理，CLI 可能读取：
+或者使用自己的网络配置。
+于是完全可能出现：
+某些子进程、Docker 容器、IPv6、UDP 或工具调用，也可能不遵循同一套代理设置。
+这类情况不需要任何“穿透代理”技术。
+只要同一账户在不同客户端产生了不同出口，服务端就可能同时观察到它们。
+Claude Code 和普通网页聊天还有一个本质差异：它拥有本地执行能力。
+官方文档列出了：
+其中
+用于保存 Bash 工具使用的 Shell 环境快照。
+这意味着 Agent 的数据边界已经延伸到：
+Claude Code 历史上也出现过
+权限隔离相关 Bug。
+&quot;GitHub Issue #5616 报告称：&quot;
+“Claude Code loads and exports .env on startup, even with read permissions denied.”
+也就是
+虽然被禁止直接读取，其中某些变量仍可能进入进程环境。
+这类问题说明 Agent 工具的隐私边界比普通聊天复杂得多。
+需要注意，这些是功能设计和安全 Bug。
+这一问题也完</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;108465&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/108465&quot;,
+  &quot;title&quot;: &quot;为什么开了代理，Claude 还是可能知道你的 IP？&quot;,
+  &quot;author&quot;: &quot;skeujam&quot;,
+  &quot;score&quot;: 5,
+  &quot;comments&quot;: 7,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;
+  ],
+  &quot;excerpt&quot;: &quot;很多人理解代理时，会先想到这样一条链路：&quot;,
+  &quot;content&quot;: &quot;很多人理解代理时，会先想到这样一条链路：\n于是很容易得出结论：既然请求从代理节点出去，Anthropic 看到的应该只是代理服务器，真实 IP 已经被隐藏。\n这个判断有一个前提：\n现实网络环境通常更复杂。\n先说明一点。本文标题里的“Claude 看到 IP”，严格来说指的是\n。这不代表 Claude 模型本身会直接在上下文中读取你的 IP。\nAnthropic 在隐私说明中写得很明确：\n“Anthropic uses IP address and other signals to infer coarse-grained location.”\n也就是，Anthropic 会使用\n推断国家或地区级位置，用于地区访问控制、防滥用和平台安全。\n在最理想的情况下：\nAnthropic 直接接收到的连接来自代理服务器。\n此时网络层看到的通常是：\n只看这一条 TCP / TLS 连接，Anthropic 无法凭空得知上一跳家庭宽带地址。\n因此，一个配置正确的代理确实可以隐藏这一条连接的原始公网 IP。\n问题在于，互联网代理体系还有应用层信息。\n最常见的例子是：\nMDN 对\n的定义很直接：它用于标识\n。\n多级代理时，还可以形成一整条地址链：\n大致对应：\n标准化的\nHeader 也可以承担类似功能。\n这类机制本来就是为反向代理、负载均衡、CDN、日志和安全审计设计的。\n所以，服务器直接连接到代理，并不意味着应用层一定没有客户端来源信息。\n当然，\n本身可以伪造。安全系统通常只信任受控代理链添加的部分，不能把任意客户端提交的 Header 当成真实身份。\n网站使用 Cloudflare 后，源站直接看到的连接来自 Cloudflare 节点。\n链路大概是：\n同时，Cloudflare 会通过：\n把客户端地址继续传给源站。\nCloudflare 官方文档明确说明，\n用于向源站提供连接到 Cloudflare 的客户端 IP。\n于是一个请求可能同时具备：\n这是正常的基础设施设计。\n网站需要真实来源信息完成限流、反欺诈、风控、地理判断和安全日志。\n假设用户通过一个第三方 AI 中转：\n中转站可能先收到：\n如果它向 Anthropic 发请求时重新构造连接，并删除这些来源字段：\n那么 Anthropic 能直接观察到的通常只是中转站出口。\n如果中转系统继续携带客户端 Metadata，或者某些辅助请求走了另一条链路，情况就会不同。\n所以判断“真实 IP 是否被隐藏”，需要看整条代理链怎样配置。\nClaude Pro、Max 等官网订阅用户使用的并不只有一个聊天接口。\n一次正常会话可能同时涉及：\n假设聊天主请求通过代理：\n另一个与同一账户有关的请求却走了本地网络：\n服务端此时可以同时看到：\n关键不再只是“这一条请求用了什么 IP”，还包括\n。\nAnthropic 的企业产品支持按照 authenticated request 的 source IP 做 IP Allowlist，这也说明 IP 本身属于其平台可以处理的安全元数据。\nClaude 支持邮件 Secure Link 登录。\n点击登录邮件，本质上会向 Anthropic 的认证系统发送另一条 HTTPS 请求。\n例如：\n同时：\n如果两条请求属于同一个登录过程，服务端就有条件把两个网络出口关联到同一账户。\n这也是为什么社区过去会讨论“邮件登录可能暴露另一条网络来源”。\n目前能够确认的是：\nAnthropic 会使用 IP 和其他信号判断地区；Claude 使用邮件登录链接；点击登录链接会产生新的网络请求。\n到了 Claude Code，网络路径会进一步复杂。\n浏览器可能遵循系统代理，CLI 可能读取：\n或者使用自己的网络配置。\n于是完全可能出现：\n某些子进程、Docker 容器、IPv6、UDP 或工具调用，也可能不遵循同一套代理设置。\n这类情况不需要任何“穿透代理”技术。\n只要同一账户在不同客户端产生了不同出口，服务端就可能同时观察到它们。\nClaude Code 和普通网页聊天还有一个本质差异：它拥有本地执行能力。\n官方文档列出了：\n其中\n用于保存 Bash 工具使用的 Shell 环境快照。\n这意味着 Agent 的数据边界已经延伸到：\nClaude Code 历史上也出现过\n权限隔离相关 Bug。\n\&quot;GitHub Issue #5616 报告称：\&quot;\n“Claude Code loads and exports .env on startup, even with read permissions denied.”\n也就是\n虽然被禁止直接读取，其中某些变量仍可能进入进程环境。\n这类问题说明 Agent 工具的隐私边界比普通聊天复杂得多。\n需要注意，这些是功能设计和安全 Bug。\n这一问题也完全不局限于中国开发者、Claude 中转站或者 AI 行业。\n全球安全行业已经追踪大型代理网络多年。\n2024 年，美国司法部关闭住宅代理网络\n。\n司法部称，这一网络控制过全球超过\n，大量普通家庭电脑被变成代理出口。 (\n攻击者可以位于世界另一端：\n目标网站看到的可能只是一个正常住宅 ISP 地址。\n然而，整个代理基础设施最终仍被识别和关闭。\n2026 年，美国司法部又关闭了\n。\n该网络利用被感染的家庭和小企业设备提供代理服务，累计涉及约\n。 (\n这类案例说明：\n一个看起来很正常的家庭 IP，背后的实际操作者可能位于完全不同的国家。\nGoogle Threat Intelligence Group 在 2026 年针对\n采取行动。\nGoogle 称，仅 2026 年 1 月的一周内，就观察到超过\n使用其住宅代理出口，涉及中国、朝鲜、伊朗、俄罗斯等不同来源。 (\n这些代理节点来自大量普通设备。\n一些用户安装的只是 VPN、工具软件或其他程序，设备随后被加入住宅代理池。\n于是链路可能变成：\n只看最后一个 IP，很难判断真实操作者。\n俄罗斯威胁组织\n入侵微软时，同样大量使用住宅代理。\n微软明确指出，该组织通过住宅代理网络隐藏来源，并利用大量轮换 IP 增加检测难度。 (\n这类攻击促使安全厂商逐渐减少对单一 IP IOC 的依赖，转向：\n这些信号组合起来，比单独看一个 IP 更有价值。\nGoogle / Mandiant 还长期追踪一种叫\n的基础设施。\n它通常由：\n共同组成。\n节点不断更换，暴露的出口会被淘汰，新设备继续加入。\n结构类似：\n安全研究人员仍然可以通过基础设施重叠、连接模式和长期行为识别整个网络。 (\n到了 2026 年，代理网络开始明显服务于 AI 使用场景。\nGoogle Threat Intelligence Group 披露过恶意开源软件包偷偷部署\n的案例，使攻击者可以通过受害设备访问受地区限制的大模型。 (\n代理产业的用途由：\n扩展到了：\n底层逻辑完全一致。\nAnthropic 2026 年 9 月威胁情报报告中还披露了一个俄语、乌克兰语使用者运营的中转服务案例。\n该服务声称向客户提供廉价 Claude。\nAnthropic 调查称，用户流量实际上被静默转发到其他模型，同时客户端中还包含凭据收集程序，用于窃取 Anthropic 账户信息，再把这些账户继续转售给其他代理商。 (\n整个链条大致是：\n代理、模型替换、凭据窃取和二级交易在这里形成了完整闭环。\n这类问题显然具有国际性。\n2026 年 8 月的\n事件则展示了另一种情况。\nDMIT 调查发现，部分洛杉矶 VPS 上的 SNI Proxy 配置存在开放代理问题。\n外部攻击者不需要服务器凭据，就可以强制这些 VPS 替自己向 Cloudflare 和 OpenAI 转发请求。\nDMIT 把这类服务器称作：\n“open anonymous AI request egress”\n即：\n异常流量一度接近\n。\nDMIT 最终关闭相关实例，并担心整个 IP 段和 ASN 被 AI 服务商纳入恶意代理信誉体系。\n这类链路大致是：\nOpenAI 未必知道最左边的操作者是谁。\n但它可以看到：\n这些信息已经足够进行大量风控判断。\nAnthropic 在 2026 年 9 月报告中写道：\n“We use metadata and look for signals of irregular activity to identify accounts associated with proxy service networks.”\n意思很明确：\n这类系统关注的是一整组关系：\n某个 IP 换掉之后，其余关系仍然可能存在。\n代理解决的是互联网出口问题。\n物理位置还有完全不同的来源。\n例如过去的“通信大数据行程卡”，主要依赖运营商手机信令和蜂窝基站位置判断用户活动区域。\n假设人在南京：\n同时：\nVPN 只能改变第一条链路。\nGPS、Wi-Fi、蓝牙和蜂窝网络也可以共同参与设备定位。\nApple 官方文档明确说明，Location Services 会综合利用这些信号。 (\n这里同样需要划清边界：\nAnthropic 对商业产品和 API 的现行说明也称，目前不会收集由 GPS、Wi-Fi、Bluetooth 等推断的精确位置。 (\n所以应该区分：\n三者来自不同的数据体系。\n可以把结论压缩成三层。\n第一层：\n第二层：\n第三层：\n这已经足以进行大量安全判断。\n现代反滥用系统处理的数据更接近：\n把这些信号放在一起，就能形成网络画像。\n某个节点本身可能没有决定性。\n长期关联以后，信息量会迅速增加。\n“Claude 可以直接穿透 VPN 读取家庭 IP”说得太满。\n“只要挂了代理，Anthropic 就完全不知道网络来源”同样说得太满。\n实际情况更接近现代风控的一般逻辑：\n这也是为什么全球住宅代理网络已经扩展到数百万甚至上千万个出口节点，Google、Microsoft、Anthropic、OpenAI 和执法机构依然能够识别其中的大规模活动。\n代理让追踪变难，但它没有让网络身份消失。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-13T13:43+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/108465" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/108465</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

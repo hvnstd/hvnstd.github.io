@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>如何爽用 cloudflare snippets 节点 · B 极客行</title>
+<meta name="description" content="其实在节点搭建上各类大佬已经做的足够好了，我们只需要稍微的组合一下就可以有一个不错的订阅">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>如何爽用 cloudflare snippets 节点</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/108133 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·06:44
+      <span class="pipe">|</span>9 分
+      <span class="pipe">|</span>15 评论
+      <span class="pipe">|</span>by 老师好我叫杨同学
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">其实在节点搭建上各类大佬已经做的足够好了，我们只需要稍微的组合一下就可以有一个不错的订阅</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">其实在节点搭建上各类大佬已经做的足够好了，我们只需要稍微的组合一下就可以有一个不错的订阅
+主体 BPSUB 面板：
+我用的是 AK 优化源码，感觉稳定性不错
+优选站：
+我的组合是随机十个 JP IP，随机十个 US IP，随机十个 SG IP，加上 WARP 通用迷你段 IP，导入到 BPSUB 的优选 IP 列表里
+注意：BPSUB 不支持优选里有 “|”，解决方法就是自己写一个反代，直接暴力替换 “|” 为 “-” 即可
+落地 IP 直接用 CM 佬的
+就好了，速度不错
+至此，基础部分就算做好了，但如果直接测速大概率得到的是 -1，解决方法就是加一个 ECH 配置
+再搞一个反代，给每一个节点自动加上
+就好了，具体地址可以自由搭配
+推一下我自写自用的</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;108133&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/108133&quot;,
+  &quot;title&quot;: &quot;如何爽用 cloudflare snippets 节点&quot;,
+  &quot;author&quot;: &quot;老师好我叫杨同学&quot;,
+  &quot;score&quot;: 9,
+  &quot;comments&quot;: 15,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;其实在节点搭建上各类大佬已经做的足够好了，我们只需要稍微的组合一下就可以有一个不错的订阅&quot;,
+  &quot;content&quot;: &quot;其实在节点搭建上各类大佬已经做的足够好了，我们只需要稍微的组合一下就可以有一个不错的订阅\n主体 BPSUB 面板：\n我用的是 AK 优化源码，感觉稳定性不错\n优选站：\n我的组合是随机十个 JP IP，随机十个 US IP，随机十个 SG IP，加上 WARP 通用迷你段 IP，导入到 BPSUB 的优选 IP 列表里\n注意：BPSUB 不支持优选里有 “|”，解决方法就是自己写一个反代，直接暴力替换 “|” 为 “-” 即可\n落地 IP 直接用 CM 佬的\n就好了，速度不错\n至此，基础部分就算做好了，但如果直接测速大概率得到的是 -1，解决方法就是加一个 ECH 配置\n再搞一个反代，给每一个节点自动加上\n就好了，具体地址可以自由搭配\n推一下我自写自用的&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-14T06:44+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/108133" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/108133</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
