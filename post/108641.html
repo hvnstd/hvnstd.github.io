@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美国三部门联合通报首次把“降级模型”写进 AI 风控建议 · B 极客行</title>
+<meta name="description" content="2026 年 9 月 8 日，美国国家安全局（NSA）、联邦调查局（FBI）和网络安全与基础设施安全局（CISA）联合发布网络安全通报">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>美国三部门联合通报首次把“降级模型”写进 AI 风控建议</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/108641 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·17:37
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>2 评论
+      <span class="pipe">|</span>by skeujam
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">2026 年 9 月 8 日，美国国家安全局（NSA）、联邦调查局（FBI）和网络安全与基础设施安全局（CISA）联合发布网络安全通报</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">2026 年 9 月 8 日，美国国家安全局（NSA）、联邦调查局（FBI）和网络安全与基础设施安全局（CISA）联合发布网络安全通报
+。
+通报称，包括 DeepSeek、Moonshot AI、Alibaba、MiniMax、StepFun 和 Z.AI 在内的中国 AI 企业，自至少 2024 年末以来，通过大规模调用美国前沿模型获取训练数据。美方将其中部分行为定性为“恶意知识蒸馏”，并针对这种行为提出了一系列检测和缓解措施。对上述企业具体行为及规模的判断属于
+。
+通报专门设置了一节：
+即“针对疑似蒸馏活动改变响应”。
+文件建议，当平台对某些请求属于恶意蒸馏具有较高置信度时，可以对响应进行针对性修改，其中明确包括：
+使用能力较弱的
+回答蒸馏请求。
+官方给出的目的，是降低这些响应作为训练数据的价值，同时保护美国 AI 企业的专有能力。
+接下来的实施建议更加直接。
+通报称，平台可以让这些变化保持得足够细微，避免触发明显警报。例如：
+、给出正确结论但使用不同推理方式，或者故意引入一些风格上的不一致，从而降低数据对于模型训练的价值。
+这已经相当接近中文社区通常所说的“降智”。
+不过让它更符合“
+”这个描述的，是下一段。
+文件明确提出：
+“Avoid informing … users … of a switch to a downgraded model.”
+也就是，对于被怀疑参与蒸馏活动的相关用户，
+。
+随后又进一步建议，对已经确认专门使用前沿模型实施恶意知识蒸馏的用户，可以：
+“alter responses …
+.”
+即
+。
+这里需要注意一个措辞区别：
+。官方实际使用的是
+等表述。
+在讨论跨平台情报共享时，通报明确写道，多来源信息关联能够提高对恶意蒸馏行为的归因置信度，从而：
+即为实施
+提供依据，同时降低正常用户受到影响的风险。
+文件开头建议美国 AI 企业检测异常的：
+也就是提示词、账号、网络和行为。
+同时还建议监控新账户是否刚注册就迅速跑满额度、个人订阅是否出现企业级吞吐量，以及账户使用方式是否明显偏离正常用户模式。
+到了具体缓解措施部分，文件还提出：
+检测来自
+的异常查询；按 API Key/IP 设置配额；实施 rate limit 和 progressive throttling；加强用户身份验证和 API 访问认证。
+就是说，官方给出的风控框架已经明显超出了单纯的“内容审核”。
+它实际上包含了：
+这份通报里还有一个非常有中文互联网特色的词。
+美国三部门称，部分中国 AI 企业通过灰色 API 代理市场访问美国前沿模型，并直接把这类服务称作：
+即“中转站”。
+文件称，这类服务可以用于绕过地区限制、服务条款和安全机制，同时削弱真实调用来源的可追踪性。
+通报还称，一些操作会通过多个模型提供商、云平台、API 聚合器和代理基础设施分散请求，并在某条路径被阻断后自动切换其他路径。
+这也是为什么文件特别强调跨企业共享 IP、域名、第三方服务商、请求时间关联和查询量模式等信息。
+通报随后引用 MITRE ATLAS 的缓解措施，其中还包括
+，即预测式 AI 输出混淆。
+具体方式包括：
+缩短回答、定向删减内容，以及减少模型输出的 fidelity，也就是降低输出的完整程度和信息质量。
+因此，从整份文件看，美国三部门建议的反蒸馏防御大致存在几个层次：
+这已经是一套比较完整的“风险评分—差异化服务”机制。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;108641&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/108641&quot;,
+  &quot;title&quot;: &quot;美国三部门联合通报首次把“降级模型”写进 AI 风控建议&quot;,
+  &quot;author&quot;: &quot;skeujam&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 2,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;
+  ],
+  &quot;excerpt&quot;: &quot;2026 年 9 月 8 日，美国国家安全局（NSA）、联邦调查局（FBI）和网络安全与基础设施安全局（CISA）联合发布网络安全通报&quot;,
+  &quot;content&quot;: &quot;2026 年 9 月 8 日，美国国家安全局（NSA）、联邦调查局（FBI）和网络安全与基础设施安全局（CISA）联合发布网络安全通报\n。\n通报称，包括 DeepSeek、Moonshot AI、Alibaba、MiniMax、StepFun 和 Z.AI 在内的中国 AI 企业，自至少 2024 年末以来，通过大规模调用美国前沿模型获取训练数据。美方将其中部分行为定性为“恶意知识蒸馏”，并针对这种行为提出了一系列检测和缓解措施。对上述企业具体行为及规模的判断属于\n。\n通报专门设置了一节：\n即“针对疑似蒸馏活动改变响应”。\n文件建议，当平台对某些请求属于恶意蒸馏具有较高置信度时，可以对响应进行针对性修改，其中明确包括：\n使用能力较弱的\n回答蒸馏请求。\n官方给出的目的，是降低这些响应作为训练数据的价值，同时保护美国 AI 企业的专有能力。\n接下来的实施建议更加直接。\n通报称，平台可以让这些变化保持得足够细微，避免触发明显警报。例如：\n、给出正确结论但使用不同推理方式，或者故意引入一些风格上的不一致，从而降低数据对于模型训练的价值。\n这已经相当接近中文社区通常所说的“降智”。\n不过让它更符合“\n”这个描述的，是下一段。\n文件明确提出：\n“Avoid informing … users … of a switch to a downgraded model.”\n也就是，对于被怀疑参与蒸馏活动的相关用户，\n。\n随后又进一步建议，对已经确认专门使用前沿模型实施恶意知识蒸馏的用户，可以：\n“alter responses …\n.”\n即\n。\n这里需要注意一个措辞区别：\n。官方实际使用的是\n等表述。\n在讨论跨平台情报共享时，通报明确写道，多来源信息关联能够提高对恶意蒸馏行为的归因置信度，从而：\n即为实施\n提供依据，同时降低正常用户受到影响的风险。\n文件开头建议美国 AI 企业检测异常的：\n也就是提示词、账号、网络和行为。\n同时还建议监控新账户是否刚注册就迅速跑满额度、个人订阅是否出现企业级吞吐量，以及账户使用方式是否明显偏离正常用户模式。\n到了具体缓解措施部分，文件还提出：\n检测来自\n的异常查询；按 API Key/IP 设置配额；实施 rate limit 和 progressive throttling；加强用户身份验证和 API 访问认证。\n就是说，官方给出的风控框架已经明显超出了单纯的“内容审核”。\n它实际上包含了：\n这份通报里还有一个非常有中文互联网特色的词。\n美国三部门称，部分中国 AI 企业通过灰色 API 代理市场访问美国前沿模型，并直接把这类服务称作：\n即“中转站”。\n文件称，这类服务可以用于绕过地区限制、服务条款和安全机制，同时削弱真实调用来源的可追踪性。\n通报还称，一些操作会通过多个模型提供商、云平台、API 聚合器和代理基础设施分散请求，并在某条路径被阻断后自动切换其他路径。\n这也是为什么文件特别强调跨企业共享 IP、域名、第三方服务商、请求时间关联和查询量模式等信息。\n通报随后引用 MITRE ATLAS 的缓解措施，其中还包括\n，即预测式 AI 输出混淆。\n具体方式包括：\n缩短回答、定向删减内容，以及减少模型输出的 fidelity，也就是降低输出的完整程度和信息质量。\n因此，从整份文件看，美国三部门建议的反蒸馏防御大致存在几个层次：\n这已经是一套比较完整的“风险评分—差异化服务”机制。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-14T17:37+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/108641" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/108641</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
