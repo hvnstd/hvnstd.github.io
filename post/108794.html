@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Debian13十分钟速装与初始化配置指南 · B 极客行</title>
+<meta name="description" content="Debian 13（代号 Trixie）是 Debian 项目当前的最新稳定版。本文将记录一次从安装到初始化配置的过程，涵盖禁网后快速安装系统、网络配置、SSH 远程登录、APT 源修复以及常用工具安装，适合需要在十分钟内快速部署 Debi">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>Debian13十分钟速装与初始化配置指南</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/108794 · n/os</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·16:43
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>0 评论
+      <span class="pipe">|</span>by 
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">Debian 13（代号 Trixie）是 Debian 项目当前的最新稳定版。本文将记录一次从安装到初始化配置的过程，涵盖禁网后快速安装系统、网络配置、SSH 远程登录、APT 源修复以及常用工具安装，适合需要在十分钟内快速部署 Debian 13 服务器或虚拟机的场景。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">Debian 13（代号 Trixie）是 Debian 项目当前的最新稳定版。本文将记录一次从安装到初始化配置的过程，涵盖禁网后快速安装系统、网络配置、SSH 远程登录、APT 源修复以及常用工具安装，适合需要在十分钟内快速部署 Debian 13 服务器或虚拟机的场景。
+安装 Debian 13 时，建议在安装阶段断开网络连接。安装程序默认会从网络下载软件包和更新，断网安装可以跳过这些步骤，大幅缩短安装时间。安装过程中遇到“配置软件包管理器”或“网络镜像”等需要联网的步骤，直接选择跳过即可。安装过程如何选择，具体我就不多写了。下图是用PVE创建的虚拟机，禁用网络后再安装的图。
+以下是安装过程选择简述
+1、选择语言–》简体中文–》中国–》汉语 2、配置网络失败提示–》继续–》暂时不配置网络–》继续 3、主机名–》root密码–》新用户名–》新用户密码 4、磁盘分区–》向导 - 使用整个磁盘 --》这里我划分的硬盘很小，所以选择小磁盘（《10GB）分区方案 5、配置软件包管理器–》扫描额外安装介质（否）–》不使用网络镜像站点（否）–》参加软件包流行度调查（否），其它默认一路继续即可 6、安装GRUB启动引导器–》选择（是）–》选择 /dev/sda --》 一路继续即可完成安装并重启。
+安装完成重启后，先接通网络 或 将虚拟网络的断开的勾选去掉保存。
+使用
+命令查看网卡名称，通常为
+、
+等。确认网卡名后，编辑网络配置文件：
+在文件末尾追加以下内容（将
+替换为你实际的网卡名）：
+保存退出后，重启网络服务：
+稍等片刻，使用以下命令查看是否已获取到 IPv4 和 IPv6 地址（如果有IPv6）：
+可以看出这里给我们分配的IPv4地址是：
+。
+Debian 13 默认禁止 root 用户通过密码直接 SSH 登录。如需使用 root 远程登录，需要修改 SSH 配置文件：
+找到
+这一行，将其修改为：
+如果该行被注释（前面有
+），去掉注释符后再修改。同时确认密码认证已开启：
+保存退出后，重启 SSH 服务使配置生效：
+重启后即可使用 root 账户通过 SSH 远程登录。
+：
+允许 root 通过密码登录，安全性较低。建议仅在初始配置阶段使用，后续可改为
+，仅允许密钥登录 root。
+最小化安装的 Debian 13 可能缺少有效的 APT 源，或者默认源在国内访问速度较慢。下面提供三个国内镜像源方案，选择其一即可。
+清空文件原有内容，从以下三个方案中选择一个粘贴进去。
+：如果安装时使用了 CD-ROM 作为源，需要将
+中以
+开头的行注释掉或删除。
+至此，Debian 13 的基础配置已完成。主要步骤回顾：
+禁网安装，以节省时间；
+配置 DHCP 网络，获取 IP 地址；
+安装 openssh-server 并允许 root 远程登录；
+替换为国内 APT 源，安装常用工具。
+至此我们已经初步完成Debian13系统的安装，可以正常使用了。正常人依据教程指南操作下来，预计十来分钟左右。当然后续也可根据需要进一步配置防火墙、sudo 权限、SSH 密钥认证等，提升系统的安全性和可用性，这里就不多说了。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;108794&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/108794&quot;,
+  &quot;title&quot;: &quot;Debian13十分钟速装与初始化配置指南&quot;,
+  &quot;author&quot;: &quot;&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 0,
+  &quot;domain&quot;: &quot;n/os&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;Help&quot;,
+    &quot;vps&quot;,
+    &quot;Completed&quot;
+  ],
+  &quot;excerpt&quot;: &quot;Debian 13（代号 Trixie）是 Debian 项目当前的最新稳定版。本文将记录一次从安装到初始化配置的过程，涵盖禁网后快速安装系统、网络配置、SSH 远程登录、APT 源修复以及常用工具安装，适合需要在十分钟内快速部署 Debian 13 服务器或虚拟机的场景。&quot;,
+  &quot;content&quot;: &quot;Debian 13（代号 Trixie）是 Debian 项目当前的最新稳定版。本文将记录一次从安装到初始化配置的过程，涵盖禁网后快速安装系统、网络配置、SSH 远程登录、APT 源修复以及常用工具安装，适合需要在十分钟内快速部署 Debian 13 服务器或虚拟机的场景。\n安装 Debian 13 时，建议在安装阶段断开网络连接。安装程序默认会从网络下载软件包和更新，断网安装可以跳过这些步骤，大幅缩短安装时间。安装过程中遇到“配置软件包管理器”或“网络镜像”等需要联网的步骤，直接选择跳过即可。安装过程如何选择，具体我就不多写了。下图是用PVE创建的虚拟机，禁用网络后再安装的图。\n以下是安装过程选择简述\n1、选择语言–》简体中文–》中国–》汉语 2、配置网络失败提示–》继续–》暂时不配置网络–》继续 3、主机名–》root密码–》新用户名–》新用户密码 4、磁盘分区–》向导 - 使用整个磁盘 --》这里我划分的硬盘很小，所以选择小磁盘（《10GB）分区方案 5、配置软件包管理器–》扫描额外安装介质（否）–》不使用网络镜像站点（否）–》参加软件包流行度调查（否），其它默认一路继续即可 6、安装GRUB启动引导器–》选择（是）–》选择 /dev/sda --》 一路继续即可完成安装并重启。\n安装完成重启后，先接通网络 或 将虚拟网络的断开的勾选去掉保存。\n使用\n命令查看网卡名称，通常为\n、\n等。确认网卡名后，编辑网络配置文件：\n在文件末尾追加以下内容（将\n替换为你实际的网卡名）：\n保存退出后，重启网络服务：\n稍等片刻，使用以下命令查看是否已获取到 IPv4 和 IPv6 地址（如果有IPv6）：\n可以看出这里给我们分配的IPv4地址是：\n。\nDebian 13 默认禁止 root 用户通过密码直接 SSH 登录。如需使用 root 远程登录，需要修改 SSH 配置文件：\n找到\n这一行，将其修改为：\n如果该行被注释（前面有\n），去掉注释符后再修改。同时确认密码认证已开启：\n保存退出后，重启 SSH 服务使配置生效：\n重启后即可使用 root 账户通过 SSH 远程登录。\n：\n允许 root 通过密码登录，安全性较低。建议仅在初始配置阶段使用，后续可改为\n，仅允许密钥登录 root。\n最小化安装的 Debian 13 可能缺少有效的 APT 源，或者默认源在国内访问速度较慢。下面提供三个国内镜像源方案，选择其一即可。\n清空文件原有内容，从以下三个方案中选择一个粘贴进去。\n：如果安装时使用了 CD-ROM 作为源，需要将\n中以\n开头的行注释掉或删除。\n至此，Debian 13 的基础配置已完成。主要步骤回顾：\n禁网安装，以节省时间；\n配置 DHCP 网络，获取 IP 地址；\n安装 openssh-server 并允许 root 远程登录；\n替换为国内 APT 源，安装常用工具。\n至此我们已经初步完成Debian13系统的安装，可以正常使用了。正常人依据教程指南操作下来，预计十来分钟左右。当然后续也可根据需要进一步配置防火墙、sudo 权限、SSH 密钥认证等，提升系统的安全性和可用性，这里就不多说了。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-15T16:43+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/108794" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/108794</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
