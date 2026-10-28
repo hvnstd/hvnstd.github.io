@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Turnstile 验证 + Telegram 私聊 Bot + 话题模式 缝合怪 · B 极客行</title>
+<meta name="description" content="点赞可见内容">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>Turnstile 验证 + Telegram 私聊 Bot + 话题模式 缝合怪</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/85842 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·06:40
+      <span class="pipe">|</span>19 分
+      <span class="pipe">|</span>74 评论
+      <span class="pipe">|</span>by 七转八起
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">点赞可见内容</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">点赞可见内容
+项目地址：
+用户首次打开 Bot，进入未验证状态。页面展示 Bot 描述，底部按钮
+引导用户点击。
+Bot 提供二种入口进入验证页面，
+，用户可以根据情况自行选择。
+：用户首次私聊 Bot，或验证过期后再发消息。
+：
+用户点击按钮 → Mini App 打开 → 完成 Turnstile → 自动关闭
+Bot 推送
+，话题自动创建
+用户即可正常聊天
+：无按钮 / 按钮失效时，再发一条消息。
+：
+Mini App 打不开（网络问题、客户端 Bug）
+用户不小心关掉了 Mini App，想重新打开
+用户不确定按钮是否点过，想再拿一次链接
+：
+用户已在验证流程中再次发消息 → Bot 回复纯文本链接
+用户点击链接 → 浏览器或 WebView 打开验证页 → 完成 Turnstile
+服务端直接更新 DB 并主动推送成功通知到 Telegram
+用户回到 Telegram 查看成功消息即可
+无论走哪种方式，验证逻辑完全一致：
+在 Cloudflare 完成（防机器人）
+（不依赖前端回调）
+（不依赖用户手动回传）
+（到期自动重新验证）
+管理员在用户话题内发送
+打开管理面板：
+：
+：直接在话题里回复，消息会转发到用户私聊
+：回复某条消息发
+，群组和私聊两端同时删除</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;85842&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/85842&quot;,
+  &quot;title&quot;: &quot;Turnstile 验证 + Telegram 私聊 Bot + 话题模式 缝合怪&quot;,
+  &quot;author&quot;: &quot;七转八起&quot;,
+  &quot;score&quot;: 19,
+  &quot;comments&quot;: 74,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;点赞可见内容&quot;,
+  &quot;content&quot;: &quot;点赞可见内容\n项目地址：\n用户首次打开 Bot，进入未验证状态。页面展示 Bot 描述，底部按钮\n引导用户点击。\nBot 提供二种入口进入验证页面，\n，用户可以根据情况自行选择。\n：用户首次私聊 Bot，或验证过期后再发消息。\n：\n用户点击按钮 → Mini App 打开 → 完成 Turnstile → 自动关闭\nBot 推送\n，话题自动创建\n用户即可正常聊天\n：无按钮 / 按钮失效时，再发一条消息。\n：\nMini App 打不开（网络问题、客户端 Bug）\n用户不小心关掉了 Mini App，想重新打开\n用户不确定按钮是否点过，想再拿一次链接\n：\n用户已在验证流程中再次发消息 → Bot 回复纯文本链接\n用户点击链接 → 浏览器或 WebView 打开验证页 → 完成 Turnstile\n服务端直接更新 DB 并主动推送成功通知到 Telegram\n用户回到 Telegram 查看成功消息即可\n无论走哪种方式，验证逻辑完全一致：\n在 Cloudflare 完成（防机器人）\n（不依赖前端回调）\n（不依赖用户手动回传）\n（到期自动重新验证）\n管理员在用户话题内发送\n打开管理面板：\n：\n：直接在话题里回复，消息会转发到用户私聊\n：回复某条消息发\n，群组和私聊两端同时删除&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-25T06:40+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/85842" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/85842</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

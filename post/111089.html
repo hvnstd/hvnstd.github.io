@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lipanel 新一代由Go开发的轻量建站面板 · B 极客行</title>
+<meta name="description" content="开发 Lipanel 的初衷很简单：市面上的服务器面板，有些随着功能不断增加而愈发臃肿，有些则采用相对封闭的插件生态。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>Lipanel 新一代由Go开发的轻量建站面板</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/111089 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·16:10
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>7 评论
+      <span class="pipe">|</span>by xgp2012
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">开发 Lipanel 的初衷很简单：市面上的服务器面板，有些随着功能不断增加而愈发臃肿，有些则采用相对封闭的插件生态。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">开发 Lipanel 的初衷很简单：市面上的服务器面板，有些随着功能不断增加而愈发臃肿，有些则采用相对封闭的插件生态。
+我们希望做一款核心足够精简、支持插件化扩展，并且能够以单文件形式部署的 Linux 面板。
+以下功能均已完成并通过实际运行验证：
+systemd 服务管理
+文件管理
+网站管理，包括 Nginx 静态站点与反向代理
+Let’s Encrypt SSL 证书自动申请与续期
+采用 Unix Socket 与 HTTP 通信
+支持权限声明和审计日志
+插件前端默认启用 iframe 沙箱隔离
+插件无法读取 Cookie，也不能直接调用面板 API
+提供三级路径安全校验
+命令统一通过 argv 参数切片执行，不拼接 Shell 命令
+所有写操作均记录审计日志
+敏感操作执行前进行权限判定
+Go
+Vue 3
+Vite
+Naive UI
+目前生成的单个二进制文件约为
+，通过
+构建为纯静态程序，运行时无需依赖 Node.js、Python 或 Java。
+权限模型的能力边界已在代码注释中明确记录：Lipanel 管理的是“面板转发通道”，并不将其描述为内核级沙箱。
+软件商店，计划支持：
+一键安装 PHP、Nginx 和 MySQL
+指定安装版本
+多源回退
+应用商店
+Docker 插件
+插件市场
+目前正在积极更新
+欢迎试用并提交 Issue，也欢迎开发者参与官方插件的开发。
+Lipanel 不会通过阉割核心功能的方式设置付费门槛，核心功能将始终以
+许可证开源。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;111089&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/111089&quot;,
+  &quot;title&quot;: &quot;Lipanel 新一代由Go开发的轻量建站面板&quot;,
+  &quot;author&quot;: &quot;xgp2012&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 7,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;开发 Lipanel 的初衷很简单：市面上的服务器面板，有些随着功能不断增加而愈发臃肿，有些则采用相对封闭的插件生态。&quot;,
+  &quot;content&quot;: &quot;开发 Lipanel 的初衷很简单：市面上的服务器面板，有些随着功能不断增加而愈发臃肿，有些则采用相对封闭的插件生态。\n我们希望做一款核心足够精简、支持插件化扩展，并且能够以单文件形式部署的 Linux 面板。\n以下功能均已完成并通过实际运行验证：\nsystemd 服务管理\n文件管理\n网站管理，包括 Nginx 静态站点与反向代理\nLet’s Encrypt SSL 证书自动申请与续期\n采用 Unix Socket 与 HTTP 通信\n支持权限声明和审计日志\n插件前端默认启用 iframe 沙箱隔离\n插件无法读取 Cookie，也不能直接调用面板 API\n提供三级路径安全校验\n命令统一通过 argv 参数切片执行，不拼接 Shell 命令\n所有写操作均记录审计日志\n敏感操作执行前进行权限判定\nGo\nVue 3\nVite\nNaive UI\n目前生成的单个二进制文件约为\n，通过\n构建为纯静态程序，运行时无需依赖 Node.js、Python 或 Java。\n权限模型的能力边界已在代码注释中明确记录：Lipanel 管理的是“面板转发通道”，并不将其描述为内核级沙箱。\n软件商店，计划支持：\n一键安装 PHP、Nginx 和 MySQL\n指定安装版本\n多源回退\n应用商店\nDocker 插件\n插件市场\n目前正在积极更新\n欢迎试用并提交 Issue，也欢迎开发者参与官方插件的开发。\nLipanel 不会通过阉割核心功能的方式设置付费门槛，核心功能将始终以\n许可证开源。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-27T16:10+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/111089" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/111089</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

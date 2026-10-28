@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>loomy2api正式发布! · B 极客行</title>
+<meta name="description" content="：科大讯飞的桌面 AI 助理 Loomy 每天送不少额度（积分制），但客户端挺臃肿、也不想被绑在它的界面里。我把它的额度封装成了一个自托管 API 网关，">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>loomy2api正式发布!</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/111093 · n/set-up-servi</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·21:08
+      <span class="pipe">|</span>6 分
+      <span class="pipe">|</span>20 评论
+      <span class="pipe">|</span>by patrick0306
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">：科大讯飞的桌面 AI 助理 Loomy 每天送不少额度（积分制），但客户端挺臃肿、也不想被绑在它的界面里。我把它的额度封装成了一个自托管 API 网关，</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">：科大讯飞的桌面 AI 助理 Loomy 每天送不少额度（积分制），但客户端挺臃肿、也不想被绑在它的界面里。我把它的额度封装成了一个自托管 API 网关，
+，
+，带
+，纯 Python 标准库
+，已经开源。
+项目地址：
+然后打开
+—— Loomy 客户端里没有设密码的入口， 这是我在客户端源码里翻遍了确认过的。没有密码也能用短信验证码登录。
+模型清单直接从上游拉（11 个），
+。倍率越低越省：
+是
+、
+/
+是
+、
+是
+、最高的
+是
+。
+有个实测出来的细节值得一提：
+（我传
+，它 200 返回，但回包里
+是
+）。所以别指望写个
+就能自动映射 —— 要用哪个模型就写哪个 id，怀疑没生效时看回包的
+字段。
+多账号时，每个账号在
+会随机生成一套自己的设备标识（devid / 校园设备号）并绑定， 之后每次续期都复用，不会所有号都对外宣布自己是同一台设备。
+但说实话，这也是我写在文档里的原话：
+。协议里涉及设备的字段就四个， 而且上游真正看重的通常还是出口 IP。想看细节可以翻仓库里的
+—— 整条协议的 逆向记录（端点、签名串、错误指纹、积分账本）都在里面。这个项目是按「账号隔离」做的，没打算吹成防封。
+README 里有完整部署教程（中英双语）：Linux
+服务、Windows 任务计划 / NSSM 注册服务、 Docker 和 docker-compose，连「对外开放前必须先设 API Key」这类坑都写了。
+真实账号实跑过：OpenAI 流式/非流式、Anthropic 流式/非流式、生图 / embeddings 透传
+顺便说个有意思的事：CI 帮我抓出了一个真 bug —— 刷额度的函数只捕获了自定义异常， socket / DNS 层异常没接住，结果
+断网的用户敲
+会直接崩
+。 本机有网永远复现不出来，是 CI 环境连不上上游才把它逼出来的，已经修了并加了回归测试。
+项目与科大讯飞官方无关，签名常量是官方客户端每个安装包里都会带的客户端常量，只用于和账号服务通信
+MIT 协议，代码随便看
+— turn the Loomy (iFlytek desktop AI assistant) quota into a self-hosted OpenAI-
+&quot;Anthropic-compatible API gateway: multi-account pool with balance/round-robin/LRU routing and automatic session renewal, a web control panel (per-account quota, add/remove/renew, device identity), zero dependencies (pure Python 3.9+ stdlib), 109 hermetic tests, CI green on Ubuntu/Windows × Python 3.9/3.11/3.13. No desktop client required. MIT licensed:&quot;
+特别感谢</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;111093&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/111093&quot;,
+  &quot;title&quot;: &quot;loomy2api正式发布!&quot;,
+  &quot;author&quot;: &quot;patrick0306&quot;,
+  &quot;score&quot;: 6,
+  &quot;comments&quot;: 20,
+  &quot;domain&quot;: &quot;n/set-up-servi&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;：科大讯飞的桌面 AI 助理 Loomy 每天送不少额度（积分制），但客户端挺臃肿、也不想被绑在它的界面里。我把它的额度封装成了一个自托管 API 网关，&quot;,
+  &quot;content&quot;: &quot;：科大讯飞的桌面 AI 助理 Loomy 每天送不少额度（积分制），但客户端挺臃肿、也不想被绑在它的界面里。我把它的额度封装成了一个自托管 API 网关，\n，\n，带\n，纯 Python 标准库\n，已经开源。\n项目地址：\n然后打开\n—— Loomy 客户端里没有设密码的入口， 这是我在客户端源码里翻遍了确认过的。没有密码也能用短信验证码登录。\n模型清单直接从上游拉（11 个），\n。倍率越低越省：\n是\n、\n/\n是\n、\n是\n、最高的\n是\n。\n有个实测出来的细节值得一提：\n（我传\n，它 200 返回，但回包里\n是\n）。所以别指望写个\n就能自动映射 —— 要用哪个模型就写哪个 id，怀疑没生效时看回包的\n字段。\n多账号时，每个账号在\n会随机生成一套自己的设备标识（devid / 校园设备号）并绑定， 之后每次续期都复用，不会所有号都对外宣布自己是同一台设备。\n但说实话，这也是我写在文档里的原话：\n。协议里涉及设备的字段就四个， 而且上游真正看重的通常还是出口 IP。想看细节可以翻仓库里的\n—— 整条协议的 逆向记录（端点、签名串、错误指纹、积分账本）都在里面。这个项目是按「账号隔离」做的，没打算吹成防封。\nREADME 里有完整部署教程（中英双语）：Linux\n服务、Windows 任务计划 / NSSM 注册服务、 Docker 和 docker-compose，连「对外开放前必须先设 API Key」这类坑都写了。\n真实账号实跑过：OpenAI 流式/非流式、Anthropic 流式/非流式、生图 / embeddings 透传\n顺便说个有意思的事：CI 帮我抓出了一个真 bug —— 刷额度的函数只捕获了自定义异常， socket / DNS 层异常没接住，结果\n断网的用户敲\n会直接崩\n。 本机有网永远复现不出来，是 CI 环境连不上上游才把它逼出来的，已经修了并加了回归测试。\n项目与科大讯飞官方无关，签名常量是官方客户端每个安装包里都会带的客户端常量，只用于和账号服务通信\nMIT 协议，代码随便看\n— turn the Loomy (iFlytek desktop AI assistant) quota into a self-hosted OpenAI-\n\&quot;Anthropic-compatible API gateway: multi-account pool with balance/round-robin/LRU routing and automatic session renewal, a web control panel (per-account quota, add/remove/renew, device identity), zero dependencies (pure Python 3.9+ stdlib), 109 hermetic tests, CI green on Ubuntu/Windows × Python 3.9/3.11/3.13. No desktop client required. MIT licensed:\&quot;\n特别感谢&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-27T21:08+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/111093" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/111093</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

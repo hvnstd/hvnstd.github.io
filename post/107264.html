@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[分享]收藏了一堆 VPS 脚本，用的时候全靠翻记录？用”脚本宝典”，一条命令全带走 · B 极客行</title>
+<meta name="description" content="好帖！">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>[分享]收藏了一堆 VPS 脚本，用的时候全靠翻记录？用”脚本宝典”，一条命令全带走</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/107264 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·07:03
+      <span class="pipe">|</span>15 分
+      <span class="pipe">|</span>17 评论
+      <span class="pipe">|</span>by danielzi
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">好帖！</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">好帖！
+不知道你们是不是也这样：Termius里躺着几十个 VPS 脚本——DD 重装的、跑分的、测流媒体的、装 Docker 的……真到用的时候，滚动翻半天记录。网上也流传过一些&quot;工具箱合集&quot;，但基本都是硬编码的 shell，想加一条自己的脚本就得改源码，改完也没法分发到自己的其他小鸡上。
+前几天GLM送了TOKEN，索性VIBE一个小工具，核心诉求就是自由定制自己的工具箱，2分钟就能上手开始使用。存放在Cloudflare，零成本。
+：
+在网页上维护你自己的脚本合集，一键生成一个单文件 Bash 工具箱；网页上改完，VPS 上
+同步，一键安装命令永远不变。
+网页上加了脚本、改了命令、禁用了条目，VPS 端一个
+就同步到位，不用换安装链接、不用重装。收藏和自定义命令存在 VPS 的
+里，更新不丢。
+推荐 GitHub Actions 方式：Fork 仓库 → 配 3 个 Secret → Actions 页手动 Run，约 2 分钟流水线自动完成建库、建表、导种子、发布，全程跑在 Cloudflare 免费额度上，
+。不想上云的还有 Docker Compose 自托管，数据完全留在本机
+。
+所有数据 base64 编码后内嵌进脚本，不存在引号转义和注入问题；危险条目（DD 重装这类）要手动输入
+二次确认；需 root 的条目自动检查权限；任何脚本执行前都会先打印完整命令让你
+。
+Vue 3 + TailwindCSS 前端，Cloudflare Pages Functions + D1 后端，生产依赖只有
+一个。MIT 开源；收录的第三方脚本版权归原作者所有，管理端每条都能跳回原仓库。
+（GitHub Actions，约 2 分钟）：
+Fork 仓库，到 Actions 页启用 workflows（Fork 默认禁用）
+配 3 个 Secret：
+、
+、
+（选填，不配则站点只读）
+Actions 页手动 Run workflow，跑完得到
+（Debian / Ubuntu / CentOS，有 curl 或 wget 就行）：
+装完直接敲：</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;107264&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/107264&quot;,
+  &quot;title&quot;: &quot;[分享]收藏了一堆 VPS 脚本，用的时候全靠翻记录？用”脚本宝典”，一条命令全带走&quot;,
+  &quot;author&quot;: &quot;danielzi&quot;,
+  &quot;score&quot;: 15,
+  &quot;comments&quot;: 17,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;好帖！&quot;,
+  &quot;content&quot;: &quot;好帖！\n不知道你们是不是也这样：Termius里躺着几十个 VPS 脚本——DD 重装的、跑分的、测流媒体的、装 Docker 的……真到用的时候，滚动翻半天记录。网上也流传过一些\&quot;工具箱合集\&quot;，但基本都是硬编码的 shell，想加一条自己的脚本就得改源码，改完也没法分发到自己的其他小鸡上。\n前几天GLM送了TOKEN，索性VIBE一个小工具，核心诉求就是自由定制自己的工具箱，2分钟就能上手开始使用。存放在Cloudflare，零成本。\n：\n在网页上维护你自己的脚本合集，一键生成一个单文件 Bash 工具箱；网页上改完，VPS 上\n同步，一键安装命令永远不变。\n网页上加了脚本、改了命令、禁用了条目，VPS 端一个\n就同步到位，不用换安装链接、不用重装。收藏和自定义命令存在 VPS 的\n里，更新不丢。\n推荐 GitHub Actions 方式：Fork 仓库 → 配 3 个 Secret → Actions 页手动 Run，约 2 分钟流水线自动完成建库、建表、导种子、发布，全程跑在 Cloudflare 免费额度上，\n。不想上云的还有 Docker Compose 自托管，数据完全留在本机\n。\n所有数据 base64 编码后内嵌进脚本，不存在引号转义和注入问题；危险条目（DD 重装这类）要手动输入\n二次确认；需 root 的条目自动检查权限；任何脚本执行前都会先打印完整命令让你\n。\nVue 3 + TailwindCSS 前端，Cloudflare Pages Functions + D1 后端，生产依赖只有\n一个。MIT 开源；收录的第三方脚本版权归原作者所有，管理端每条都能跳回原仓库。\n（GitHub Actions，约 2 分钟）：\nFork 仓库，到 Actions 页启用 workflows（Fork 默认禁用）\n配 3 个 Secret：\n、\n、\n（选填，不配则站点只读）\nActions 页手动 Run workflow，跑完得到\n（Debian / Ubuntu / CentOS，有 curl 或 wget 就行）：\n装完直接敲：&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-18T07:03+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/107264" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/107264</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

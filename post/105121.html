@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gleam免费二级域名维护完成通知-更新日志 · B 极客行</title>
+<meta name="description" content="大家好">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>Gleam免费二级域名维护完成通知-更新日志</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/105121 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·21:44
+      <span class="pipe">|</span>3 分
+      <span class="pipe">|</span>18 评论
+      <span class="pipe">|</span>by A̶ɴ̶ɢ̶ʟ̶ᴇ̶ʀ̶
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">大家好</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">大家好
+这次做了一件大事：
+。同时新加了两个可申请的根域，并修了一轮迁移和记录格式相关的问题。
+维护已经结束，可以正常登录使用。
+解析不再走 Cloudflare 代理。以前靠橙云自动出 HTTPS、隐藏源站 IP、挡一点扫描的站点，现在会直接打到你自己的服务器。没有自己证书的话，浏览器会提示不安全。请尽快在源站配好证书（Let’s Encrypt / acme.sh 均可）。
+解析现在是真实地址。如果以前只靠橙云挡扫描，请自己加防火墙或反代。
+几分钟到几小时都正常。平台域名的 NS 我们会改；你自己的上级域名请改到：
+免费二级域名不能把解析再委派走。后台和开放 API 都会拒绝新建 NS。现有库里本来也没有这类记录。
+如果要别的优先级，后台改成
+这种格式即可。
+权威解析从
+换成
+（n.ht）。
+已完成迁移的平台域：
+· 146 条
+· 35 条
+· 56 条
+仍在 Cloudflare，这次没有迁。
+新上线两个根域，已经挂在 AnyNS 上，可以直接申请子域名：
+这两个域从一开始就在 AnyNS，不经过 Cloudflare，也没有橙云。
+解析接近用户组上限时，会给管理员发邮件，避免用户加到一半才发现满了。
+目标 Zone 里已有同名记录时，更新而不是再插一条。
+同区迁移禁止点「清理源」，避免把自己刚写进去的记录删掉。
+AnyNS 限流会自动重试，不再一整批失败。
+线路 ID 按 AnyNS 实测结果对齐：美 / 日 / 韩 / 新是四条线路，香港 / 台湾也是分开的，不再把「美日韩新」当成一条。
+MX / SRV / CAA 的格式校验和入库归一化收紧，末尾多打一个点、TXT 多包一层引号，不会被当成另一条记录。
+有问题回帖或开工单，我们尽快跟进。 近期服务器及其不稳定，我们将在3天内更换服务器</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;105121&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/105121&quot;,
+  &quot;title&quot;: &quot;Gleam免费二级域名维护完成通知-更新日志&quot;,
+  &quot;author&quot;: &quot;A̶ɴ̶ɢ̶ʟ̶ᴇ̶ʀ̶&quot;,
+  &quot;score&quot;: 3,
+  &quot;comments&quot;: 18,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;域名&quot;
+  ],
+  &quot;excerpt&quot;: &quot;大家好&quot;,
+  &quot;content&quot;: &quot;大家好\n这次做了一件大事：\n。同时新加了两个可申请的根域，并修了一轮迁移和记录格式相关的问题。\n维护已经结束，可以正常登录使用。\n解析不再走 Cloudflare 代理。以前靠橙云自动出 HTTPS、隐藏源站 IP、挡一点扫描的站点，现在会直接打到你自己的服务器。没有自己证书的话，浏览器会提示不安全。请尽快在源站配好证书（Let’s Encrypt / acme.sh 均可）。\n解析现在是真实地址。如果以前只靠橙云挡扫描，请自己加防火墙或反代。\n几分钟到几小时都正常。平台域名的 NS 我们会改；你自己的上级域名请改到：\n免费二级域名不能把解析再委派走。后台和开放 API 都会拒绝新建 NS。现有库里本来也没有这类记录。\n如果要别的优先级，后台改成\n这种格式即可。\n权威解析从\n换成\n（n.ht）。\n已完成迁移的平台域：\n· 146 条\n· 35 条\n· 56 条\n仍在 Cloudflare，这次没有迁。\n新上线两个根域，已经挂在 AnyNS 上，可以直接申请子域名：\n这两个域从一开始就在 AnyNS，不经过 Cloudflare，也没有橙云。\n解析接近用户组上限时，会给管理员发邮件，避免用户加到一半才发现满了。\n目标 Zone 里已有同名记录时，更新而不是再插一条。\n同区迁移禁止点「清理源」，避免把自己刚写进去的记录删掉。\nAnyNS 限流会自动重试，不再一整批失败。\n线路 ID 按 AnyNS 实测结果对齐：美 / 日 / 韩 / 新是四条线路，香港 / 台湾也是分开的，不再把「美日韩新」当成一条。\nMX / SRV / CAA 的格式校验和入库归一化收紧，末尾多打一个点、TXT 多包一层引号，不会被当成另一条记录。\n有问题回帖或开工单，我们尽快跟进。 近期服务器及其不稳定，我们将在3天内更换服务器&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-22T21:44+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/105121" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/105121</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

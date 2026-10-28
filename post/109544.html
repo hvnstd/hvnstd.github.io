@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【开源自荐】BYDTIX桌面播载器，欢迎佬们继续升级和下载使用！首增Macos版本！ · B 极客行</title>
+<meta name="description" content="同时支持 Bilibili、YouTube、Douyin、TikTok、Instagram 与Xiaohongshu，六站点共用统一播放器、下载器、收藏、历史和播放记忆体系">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【开源自荐】BYDTIX桌面播载器，欢迎佬们继续升级和下载使用！首增Macos版本！</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/109544 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·13:13
+      <span class="pipe">|</span>3 分
+      <span class="pipe">|</span>1 评论
+      <span class="pipe">|</span>by DAVID ZHAO
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">同时支持 Bilibili、YouTube、Douyin、TikTok、Instagram 与Xiaohongshu，六站点共用统一播放器、下载器、收藏、历史和播放记忆体系</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">同时支持 Bilibili、YouTube、Douyin、TikTok、Instagram 与Xiaohongshu，六站点共用统一播放器、下载器、收藏、历史和播放记忆体系
+支持首页推荐、关键词搜索、URL 直接播放、播放列表详情页与播放器侧滑播放列表面板
+首页 / 搜索 / 播放列表 / 播放器显示视频更新时间（数据源提供时）
+完整字幕支持：Bilibili AI 字幕与 YouTube 手动/自动字幕全量枚举，下拉框列常用轨，其余可在带搜索的完整列表中挑选
+顶部工具栏新增明确的“播放列表”入口，可直接查看当前列表和已保存列表
+“播放 URL”面板保留最近播放地址，可直接点选重播
+单视频播放后可在后台生成作者作品播放列表，不阻塞当前视频首帧播放；列表解析期间移入右侧热点会提示加载状态
+播放器右侧播放列表滑窗提供“播放列表 / 评论”Tab，评论按需异步加载
+使用 libmpv 播放，支持暂停、停止、全屏、小窗播放、清晰度切换、倍速、字幕与自动隐藏控制面板
+支持 Esc 退出全屏、Z/X 调整倍速、鼠标滚轮调节音量，并在屏幕中央显示音量/倍速提示
+支持发现局域网 DLNA 播放设备，将在线视频和本地下载媒体远程投屏
+投屏链路针对长视频做了加固：上游断流自动重连、协议头补全、令牌滑动续期
+播放快捷键支持在设置页查看、修改、禁用、冲突校验和恢复默认
+内置下载队列，支持并发下载、暂停、继续、删除、完成回放与完成 toast 提示
+下载列表最新任务置顶，并支持暂停/启动/删除的批量操作（选中或当前筛选范围）
+Cookie 支持“自动检测”按站点分别挑选已登录的浏览器，读取失败会明确提示原因；首次启动提供 Cookie 配置指南
+下载遇到浏览器 Cookie 解密失败时自动改用其它浏览器重试
+被设为系统默认浏览器的便携版浏览器也能被识别，Cookie 库按绝对路径定位
+升级包与 FFmpeg 安装包强制校验来源域名、大小与 SHA256，压缩包拒绝路径穿越条目
+升级前探测本机系统与 CPU 架构并在「关于」页展示，只挑与本机相符的安装包，启动前再按文件名与 PE 头核对一次架构
+在线升级下载完成后可自动关闭应用并启动安装；便携版支持退出后自动解压替换和重启
+Windows 普通安装包和便携版随包提供 Deno，增强版另外提供 FFmpeg 与 FFprobe，运行后无需额外配置 JS Runtime
+运行时配置、数据库、日志、下载目录统一写入 %LocalAppData%\Tube_Ultimate_Player
+Linux 首版面向 x86_64 的 X11/XWayland；已取消增强 AppImage/DEB 发布构建，转向 Fedora RPM 与 COPR 发布链路
+评鉴链接：
+Contribute to davidchiu66/Tube_Ultimate_Player development by creating an account on GitHub.
+Contribute to davidchiu66/Tube_Ultimate_Player development by creating an account on GitHub.
+使用建议： 1、首先，安装一个Firefox，分别登录BYDTIX六个网站； 2、然后启动应用，到设置里面配置cookie，自动获取即可；
+注意事项： 1、需要安装JS引擎和FFMepg，如果没有，就下载打包一体化的版本； 2、MacOS版本由于没有环境，没有验证，如有环境的佬友，可以帮忙验证一下；</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;109544&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/109544&quot;,
+  &quot;title&quot;: &quot;【开源自荐】BYDTIX桌面播载器，欢迎佬们继续升级和下载使用！首增Macos版本！&quot;,
+  &quot;author&quot;: &quot;DAVID ZHAO&quot;,
+  &quot;score&quot;: 3,
+  &quot;comments&quot;: 1,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;同时支持 Bilibili、YouTube、Douyin、TikTok、Instagram 与Xiaohongshu，六站点共用统一播放器、下载器、收藏、历史和播放记忆体系&quot;,
+  &quot;content&quot;: &quot;同时支持 Bilibili、YouTube、Douyin、TikTok、Instagram 与Xiaohongshu，六站点共用统一播放器、下载器、收藏、历史和播放记忆体系\n支持首页推荐、关键词搜索、URL 直接播放、播放列表详情页与播放器侧滑播放列表面板\n首页 / 搜索 / 播放列表 / 播放器显示视频更新时间（数据源提供时）\n完整字幕支持：Bilibili AI 字幕与 YouTube 手动/自动字幕全量枚举，下拉框列常用轨，其余可在带搜索的完整列表中挑选\n顶部工具栏新增明确的“播放列表”入口，可直接查看当前列表和已保存列表\n“播放 URL”面板保留最近播放地址，可直接点选重播\n单视频播放后可在后台生成作者作品播放列表，不阻塞当前视频首帧播放；列表解析期间移入右侧热点会提示加载状态\n播放器右侧播放列表滑窗提供“播放列表 / 评论”Tab，评论按需异步加载\n使用 libmpv 播放，支持暂停、停止、全屏、小窗播放、清晰度切换、倍速、字幕与自动隐藏控制面板\n支持 Esc 退出全屏、Z/X 调整倍速、鼠标滚轮调节音量，并在屏幕中央显示音量/倍速提示\n支持发现局域网 DLNA 播放设备，将在线视频和本地下载媒体远程投屏\n投屏链路针对长视频做了加固：上游断流自动重连、协议头补全、令牌滑动续期\n播放快捷键支持在设置页查看、修改、禁用、冲突校验和恢复默认\n内置下载队列，支持并发下载、暂停、继续、删除、完成回放与完成 toast 提示\n下载列表最新任务置顶，并支持暂停/启动/删除的批量操作（选中或当前筛选范围）\nCookie 支持“自动检测”按站点分别挑选已登录的浏览器，读取失败会明确提示原因；首次启动提供 Cookie 配置指南\n下载遇到浏览器 Cookie 解密失败时自动改用其它浏览器重试\n被设为系统默认浏览器的便携版浏览器也能被识别，Cookie 库按绝对路径定位\n升级包与 FFmpeg 安装包强制校验来源域名、大小与 SHA256，压缩包拒绝路径穿越条目\n升级前探测本机系统与 CPU 架构并在「关于」页展示，只挑与本机相符的安装包，启动前再按文件名与 PE 头核对一次架构\n在线升级下载完成后可自动关闭应用并启动安装；便携版支持退出后自动解压替换和重启\nWindows 普通安装包和便携版随包提供 Deno，增强版另外提供 FFmpeg 与 FFprobe，运行后无需额外配置 JS Runtime\n运行时配置、数据库、日志、下载目录统一写入 %LocalAppData%\\Tube_Ultimate_Player\nLinux 首版面向 x86_64 的 X11/XWayland；已取消增强 AppImage/DEB 发布构建，转向 Fedora RPM 与 COPR 发布链路\n评鉴链接：\nContribute to davidchiu66/Tube_Ultimate_Player development by creating an account on GitHub.\nContribute to davidchiu66/Tube_Ultimate_Player development by creating an account on GitHub.\n使用建议： 1、首先，安装一个Firefox，分别登录BYDTIX六个网站； 2、然后启动应用，到设置里面配置cookie，自动获取即可；\n注意事项： 1、需要安装JS引擎和FFMepg，如果没有，就下载打包一体化的版本； 2、MacOS版本由于没有环境，没有验证，如有环境的佬友，可以帮忙验证一下；&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-18T13:13+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/109544" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/109544</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

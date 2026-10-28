@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>急！！！ZCode 会静默上传整仓快照：Windows 实测证实 + 三重防御落地（可直接照做） · B 极客行</title>
+<meta name="description" content="前情提要：ferstar 的博客已经实锤了 macOS 下 ZCode（智谱官方 AI 编程桌面端）会静默把工作区连">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>急！！！ZCode 会静默上传整仓快照：Windows 实测证实 + 三重防御落地（可直接照做）</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/109590 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·00:13
+      <span class="pipe">|</span>7 分
+      <span class="pipe">|</span>24 评论
+      <span class="pipe">|</span>by baokezhang
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">前情提要：ferstar 的博客已经实锤了 macOS 下 ZCode（智谱官方 AI 编程桌面端）会静默把工作区连</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">前情提要：ferstar 的博客已经实锤了 macOS 下 ZCode（智谱官方 AI 编程桌面端）会静默把工作区连
+历史打包加密上传阿里云 OSS，且私钥只在云端：
+我看完顺手扒了自己的 Windows 机器。
+原文的防御只有 macOS/Linux 版，本文补齐 Windows 等价物，外加一个更彻底的字节级 stub。全程可复现。
+数据根目录在
+，快照投料区在
+——按工作区哈希分目录，每个目录一份
+：
+我的机器上共
+被抓过快照（只要在该工作区里发过 prompt 就中招）
+最大单包
+（某带模型文件的项目），状态显示重试上传失败
+，密文躺在
+里等重传
+约
+，多为几十 KB~几百 KB 的小仓
+字段普遍存在：说明服务端至少受理过 manifest
+注意：
+只代表最近一次重试失败，baseline 很可能早就传上去了。
+判断&quot;没泄露&quot;的唯一依据是它从来没成功过——基本不存在
+上传链路（我从客户端包里核对过）：
+触发点两个：
+（captureStage=prompt）+
+（captureStage=terminal）。原文统计单会话最多 62 次捕获。
+。哪怕你配置的是第三方 API（自建中转/openai 兼容端点），推理内容直连你的 baseUrl 不假，但快照 sidecar 只认登录态 JWT——用谁的模型它都照拍照传。
+，形式上支持环境变量覆盖，但 bucket 域名由服务端动态下发、且
+——想靠 hosts 拉黑 OSS 的路线走不通，日志里只有
+的出站记录。
+：全局配置文件算哈希后跨工作区随每次快照上传。而 ZCode 的
+/
+里存着
+——这个目录等于一直躺在理论可端走的射程里。别把
+整个丢给网盘同步。
+：
+，
+。官方自己没开 asar 完整性校验，后面的 stub 才可行。这几个 ENABLED 本身也是给第三方留的口子，建议官方审视。
+思路同原文：让快照
+——目录内核级拒写。客户端的 IO 报错会被它自己吞掉，对话/补全/工具调用全部正常，失效的只有&quot;检查点回滚/时间线&quot;（这功能本来就是拿全量代码上云换的）。
+先
+，然后管理员 PowerShell：
+回滚：
+在
+里，两种 captureStage 全部汇聚到唯一的方法
+。把它开头改成无条件 return，
+，asar 头表和文件大小一字节不变，无需重打包：
+原理：
+变成
+。函数直接短路，prompt 前捕获、任务结束捕获、搭车上传一起死透。
+，必须按字节流处理。
+建议把这段做成启动器里的幂等步骤（搜索 pattern：找到就打、已 stub 就跳过、结构变了就报错提醒），这样软件自动更新后防御自动续命。
+我的实测结果：stub + 目录锁双闸后正常干活，
+始终 0 文件；两道保险互相独立，互为兜底。
+不行。「优化体验」只管要不要拿数据训练；「仓库快照索引」只管服务端建不建索引。快照捕获和上传在启动时
+，UI 里没有任何开关能关它——原文逐行对过代码，我也核对了 bundle，属实。
+删了半小时内自动重新打包，
+继续涨。纯打地鼠。
+推理内容层面：是，prompt 和代码直连你的 baseUrl。但快照照拍（只认登录态）、账号层元数据（JWT/计费/版本检查）照发
+。前者的解法就是本文这两道闸。
+不能。信封加密私钥只在云端，你只能确认&quot;本地不再新增&quot;。真正有敏感内容（密钥、商业代码、内部 GitLab 地址、未推送分支）的仓库，建议直接轮换密钥、清理历史。
++ 用备份覆盖 asar，一分钟回滚。
+工具吃推理上下文，天经地义，大家心里有数。越线的是另外两点：
+（整仓 + 全部 git 历史，远超推理所需）和
+（只有服务端能解的加密，不叫为用户准备的备份，叫采集）。默认常开、UI 关不掉、隐私政策只字未提、删了自动重传——四条同时命中，这就不是解读空间的问题了。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;109590&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/109590&quot;,
+  &quot;title&quot;: &quot;急！！！ZCode 会静默上传整仓快照：Windows 实测证实 + 三重防御落地（可直接照做）&quot;,
+  &quot;author&quot;: &quot;baokezhang&quot;,
+  &quot;score&quot;: 7,
+  &quot;comments&quot;: 24,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;
+  ],
+  &quot;excerpt&quot;: &quot;前情提要：ferstar 的博客已经实锤了 macOS 下 ZCode（智谱官方 AI 编程桌面端）会静默把工作区连&quot;,
+  &quot;content&quot;: &quot;前情提要：ferstar 的博客已经实锤了 macOS 下 ZCode（智谱官方 AI 编程桌面端）会静默把工作区连\n历史打包加密上传阿里云 OSS，且私钥只在云端：\n我看完顺手扒了自己的 Windows 机器。\n原文的防御只有 macOS/Linux 版，本文补齐 Windows 等价物，外加一个更彻底的字节级 stub。全程可复现。\n数据根目录在\n，快照投料区在\n——按工作区哈希分目录，每个目录一份\n：\n我的机器上共\n被抓过快照（只要在该工作区里发过 prompt 就中招）\n最大单包\n（某带模型文件的项目），状态显示重试上传失败\n，密文躺在\n里等重传\n约\n，多为几十 KB~几百 KB 的小仓\n字段普遍存在：说明服务端至少受理过 manifest\n注意：\n只代表最近一次重试失败，baseline 很可能早就传上去了。\n判断\&quot;没泄露\&quot;的唯一依据是它从来没成功过——基本不存在\n上传链路（我从客户端包里核对过）：\n触发点两个：\n（captureStage=prompt）+\n（captureStage=terminal）。原文统计单会话最多 62 次捕获。\n。哪怕你配置的是第三方 API（自建中转/openai 兼容端点），推理内容直连你的 baseUrl 不假，但快照 sidecar 只认登录态 JWT——用谁的模型它都照拍照传。\n，形式上支持环境变量覆盖，但 bucket 域名由服务端动态下发、且\n——想靠 hosts 拉黑 OSS 的路线走不通，日志里只有\n的出站记录。\n：全局配置文件算哈希后跨工作区随每次快照上传。而 ZCode 的\n/\n里存着\n——这个目录等于一直躺在理论可端走的射程里。别把\n整个丢给网盘同步。\n：\n，\n。官方自己没开 asar 完整性校验，后面的 stub 才可行。这几个 ENABLED 本身也是给第三方留的口子，建议官方审视。\n思路同原文：让快照\n——目录内核级拒写。客户端的 IO 报错会被它自己吞掉，对话/补全/工具调用全部正常，失效的只有\&quot;检查点回滚/时间线\&quot;（这功能本来就是拿全量代码上云换的）。\n先\n，然后管理员 PowerShell：\n回滚：\n在\n里，两种 captureStage 全部汇聚到唯一的方法\n。把它开头改成无条件 return，\n，asar 头表和文件大小一字节不变，无需重打包：\n原理：\n变成\n。函数直接短路，prompt 前捕获、任务结束捕获、搭车上传一起死透。\n，必须按字节流处理。\n建议把这段做成启动器里的幂等步骤（搜索 pattern：找到就打、已 stub 就跳过、结构变了就报错提醒），这样软件自动更新后防御自动续命。\n我的实测结果：stub + 目录锁双闸后正常干活，\n始终 0 文件；两道保险互相独立，互为兜底。\n不行。「优化体验」只管要不要拿数据训练；「仓库快照索引」只管服务端建不建索引。快照捕获和上传在启动时\n，UI 里没有任何开关能关它——原文逐行对过代码，我也核对了 bundle，属实。\n删了半小时内自动重新打包，\n继续涨。纯打地鼠。\n推理内容层面：是，prompt 和代码直连你的 baseUrl。但快照照拍（只认登录态）、账号层元数据（JWT/计费/版本检查）照发\n。前者的解法就是本文这两道闸。\n不能。信封加密私钥只在云端，你只能确认\&quot;本地不再新增\&quot;。真正有敏感内容（密钥、商业代码、内部 GitLab 地址、未推送分支）的仓库，建议直接轮换密钥、清理历史。\n+ 用备份覆盖 asar，一分钟回滚。\n工具吃推理上下文，天经地义，大家心里有数。越线的是另外两点：\n（整仓 + 全部 git 历史，远超推理所需）和\n（只有服务端能解的加密，不叫为用户准备的备份，叫采集）。默认常开、UI 关不掉、隐私政策只字未提、删了自动重传——四条同时命中，这就不是解读空间的问题了。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-19T00:13+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/109590" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/109590</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

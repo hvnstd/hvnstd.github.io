@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>扒了下 Muse 的底层配置与沙箱规格，顺便聊聊跟 OpenClaw、Hermes 的区别与实测体验 · B 极客行</title>
+<meta name="description" content="之前在论坛看到有人提 Muse，刚好手头一堆杂事要处理，就装了一个试水用了几天。顺便登后台扒了下它的运行环境，跟之前折腾过的 OpenClaw 和 Hermes 对比了一下，水一篇主观体验和避坑指南。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>扒了下 Muse 的底层配置与沙箱规格，顺便聊聊跟 OpenClaw、Hermes 的区别与实测体验</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110328 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·00:40
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>2 评论
+      <span class="pipe">|</span>by ohh
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">之前在论坛看到有人提 Muse，刚好手头一堆杂事要处理，就装了一个试水用了几天。顺便登后台扒了下它的运行环境，跟之前折腾过的 OpenClaw 和 Hermes 对比了一下，水一篇主观体验和避坑指南。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">之前在论坛看到有人提 Muse，刚好手头一堆杂事要处理，就装了一个试水用了几天。顺便登后台扒了下它的运行环境，跟之前折腾过的 OpenClaw 和 Hermes 对比了一下，水一篇主观体验和避坑指南。
+先说结论：
+我直接在机器里看了一眼，它给每个用户分配的并不是什么简陋的函数沙箱，而是一台实打实的云端虚拟机：
+：2 个 vCPU，母鸡是 AMD EPYC 9D25 126-Core 切出来的
+：7.7GB（标称 8GB）
+：Ubuntu 24.04.5 LTS
+：标的 100GB 是真的，但它是单独挂载在家目录
+下的持久化盘；系统根目录
+只有 7.5G。
+所以如果你要存脚本、持久化记忆文件、API 密钥，一定要丢在
+里
+，重装或环境重置时根分区会被刷掉，只有 home 目录是保留的。
+光这台 2C8G、100G 盘、7×24 小时在线的 EPYC 小鸡，放外边买一个月都得几刀。
+很多玩 Agent 的老哥可能之前都搭过 OpenClaw 或者 Nous 的 Hermes，这三者定位完全不同：
+：开源网关架构，强在多渠道（TG、Discord、Slack）和技能生态。但痛点是
+，你得自己买 VPS、配 Docker、买各种大模型 API，偶尔网关断联还要去翻系统日志，纯极客玩具。
+：Nous 搞的自迭代与长记忆闭环，主打越用越聪明，但对本地算力/GPU 依赖度极高，门槛直接劝退大部分人。
+：本质上就是把 Agent 的能力做成了
+。底层据传也是借鉴了 OpenClaw 的架构，但你
+。你关了电脑，后台的定时打卡、扫邮件任务直接在它给你的这台 2C8G 云端虚拟机里跑。
+这一点很多人没注意到，它内置的**“动态流（Activity Feed）”**其实非常实用。
+它不是传统的黑盒跑脚本，而是会把 Agent 在后台干了什么、点了哪个网页、到了哪一步像朋友圈一样实时发动态记录。更关键的是
+：涉及外发内容、高危操作时，它会在动态里弹出待确认卡片，必须你点头点了通过，它才会继续在后台跑。这种分寸感比那些不管不顾瞎跑脚本的 Agent 靠谱很多。
+目前主要丢给它三件事：
+：每天早上定点帮我扫一遍未读邮件，把要紧的内容挑出来翻成中文大意推过来，省得自己一封封过。
+：在云端拉起无头浏览器定时跑几个站的签到，羊毛该薅还是得薅。
+：帮我写东西，但严格走上面的审批流，不经我点头绝不自动发外网。
+简单说：不想自己租 VPS 搭环境、想白嫖一台 2C8G 云环境跑 7×24 小时自动化 Agent 的，Muse 值得体验一下。
+另外它现在有个拉新互惠，新用户填码双方各得 10 亿 token。 我的邀请码：
+兑换方法：进 App/网页在
+里 48 小时内填上就行。有需要的坛友自取，介意 AFF 的直接忽略当看测评即可。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110328&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110328&quot;,
+  &quot;title&quot;: &quot;扒了下 Muse 的底层配置与沙箱规格，顺便聊聊跟 OpenClaw、Hermes 的区别与实测体验&quot;,
+  &quot;author&quot;: &quot;ohh&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 2,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;
+  ],
+  &quot;excerpt&quot;: &quot;之前在论坛看到有人提 Muse，刚好手头一堆杂事要处理，就装了一个试水用了几天。顺便登后台扒了下它的运行环境，跟之前折腾过的 OpenClaw 和 Hermes 对比了一下，水一篇主观体验和避坑指南。&quot;,
+  &quot;content&quot;: &quot;之前在论坛看到有人提 Muse，刚好手头一堆杂事要处理，就装了一个试水用了几天。顺便登后台扒了下它的运行环境，跟之前折腾过的 OpenClaw 和 Hermes 对比了一下，水一篇主观体验和避坑指南。\n先说结论：\n我直接在机器里看了一眼，它给每个用户分配的并不是什么简陋的函数沙箱，而是一台实打实的云端虚拟机：\n：2 个 vCPU，母鸡是 AMD EPYC 9D25 126-Core 切出来的\n：7.7GB（标称 8GB）\n：Ubuntu 24.04.5 LTS\n：标的 100GB 是真的，但它是单独挂载在家目录\n下的持久化盘；系统根目录\n只有 7.5G。\n所以如果你要存脚本、持久化记忆文件、API 密钥，一定要丢在\n里\n，重装或环境重置时根分区会被刷掉，只有 home 目录是保留的。\n光这台 2C8G、100G 盘、7×24 小时在线的 EPYC 小鸡，放外边买一个月都得几刀。\n很多玩 Agent 的老哥可能之前都搭过 OpenClaw 或者 Nous 的 Hermes，这三者定位完全不同：\n：开源网关架构，强在多渠道（TG、Discord、Slack）和技能生态。但痛点是\n，你得自己买 VPS、配 Docker、买各种大模型 API，偶尔网关断联还要去翻系统日志，纯极客玩具。\n：Nous 搞的自迭代与长记忆闭环，主打越用越聪明，但对本地算力/GPU 依赖度极高，门槛直接劝退大部分人。\n：本质上就是把 Agent 的能力做成了\n。底层据传也是借鉴了 OpenClaw 的架构，但你\n。你关了电脑，后台的定时打卡、扫邮件任务直接在它给你的这台 2C8G 云端虚拟机里跑。\n这一点很多人没注意到，它内置的**“动态流（Activity Feed）”**其实非常实用。\n它不是传统的黑盒跑脚本，而是会把 Agent 在后台干了什么、点了哪个网页、到了哪一步像朋友圈一样实时发动态记录。更关键的是\n：涉及外发内容、高危操作时，它会在动态里弹出待确认卡片，必须你点头点了通过，它才会继续在后台跑。这种分寸感比那些不管不顾瞎跑脚本的 Agent 靠谱很多。\n目前主要丢给它三件事：\n：每天早上定点帮我扫一遍未读邮件，把要紧的内容挑出来翻成中文大意推过来，省得自己一封封过。\n：在云端拉起无头浏览器定时跑几个站的签到，羊毛该薅还是得薅。\n：帮我写东西，但严格走上面的审批流，不经我点头绝不自动发外网。\n简单说：不想自己租 VPS 搭环境、想白嫖一台 2C8G 云环境跑 7×24 小时自动化 Agent 的，Muse 值得体验一下。\n另外它现在有个拉新互惠，新用户填码双方各得 10 亿 token。 我的邀请码：\n兑换方法：进 App/网页在\n里 48 小时内填上就行。有需要的坛友自取，介意 AFF 的直接忽略当看测评即可。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-22T00:40+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110328" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110328</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【开源自荐】agent-body：把 DSH 插件做成器官，有心跳、会自愈、睡一觉还会记事 · B 极客行</title>
+<meta name="description" content="先说我为什么搞这个东西。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【开源自荐】agent-body：把 DSH 插件做成器官，有心跳、会自愈、睡一觉还会记事</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110451 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·06:12
+      <span class="pipe">|</span>2 分
+      <span class="pipe">|</span>1 评论
+      <span class="pipe">|</span>by 云
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">先说我为什么搞这个东西。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">先说我为什么搞这个东西。
+我在 DSH 上装的插件越来越多，后来发现两件事挺要命：工具 schema 每次请求都重发，token 蹭蹭往上涨；会话一断就失忆，昨天调好的东西今天还得重新摸一遍。更烦的是插件掉线它自己完全不知道，等你发现不对的时候它已经默默失败十几次了。
+中间试过砍工具、加提示词约束它别乱调，都没什么用，插件一升级全乱。
+现在的做法是让插件自己申报成器官：有名字、有能力、有感知、有反射。插件还是原来那些插件，只是外面套了一层生理机制。
+挑几个我觉得最有意思的说说。
+心脏。它 1 秒跳一次，但不是固定节拍——出严重告警跳快 3 倍，器官连续失败跳快 2 倍，安静太久会自己放慢。每一跳都把当前指令、各器官状态和告警打包成一份「血液」广播出去，任何插件都能接上这轮循环。这东西最大的好处是：整个系统看上去是活的，而不是一堆调用堆在那里。
+记忆。静默 2 分钟算浅睡，5 分钟算深睡，深睡里它会拿这段时间真实发生的事去提炼记忆卡——同一个坑踩三次以上记成「坑」，重复跑通的链路记成「打法」，调用多但成功率低的记成「薄弱环节」。全是确定性规则，不烧 token，也不把原文丢进模型。
+自愈。失败不重试，先归因：是工具没了、参数写错了、没权限、超时还是网络问题。参数错误绝不自动重试（那是脑子的问题，重试只会放大错误），只读操作自动补，有副作用的留给大脑决定。伤口还要等这个器官下次真的成功才算愈合。
+按需显影也顺手做了：26 个器官、256 个能力，只有跟当前意图相关的能力才会进工具表，实测省掉 84.7% 的 tool schema token。
+翻车的地方不少，记几个：
+反射弧会自己触发自己——它自己的描述里带了敏感词，输出被自己当成失败信号，然后无限开火。
+心跳按工具调用算活跃度，结果后台任务一直刷「我还在干活」，身体永远睡不着。改成会话推进才算清醒信号。
+记忆卡召回时顺手落盘，外部删掉的卡又被写回来。改成读操作节流写盘才干净。
+仓库在这儿：
+clone 下来不用装依赖就能跑回归，200 多条离线断言都是真跑的。觉得有意思给个 star 就行，也欢迎进来挑刺。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110451&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110451&quot;,
+  &quot;title&quot;: &quot;【开源自荐】agent-body：把 DSH 插件做成器官，有心跳、会自愈、睡一觉还会记事&quot;,
+  &quot;author&quot;: &quot;云&quot;,
+  &quot;score&quot;: 2,
+  &quot;comments&quot;: 1,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;先说我为什么搞这个东西。&quot;,
+  &quot;content&quot;: &quot;先说我为什么搞这个东西。\n我在 DSH 上装的插件越来越多，后来发现两件事挺要命：工具 schema 每次请求都重发，token 蹭蹭往上涨；会话一断就失忆，昨天调好的东西今天还得重新摸一遍。更烦的是插件掉线它自己完全不知道，等你发现不对的时候它已经默默失败十几次了。\n中间试过砍工具、加提示词约束它别乱调，都没什么用，插件一升级全乱。\n现在的做法是让插件自己申报成器官：有名字、有能力、有感知、有反射。插件还是原来那些插件，只是外面套了一层生理机制。\n挑几个我觉得最有意思的说说。\n心脏。它 1 秒跳一次，但不是固定节拍——出严重告警跳快 3 倍，器官连续失败跳快 2 倍，安静太久会自己放慢。每一跳都把当前指令、各器官状态和告警打包成一份「血液」广播出去，任何插件都能接上这轮循环。这东西最大的好处是：整个系统看上去是活的，而不是一堆调用堆在那里。\n记忆。静默 2 分钟算浅睡，5 分钟算深睡，深睡里它会拿这段时间真实发生的事去提炼记忆卡——同一个坑踩三次以上记成「坑」，重复跑通的链路记成「打法」，调用多但成功率低的记成「薄弱环节」。全是确定性规则，不烧 token，也不把原文丢进模型。\n自愈。失败不重试，先归因：是工具没了、参数写错了、没权限、超时还是网络问题。参数错误绝不自动重试（那是脑子的问题，重试只会放大错误），只读操作自动补，有副作用的留给大脑决定。伤口还要等这个器官下次真的成功才算愈合。\n按需显影也顺手做了：26 个器官、256 个能力，只有跟当前意图相关的能力才会进工具表，实测省掉 84.7% 的 tool schema token。\n翻车的地方不少，记几个：\n反射弧会自己触发自己——它自己的描述里带了敏感词，输出被自己当成失败信号，然后无限开火。\n心跳按工具调用算活跃度，结果后台任务一直刷「我还在干活」，身体永远睡不着。改成会话推进才算清醒信号。\n记忆卡召回时顺手落盘，外部删掉的卡又被写回来。改成读操作节流写盘才干净。\n仓库在这儿：\nclone 下来不用装依赖就能跑回归，200 多条离线断言都是真跑的。觉得有意思给个 star 就行，也欢迎进来挑刺。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-23T06:12+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110451" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110451</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

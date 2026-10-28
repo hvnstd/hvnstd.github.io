@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fable + 中转模型做为subagents · B 极客行</title>
+<meta name="description" content="Fable 做判断很强但让它贵啊！就参考了">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>Fable + 中转模型做为subagents</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110028 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·19:43
+      <span class="pipe">|</span>6 分
+      <span class="pipe">|</span>10 评论
+      <span class="pipe">|</span>by ypyik0669
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">Fable 做判断很强但让它贵啊！就参考了</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">Fable 做判断很强但让它贵啊！就参考了
+你像平时一样说任务，
+，插件 hooks 让每个编码任务自动走下面这条流程，Claude 不去读源码、不写代码、不看管子代理。
+仓库
+单个 bug 的无头冒烟测试（
+，无触发词）：7 回合、$1.06，Claude 一个文件没碰。
+光这么做，实测 Claude 还是把大头花在读代码和看管子代理上。所以多了这几样：
+确定性驱动
+改了 FILES 之外报
+；锁文件被重写报 partial；写到主树自动挪回 worktree
+每次调用记 token，直接算
+比例
+不加载你
+的 MCP、AGENTS.md、skill，启动噪音归零
+通道返回的报告长这样（真实输出）：
+codex 每次运行自带约 2 万 token 系统提示底噪，去不掉。
+外部模型 85% 是缓存命中，贵不贵看你中转怎么计价。
+装完即开启，之后正常聊天就行。想临时关就禁用插件。
+仓库（中英 README、38 个单测、CI 双平台）：
+&quot;Claude Code plugin: Claude is the architect, your OpenAI-compatible relay model writes all the code (via codex exec or chat completions), a clean-context Claude advisor reviews before ship.&quot;</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110028&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110028&quot;,
+  &quot;title&quot;: &quot;Fable + 中转模型做为subagents&quot;,
+  &quot;author&quot;: &quot;ypyik0669&quot;,
+  &quot;score&quot;: 6,
+  &quot;comments&quot;: 10,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;
+  ],
+  &quot;excerpt&quot;: &quot;Fable 做判断很强但让它贵啊！就参考了&quot;,
+  &quot;content&quot;: &quot;Fable 做判断很强但让它贵啊！就参考了\n你像平时一样说任务，\n，插件 hooks 让每个编码任务自动走下面这条流程，Claude 不去读源码、不写代码、不看管子代理。\n仓库\n单个 bug 的无头冒烟测试（\n，无触发词）：7 回合、$1.06，Claude 一个文件没碰。\n光这么做，实测 Claude 还是把大头花在读代码和看管子代理上。所以多了这几样：\n确定性驱动\n改了 FILES 之外报\n；锁文件被重写报 partial；写到主树自动挪回 worktree\n每次调用记 token，直接算\n比例\n不加载你\n的 MCP、AGENTS.md、skill，启动噪音归零\n通道返回的报告长这样（真实输出）：\ncodex 每次运行自带约 2 万 token 系统提示底噪，去不掉。\n外部模型 85% 是缓存命中，贵不贵看你中转怎么计价。\n装完即开启，之后正常聊天就行。想临时关就禁用插件。\n仓库（中英 README、38 个单测、CI 双平台）：\n\&quot;Claude Code plugin: Claude is the architect, your OpenAI-compatible relay model writes all the code (via codex exec or chat completions), a clean-context Claude advisor reviews before ship.\&quot;&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-20T19:43+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110028" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110028</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

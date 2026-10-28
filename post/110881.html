@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【开源自荐】muse2api可实现2K图片和10秒视频生成自由，玩无止境，一个字就是—玩！！！ · B 极客行</title>
+<meta name="description" content="项目链接：">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【开源自荐】muse2api可实现2K图片和10秒视频生成自由，玩无止境，一个字就是—玩！！！</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110881 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·04:47
+      <span class="pipe">|</span>5 分
+      <span class="pipe">|</span>4 评论
+      <span class="pipe">|</span>by guogege
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">项目链接：</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">项目链接：
+把 Muse(muse.ai) 逆向封装为 OpenAI 兼容接口，支持对话、文生图、文生视频/图生视频、多账号池轮转与 48h 自动续期。OpenAI-compatible API for Muse.ai with Chat, Image &amp; Video generation.
+各位 大家好！
+最近一直在用
+MUSE AI 账号注册可参考：在论坛搜一下
+但痛点很明显：
+，没法接入到我们日常用的 NextChat、LobeChat、One API、New API 或者自建工作流里；
+，手动抓包不仅恶心，隔两天就得重新抓一次，极其折磨；
+单账号额度容易用完，缺乏多账号轮转和保活机制。
+受论坛里各类
+项目启发，花时间把 Muse 网页版逆向封装成了一套完整的
+，代码已彻底脱敏并开源！
+原生支持 5秒 / 10秒的高清视频生成，支持首帧图生视频。
+支持批量导入任意数量的账号，基于 LRU（最久未使用）自动轮转，榨干每个号的额度。
+遇到坏号或额度耗尽自动隔离并故障转移。
+内置后台心跳保活引擎，定时自动探测会话活性并滚动作废 Meta Cookie 过期时间，告别频繁重新登录！
+不需要 F12 抓包！在浏览器里装上配套扩展，打开网页点一下，直接将登录态一键推送到服务中。
+自带现代化纯纯单文件 Web UI，无任何外部 CDN 依赖，直观监控账号健康度、额度、生成历史，并自带在线测试工具。
+镜像内置无头 Chromium、中文字体库（防乱码）、自动清理残留锁，开箱即用。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110881&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110881&quot;,
+  &quot;title&quot;: &quot;【开源自荐】muse2api可实现2K图片和10秒视频生成自由，玩无止境，一个字就是—玩！！！&quot;,
+  &quot;author&quot;: &quot;guogege&quot;,
+  &quot;score&quot;: 5,
+  &quot;comments&quot;: 4,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;,
+    &quot;开源&quot;
+  ],
+  &quot;excerpt&quot;: &quot;项目链接：&quot;,
+  &quot;content&quot;: &quot;项目链接：\n把 Muse(muse.ai) 逆向封装为 OpenAI 兼容接口，支持对话、文生图、文生视频/图生视频、多账号池轮转与 48h 自动续期。OpenAI-compatible API for Muse.ai with Chat, Image &amp; Video generation.\n各位 大家好！\n最近一直在用\nMUSE AI 账号注册可参考：在论坛搜一下\n但痛点很明显：\n，没法接入到我们日常用的 NextChat、LobeChat、One API、New API 或者自建工作流里；\n，手动抓包不仅恶心，隔两天就得重新抓一次，极其折磨；\n单账号额度容易用完，缺乏多账号轮转和保活机制。\n受论坛里各类\n项目启发，花时间把 Muse 网页版逆向封装成了一套完整的\n，代码已彻底脱敏并开源！\n原生支持 5秒 / 10秒的高清视频生成，支持首帧图生视频。\n支持批量导入任意数量的账号，基于 LRU（最久未使用）自动轮转，榨干每个号的额度。\n遇到坏号或额度耗尽自动隔离并故障转移。\n内置后台心跳保活引擎，定时自动探测会话活性并滚动作废 Meta Cookie 过期时间，告别频繁重新登录！\n不需要 F12 抓包！在浏览器里装上配套扩展，打开网页点一下，直接将登录态一键推送到服务中。\n自带现代化纯纯单文件 Web UI，无任何外部 CDN 依赖，直观监控账号健康度、额度、生成历史，并自带在线测试工具。\n镜像内置无头 Chromium、中文字体库（防乱码）、自动清理残留锁，开箱即用。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-26T04:47+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110881" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110881</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

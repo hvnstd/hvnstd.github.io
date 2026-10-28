@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M365-Copilot2API v0.7.0正式发布！ · B 极客行</title>
+<meta name="description" content="本次更新日志 新增">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>M365-Copilot2API v0.7.0正式发布！</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/111091 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·16:57
+      <span class="pipe">|</span>9 分
+      <span class="pipe">|</span>17 评论
+      <span class="pipe">|</span>by 贺煦修
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">本次更新日志 新增</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">本次更新日志 新增
+React 管理控制台：新增 webapp/（Vite 6 + React 18 + TypeScript + motion），8 个页面——Dashboard、Usage、Accounts、API Keys、Conversations、Proxy Pool、Model Test、Settings；11 语言 i18n；构建产物内嵌，由 /webapp/ 提供。旧版单页 HTML 保留为回退界面，侧边栏版本号改为从 /api/version 动态读取。
+记忆与人设 API：/v1/memory/flags、/v1/memory/instructions、/v1/memory/settings 反向代理 substrate（HAR 报告 02/04），支持按账号绑定。
+账号批量设置：POST /api/accounts/batch，原子校验/去重，支持批量改系统提示词、联网开关、调度。
+健康探针：client_health_ping 三连（documentLoad/loggerInit/mainLoad，HAR 报告 08），每账号 6 小时一次。
+上下文亲和：internal/web/context_affinity.go，按上下文哈希稳定选号。
+开机自启：internal/web/autostart*.go，HKCU Run（免管理员）。 流式协议（对齐 HAR）
+首个有效文本 token 超时：默认 75 秒（M365_FIRST_TOKEN_TIMEOUT_SECONDS，范围 15–600），只认首个非空白文本 token，保留 90 秒常规读超时，不误杀搜索/生图/深推理长首字。
+安全非流式退化：仅在尚未提交任何 SSE 字节时返回标准 JSON 错误；已提交后只发合法 SSE error + [DONE]。
+统一 SSE 写锁：所有帧、工具输出、keepalive 走同一个 sseWriter，消除并发写竞态。
+故障转移收敛：WS_READ_TIMEOUT/上游 422 纳入可转移，但共享层传输故障（DNS/TCP/TLS/SOCKS5/503）不再逐账号轮转，避免账号切换风暴。
+&quot;快照重组：移植社区 PR #86 的 snapshotReconciler（署名 2164312714-svg），内存降为 O(n)，避免重复段落。&quot;
+乱码修复：消除分片切断多字节 UTF-8 产生的 U+FFFD（见下）。 资源与内存稳态
+响应 buffer 池：上限 64 个 × 64KiB，超限对象不回池。
+MCP 待执行队列：上限 1024，满载淘汰最旧并回错误，取消/超时清理并释放切片引用。
+缓存统计：KeyStats LRU 淘汰（上限 1024）。
+health_ping 包级 map 定期 GC。
+连接池 Warm 节流放宽为按缺口补足。 协议与模型
+真实模型目录：flux-3/flux-4（Image:true），清除假模型 gpt-5.6-sol/terra/luna 与 gpt-image-2；生图走 /v1/images。
+reasoning_effort 路由：支持 none/minimal/low/medium/high/xhigh，非法值 400。
+临时会话：metadata.copilot_temp_session → disableMemory，且不入库。
+引用解析：解析 displayData.content 的 Title/Snippet（HAR 报告 05）。
+计量风控：metering 接入主路径 /v1/chat/completions，图片能力冷却。
+M365_MASTER_KEY 平滑迁移：设置主密钥后仍能解密历史 fallback 加密的 refresh token，无需重新授权。
+UA 统一为 Chrome，422 纳入重试白名单。 构建与发布
+修复非 Windows 平台编译（autostart 桩），25 个平台产物齐备。
+&quot;源码默认版本 dev，发布版由 CI 从 Git tag 注入（release.yml ldflags）。 产物 25 个平台二进制 + checksums.txt（linux 全架构、darwin amd64/arm64、windows amd64/386/arm64、freebsd、netbsd、openbsd）。 Release:&quot;</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;111091&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/111091&quot;,
+  &quot;title&quot;: &quot;M365-Copilot2API v0.7.0正式发布！&quot;,
+  &quot;author&quot;: &quot;贺煦修&quot;,
+  &quot;score&quot;: 9,
+  &quot;comments&quot;: 17,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;本次更新日志 新增&quot;,
+  &quot;content&quot;: &quot;本次更新日志 新增\nReact 管理控制台：新增 webapp/（Vite 6 + React 18 + TypeScript + motion），8 个页面——Dashboard、Usage、Accounts、API Keys、Conversations、Proxy Pool、Model Test、Settings；11 语言 i18n；构建产物内嵌，由 /webapp/ 提供。旧版单页 HTML 保留为回退界面，侧边栏版本号改为从 /api/version 动态读取。\n记忆与人设 API：/v1/memory/flags、/v1/memory/instructions、/v1/memory/settings 反向代理 substrate（HAR 报告 02/04），支持按账号绑定。\n账号批量设置：POST /api/accounts/batch，原子校验/去重，支持批量改系统提示词、联网开关、调度。\n健康探针：client_health_ping 三连（documentLoad/loggerInit/mainLoad，HAR 报告 08），每账号 6 小时一次。\n上下文亲和：internal/web/context_affinity.go，按上下文哈希稳定选号。\n开机自启：internal/web/autostart*.go，HKCU Run（免管理员）。 流式协议（对齐 HAR）\n首个有效文本 token 超时：默认 75 秒（M365_FIRST_TOKEN_TIMEOUT_SECONDS，范围 15–600），只认首个非空白文本 token，保留 90 秒常规读超时，不误杀搜索/生图/深推理长首字。\n安全非流式退化：仅在尚未提交任何 SSE 字节时返回标准 JSON 错误；已提交后只发合法 SSE error + [DONE]。\n统一 SSE 写锁：所有帧、工具输出、keepalive 走同一个 sseWriter，消除并发写竞态。\n故障转移收敛：WS_READ_TIMEOUT/上游 422 纳入可转移，但共享层传输故障（DNS/TCP/TLS/SOCKS5/503）不再逐账号轮转，避免账号切换风暴。\n\&quot;快照重组：移植社区 PR #86 的 snapshotReconciler（署名 2164312714-svg），内存降为 O(n)，避免重复段落。\&quot;\n乱码修复：消除分片切断多字节 UTF-8 产生的 U+FFFD（见下）。 资源与内存稳态\n响应 buffer 池：上限 64 个 × 64KiB，超限对象不回池。\nMCP 待执行队列：上限 1024，满载淘汰最旧并回错误，取消/超时清理并释放切片引用。\n缓存统计：KeyStats LRU 淘汰（上限 1024）。\nhealth_ping 包级 map 定期 GC。\n连接池 Warm 节流放宽为按缺口补足。 协议与模型\n真实模型目录：flux-3/flux-4（Image:true），清除假模型 gpt-5.6-sol/terra/luna 与 gpt-image-2；生图走 /v1/images。\nreasoning_effort 路由：支持 none/minimal/low/medium/high/xhigh，非法值 400。\n临时会话：metadata.copilot_temp_session → disableMemory，且不入库。\n引用解析：解析 displayData.content 的 Title/Snippet（HAR 报告 05）。\n计量风控：metering 接入主路径 /v1/chat/completions，图片能力冷却。\nM365_MASTER_KEY 平滑迁移：设置主密钥后仍能解密历史 fallback 加密的 refresh token，无需重新授权。\nUA 统一为 Chrome，422 纳入重试白名单。 构建与发布\n修复非 Windows 平台编译（autostart 桩），25 个平台产物齐备。\n\&quot;源码默认版本 dev，发布版由 CI 从 Git tag 注入（release.yml ldflags）。 产物 25 个平台二进制 + checksums.txt（linux 全架构、darwin amd64/arm64、windows amd64/386/arm64、freebsd、netbsd、openbsd）。 Release:\&quot;&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-27T16:57+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/111091" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/111091</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>某品牌连锁快餐店取餐码、订单号规律分析逆向过程 · B 极客行</title>
+<meta name="description" content="如题，经常买某连锁快餐店的饭吃，好奇店员扫描小票的二维码出餐流程，于是手机扫码小票二维码进行了分析，以下是大概过程。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>某品牌连锁快餐店取餐码、订单号规律分析逆向过程</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110080 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·23:40
+      <span class="pipe">|</span>3 分
+      <span class="pipe">|</span>2 评论
+      <span class="pipe">|</span>by zhaoruoxi
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">如题，经常买某连锁快餐店的饭吃，好奇店员扫描小票的二维码出餐流程，于是手机扫码小票二维码进行了分析，以下是大概过程。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">如题，经常买某连锁快餐店的饭吃，好奇店员扫描小票的二维码出餐流程，于是手机扫码小票二维码进行了分析，以下是大概过程。
+因为经常吃此快餐品牌，家附近有一家店经常去，留了几张小票在家，好奇扫描了小票的二维码，发现是字母数字的组合，于是开始ai辅助分析，一开始怀疑是哈希值截断某几位或者md5之类，后来发现疑似是base62编码。
+于是把一堆小票的单号、取餐码、二维码值、下单手机号、小票打印时间汇总，发现订单号码第二位开始是UNIX时间戳和小票的打印时间基本相符但偶尔有一两秒或十几秒误差。
+继续分析，二维码值若base62的话，其数值和取餐码存在联系，准备了同一天同门店2个小票取餐码和二维码值对比，两个取餐码数值差和二维码值的差是相同的其数值相减都是8。但由于没有其他同一天的两张及以上小票对比，无法进一步确定二维码值和取餐码存在稳定递增关系。
+继续分析订单号，其格式为：1+10位精确到秒的UNIX时间戳+9位不知道是什么的字符串+4位数字，分析发现9位数部分同手机号的订单号此位置都相同，怀疑是门店编号或者用户唯一ID之类的标识符，为了验证猜想，找来数个新手机和手机号码下单测试。使用新手机小程序A游客身份不登录下单产生一订单号，其9位数部分和之前小票单号都不相同，更换新手机小程序B游客下单，其订单号码9位数部分又和之前都不同，手机小程序C也是如此。使用手机A登录老号码1之后，原有老订单同步过来当地号码也没有改变，单A手机游客下单的订单被绑定到了账号1中成了老账号1的订单记录。使用手机B登录全新手机号2下单，号码2订单9位部分继承了手机B之前游客订单的9位部分。
+现推测：订单号9位部分极有可能是用户唯一性的标识符，当小程序打开即创建9位的唯一ID用于用户标识唯一性，若此时登录新号码则次唯一性ID被新手机号继承并绑定，后续测试也验证了此猜想，因为同号码不同门店下单其9位数字订单号部分不改变，因此彻底排除9位部分是门店标识的可能性。
+仔细分析订单号UNIX时间戳数值，发现转成北京时间之后和小票打印时间基本对应，且误差都是订单号UNIX时间戳早于或等于小票打印时间，后我拿出自己的小票，发现时间相同的都是使用团购平台之后到官方小程序核销的，时间存在几秒或十几秒差异的都是小程序选购商品付款的，之后测试发现选购餐品不支付就会产生订单号，因此推测订单提交即产生订单号并以订单提交时间生成UNIX时间戳的订单号，而没付款则门店不打印小票，小票打印时间和支付时间一致（精确到秒），后续测试验证了这一猜想。
+另外测试发现订单号最后四位应该是随机编号，防止同用户同时间提交多个订单的冗余设计，因为测试发现同账号订单号后四位数值变化没有规律。
+最后结论：
+订单号规则：1+10位数订单提交时间的UNIX时间戳+9位用户编号+4位随机数
+而取餐码大概率是门店每天订单的数值递增。
+小票二维码数值和门店订单存在关联但具体不明，目前推测有可能是数据库唯一性的字段用base62编码后打印到小票方便二维码打印，之后点餐系统通过某种方式把二维码对应的唯一值和订单号建立关联用于订单进度追踪等。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110080&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110080&quot;,
+  &quot;title&quot;: &quot;某品牌连锁快餐店取餐码、订单号规律分析逆向过程&quot;,
+  &quot;author&quot;: &quot;zhaoruoxi&quot;,
+  &quot;score&quot;: 3,
+  &quot;comments&quot;: 2,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;如题，经常买某连锁快餐店的饭吃，好奇店员扫描小票的二维码出餐流程，于是手机扫码小票二维码进行了分析，以下是大概过程。&quot;,
+  &quot;content&quot;: &quot;如题，经常买某连锁快餐店的饭吃，好奇店员扫描小票的二维码出餐流程，于是手机扫码小票二维码进行了分析，以下是大概过程。\n因为经常吃此快餐品牌，家附近有一家店经常去，留了几张小票在家，好奇扫描了小票的二维码，发现是字母数字的组合，于是开始ai辅助分析，一开始怀疑是哈希值截断某几位或者md5之类，后来发现疑似是base62编码。\n于是把一堆小票的单号、取餐码、二维码值、下单手机号、小票打印时间汇总，发现订单号码第二位开始是UNIX时间戳和小票的打印时间基本相符但偶尔有一两秒或十几秒误差。\n继续分析，二维码值若base62的话，其数值和取餐码存在联系，准备了同一天同门店2个小票取餐码和二维码值对比，两个取餐码数值差和二维码值的差是相同的其数值相减都是8。但由于没有其他同一天的两张及以上小票对比，无法进一步确定二维码值和取餐码存在稳定递增关系。\n继续分析订单号，其格式为：1+10位精确到秒的UNIX时间戳+9位不知道是什么的字符串+4位数字，分析发现9位数部分同手机号的订单号此位置都相同，怀疑是门店编号或者用户唯一ID之类的标识符，为了验证猜想，找来数个新手机和手机号码下单测试。使用新手机小程序A游客身份不登录下单产生一订单号，其9位数部分和之前小票单号都不相同，更换新手机小程序B游客下单，其订单号码9位数部分又和之前都不同，手机小程序C也是如此。使用手机A登录老号码1之后，原有老订单同步过来当地号码也没有改变，单A手机游客下单的订单被绑定到了账号1中成了老账号1的订单记录。使用手机B登录全新手机号2下单，号码2订单9位部分继承了手机B之前游客订单的9位部分。\n现推测：订单号9位部分极有可能是用户唯一性的标识符，当小程序打开即创建9位的唯一ID用于用户标识唯一性，若此时登录新号码则次唯一性ID被新手机号继承并绑定，后续测试也验证了此猜想，因为同号码不同门店下单其9位数字订单号部分不改变，因此彻底排除9位部分是门店标识的可能性。\n仔细分析订单号UNIX时间戳数值，发现转成北京时间之后和小票打印时间基本对应，且误差都是订单号UNIX时间戳早于或等于小票打印时间，后我拿出自己的小票，发现时间相同的都是使用团购平台之后到官方小程序核销的，时间存在几秒或十几秒差异的都是小程序选购商品付款的，之后测试发现选购餐品不支付就会产生订单号，因此推测订单提交即产生订单号并以订单提交时间生成UNIX时间戳的订单号，而没付款则门店不打印小票，小票打印时间和支付时间一致（精确到秒），后续测试验证了这一猜想。\n另外测试发现订单号最后四位应该是随机编号，防止同用户同时间提交多个订单的冗余设计，因为测试发现同账号订单号后四位数值变化没有规律。\n最后结论：\n订单号规则：1+10位数订单提交时间的UNIX时间戳+9位用户编号+4位随机数\n而取餐码大概率是门店每天订单的数值递增。\n小票二维码数值和门店订单存在关联但具体不明，目前推测有可能是数据库唯一性的字段用base62编码后打印到小票方便二维码打印，之后点餐系统通过某种方式把二维码对应的唯一值和订单号建立关联用于订单进度追踪等。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-19T23:40+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110080" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110080</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

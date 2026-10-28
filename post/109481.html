@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【开源】Discourse 回帖可见/登录可见插件（discourse-reply-to-view），回复解锁隐藏内容 · B 极客行</title>
+<meta name="description" content="最近在折腾自己论坛（">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【开源】Discourse 回帖可见/登录可见插件（discourse-reply-to-view），回复解锁隐藏内容</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/109481 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·07:05
+      <span class="pipe">|</span>2 分
+      <span class="pipe">|</span>1 评论
+      <span class="pipe">|</span>by zeruns
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">最近在折腾自己论坛（</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">最近在折腾自己论坛（
+Discourse 本身只有一个
+标签（对匿名用户隐藏），完全满足不了&quot;回帖解锁&quot;的需求。网上找了一圈没有现成的插件，干脆自己写了一个，取名为
+。整个项目由 AI（GLM）辅助开发，我负责提需求、测试和验收，前后端加测试一共两千多行代码，开发体验相当丝滑。
+各家AI大模型API平台推荐与简介：
+discourse-reply-to-view 是一个 Discourse 内容保护插件，提供三种 BBCode 标记：
+标记里面可以正常嵌套 Markdown，代码块、图片、链接、列表都不受影响；两种标记写在一行里（
+）也是支持的。
+编辑器页面插件效果图：
+文章页效果图，支持多国语言：
+在编辑器里通过「+」菜单插入，或者直接手写 BBCode：
+前台效果：未满足条件的用户会看到一个占位框（回帖可见是蓝色主题、登录可见是绿色主题），点按钮直接跳回复框或登录页，满足条件后自动显示完整内容。
+这个插件我最看重的就是安全性，毕竟&quot;假隐藏&quot;（前端藏起来但数据都在）形同虚设。它的安全架构是这么设计的：
+：Markdown 渲染阶段就把标记内的原文丢弃，数据库里只存一个带指纹的占位容器
+；
+：原文只在接口序列化时按当前用户权限动态注入，没解锁就拿不到，连 HTML 源码里都没有；
+：raw 导出、搜索索引、邮件通知、修订历史 diff、内容本地化翻译版本这些容易漏的口子都堵上了；
+：权限判定实时计算，回复后立即生效，不存在低权限用户命中高权限缓存的问题。
+使用官方 Docker 部署的 Discourse，编辑
+，在
+的
+里加一行：
+然后重建容器（前端资产要重新编译，必须 rebuild 而不是 restart）：
+装完之后在
+里可以调整：
+：插件总开关
+：回帖解锁模式（任意回复 / 精确楼层）
+：是否启用
+计数语法
+：信任等级豁免（0 = 不豁免）
+：允许使用隐藏标记的最低信任等级
+在最新版 Discourse（master 分支，2026-09 构建）上开发并验证，依赖新版 markdown-it BBCode 体系，建议 Discourse 3.4 及以上版本使用。测试方面有 79 个 RSpec 用例覆盖权限矩阵和各个泄露面，连续随机顺序运行全绿。
+觉得有用的话去 GitHub 点个 Star 支持一下~
+这个项目也算是一次&quot;AI 主力开发 + 人负责验收&quot;的实践：需求、边界条件和安全场景我来定，编码、测试用例、文档由 AI 生成，中间还抓出了好几个我自己都没想到的泄露面（raw 导出接口、修订历史 diff、翻译版本），AI 在这类边界条件枚举上确实比人靠谱。有兴趣折腾论坛的可以试试，有问题欢迎在 GitHub 提 issue，或者在评论区留言。
+&quot;English Version of the Article:&quot;</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;109481&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/109481&quot;,
+  &quot;title&quot;: &quot;【开源】Discourse 回帖可见/登录可见插件（discourse-reply-to-view），回复解锁隐藏内容&quot;,
+  &quot;author&quot;: &quot;zeruns&quot;,
+  &quot;score&quot;: 2,
+  &quot;comments&quot;: 1,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;最近在折腾自己论坛（&quot;,
+  &quot;content&quot;: &quot;最近在折腾自己论坛（\nDiscourse 本身只有一个\n标签（对匿名用户隐藏），完全满足不了\&quot;回帖解锁\&quot;的需求。网上找了一圈没有现成的插件，干脆自己写了一个，取名为\n。整个项目由 AI（GLM）辅助开发，我负责提需求、测试和验收，前后端加测试一共两千多行代码，开发体验相当丝滑。\n各家AI大模型API平台推荐与简介：\ndiscourse-reply-to-view 是一个 Discourse 内容保护插件，提供三种 BBCode 标记：\n标记里面可以正常嵌套 Markdown，代码块、图片、链接、列表都不受影响；两种标记写在一行里（\n）也是支持的。\n编辑器页面插件效果图：\n文章页效果图，支持多国语言：\n在编辑器里通过「+」菜单插入，或者直接手写 BBCode：\n前台效果：未满足条件的用户会看到一个占位框（回帖可见是蓝色主题、登录可见是绿色主题），点按钮直接跳回复框或登录页，满足条件后自动显示完整内容。\n这个插件我最看重的就是安全性，毕竟\&quot;假隐藏\&quot;（前端藏起来但数据都在）形同虚设。它的安全架构是这么设计的：\n：Markdown 渲染阶段就把标记内的原文丢弃，数据库里只存一个带指纹的占位容器\n；\n：原文只在接口序列化时按当前用户权限动态注入，没解锁就拿不到，连 HTML 源码里都没有；\n：raw 导出、搜索索引、邮件通知、修订历史 diff、内容本地化翻译版本这些容易漏的口子都堵上了；\n：权限判定实时计算，回复后立即生效，不存在低权限用户命中高权限缓存的问题。\n使用官方 Docker 部署的 Discourse，编辑\n，在\n的\n里加一行：\n然后重建容器（前端资产要重新编译，必须 rebuild 而不是 restart）：\n装完之后在\n里可以调整：\n：插件总开关\n：回帖解锁模式（任意回复 / 精确楼层）\n：是否启用\n计数语法\n：信任等级豁免（0 = 不豁免）\n：允许使用隐藏标记的最低信任等级\n在最新版 Discourse（master 分支，2026-09 构建）上开发并验证，依赖新版 markdown-it BBCode 体系，建议 Discourse 3.4 及以上版本使用。测试方面有 79 个 RSpec 用例覆盖权限矩阵和各个泄露面，连续随机顺序运行全绿。\n觉得有用的话去 GitHub 点个 Star 支持一下~\n这个项目也算是一次\&quot;AI 主力开发 + 人负责验收\&quot;的实践：需求、边界条件和安全场景我来定，编码、测试用例、文档由 AI 生成，中间还抓出了好几个我自己都没想到的泄露面（raw 导出接口、修订历史 diff、翻译版本），AI 在这类边界条件枚举上确实比人靠谱。有兴趣折腾论坛的可以试试，有问题欢迎在 GitHub 提 issue，或者在评论区留言。\n\&quot;English Version of the Article:\&quot;&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-18T07:05+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/109481" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/109481</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>自己动手写了 Zmail System：在 Serv00 上把 Gmail/QQ/Outlook 聚合到一个网页 · B 极客行</title>
+<meta name="description" content="之前在这个节点发过一个求助帖（“有没有什么好用的开源的聚合邮箱”），想要一个能在 Serv00 上跑的、轻量的、聚合多个邮箱的方案。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>自己动手写了 Zmail System：在 Serv00 上把 Gmail/QQ/Outlook 聚合到一个网页</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/111103 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·16:11
+      <span class="pipe">|</span>5 分
+      <span class="pipe">|</span>25 评论
+      <span class="pipe">|</span>by gubhost
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">之前在这个节点发过一个求助帖（“有没有什么好用的开源的聚合邮箱”），想要一个能在 Serv00 上跑的、轻量的、聚合多个邮箱的方案。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">之前在这个节点发过一个求助帖（“有没有什么好用的开源的聚合邮箱”），想要一个能在 Serv00 上跑的、轻量的、聚合多个邮箱的方案。
+翻了一圈：
+Roundcube 太重，配置麻烦
+一些开源项目要 Docker / 要 VPS
+有纯 PHP 的，但大多只支持一个邮箱，或多邮箱支持要靠插件
+Serv00 免费机也不适合跑常驻进程
+一句话：
+不需要 Docker，不需要 VPS，只要支持 PHP + IMAP 的虚拟主机就能跑。
+（这里插一张暗色模式收件箱的截图）
+把项目文件夹传到
+。
+走完 5 步：环境检测 → 建库 → 建管理员 → 加邮箱 → 完成。
+，CPU / 内存占用都很低。
+PHP 7.4+（推荐 8.0+）
+Serv00 / 宝塔 / cPanel 都可以
+MIT 协议，随便改随便用。
+写的时候有意做了几个决定，说明一下：
+虚拟主机用户申请数据库比较麻烦，SQLite 一个文件搞定，不用建库建用户。Serv00 上完全够用。
+Serv00 免费机不允许常驻进程，
++
+的长连接方案跑不了。用 Cron 每分钟轮询是唯一可行方案，延迟 ≤1 分钟。
+有些聚合工具会把&quot;取消订阅&quot;的邮件直接从云端删掉。但万一误判，你就永久丢了那封邮件。我的方案是
+——你去 Gmail/QQ 网页看，邮件还在。
+目标用户是虚拟主机用户。做了 Docker 反而增加门槛。
+如果在 Serv00 或其他虚拟主机上部署遇到问题，可以直接回帖或者提 Issue。欢迎 PR。
+如果这个项目对你有帮助，点个</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;111103&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/111103&quot;,
+  &quot;title&quot;: &quot;自己动手写了 Zmail System：在 Serv00 上把 Gmail/QQ/Outlook 聚合到一个网页&quot;,
+  &quot;author&quot;: &quot;gubhost&quot;,
+  &quot;score&quot;: 5,
+  &quot;comments&quot;: 25,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;之前在这个节点发过一个求助帖（“有没有什么好用的开源的聚合邮箱”），想要一个能在 Serv00 上跑的、轻量的、聚合多个邮箱的方案。&quot;,
+  &quot;content&quot;: &quot;之前在这个节点发过一个求助帖（“有没有什么好用的开源的聚合邮箱”），想要一个能在 Serv00 上跑的、轻量的、聚合多个邮箱的方案。\n翻了一圈：\nRoundcube 太重，配置麻烦\n一些开源项目要 Docker / 要 VPS\n有纯 PHP 的，但大多只支持一个邮箱，或多邮箱支持要靠插件\nServ00 免费机也不适合跑常驻进程\n一句话：\n不需要 Docker，不需要 VPS，只要支持 PHP + IMAP 的虚拟主机就能跑。\n（这里插一张暗色模式收件箱的截图）\n把项目文件夹传到\n。\n走完 5 步：环境检测 → 建库 → 建管理员 → 加邮箱 → 完成。\n，CPU / 内存占用都很低。\nPHP 7.4+（推荐 8.0+）\nServ00 / 宝塔 / cPanel 都可以\nMIT 协议，随便改随便用。\n写的时候有意做了几个决定，说明一下：\n虚拟主机用户申请数据库比较麻烦，SQLite 一个文件搞定，不用建库建用户。Serv00 上完全够用。\nServ00 免费机不允许常驻进程，\n+\n的长连接方案跑不了。用 Cron 每分钟轮询是唯一可行方案，延迟 ≤1 分钟。\n有些聚合工具会把\&quot;取消订阅\&quot;的邮件直接从云端删掉。但万一误判，你就永久丢了那封邮件。我的方案是\n——你去 Gmail/QQ 网页看，邮件还在。\n目标用户是虚拟主机用户。做了 Docker 反而增加门槛。\n如果在 Serv00 或其他虚拟主机上部署遇到问题，可以直接回帖或者提 Issue。欢迎 PR。\n如果这个项目对你有帮助，点个&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-27T16:11+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/111103" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/111103</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

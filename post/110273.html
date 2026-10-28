@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DSH + CPA + WorkBuddy 完整配置教程（Windows 二进制版） · B 极客行</title>
+<meta name="description" content="写这篇是源于看了">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>DSH + CPA + WorkBuddy 完整配置教程（Windows 二进制版）</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110273 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·06:05
+      <span class="pipe">|</span>6 分
+      <span class="pipe">|</span>3 评论
+      <span class="pipe">|</span>by 52op
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">写这篇是源于看了</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">写这篇是源于看了
+大佬的
+实际操作过程中，发现有些不一样，比如我不喜欢docker，然后发这个有点重复的贴很大部份原因是记录作用，人到中登，转眼忘事
+text
+需要下载和安装的东西(新人发贴链接不能多，下面网址自行替换github-com里面的-为.)：
+Releases，下载 v2.0.13 稳定版
+GitHub
+GitHub
+Releases，下载 Windows 二进制
+GitHub
+Releases，下载
+运行安装程序，按提示完成安装。
+打开 DSH 桌面版
+（不是系统 PowerShell），执行：
+bash
+：
+不要用系统终端里的官方
+，会被拒绝。
+不要用
+协议链接，那是官方 EXE 用的。
+如果安装时报 SSL 证书错误（
+），临时关闭 pnpm 的 SSL 验证：
+powershell
+安装完成后
+：
+powershell
+：
+完全退出 DSH 桌面版（托盘也要退出）。
+重新打开 DSH Desktop。
+进入
+页面，应该能看到
+卡片。
+点击
+，然后按提示再重启一次。
+验证：在聊天里输入
+，能打印出
+和补丁列表就说明装好了。
+只保留你实际需要的部分：
+yaml
+：
+是 Windows 版插件的注册名（Linux 版叫
+）。
+对应 WorkBuddy 国际版。
+里的密钥自己设，后面 DSH 端要用它来连接 CPA。
+：
+那个项目只发布了 Linux 的
+文件，Windows 下用不了，别下错了。
+必须先在浏览器打开
+，登录账号，
+。只有激活后，官方才会分配有效凭据，否则 CPA 授权会直接报错。
+双击 CPA 二进制文件（或运行
+），确认服务正常启动，监听
+端口。
+如果你有多个 WorkBuddy 账号：
+其余新号均先去网页发消息激活。
+在 CPA 重复点击
+逐个绑定。
+CPA 会自动开启多账号负载均衡（Round-Robin），遇限流无缝切换。
+填写以下信息：
+保存配置。
+在 DSH 里选择 CPA-WorkBuddy 提供方下的模型，发起对话即可。
+我测试的时候已经没有deepseek-v4.1-flash了，不过其它模型还是可以薅一下，具体可能得根据你们测试的时候还有什么来说了。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110273&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110273&quot;,
+  &quot;title&quot;: &quot;DSH + CPA + WorkBuddy 完整配置教程（Windows 二进制版）&quot;,
+  &quot;author&quot;: &quot;52op&quot;,
+  &quot;score&quot;: 6,
+  &quot;comments&quot;: 3,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;
+  ],
+  &quot;excerpt&quot;: &quot;写这篇是源于看了&quot;,
+  &quot;content&quot;: &quot;写这篇是源于看了\n大佬的\n实际操作过程中，发现有些不一样，比如我不喜欢docker，然后发这个有点重复的贴很大部份原因是记录作用，人到中登，转眼忘事\ntext\n需要下载和安装的东西(新人发贴链接不能多，下面网址自行替换github-com里面的-为.)：\nReleases，下载 v2.0.13 稳定版\nGitHub\nGitHub\nReleases，下载 Windows 二进制\nGitHub\nReleases，下载\n运行安装程序，按提示完成安装。\n打开 DSH 桌面版\n（不是系统 PowerShell），执行：\nbash\n：\n不要用系统终端里的官方\n，会被拒绝。\n不要用\n协议链接，那是官方 EXE 用的。\n如果安装时报 SSL 证书错误（\n），临时关闭 pnpm 的 SSL 验证：\npowershell\n安装完成后\n：\npowershell\n：\n完全退出 DSH 桌面版（托盘也要退出）。\n重新打开 DSH Desktop。\n进入\n页面，应该能看到\n卡片。\n点击\n，然后按提示再重启一次。\n验证：在聊天里输入\n，能打印出\n和补丁列表就说明装好了。\n只保留你实际需要的部分：\nyaml\n：\n是 Windows 版插件的注册名（Linux 版叫\n）。\n对应 WorkBuddy 国际版。\n里的密钥自己设，后面 DSH 端要用它来连接 CPA。\n：\n那个项目只发布了 Linux 的\n文件，Windows 下用不了，别下错了。\n必须先在浏览器打开\n，登录账号，\n。只有激活后，官方才会分配有效凭据，否则 CPA 授权会直接报错。\n双击 CPA 二进制文件（或运行\n），确认服务正常启动，监听\n端口。\n如果你有多个 WorkBuddy 账号：\n其余新号均先去网页发消息激活。\n在 CPA 重复点击\n逐个绑定。\nCPA 会自动开启多账号负载均衡（Round-Robin），遇限流无缝切换。\n填写以下信息：\n保存配置。\n在 DSH 里选择 CPA-WorkBuddy 提供方下的模型，发起对话即可。\n我测试的时候已经没有deepseek-v4.1-flash了，不过其它模型还是可以薅一下，具体可能得根据你们测试的时候还有什么来说了。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-22T06:05+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110273" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110273</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

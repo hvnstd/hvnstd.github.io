@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>感谢社区！让M365 Copilot2API可以干净的输出了！ · B 极客行</title>
+<meta name="description" content="忘了是哪个pr来着（很抱歉哈） 但是经过我测试模型回答确实不会出现乱码/截断现象了！ 原因是这样的 M365 Copilot分为俩个通道来发送流式输出的 1.messages">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>感谢社区！让M365 Copilot2API可以干净的输出了！</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110885 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·04:13
+      <span class="pipe">|</span>2 分
+      <span class="pipe">|</span>3 评论
+      <span class="pipe">|</span>by 贺煦修
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">忘了是哪个pr来着（很抱歉哈） 但是经过我测试模型回答确实不会出现乱码/截断现象了！ 原因是这样的 M365 Copilot分为俩个通道来发送流式输出的 1.messages</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">忘了是哪个pr来着（很抱歉哈） 但是经过我测试模型回答确实不会出现乱码/截断现象了！ 原因是这样的 M365 Copilot分为俩个通道来发送流式输出的 1.messages
+.text(DeepLeo) 是累计全量快照的通道； 2.writeAtCursor 是追加式 delta，写入位置恒为文末（p=-1） 然后当时觉得通道2可能会快一点
+但是很显然导致了整个0.6.x系列全部都会出现奇怪的乱码问题 经过社区的实际测试用 snapshot 通道不会丢字，只用 delta 通道才会丢。 所以说现在社区的这个pr总算是让我想起来这个问题了而不靠通过拦截掉
+（老实了，以后再也不去靠自己臆想乱改了…）</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110885&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110885&quot;,
+  &quot;title&quot;: &quot;感谢社区！让M365 Copilot2API可以干净的输出了！&quot;,
+  &quot;author&quot;: &quot;贺煦修&quot;,
+  &quot;score&quot;: 2,
+  &quot;comments&quot;: 3,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;忘了是哪个pr来着（很抱歉哈） 但是经过我测试模型回答确实不会出现乱码/截断现象了！ 原因是这样的 M365 Copilot分为俩个通道来发送流式输出的 1.messages&quot;,
+  &quot;content&quot;: &quot;忘了是哪个pr来着（很抱歉哈） 但是经过我测试模型回答确实不会出现乱码/截断现象了！ 原因是这样的 M365 Copilot分为俩个通道来发送流式输出的 1.messages\n.text(DeepLeo) 是累计全量快照的通道； 2.writeAtCursor 是追加式 delta，写入位置恒为文末（p=-1） 然后当时觉得通道2可能会快一点\n但是很显然导致了整个0.6.x系列全部都会出现奇怪的乱码问题 经过社区的实际测试用 snapshot 通道不会丢字，只用 delta 通道才会丢。 所以说现在社区的这个pr总算是让我想起来这个问题了而不靠通过拦截掉\n（老实了，以后再也不去靠自己臆想乱改了…）&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-26T04:13+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110885" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110885</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

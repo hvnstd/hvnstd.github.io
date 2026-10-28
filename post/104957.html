@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>loc.cc免费域名疑惑求解 · B 极客行</title>
+<meta name="description" content="大家好，我在16号申请了本站 loc.cc 的免费域名，但在 DNS 解析时总是提示 DNSSEC 配置损坏，导致无法签发 SSL 证书，也让启用了 DNSSEC 校验的解析器无法正常解析。请问该怎么解决？ 具体现象：">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>loc.cc免费域名疑惑求解</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/104957 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·22:10
+      <span class="pipe">|</span>2 分
+      <span class="pipe">|</span>16 评论
+      <span class="pipe">|</span>by azha
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">大家好，我在16号申请了本站 loc.cc 的免费域名，但在 DNS 解析时总是提示 DNSSEC 配置损坏，导致无法签发 SSL 证书，也让启用了 DNSSEC 校验的解析器无法正常解析。请问该怎么解决？ 具体现象：</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">大家好，我在16号申请了本站 loc.cc 的免费域名，但在 DNS 解析时总是提示 DNSSEC 配置损坏，导致无法签发 SSL 证书，也让启用了 DNSSEC 校验的解析器无法正常解析。请问该怎么解决？ 具体现象：
+查询 lawyer.loc.cc 的 A 记录时，DNSSEC 校验的解析器（比如 Google DNS）返回 SERVFAIL，AD=False；宽松模式解析器（如 Cloudflare DNS）可以正常解析。
+&quot;Let’s Encrypt / ZeroSSL 都无法颁发证书，报错如下： DNSSEC: Bogus: validation failure &lt;lawyer.loc.cc. A IN&gt;: no NSEC3 records from 109.107.137.142 for DS lawyer.loc.cc while building chain of trust&quot;
+&quot;DNS-01 验证（TXT 记录）同样失败：DNSSEC: Bogus: validation failure &lt;_acme-challenge.lawyer.loc.cc. TXT IN&gt; 根本原因：loc.cc 根域在 .cc 注册局存在 2 条 DS 记录（key tag 57657），但现有的 DNSKEY 与 DS 摘要不一致（应该是 PowerDNS 换了 KSK 但注册局的 DS 没有同步）： • DS: 57657 13 2 2E7DF166901C1E374E4B033A76062DDE83A3974177F071D360F29896F9CD6FDF • 实际 DNSKEY 摘要: 3822259182339A56DE875071DC9F0333FBF1FF5AD1555D7E1B538942EC2515B2 • 两者不匹配 影响：所有 loc.cc 的子域名都没法通过 SSL 证书申请（这违反了免费域名保活的要求，域名可能被删除）；部分启用 DNSSEC 的用户无法访问。 建议：①更新注册局 DS 记录为当前 DNSKEY 的正确摘要；或 ②直接删除 DS 记录，关闭 DNSSEC（对免费域名来说更简单）。 修复后可用 dig lawyer.loc.cc A +dnssec 验证，应该返回 NOERROR 并且 AD=1。&quot;</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;104957&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/104957&quot;,
+  &quot;title&quot;: &quot;loc.cc免费域名疑惑求解&quot;,
+  &quot;author&quot;: &quot;azha&quot;,
+  &quot;score&quot;: 2,
+  &quot;comments&quot;: 16,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;大家好，我在16号申请了本站 loc.cc 的免费域名，但在 DNS 解析时总是提示 DNSSEC 配置损坏，导致无法签发 SSL 证书，也让启用了 DNSSEC 校验的解析器无法正常解析。请问该怎么解决？ 具体现象：&quot;,
+  &quot;content&quot;: &quot;大家好，我在16号申请了本站 loc.cc 的免费域名，但在 DNS 解析时总是提示 DNSSEC 配置损坏，导致无法签发 SSL 证书，也让启用了 DNSSEC 校验的解析器无法正常解析。请问该怎么解决？ 具体现象：\n查询 lawyer.loc.cc 的 A 记录时，DNSSEC 校验的解析器（比如 Google DNS）返回 SERVFAIL，AD=False；宽松模式解析器（如 Cloudflare DNS）可以正常解析。\n\&quot;Let’s Encrypt / ZeroSSL 都无法颁发证书，报错如下： DNSSEC: Bogus: validation failure &lt;lawyer.loc.cc. A IN&gt;: no NSEC3 records from 109.107.137.142 for DS lawyer.loc.cc while building chain of trust\&quot;\n\&quot;DNS-01 验证（TXT 记录）同样失败：DNSSEC: Bogus: validation failure &lt;_acme-challenge.lawyer.loc.cc. TXT IN&gt; 根本原因：loc.cc 根域在 .cc 注册局存在 2 条 DS 记录（key tag 57657），但现有的 DNSKEY 与 DS 摘要不一致（应该是 PowerDNS 换了 KSK 但注册局的 DS 没有同步）： • DS: 57657 13 2 2E7DF166901C1E374E4B033A76062DDE83A3974177F071D360F29896F9CD6FDF • 实际 DNSKEY 摘要: 3822259182339A56DE875071DC9F0333FBF1FF5AD1555D7E1B538942EC2515B2 • 两者不匹配 影响：所有 loc.cc 的子域名都没法通过 SSL 证书申请（这违反了免费域名保活的要求，域名可能被删除）；部分启用 DNSSEC 的用户无法访问。 建议：①更新注册局 DS 记录为当前 DNSKEY 的正确摘要；或 ②直接删除 DS 记录，关闭 DNSSEC（对免费域名来说更简单）。 修复后可用 dig lawyer.loc.cc A +dnssec 验证，应该返回 NOERROR 并且 AD=1。\&quot;&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-16T22:10+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/104957" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/104957</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

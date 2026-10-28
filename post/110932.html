@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>续上次开训模型后，目前的进度 · B 极客行</title>
+<meta name="description" content="在历经一系列长时间的实验，调试后">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-morning"></span>早间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>续上次开训模型后，目前的进度</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110932 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-morning"></span>早间·11:38
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>3 评论
+      <span class="pipe">|</span>by 贺煦修
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">在历经一系列长时间的实验，调试后</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">在历经一系列长时间的实验，调试后
+目前总算是在正式训练了。
+当前训练状态（大概开了2个多小时了）： 进度：step 1252 / 60000（已过 2%），~1.02 秒/步，聚合 10k tok/s 曲线：train loss 已降到 3.19（ppl 24），统一评测集 4.50 → 3.86（512→1024 步） ETA：60000 步 ≈ 61 小时，无人打断的话大约 9 月 28 日晚上 完成这一轮（实际可能会晚一些）
+总目标是：训一个较为高上限的小尺寸基座（0.5B 参数）。这是从一个月之前来选定的路线。 模型架构（541M 参数）：
+深度 W×L=1408×16 层稠密 Transformer，隐藏层 4048，11 头注意力配 GQA 结构
+RMSNorm 预归一化、SwiGLU、RoPE 位置编码 base 提到 100000（为以后长上下文扩展铺路）
+QK-norm（Qwen3/Gemma3 同款，防止 logits 爆炸）、untied embedding（输入输出不共享权重，SmolLM3 验证更好）
+纯 FP16 计算 + FP32 主权重 优化器和训练法（这是昨天实验刚验出来）：
+Muon 优化器：反向传播矩阵用 Newton-Schulz 迭代正交化动量，目前是小模型 SOTA 优化器（Kimi K2 全量生产验证），昨天 30M A/B 实测比 AdamW 在 1200 步上低了 0.47 的 loss，较为有优势的
+WSD 调度：warmup 200 步 → 恒定学习率 → 末段线性衰减，取代传统 cosine，业界对小模型更友好
+梯度裁剪 1.0、非有限值跳过、融合自研 CUDA 算子（RMSNorm/RoPE/SwiGLU/FusedAdamW 都在用）
+K=64 Local-SGD 数据配方（这是上一轮实验的结论）：
+配比：代码 38%、教科书/论文 24%、数学 14%、英文维基 10%、文学 7%、中文 7%（这个 zh+ 配比在 7 臂实验中 eval 3.636 全面胜出，85M 复核确认成立）
+代码域按 quality_score 的四次方幂加权采样（在 30M 上赢过均匀采样 0.23 loss）
+训练语料是 finalized 清洗库的接受池子集：pes2o 论文 683G（英文论文）、github 代码 362G、proofpile2 数学 317G、wikipedia_en、cosmopedia 教科书，中文只有 wikipedia_zh + belle 共约 17.6G
+评测：每个域按 document_id 哈希留 2% 固定评测集，均匀六域混合，训练池与之严格互斥</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110932&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110932&quot;,
+  &quot;title&quot;: &quot;续上次开训模型后，目前的进度&quot;,
+  &quot;author&quot;: &quot;贺煦修&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 3,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;在历经一系列长时间的实验，调试后&quot;,
+  &quot;content&quot;: &quot;在历经一系列长时间的实验，调试后\n目前总算是在正式训练了。\n当前训练状态（大概开了2个多小时了）： 进度：step 1252 / 60000（已过 2%），~1.02 秒/步，聚合 10k tok/s 曲线：train loss 已降到 3.19（ppl 24），统一评测集 4.50 → 3.86（512→1024 步） ETA：60000 步 ≈ 61 小时，无人打断的话大约 9 月 28 日晚上 完成这一轮（实际可能会晚一些）\n总目标是：训一个较为高上限的小尺寸基座（0.5B 参数）。这是从一个月之前来选定的路线。 模型架构（541M 参数）：\n深度 W×L=1408×16 层稠密 Transformer，隐藏层 4048，11 头注意力配 GQA 结构\nRMSNorm 预归一化、SwiGLU、RoPE 位置编码 base 提到 100000（为以后长上下文扩展铺路）\nQK-norm（Qwen3/Gemma3 同款，防止 logits 爆炸）、untied embedding（输入输出不共享权重，SmolLM3 验证更好）\n纯 FP16 计算 + FP32 主权重 优化器和训练法（这是昨天实验刚验出来）：\nMuon 优化器：反向传播矩阵用 Newton-Schulz 迭代正交化动量，目前是小模型 SOTA 优化器（Kimi K2 全量生产验证），昨天 30M A/B 实测比 AdamW 在 1200 步上低了 0.47 的 loss，较为有优势的\nWSD 调度：warmup 200 步 → 恒定学习率 → 末段线性衰减，取代传统 cosine，业界对小模型更友好\n梯度裁剪 1.0、非有限值跳过、融合自研 CUDA 算子（RMSNorm/RoPE/SwiGLU/FusedAdamW 都在用）\nK=64 Local-SGD 数据配方（这是上一轮实验的结论）：\n配比：代码 38%、教科书/论文 24%、数学 14%、英文维基 10%、文学 7%、中文 7%（这个 zh+ 配比在 7 臂实验中 eval 3.636 全面胜出，85M 复核确认成立）\n代码域按 quality_score 的四次方幂加权采样（在 30M 上赢过均匀采样 0.23 loss）\n训练语料是 finalized 清洗库的接受池子集：pes2o 论文 683G（英文论文）、github 代码 362G、proofpile2 数学 317G、wikipedia_en、cosmopedia 教科书，中文只有 wikipedia_zh + belle 共约 17.6G\n评测：每个域按 document_id 哈希留 2% 固定评测集，均匀六域混合，训练池与之严格互斥&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-26T11:38+08:00&quot;,
+  &quot;band&quot;: &quot;morning&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110932" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110932</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

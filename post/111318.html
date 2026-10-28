@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>真香！免费白嫖 Facebook 的2 核 8G VM 还有 muse 模型可用 · B 极客行</title>
+<meta name="description" content="最近几天meta公司推出了muse这个超级app热度直逼年初的“小龙虾”。下先介绍一下MUSE：Muse 是 Meta 的个人 AI Agent，可以浏览网页、、移动设备对话、生成文件，部分任务在关闭 App 后仍能继续，真就随时随地帮你完">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-evening"></span>晚间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>真香！免费白嫖 Facebook 的2 核 8G VM 还有 muse 模型可用</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/111318 · n/set-up-servi</div>
+    <div class="sub">
+      <span class="band-dot band-evening"></span>晚间·20:21
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>0 评论
+      <span class="pipe">|</span>by xybug
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">最近几天meta公司推出了muse这个超级app热度直逼年初的“小龙虾”。下先介绍一下MUSE：Muse 是 Meta 的个人 AI Agent，可以浏览网页、、移动设备对话、生成文件，部分任务在关闭 App 后仍能继续，真就随时随地帮你完成任务。当注册 muse.ai 可以获得 muse 模型的每周额度，还可以获得一</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">最近几天meta公司推出了muse这个超级app热度直逼年初的“小龙虾”。下先介绍一下MUSE：Muse 是 Meta 的个人 AI Agent，可以浏览网页、、移动设备对话、生成文件，部分任务在关闭 App 后仍能继续，真就随时随地帮你完成任务。当注册 muse.ai 可以获得 muse 模型的每周额度，还可以获得一台 2 核 8G 100G SSD 的 VM这就大大提升了可玩性，搭配保活看门狗程序实现理论上的永久免费vps
+一个干净的美国家宽 IP（机场那种万人骑的可能不行 ）实测Google Spark分配的节点可用，自动分配的台湾机房节点也能成功
+年龄验证(绑卡)—非必须
+MUSE注册地址：muse.ai 有桌面端和移动端app
+开始前知道这几件事就够了：
+官方 9 月 8 日的公告宣布首发面向美国，支持 iOS、Android 和网页端。你的账号当前能否使用，以注册页面为准。
+官方提供免费使用与付费订阅，具体额度和价格看账号内的说明。先试一个任务，再决定是否订阅。
+本文用 Muse 桌面端做示范，先选一个设备跟着做即可。
+如果进不去，先看页面具体提示。地区未开放、账号不符合条件和网络连接失败，需要分别处理。
+先从a开始说起：
+1.高质量节点，如果没有或者被拒绝可以实用在Google Spark 里面发送 ：
+2.接管浏览器后用新邮箱注册 Muse AI，年纪切记选择成年
+3.绑卡后成功激活账号
+这里要注意一点Google Spark 分配的ip有些会被拒绝。除了在Google Spark 中可以实用远端浏览器，可以实用gpt的work或者其它如browser-use云浏览器
+要是使用老号Facebook的话很多可以直接跳过年龄验证（不需要绑定银行卡）就可以注册成。
+登录后会看到赠送的额度，每周重置。
+在加入后的 48 小时内通过“设置”兑现我的邀请码，我们就能分别获得 10 亿个 Muse 词元。在这里填写的邀请码：K0G7ST
+按引导完成命名等初始化，然后在聊天里发这段话。时区和习惯可以自行修改发送给Muse：
+其它设置可自定义。以及简单对话：
+拥有Muse只是第一步，开启VM才是重点。这简易VM沙盒过一段时间就会重启，像网吧系统一样恢复环境。除了 /home/hatch, 其它所有文件都会复原，所以设置什么 systemd service 没有用，.service文件也会没掉。在网友大神的不断探索优化下已经有很多成熟方案。保活的方法有两种：
+AI自己整个计划任务看门狗，每分钟都运行一下脚本。把环境拉回来。（设置service自动重启什么的都是废话没有实际贡献）
+使用做好的skills让Muse自行配置
+一键安装保活、探针、hermes通知Skill
+直接和Muse对话让他完成安装配置：
+它是一个「操作手册型」skill，内容是教你/AI在新沙盒上从零部署一套东西：
+Cloudflare Worker 监控后台（CF Server Monitor）
+探针，每 60 秒上报心跳
+三层保活：沙盒内看门狗 cron + 平台定时巡检 + 平台开机钩子
+Hermes 微信机器人（微信扫码绑定）
+一步一步跟着提示走，中间省略cf配置细节。这样就得到一个VM沙盒虚拟机了
+由于它没有公网IP这个时候需要做内网穿透，有自己的vps的可以用自己vps反代或者使用cloudflare隧道
+直接用muse安装
+装好的 awesome-skills 是个 9 件套合集，功能分别是：
+muse-reverse-ssh：给没公网 IP 的机器（沙盒、云 VM、家用服务器）建反向 SSH 隧道，把它变成可从公网连的 SSH 服务器，带保活守护和排错手册——我们刚才隧道部分就参考了它的方案。
+grok-search：联网搜索、查最新事实、抓网页内容。
+evidence-driven-bugfix：修 bug 用的&quot;证据优先&quot;流程，先复现证据再动手改。
+best-project-memory：项目级记忆管理，开工时恢复上下文、记录决策、保存进度。
+codex-agent-worktree-setup：给 Codex 等 agent 建隔离的 git worktree 开发环境。
+awesome-ui-kit：构建 AI 原生 Web 界面、聊天应用、RAG 搜索页等用的单文件 Web 组件库。
+obsidian-doc-router：Obsidian 知识库的文档路由器，读写/改笔记前先查规范入口。
+production-code-quality-review：按生产级标准评审 PR、diff、架构变更和上线风险。
+split-image-assets：把一张图拆成带透明通道的独立图层资产包（精灵图、蒙版、背景清理、元数据）。
+2.当执行完成后发送</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;111318&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/111318&quot;,
+  &quot;title&quot;: &quot;真香！免费白嫖 Facebook 的2 核 8G VM 还有 muse 模型可用&quot;,
+  &quot;author&quot;: &quot;xybug&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 0,
+  &quot;domain&quot;: &quot;n/set-up-servi&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;最近几天meta公司推出了muse这个超级app热度直逼年初的“小龙虾”。下先介绍一下MUSE：Muse 是 Meta 的个人 AI Agent，可以浏览网页、、移动设备对话、生成文件，部分任务在关闭 App 后仍能继续，真就随时随地帮你完成任务。当注册 muse.ai 可以获得 muse 模型的每周额度，还可以获得一&quot;,
+  &quot;content&quot;: &quot;最近几天meta公司推出了muse这个超级app热度直逼年初的“小龙虾”。下先介绍一下MUSE：Muse 是 Meta 的个人 AI Agent，可以浏览网页、、移动设备对话、生成文件，部分任务在关闭 App 后仍能继续，真就随时随地帮你完成任务。当注册 muse.ai 可以获得 muse 模型的每周额度，还可以获得一台 2 核 8G 100G SSD 的 VM这就大大提升了可玩性，搭配保活看门狗程序实现理论上的永久免费vps\n一个干净的美国家宽 IP（机场那种万人骑的可能不行 ）实测Google Spark分配的节点可用，自动分配的台湾机房节点也能成功\n年龄验证(绑卡)—非必须\nMUSE注册地址：muse.ai 有桌面端和移动端app\n开始前知道这几件事就够了：\n官方 9 月 8 日的公告宣布首发面向美国，支持 iOS、Android 和网页端。你的账号当前能否使用，以注册页面为准。\n官方提供免费使用与付费订阅，具体额度和价格看账号内的说明。先试一个任务，再决定是否订阅。\n本文用 Muse 桌面端做示范，先选一个设备跟着做即可。\n如果进不去，先看页面具体提示。地区未开放、账号不符合条件和网络连接失败，需要分别处理。\n先从a开始说起：\n1.高质量节点，如果没有或者被拒绝可以实用在Google Spark 里面发送 ：\n2.接管浏览器后用新邮箱注册 Muse AI，年纪切记选择成年\n3.绑卡后成功激活账号\n这里要注意一点Google Spark 分配的ip有些会被拒绝。除了在Google Spark 中可以实用远端浏览器，可以实用gpt的work或者其它如browser-use云浏览器\n要是使用老号Facebook的话很多可以直接跳过年龄验证（不需要绑定银行卡）就可以注册成。\n登录后会看到赠送的额度，每周重置。\n在加入后的 48 小时内通过“设置”兑现我的邀请码，我们就能分别获得 10 亿个 Muse 词元。在这里填写的邀请码：K0G7ST\n按引导完成命名等初始化，然后在聊天里发这段话。时区和习惯可以自行修改发送给Muse：\n其它设置可自定义。以及简单对话：\n拥有Muse只是第一步，开启VM才是重点。这简易VM沙盒过一段时间就会重启，像网吧系统一样恢复环境。除了 /home/hatch, 其它所有文件都会复原，所以设置什么 systemd service 没有用，.service文件也会没掉。在网友大神的不断探索优化下已经有很多成熟方案。保活的方法有两种：\nAI自己整个计划任务看门狗，每分钟都运行一下脚本。把环境拉回来。（设置service自动重启什么的都是废话没有实际贡献）\n使用做好的skills让Muse自行配置\n一键安装保活、探针、hermes通知Skill\n直接和Muse对话让他完成安装配置：\n它是一个「操作手册型」skill，内容是教你/AI在新沙盒上从零部署一套东西：\nCloudflare Worker 监控后台（CF Server Monitor）\n探针，每 60 秒上报心跳\n三层保活：沙盒内看门狗 cron + 平台定时巡检 + 平台开机钩子\nHermes 微信机器人（微信扫码绑定）\n一步一步跟着提示走，中间省略cf配置细节。这样就得到一个VM沙盒虚拟机了\n由于它没有公网IP这个时候需要做内网穿透，有自己的vps的可以用自己vps反代或者使用cloudflare隧道\n直接用muse安装\n装好的 awesome-skills 是个 9 件套合集，功能分别是：\nmuse-reverse-ssh：给没公网 IP 的机器（沙盒、云 VM、家用服务器）建反向 SSH 隧道，把它变成可从公网连的 SSH 服务器，带保活守护和排错手册——我们刚才隧道部分就参考了它的方案。\ngrok-search：联网搜索、查最新事实、抓网页内容。\nevidence-driven-bugfix：修 bug 用的\&quot;证据优先\&quot;流程，先复现证据再动手改。\nbest-project-memory：项目级记忆管理，开工时恢复上下文、记录决策、保存进度。\ncodex-agent-worktree-setup：给 Codex 等 agent 建隔离的 git worktree 开发环境。\nawesome-ui-kit：构建 AI 原生 Web 界面、聊天应用、RAG 搜索页等用的单文件 Web 组件库。\nobsidian-doc-router：Obsidian 知识库的文档路由器，读写/改笔记前先查规范入口。\nproduction-code-quality-review：按生产级标准评审 PR、diff、架构变更和上线风险。\nsplit-image-assets：把一张图拆成带透明通道的独立图层资产包（精灵图、蒙版、背景清理、元数据）。\n2.当执行完成后发送：配置并启动\n完成后再在自己的VPS中marriedsh。\n可以把自己vps的ssh连接信息给Muse让它自己安装并配置：\n上面发送给Muse的配置信息写自己的，我这里的ip和root密码都是随便敲的。\n其它的可以照抄或者自定义，保证\n然后使用命令进入muse-p2这个Muse的shell\n拿到shell之后可玩的很多了，有人在这里面装宝塔面板，做代理出口等等，自行把玩了。\nMuse本身能力也还可以，目前刚推出干活能力都还可以的，直接在Muse中完成一些任务相对不错，即使关了浏览器或者app很多任务它能在后台完成。每周重置的token这个很不错了，因此很多人都已经多号反代出来用openai API风格第三方调用了。加上使用邀请码：K0G7ST 在注册后的 48 小时内通过“设置”兑现我的邀请码，我们就能分别获得 10 亿个 Muse 词元。做一些简单任务，来补充ChatGPT、Claude等这些主力模型token不足的也不错。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-28T20:21+08:00&quot;,
+  &quot;band&quot;: &quot;evening&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/111318" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/111318</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

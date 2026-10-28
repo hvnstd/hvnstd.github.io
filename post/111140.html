@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title> · B 极客行</title>
+<meta name="description" content="PDflow 之外，最近业余时间在验证另一个完全不同方向的小项目：Builder Arcana——一个给 AI 独立开发者做的"构建行为诊断"，13道情境题，把人归到8种 Builder 类型（比如"功能收藏家"“最后一版党”“纸上军师”）">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1></h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/111140 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·15:36
+      <span class="pipe">|</span>0 分
+      <span class="pipe">|</span>0 评论
+      <span class="pipe">|</span>by XinLiu
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">PDflow 之外，最近业余时间在验证另一个完全不同方向的小项目：Builder Arcana——一个给 AI 独立开发者做的&quot;构建行为诊断&quot;，13道情境题，把人归到8种 Builder 类型（比如&quot;功能收藏家&quot;“最后一版党”“纸上军师”），告诉你产品最可能死在哪一步。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">PDflow 之外，最近业余时间在验证另一个完全不同方向的小项目：Builder Arcana——一个给 AI 独立开发者做的&quot;构建行为诊断&quot;，13道情境题，把人归到8种 Builder 类型（比如&quot;功能收藏家&quot;“最后一版党”“纸上军师”），告诉你产品最可能死在哪一步。
+跟 PDflow 这种纯本地工具不一样，这次是从0到有的一整套东西：题库设计、计分逻辑、16张角色卡插画、Paddle 收款、ICP备案，几乎全流程都在踩坑，记录几个印象比较深的：
+一开始以为域名备案不下来就没法收款，后来才搞明白这是两回事——Paddle 的 Live Checkout 审核（Website approval）跟备案完全独立，只要网站有 ToS/隐私政策/退款政策的链接，用秒哒给的临时公网域名就能先跑审核，不用等备案。两条线可以并行推进，不用互相卡。
+Paddle 的 Live 环境有独立的域名审核和 Default payment link 配置，Sandbox 里一路绿灯不代表 Live 直接能用，这个坑目前还在填。
+现在卡在 Paddle Live 审核排队，等通过了会来更新第一笔真实付费的情况。有类似经验的朋友，尤其是弄过 Paddle Live 收款的，欢迎交流。</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;111140&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/111140&quot;,
+  &quot;title&quot;: &quot;&quot;,
+  &quot;author&quot;: &quot;XinLiu&quot;,
+  &quot;score&quot;: 0,
+  &quot;comments&quot;: 0,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;,
+    &quot;独立开发&quot;
+  ],
+  &quot;excerpt&quot;: &quot;PDflow 之外，最近业余时间在验证另一个完全不同方向的小项目：Builder Arcana——一个给 AI 独立开发者做的\&quot;构建行为诊断\&quot;，13道情境题，把人归到8种 Builder 类型（比如\&quot;功能收藏家\&quot;“最后一版党”“纸上军师”），告诉你产品最可能死在哪一步。&quot;,
+  &quot;content&quot;: &quot;PDflow 之外，最近业余时间在验证另一个完全不同方向的小项目：Builder Arcana——一个给 AI 独立开发者做的\&quot;构建行为诊断\&quot;，13道情境题，把人归到8种 Builder 类型（比如\&quot;功能收藏家\&quot;“最后一版党”“纸上军师”），告诉你产品最可能死在哪一步。\n跟 PDflow 这种纯本地工具不一样，这次是从0到有的一整套东西：题库设计、计分逻辑、16张角色卡插画、Paddle 收款、ICP备案，几乎全流程都在踩坑，记录几个印象比较深的：\n一开始以为域名备案不下来就没法收款，后来才搞明白这是两回事——Paddle 的 Live Checkout 审核（Website approval）跟备案完全独立，只要网站有 ToS/隐私政策/退款政策的链接，用秒哒给的临时公网域名就能先跑审核，不用等备案。两条线可以并行推进，不用互相卡。\nPaddle 的 Live 环境有独立的域名审核和 Default payment link 配置，Sandbox 里一路绿灯不代表 Live 直接能用，这个坑目前还在填。\n现在卡在 Paddle Live 审核排队，等通过了会来更新第一笔真实付费的情况。有类似经验的朋友，尤其是弄过 Paddle Live 收款的，欢迎交流。&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-27T15:36+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/111140" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/111140</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

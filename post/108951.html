@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>【开源自荐】给 grill-me 接上自动开发和验收，进度通过飞书查看 · B 极客行</title>
+<meta name="description" content="，配套 Matt 的 Grill-me skill 使用，把任务交给 Codex 自动开发、验收和修复，现在也支持飞书进度通知。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>【开源自荐】给 grill-me 接上自动开发和验收，进度通过飞书查看</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/108951 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·17:09
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>7 评论
+      <span class="pipe">|</span>by EricChang
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">，配套 Matt 的 Grill-me skill 使用，把任务交给 Codex 自动开发、验收和修复，现在也支持飞书进度通知。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">，配套 Matt 的 Grill-me skill 使用，把任务交给 Codex 自动开发、验收和修复，现在也支持飞书进度通知。
+项目地址：
+我现在开发基本都是用
+讨论自己工具的需求，再通过
+、
+拆成 GitHub Tickets。但在实际开发时，还有两件事需要不断手动跟进：
+任务拆好了，仍然要逐个ticket推动开发，跟进修复，再处理 PR 。
+Agent 开发的质量不够满足要求。即使Agent自己做过 code review，也经常有很多bug。
+所以做了这个工具
+它会按github上的ticket依赖顺序，自动逐个开发。每项任务完成后，单独调用一个 Codex Agent 做验收，实际运行功能、对照需求检查；发现问题交回开发Agent，修完再次验收。创建 PR、修复CI检查、关闭已完成的ticket，也包含在流程里。
+所有ticket完成后，还会再整体检查以便完整功能。每个ticket单独做好，不代表拼起来就能正常工作。
+运行中可以在命令行用
+看当前任务，用
+回看开发和验收记录。
+之前想知道开发进行到哪一步了，还是得反复切回运行窗口。去忙别的事情，也可能没注意到任务已经停下来等人进行处理。
+现在可以通过飞书看进度：哪项任务完成了、检查结果如何、是否需要人工处理，都有对应消息。卡片里也有 Issue 或 PR 的入口，方便回去查看。
+通知有两种模式：
+精简模式：只看重要进展、需要处理的事项和最终结果。
+详细模式：还能看到每轮开发、验收和自动修复的过程。
+欢迎大家可以试一试，star一下！</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;108951&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/108951&quot;,
+  &quot;title&quot;: &quot;【开源自荐】给 grill-me 接上自动开发和验收，进度通过飞书查看&quot;,
+  &quot;author&quot;: &quot;EricChang&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 7,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;
+  ],
+  &quot;excerpt&quot;: &quot;，配套 Matt 的 Grill-me skill 使用，把任务交给 Codex 自动开发、验收和修复，现在也支持飞书进度通知。&quot;,
+  &quot;content&quot;: &quot;，配套 Matt 的 Grill-me skill 使用，把任务交给 Codex 自动开发、验收和修复，现在也支持飞书进度通知。\n项目地址：\n我现在开发基本都是用\n讨论自己工具的需求，再通过\n、\n拆成 GitHub Tickets。但在实际开发时，还有两件事需要不断手动跟进：\n任务拆好了，仍然要逐个ticket推动开发，跟进修复，再处理 PR 。\nAgent 开发的质量不够满足要求。即使Agent自己做过 code review，也经常有很多bug。\n所以做了这个工具\n它会按github上的ticket依赖顺序，自动逐个开发。每项任务完成后，单独调用一个 Codex Agent 做验收，实际运行功能、对照需求检查；发现问题交回开发Agent，修完再次验收。创建 PR、修复CI检查、关闭已完成的ticket，也包含在流程里。\n所有ticket完成后，还会再整体检查以便完整功能。每个ticket单独做好，不代表拼起来就能正常工作。\n运行中可以在命令行用\n看当前任务，用\n回看开发和验收记录。\n之前想知道开发进行到哪一步了，还是得反复切回运行窗口。去忙别的事情，也可能没注意到任务已经停下来等人进行处理。\n现在可以通过飞书看进度：哪项任务完成了、检查结果如何、是否需要人工处理，都有对应消息。卡片里也有 Issue 或 PR 的入口，方便回去查看。\n通知有两种模式：\n精简模式：只看重要进展、需要处理的事项和最终结果。\n详细模式：还能看到每轮开发、验收和自动修复的过程。\n欢迎大家可以试一试，star一下！&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-16T17:09+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/108951" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/108951</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

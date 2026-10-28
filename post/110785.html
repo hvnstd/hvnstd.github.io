@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>skill_toolkit 终于在中秋弄完了 · B 极客行</title>
+<meta name="description" content="大约是 第二次 glm圣杯战争(周末计划)的时候 我觉得这个zcode非常难用">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>skill_toolkit 终于在中秋弄完了</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110785 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·15:11
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>1 评论
+      <span class="pipe">|</span>by tanmoumou252
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">大约是 第二次 glm圣杯战争(周末计划)的时候 我觉得这个zcode非常难用</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">大约是 第二次 glm圣杯战争(周末计划)的时候 我觉得这个zcode非常难用
+git管理既不明显 操作也不方便 还没有代码编辑器 计划模式的计划落于上下文(现在连计划模式都没有了 变成计划开关了) 一批准就直接开始起飞执行 页面很掉帧 等等
+于是我做了kilocode的 主/子代理
+zcode这边没有主代理可自定义 所以全是子代理 搭配skill强制调用子代理走流程
+顺带把CodeBuddy的也做了(它这个客户端也挺难评价的，子代理会占据大量版面，并且用户发的消息和代理回复的消息颜色几乎没什么区别，没有历史对话坐标。尽管依托
+开发，但也只比 zcode 稍微好一些，没有深度体验，只是逻辑上搬运，所以效果未知。)
+本意是
+结果
+顺带反过来发现
+这边对子代理和主代理的权限管理 是一团乱麻
+：
+&quot;&gt;&quot;
+&quot;&gt;&quot;
+：上层未声明的权限，下层才兜底。
+：
+/
+/
+等可写标量
+/
+；
+、
+这类“按路径/按命令粒度控制”的
+。
+：把
+写成标量
+会
+直接不注入
+/
+工具
+（
+）。
+：
+匹配任意字符（含空格与
+），Windows 大小写不敏感；
+书写顺序：
+；
+：
+优先于一切
+（
+会否决
+）。
+宿主对权限有两个独立阶段：
+：决定“这个工具/通道进不进能力集”——
+。
+：工具已在能力集时，才谈
+放行 /
+弹窗 /
+拦截。
+：
+主要作用在注入层（裁掉工具），这是历史上“子代理配
+反而丢
+工具”的根因。
+对任一工具，宿主跨三层——主代理
+、子代理
+、
+基座——取最严值生效：
+𝐝 𝐞 𝐧 𝐲 &lt; 𝐚 𝐬 𝐤 &lt; 𝐚 𝐥 𝐥 𝐨 𝐰
+：
+有效值为
+即不注入该工具。
+kilocode 这边算是解决了 再看zcode这边 既然子代理完全不经过hook 那就直接从agent.md禁用 bash权限 使用替代的mcp权限审查bash
+&quot;且: 故意给没有写入权限的计划模式开一个蜜罐写工具 故意让他用,他用的时候就拒绝他,让他调用子代理去写计划.&quot;
+并且最容易越权的地方是:write和edit权限开放给子代理的时候,在zcode上会越出工作区直接写系统上任意位置的任意文件,所以还专门给zcode子代理开放了仅限子代理才能使用的mcp写工具用来写
+(即mcp工具
+&quot;,和写蜜罐工具不一样)&quot;
+幸好,主代理模式在调用mcp的时候会显式表态
+&quot;,子代理亦然,故能靠筛查字段把zcode主代理那几个官方模式的调用给单独拒绝.&quot;
+对 zcode 的计划模式解耦
+：子代理
+：编写执行计划，调用
+跑测试,将计划
+。
+：落盘完成后，控制权
+。
+：主代理 ➔ Review 子代理
+：主代理接收控制权，调用
+对计划进行审查。
+：Review 子代理生成审查报告并
+，随后将控制权
+。
+：主代理 ➔ 子代理
+：主代理再次调用子代理，将审查报告
+中完成更新与闭环。
+：主代理 ➔ 用户
+：主代理确认回灌修改完成，将最终计划
+。
+：主代理全程充当
+；各子代理间
+，均以**“文件落盘 + 主代理中转调度”**的方式完成交接与回灌。且由于子代理删除了 bash ,他只能使用 MCP 开放给他的审查过的 bash命令。
+：由于它对子代理不生效，所以在主代理的环境下，它只用来判断当前运行的主代理模式。但现在它连计划模式都没有了,就直接把hook整个功能移除了,毕竟本来也只拿来判断当前工作的模式而已
+走这套流程的话,实际上会花更多的时间
+假如说, 我们牺牲时间产出的计划, 与没有经历这些流程就产出的计划相比, 并没有解决更多的问题, 那么我们存在的意义是什么?
+&quot;我这里是希望: 流程能使不那么聪明的模型也能达到较为正常的水平&quot;
+虽然不如顶尖模型那般能直接一步到位, 但流程里的影子计划 对抗式攻击型审查 能在执行计划之前, 就减少后期出现错误返工的几率
+反向审查、性能审查、规范审查、调用链审查 这些审查里面
+在流程中位于忽略或不太重要的位置
+一些Windows下能更好使用vibecode的skill</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110785&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110785&quot;,
+  &quot;title&quot;: &quot;skill_toolkit 终于在中秋弄完了&quot;,
+  &quot;author&quot;: &quot;tanmoumou252&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 1,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;折腾教程&quot;
+  ],
+  &quot;excerpt&quot;: &quot;大约是 第二次 glm圣杯战争(周末计划)的时候 我觉得这个zcode非常难用&quot;,
+  &quot;content&quot;: &quot;大约是 第二次 glm圣杯战争(周末计划)的时候 我觉得这个zcode非常难用\ngit管理既不明显 操作也不方便 还没有代码编辑器 计划模式的计划落于上下文(现在连计划模式都没有了 变成计划开关了) 一批准就直接开始起飞执行 页面很掉帧 等等\n于是我做了kilocode的 主/子代理\nzcode这边没有主代理可自定义 所以全是子代理 搭配skill强制调用子代理走流程\n顺带把CodeBuddy的也做了(它这个客户端也挺难评价的，子代理会占据大量版面，并且用户发的消息和代理回复的消息颜色几乎没什么区别，没有历史对话坐标。尽管依托\n开发，但也只比 zcode 稍微好一些，没有深度体验，只是逻辑上搬运，所以效果未知。)\n本意是\n结果\n顺带反过来发现\n这边对子代理和主代理的权限管理 是一团乱麻\n：\n\&quot;&gt;\&quot;\n\&quot;&gt;\&quot;\n：上层未声明的权限，下层才兜底。\n：\n/\n/\n等可写标量\n/\n；\n、\n这类“按路径/按命令粒度控制”的\n。\n：把\n写成标量\n会\n直接不注入\n/\n工具\n（\n）。\n：\n匹配任意字符（含空格与\n），Windows 大小写不敏感；\n书写顺序：\n；\n：\n优先于一切\n（\n会否决\n）。\n宿主对权限有两个独立阶段：\n：决定“这个工具/通道进不进能力集”——\n。\n：工具已在能力集时，才谈\n放行 /\n弹窗 /\n拦截。\n：\n主要作用在注入层（裁掉工具），这是历史上“子代理配\n反而丢\n工具”的根因。\n对任一工具，宿主跨三层——主代理\n、子代理\n、\n基座——取最严值生效：\n𝐝 𝐞 𝐧 𝐲 &lt; 𝐚 𝐬 𝐤 &lt; 𝐚 𝐥 𝐥 𝐨 𝐰\n：\n有效值为\n即不注入该工具。\nkilocode 这边算是解决了 再看zcode这边 既然子代理完全不经过hook 那就直接从agent.md禁用 bash权限 使用替代的mcp权限审查bash\n\&quot;且: 故意给没有写入权限的计划模式开一个蜜罐写工具 故意让他用,他用的时候就拒绝他,让他调用子代理去写计划.\&quot;\n并且最容易越权的地方是:write和edit权限开放给子代理的时候,在zcode上会越出工作区直接写系统上任意位置的任意文件,所以还专门给zcode子代理开放了仅限子代理才能使用的mcp写工具用来写\n(即mcp工具\n\&quot;,和写蜜罐工具不一样)\&quot;\n幸好,主代理模式在调用mcp的时候会显式表态\n\&quot;,子代理亦然,故能靠筛查字段把zcode主代理那几个官方模式的调用给单独拒绝.\&quot;\n对 zcode 的计划模式解耦\n：子代理\n：编写执行计划，调用\n跑测试,将计划\n。\n：落盘完成后，控制权\n。\n：主代理 ➔ Review 子代理\n：主代理接收控制权，调用\n对计划进行审查。\n：Review 子代理生成审查报告并\n，随后将控制权\n。\n：主代理 ➔ 子代理\n：主代理再次调用子代理，将审查报告\n中完成更新与闭环。\n：主代理 ➔ 用户\n：主代理确认回灌修改完成，将最终计划\n。\n：主代理全程充当\n；各子代理间\n，均以**“文件落盘 + 主代理中转调度”**的方式完成交接与回灌。且由于子代理删除了 bash ,他只能使用 MCP 开放给他的审查过的 bash命令。\n：由于它对子代理不生效，所以在主代理的环境下，它只用来判断当前运行的主代理模式。但现在它连计划模式都没有了,就直接把hook整个功能移除了,毕竟本来也只拿来判断当前工作的模式而已\n走这套流程的话,实际上会花更多的时间\n假如说, 我们牺牲时间产出的计划, 与没有经历这些流程就产出的计划相比, 并没有解决更多的问题, 那么我们存在的意义是什么?\n\&quot;我这里是希望: 流程能使不那么聪明的模型也能达到较为正常的水平\&quot;\n虽然不如顶尖模型那般能直接一步到位, 但流程里的影子计划 对抗式攻击型审查 能在执行计划之前, 就减少后期出现错误返工的几率\n反向审查、性能审查、规范审查、调用链审查 这些审查里面\n在流程中位于忽略或不太重要的位置\n一些Windows下能更好使用vibecode的skill&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-25T15:11+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110785" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110785</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>反代WorkBuddy+DSH+dsh-purge实现v4.1免费做题 · B 极客行</title>
+<meta name="description" content="软件 / 仓库 官方链接 核心用途 DSH 客户端">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>反代WorkBuddy+DSH+dsh-purge实现v4.1免费做题</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/109694 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·01:43
+      <span class="pipe">|</span>5 分
+      <span class="pipe">|</span>5 评论
+      <span class="pipe">|</span>by W
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">软件 / 仓库 官方链接 核心用途 DSH 客户端</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">软件 / 仓库 官方链接 核心用途 DSH 客户端
+二、步骤 1：安装 DSH 客户端并打入 dsh-purge 补丁
+安装客户端 打开下载页：
+补丁核心作用 修复 API 报错：将 DSH 内置的 developer 角色转为兼容网关的 system 角色。 全自动免审批：执行系统命令不再频繁弹窗确认（Auto-Approval）。 解除沙箱边界：允许 Agent 自由读写本地工作区文件。
+三、步骤 2：CPA 接入 WorkBuddy 国际版插件 操作步骤： 放置插件： 打开插件 Releases 页面：
+&quot;plugins: enabled: true configs: workbuddy-global: enabled: true priority: 100 region: global 重启生效：在 Docker Desktop 界面中找到 cli-proxy-api 容器，点击 Restart 按钮。&quot;
+四、步骤 3：在 CPA 的 OAuth 板块添加账号
+界面绑定操作： 打开控制台：浏览器访问 CPA 管理面板：
+五、步骤 4：在 DSH 客户端接入该 API
+添加自定义提供方 打开 DSH ➔ 设置（Settings） ➔ 模型提供方（Providers） ➔ 添加自定义提供方： Provider ID：cpa（纯小写英文） 显示名称：CPA-WorkBuddy API 地址：
+发起对话</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;109694&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/109694&quot;,
+  &quot;title&quot;: &quot;反代WorkBuddy+DSH+dsh-purge实现v4.1免费做题&quot;,
+  &quot;author&quot;: &quot;W&quot;,
+  &quot;score&quot;: 5,
+  &quot;comments&quot;: 5,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;AI&quot;
+  ],
+  &quot;excerpt&quot;: &quot;软件 / 仓库 官方链接 核心用途 DSH 客户端&quot;,
+  &quot;content&quot;: &quot;软件 / 仓库 官方链接 核心用途 DSH 客户端\n二、步骤 1：安装 DSH 客户端并打入 dsh-purge 补丁\n安装客户端 打开下载页：\n补丁核心作用 修复 API 报错：将 DSH 内置的 developer 角色转为兼容网关的 system 角色。 全自动免审批：执行系统命令不再频繁弹窗确认（Auto-Approval）。 解除沙箱边界：允许 Agent 自由读写本地工作区文件。\n三、步骤 2：CPA 接入 WorkBuddy 国际版插件 操作步骤： 放置插件： 打开插件 Releases 页面：\n\&quot;plugins: enabled: true configs: workbuddy-global: enabled: true priority: 100 region: global 重启生效：在 Docker Desktop 界面中找到 cli-proxy-api 容器，点击 Restart 按钮。\&quot;\n四、步骤 3：在 CPA 的 OAuth 板块添加账号\n界面绑定操作： 打开控制台：浏览器访问 CPA 管理面板：\n五、步骤 4：在 DSH 客户端接入该 API\n添加自定义提供方 打开 DSH ➔ 设置（Settings） ➔ 模型提供方（Providers） ➔ 添加自定义提供方： Provider ID：cpa（纯小写英文） 显示名称：CPA-WorkBuddy API 地址：\n发起对话&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-19T01:43+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/109694" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/109694</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

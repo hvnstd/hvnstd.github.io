@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>修修补补点滴记事之 AI 给我修BUG之——Ai在胡说八道 · B 极客行</title>
+<meta name="description" content="诊断结果出来了，问题比预期严重——攻击者今天还在活动，而且不只是在加 DNS 记录，还在做更危险的事。">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-noon"></span>午间</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>修修补补点滴记事之 AI 给我修BUG之——Ai在胡说八道</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110134 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-noon"></span>午间·13:41
+      <span class="pipe">|</span>1 分
+      <span class="pipe">|</span>1 评论
+      <span class="pipe">|</span>by xybug
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">诊断结果出来了，问题比预期严重——攻击者今天还在活动，而且不只是在加 DNS 记录，还在做更危险的事。</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">诊断结果出来了，问题比预期严重——攻击者今天还在活动，而且不只是在加 DNS 记录，还在做更危险的事。
+攻击者今天仍在活跃（最紧急） code 应用 ID1143 user=1092(kj520) kj520 A 128.204.223.119 2026-09-20 11:51:48 ID 1142 user=876 (dh520) dh520 A 128.204.223.119 2026-09-20 11:49:08 两个账号（kj520 和 dh520）在 3 分钟内连续加记录，写入的是 Cloudflare 边缘 IP 128.204.223.119（典型 CF 反代/泛播特征） action_logs 显示： login × 3 db_export × 2 ← 导出数据库 db_import × 1 ← 导入数据库 dns_repair_one × 2 ← 修复 DNS add_dns_record × 2 db_export / db_import / dns_repair_one 都是管理员级操作。攻击者很可能用 kj520 或 dh520 这个已具备 admin 权限的账号在登录。
+出现了一条匿名 DNS 记录（写入路径被绕过） code 应用 ID 1141 user=(空) www A 161.33.17.45 2026-09-19 20:36:29 user 字段为 NULL——这不是普通用户走的 dns_add.php 路径能写出来的。需要立刻查：
+dns_records 表 user_id 字段是否允许 NULL 是否有 admin/manage 后门直接 INSERT 没经过 ownership 检查 4. CNAME 黑名单里全是同一批攻击者（已沉淀） 20 条历史垃圾记录，集中在 4-6 月：
+wha (ID 1073)、asdkgj (ID 1121)、fvgghnedm (ID 1078)、dsjbe (ID 1077)、missyou (ID 1064)、ikun (ID 795) 等 内容全是 *.pages.dev —— CF Pages 滥用 5. 安全设置&quot;表里全无&quot; code 应用 new_user_cooldown_enabled = (表中无记录) rate_limit_enabled = (表中无记录) rate_limit_add_dns_record_max/window = (表中无记录) 所有新增的安全项都没真正写入 settings 表。原因可能是：
+&quot;后台设置页没有提交按钮触发保存 或者保存逻辑根本没跑 哪怕代码默认值是 ‘1’，函数读取逻辑可能不会 fallback 到代码默认（需要确认） ##立刻要做的事（按顺序）&quot;</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110134&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110134&quot;,
+  &quot;title&quot;: &quot;修修补补点滴记事之 AI 给我修BUG之——Ai在胡说八道&quot;,
+  &quot;author&quot;: &quot;xybug&quot;,
+  &quot;score&quot;: 1,
+  &quot;comments&quot;: 1,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;
+  ],
+  &quot;excerpt&quot;: &quot;诊断结果出来了，问题比预期严重——攻击者今天还在活动，而且不只是在加 DNS 记录，还在做更危险的事。&quot;,
+  &quot;content&quot;: &quot;诊断结果出来了，问题比预期严重——攻击者今天还在活动，而且不只是在加 DNS 记录，还在做更危险的事。\n攻击者今天仍在活跃（最紧急） code 应用 ID1143 user=1092(kj520) kj520 A 128.204.223.119 2026-09-20 11:51:48 ID 1142 user=876 (dh520) dh520 A 128.204.223.119 2026-09-20 11:49:08 两个账号（kj520 和 dh520）在 3 分钟内连续加记录，写入的是 Cloudflare 边缘 IP 128.204.223.119（典型 CF 反代/泛播特征） action_logs 显示： login × 3 db_export × 2 ← 导出数据库 db_import × 1 ← 导入数据库 dns_repair_one × 2 ← 修复 DNS add_dns_record × 2 db_export / db_import / dns_repair_one 都是管理员级操作。攻击者很可能用 kj520 或 dh520 这个已具备 admin 权限的账号在登录。\n出现了一条匿名 DNS 记录（写入路径被绕过） code 应用 ID 1141 user=(空) www A 161.33.17.45 2026-09-19 20:36:29 user 字段为 NULL——这不是普通用户走的 dns_add.php 路径能写出来的。需要立刻查：\ndns_records 表 user_id 字段是否允许 NULL 是否有 admin/manage 后门直接 INSERT 没经过 ownership 检查 4. CNAME 黑名单里全是同一批攻击者（已沉淀） 20 条历史垃圾记录，集中在 4-6 月：\nwha (ID 1073)、asdkgj (ID 1121)、fvgghnedm (ID 1078)、dsjbe (ID 1077)、missyou (ID 1064)、ikun (ID 795) 等 内容全是 *.pages.dev —— CF Pages 滥用 5. 安全设置\&quot;表里全无\&quot; code 应用 new_user_cooldown_enabled = (表中无记录) rate_limit_enabled = (表中无记录) rate_limit_add_dns_record_max/window = (表中无记录) 所有新增的安全项都没真正写入 settings 表。原因可能是：\n\&quot;后台设置页没有提交按钮触发保存 或者保存逻辑根本没跑 哪怕代码默认值是 ‘1’，函数读取逻辑可能不会 fallback 到代码默认（需要确认） ##立刻要做的事（按顺序）\&quot;&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-20T13:41+08:00&quot;,
+  &quot;band&quot;: &quot;noon&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110134" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110134</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>悬赏 3000 能量求助，关于 golang 在 windows 下的中断信号处理问题 · B 极客行</title>
+<meta name="description" content="入口文件：">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css?v=6">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">B 极客行<span class="dot">.</span></a>
+    <nav>
+      <a href="/" class="topsel">headlines</a>
+      <a href="/log.html">log</a>
+      <a href="/newspaper.html">newspaper</a>
+      <a href="/editorial.html">editorial</a>
+      <a href="/about.html">about</a>
+    </nav>
+    <span class="spacer"></span>
+    <span class="right">
+      <span class="band-pill"><span class="dot band-midnight"></span>午夜</span>
+    </span>
+  </div>
+</header>
+
+<main class="single-wrap">
+  <div class="single-head">
+    <div class="back"><a href="/newspaper.html">← 回到报纸</a></div>
+    <h1>悬赏 3000 能量求助，关于 golang 在 windows 下的中断信号处理问题</h1>
+    <div class="domain">https://www.nodeloc.com/t/topic/110557 · n/m365-copilot</div>
+    <div class="sub">
+      <span class="band-dot band-midnight"></span>午夜·23:17
+      <span class="pipe">|</span>3 分
+      <span class="pipe">|</span>12 评论
+      <span class="pipe">|</span>by 老师好我叫杨同学
+    </div>
+  </div>
+  <article class="single-body">
+    <p class="lede">入口文件：</p>
+    <h2>原文摘录</h2>
+    <pre class="event-json">入口文件：
+我在 main.go 中用自封装的一个 threadmgr 来启动 mainAgent，随后通过 Wait 方法等待所有 thread 退出
+Wait 实现如下所示
+目前有一个问题，当我在 Agent 执行中按下 Ctrl+C，context 确实被取消了，wg.Wait() 也确实执行了，但我按下 Ctrl+C 的那一瞬间，shell 控制权就被交还了（shell prompt 出现），导致 wg.Wait() 是在后台等待的，我想让其在前台等待，也就是 threadmgr.Wait() 执行完成后，才交还控制权
+求助各位大佬，求解答</pre>
+    <h2>字段原始数据</h2>
+    <pre class="event-json">{
+  &quot;slug&quot;: &quot;110557&quot;,
+  &quot;url&quot;: &quot;https://www.nodeloc.com/t/topic/110557&quot;,
+  &quot;title&quot;: &quot;悬赏 3000 能量求助，关于 golang 在 windows 下的中断信号处理问题&quot;,
+  &quot;author&quot;: &quot;老师好我叫杨同学&quot;,
+  &quot;score&quot;: 3,
+  &quot;comments&quot;: 12,
+  &quot;domain&quot;: &quot;n/m365-copilot&quot;,
+  &quot;tags&quot;: [
+    &quot;AI&quot;,
+    &quot;AFF&quot;,
+    &quot;求助&quot;,
+    &quot;VPS&quot;,
+    &quot;已完成&quot;,
+    &quot;求助&quot;
+  ],
+  &quot;excerpt&quot;: &quot;入口文件：&quot;,
+  &quot;content&quot;: &quot;入口文件：\n我在 main.go 中用自封装的一个 threadmgr 来启动 mainAgent，随后通过 Wait 方法等待所有 thread 退出\nWait 实现如下所示\n目前有一个问题，当我在 Agent 执行中按下 Ctrl+C，context 确实被取消了，wg.Wait() 也确实执行了，但我按下 Ctrl+C 的那一瞬间，shell 控制权就被交还了（shell prompt 出现），导致 wg.Wait() 是在后台等待的，我想让其在前台等待，也就是 threadmgr.Wait() 执行完成后，才交还控制权\n求助各位大佬，求解答&quot;,
+  &quot;fetched_at&quot;: &quot;2026-09-23T23:17+08:00&quot;,
+  &quot;band&quot;: &quot;midnight&quot;
+}</pre>
+    <h2>来源</h2>
+    <p><a href="https://www.nodeloc.com/t/topic/110557" target="_blank" rel="noreferrer">https://www.nodeloc.com/t/topic/110557</a></p>
+  </article>
+</main>
+<footer class="foot">
+  <div class="foot-inner">
+    <span>B 极客行 · 偏冷的中文科技电讯</span>
+    <span class="sep">|</span>
+    <a href="/">头版</a>
+    <a href="/log.html">账本</a>
+    <a href="/newspaper.html">报纸</a>
+    <a href="/about.html">关于</a>
+  </div>
+  <p class="copy">© 2026 Piation &amp; Co. Builder 印社 · 文字 CC BY 4.0 · 代码 MIT · 数据来自 nodeloc_shared 自动化抓取与总结</p>
+</footer>
+</body></html>
